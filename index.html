@@ -3,7 +3,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#f6f7fb" media="(prefers-color-scheme: light)"><meta name="theme-color" content="#0f1830" media="(prefers-color-scheme: dark)">
 <script>(function(){function f(){try{var h=innerHeight;if(navigator.standalone===true){var p=innerHeight>=innerWidth,a=Math.max(screen.width,screen.height),b=Math.min(screen.width,screen.height),sh=p?a:b;if(sh>h)h=sh}document.documentElement.style.setProperty('--fh',h+'px')}catch(e){}}f();addEventListener('resize',f);addEventListener('orientationchange',function(){setTimeout(f,150)});addEventListener('pageshow',f)})()</script>
-<title>Russian MemoRise App_ver_71</title>
+<title>Russian MemoRise App_ver_72</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lobster&display=swap&text=%D0%90%D0%91%D0%92%D0%93%D0%94%D0%95%D0%96%D0%97%D0%98%D0%99%D0%9A%D0%9B%D0%9C%D0%9D%D0%9E%D0%9F%D0%A0%D0%A1%D0%A2%D0%A3%D0%A4%D0%A5%D0%A6%D0%A7%D0%A8%D0%A9%D0%AA%D0%AB%D0%AC%D0%AD%D0%AE%D0%AF%D0%B0%D0%B1%D0%B2%D0%B3%D0%B4%D0%B5%D0%B6%D0%B7%D0%B8%D0%B9%D0%BA%D0%BB%D0%BC%D0%BD%D0%BE%D0%BF%D1%80%D1%81%D1%82%D1%83%D1%84%D1%85%D1%86%D1%87%D1%88%D1%89%D1%8A%D1%8B%D1%8C%D1%8D%D1%8E%D1%8F%D0%81%D1%91%CC%81"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800;900&display=swap">
 <style>
 :root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);--bg:#f6f7fb;--card:#fff;--tx:#1f2430;--mu:#6b7280;--pr:#1d6fd8;--ok:#2e9e5b;--bad:#d64545;--bd:#e3e6ee}
@@ -321,7 +321,7 @@ main#app:has(>.tlb){display:flex;flex-direction:column;overflow:hidden;padding-b
 .tllogo{width:40px;height:40px;flex:none}
 .tlclr{border-radius:999px;padding:6px 12px;font-size:13px;font-weight:800;color:var(--mu);background:none;box-shadow:none;border:1px solid var(--bd)}
 .tlthread{flex:1;min-height:0;overflow-y:auto;overscroll-behavior:contain;display:flex;flex-direction:column;gap:14px;padding:14px 0 8px;touch-action:pan-y}
-.tlmsg{display:flex;flex-direction:column;gap:10px;-webkit-touch-callout:none;-webkit-user-select:none;user-select:none}
+.tlmsg{display:flex;flex-direction:column;gap:10px}.tlme{-webkit-touch-callout:none;-webkit-user-select:none;user-select:none}.tlreply{-webkit-user-select:text;user-select:text}
 .tlrow{display:flex;gap:8px;align-items:flex-end;min-width:0}.tlrow.me{justify-content:flex-end}
 .tlme{background:var(--pr);color:#fff;padding:9px 14px;border-radius:18px 18px 4px 18px;font-weight:700;font-size:17px;max-width:80%;overflow-wrap:anywhere}
 .tlav{width:30px;height:30px;flex:none}
@@ -359,9 +359,20 @@ mark.tlru{background:color-mix(in srgb,#FF454D 16%,var(--card));color:#E5323A}ma
 .tlmsg.sel .tlme,.tlmsg.sel .tlcard{outline:3px solid #FF454D;outline-offset:2px}
 .tlsum{font-size:16px;font-weight:800;color:var(--tx);background:color-mix(in srgb,var(--pr) 10%,var(--card));border-radius:10px;padding:8px 12px}
 .tls{display:flex;gap:8px;align-items:baseline;font-size:15.5px;font-weight:600;line-height:1.4}.tls .tln{color:var(--mu);font-weight:800;min-width:18px}.tls .tpos{font-size:11px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:var(--mu);background:color-mix(in srgb,var(--pr) 12%,var(--card));border-radius:6px;padding:2px 6px;flex:none}.tlsrc{font-size:11.5px;color:var(--mu);font-weight:600}
+/* ver_72: grammar lesson as stories */
+main#app:has(>.gst){display:flex;flex-direction:column;overflow:hidden;padding-bottom:calc(12px + env(safe-area-inset-bottom,0px));height:100%!important}
+.gst{flex:1;min-height:0;display:flex;flex-direction:column}
+.gsbars{display:flex;gap:5px;margin:12px 0 14px}.gsbars i{flex:1;height:5px;border-radius:3px;background:var(--bd);overflow:hidden}.gsbars i.on{background:var(--pr)}
+.gsbars i.cur{background:linear-gradient(90deg,var(--pr) 100%,transparent 0);box-shadow:0 0 0 1px color-mix(in srgb,var(--pr) 50%,transparent)}
+.gsc{flex:1;min-height:0;overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;touch-action:pan-y;cursor:pointer}
+.gsc>.card{margin:0}
+.gsb{display:flex;gap:10px;padding-top:12px;flex:none}.gsb button{flex:1 1 0;min-width:0;margin:0;text-align:center}.gsb button:disabled{opacity:.4}
+.ghc{cursor:pointer;position:relative}.ghc .ghx{position:absolute;right:16px;top:16px;color:var(--mu);transition:transform .2s;font-size:18px}.ghc.open .ghx{transform:rotate(180deg)}
+.ghc .ghb{display:none;margin-top:10px}.ghc.open .ghb{display:flex}
+.ghc .ghs{margin:4px 0 0}
 </style></head><body><main id="app"></main>
 <script>
-const APP_VER='Russian MemoRise App_ver_71';
+const APP_VER='Russian MemoRise App_ver_72';
 const sv=(b,v='0 0 48 48')=>`<svg xmlns="http://www.w3.org/2000/svg" viewBox="${v}" aria-hidden="true">${b}</svg>`;
 const IC={
 learn:sv('<rect x="14" y="30" width="20" height="14" rx="4" fill="#FF8A5B"/><rect x="12" y="27" width="24" height="6" rx="3" fill="#FF6B3D"/><path d="M24 27V17" stroke="#2FBF71" stroke-width="3" stroke-linecap="round"/><path d="M24 20C24 12 17 10 11 12c0 7 5 10 13 8z" fill="#6EE7B7"/><path d="M24 17c0-7 6-9 12-7 0 7-5 9-12 7z" fill="#2FBF71"/>'),
@@ -1105,15 +1116,15 @@ async function tlLookup(raw){const w=String(raw||'').trim().replace(/\s+/g,' ');
   tlBusy=false;tlSave();tlRender(true);const sb2=document.getElementById('tlsend');if(sb2)sb2.disabled=false}
 /* long-press a message → Delete (also removes the word from the vocabulary if Transly added it) */
 (function(){let T=null,P=null,LP=false;
-  const pop=()=>{let p=document.getElementById('tlpop');if(!p){p=document.createElement('div');p.id='tlpop';p.className='tlpop';p.innerHTML='<button class="del" type="button" onclick="tlDel()">Delete</button><button type="button" onclick="tlPopX()">Cancel</button>';document.body.appendChild(p)}return p};
+  const pop=()=>{let p=document.getElementById('tlpop');if(!p){p=document.createElement('div');p.id='tlpop';p.className='tlpop';p.innerHTML='<button class="del" type="button" onclick="tlDel()">Delete</button>';document.body.appendChild(p)}return p};
   window.tlPopX=()=>{const p=document.getElementById('tlpop');if(p)p.remove();tlSel=-1;document.querySelectorAll('.tlmsg.sel').forEach(e=>e.classList.remove('sel'))};
   window.tlDel=()=>{const m=TLT[tlSel];if(m){const c=tlCard(m);if(c&&m.added){S.dead[c.k]=Date.now();S.cards=S.cards.filter(x=>x!==c);save()}TLT.splice(tlSel,1);tlSave()}tlPopX();tlRender(false)};
-  document.addEventListener('pointerdown',e=>{const el=e.target.closest&&e.target.closest('.tlmsg');if(!el||e.target.closest('.tlsay'))return;P={x:e.clientX,y:e.clientY};clearTimeout(T);
-    T=setTimeout(()=>{T=null;LP=true;setTimeout(()=>{LP=false},900);tlPopX();tlSel=+el.dataset.i;el.classList.add('sel');try{navigator.vibrate&&navigator.vibrate(15)}catch(_){}const p=pop();p.style.top=Math.max(8,Math.min(innerHeight-70,P.y-64))+'px';p.style.left=Math.max(8,Math.min(innerWidth-190,P.x-80))+'px'},500)});
+  document.addEventListener('pointerdown',e=>{if(tlSel>=0&&!(e.target.closest&&e.target.closest('#tlpop')))tlPopX();const b=e.target.closest&&e.target.closest('.tlme'),el=b&&b.closest('.tlmsg');if(!el)return;P={x:e.clientX,y:e.clientY};clearTimeout(T);
+    T=setTimeout(()=>{T=null;LP=true;setTimeout(()=>{LP=false},900);tlPopX();tlSel=+el.dataset.i;el.classList.add('sel');try{navigator.vibrate&&navigator.vibrate(15)}catch(_){}const p=pop();p.style.top=Math.max(8,Math.min(innerHeight-70,P.y-64))+'px';p.style.left=Math.max(8,Math.min(innerWidth-110,P.x-50))+'px'},500)});
   const cancel=()=>{clearTimeout(T);T=null};
   document.addEventListener('pointermove',e=>{if(T&&P&&Math.hypot(e.clientX-P.x,e.clientY-P.y)>9)cancel()});
   document.addEventListener('pointerup',cancel);document.addEventListener('pointercancel',cancel);
-  document.addEventListener('contextmenu',e=>{if(e.target.closest&&e.target.closest('.tlmsg'))e.preventDefault()});
+  document.addEventListener('contextmenu',e=>{if(e.target.closest&&e.target.closest('.tlme'))e.preventDefault()});
   document.addEventListener('click',e=>{if(LP){LP=false;return}const b=e.target.closest&&e.target.closest('.tlsay');if(b){speak(b.dataset.say);return}if(tlSel>=0&&!e.target.closest('#tlpop'))tlPopX()});
   /* ver_71: keep Transly inside the visible area while the iOS keyboard is open */
   const KP=['position','left','right','top','bottom','height','max-height'];
@@ -1506,10 +1517,18 @@ const PEOPLE=[['брат','брата','брату','братом','brother','Th
 const PRON=[['я','меня','I','мне','мной'],['ты','тебя','you','тебе','тобой'],['он','него','he','ему','его'],['она','неё','she','ей','её'],['мы','нас','we','нам','нами'],['вы','вас','you (pl.)','вам','вами'],['они','них','they','им','их']];
 const THINGS=GNOUN.filter(x=>x.ru!='дочь'&&x.ru!='музей');
 /* ---- shared lesson helpers ---- */
-function gramHub(){VIEW='menu';JG=false;$.innerHTML=`<h1>📘 Grammar</h1>`+UNITS.map((u,i)=>[u,i]).sort((a,b)=>parseFloat(a[0].n)-parseFloat(b[0].n)).map(([u,i])=>`<div class="card"><div class="mu">Unit ${u.n}</div><b style="font-size:18px">${u.t}</b><div class="mu" style="margin:4px 0 10px">${u.s}</div><div class="row"><button class="p" style="flex:1" onclick="gramLesson(${i},0)">📖 Learn</button><button class="p" style="flex:1" onclick="gramPractice(${i})">🎯 Practice</button></div></div>`).join('')+`<button class="w" onclick="home()">← Home</button>`}
+function gramHub(){VIEW='menu';JG=false;$.innerHTML=`<h1>📘 Grammar</h1>`+UNITS.map((u,i)=>[u,i]).sort((a,b)=>parseFloat(a[0].n)-parseFloat(b[0].n)).map(([u,i])=>`<div class="card ghc" onclick="ghTap(event,this)"><span class="ghx" aria-hidden="true">⌄</span><div class="mu">Unit ${u.n}</div><b style="font-size:18px;display:block;padding-right:24px">${u.t}</b><div class="mu ghs">${u.s}</div><div class="row ghb"><button class="p" style="flex:1" onclick="gramLesson(${i},0)">📖 Learn</button><button class="p" style="flex:1" onclick="gramPractice(${i})">🎯 Practice</button></div></div>`).join('')+`<button class="w" onclick="home()">← Home</button>`}
+function ghTap(e,el){if(e.target.closest('button'))return;const o=el.classList.contains('open');document.querySelectorAll('.ghc.open').forEach(x=>x.classList.remove('open'));if(!o){el.classList.add('open');setTimeout(()=>{const r=el.getBoundingClientRect();if(r.bottom>innerHeight-20)el.scrollIntoView({block:'nearest',behavior:'smooth'})},30)}}
 function gramLesson(u,st){VIEW='menu';const L=UNITS[u].L,last=st==L.length-1;
-  $.innerHTML=`<div class="row" style="justify-content:space-between;align-items:center"><button onclick="${JG?'home()':'gramHub()'}">✕</button><span class="mu">Unit ${UNITS[u].n} · step ${st+1}/${L.length}</span></div><div class="bar"><i style="width:${Math.round((st+1)/L.length*100)}%"></i></div><div class="card">${L[st]()}</div>
-  <div class="row">${st>0?`<button style="flex:1" onclick="gramLesson(${u},${st-1})">← Back</button>`:''}${last?`<button class="p" style="flex:2" onclick="gramPractice(${u})">🎯 Start practice</button>`:`<button class="p" style="flex:2" onclick="gramLesson(${u},${st+1})">Next →</button>`}</div>`}
+  $.innerHTML=`<div class="gst"><div class="row" style="justify-content:space-between;align-items:center;flex:none"><button onclick="${JG?'home()':'gramHub()'}">✕</button><span class="mu">Unit ${UNITS[u].n} · ${st+1}/${L.length}</span></div>
+  <div class="gsbars" aria-hidden="true">${L.map((_,k)=>`<i class="${k<st?'on':k==st?'on cur':''}"></i>`).join('')}</div>
+  <div class="gsc" id="gsc" data-u="${u}" data-st="${st}"><div class="card">${L[st]()}</div></div>
+  <div class="gsb"><button onclick="gramLesson(${u},${st-1})"${st>0?'':' disabled'}>← Back</button>${last?`<button class="p" onclick="gramPractice(${u})">🎯 Start practice</button>`:`<button class="p" onclick="gramLesson(${u},${st+1})">Next →</button>`}</div></div>`}
+/* tap the right half of a grammar page → next page, the left half → previous page (like stories) */
+document.addEventListener('click',e=>{const c=e.target.closest&&e.target.closest('#gsc');if(!c||e.target.closest('button,a,input,select,textarea,label,.wd,[onclick]'))return;
+  const sel=window.getSelection&&String(window.getSelection());if(sel)return;
+  const u=+c.dataset.u,st=+c.dataset.st,n=UNITS[u].L.length,r=c.getBoundingClientRect(),right=e.clientX>r.left+r.width/2;
+  if(right){if(st<n-1)gramLesson(u,st+1)}else if(st>0)gramLesson(u,st-1)});
 /* ---- Unit 1: numbers 1-4 ---- */
 let PG={n:2,k:'газета'};
 function pgHtml(){const x=GNOUN.find(z=>z.ru==PG.k),n=PG.n,w=numWord(n,x.g),f=nForm(n,x);let p=0;while(p<x.ru.length&&p<f.length&&x.ru[p]==f[p])p++;
@@ -1981,7 +2000,7 @@ const UNITS=[{n:'3.3',t:'Numbers 1–4 with nouns',s:'У меня есть од�
  {n:'5.2',t:'Adjectives: Какой? Какая? Какое? Какие?',s:'новый дом, новая машина, новое окно, новые часы',L:LESSON52,R:'<b>Какой</b> -ый/-ий/-ой · <b>Какая</b> -ая/-яя · <b>Какое</b> -ое/-ее · <b>Какие</b> -ые/-ие · after <b>к г х ж ш ч щ</b> write <b>и</b>.',
   P:()=>{const Q=[];for(let i=0;i<2;i++)Q.push(gq14Q());for(let i=0;i<4;i++)Q.push(gq14Form());for(let i=0;i<2;i++)Q.push(gq14End());for(let i=0;i<2;i++)Q.push(gq14Build());return Q}}];
 function gramPractice(u){VIEW='game';touchStreak();const Q=UNITS[u].P();G={mode:'gram',unit:u,q:shuf(Q),total:Q.length,done:0,ok:0};next()}
-function gramNext(){if(!G.q.length)return gEnd();const q=G.q[0];if(q.t=='b'){G.c=q.s;return sbView(q.s,sHead())}
+function gramNext(){if(JG&&G.unit>=0&&G.done-G.ok>G.total*.3){VIEW='menu';return $.innerHTML=failHtml(`Grammar ${UNITS[G.unit].n} · ${esc(UNITS[G.unit].t)}`,`gramPractice(${G.unit})`)}if(!G.q.length)return gEnd();const q=G.q[0];if(q.t=='b'){G.c=q.s;return sbView(q.s,sHead())}
   G.c=q;G.ans=false;$.innerHTML=sHead()+`<div class="card" style="text-align:center"><div class="sub">${q.title}</div><div style="font-size:20px;margin:10px 0">${q.prompt}</div>${q.html?`<div style="font-size:26px;font-weight:700;margin:8px 0;line-height:1.5">${q.html}</div><div class="mu">${q.en}</div>`:q.ru?`<div style="font-size:28px;font-weight:700;margin:8px 0">${esc(q.ru)}</div>`:''}<div id="so" style="margin-top:12px">${q.opts.map((o,i)=>`<button class="w" style="font-size:${q.t=='w'?18:22}px;font-weight:700;text-align:center" onclick="gPick(${i})">${esc(o)}</button>`).join('')}</div><div id="fb"></div></div>`}
 function gPick(i){if(G.ans)return;G.ans=true;const q=G.c,ok=q.opts[i]==q.key;
   [...document.querySelectorAll('#so button')].forEach((b,j)=>{b.disabled=true;if(q.opts[j]==q.key)b.classList.add('ok');else if(j==i)b.classList.add('no')});
@@ -2225,14 +2244,21 @@ function jSer(j){return{t:j.t,c:j.c&&j.c.k,B:j.B&&j.B.map(c=>c.k),s:j.s&&j.s.k}}
 function jDes(x){const cd=k=>S.cards.find(c=>c.k==k);const o={t:x.t};if(x.c){o.c=cd(x.c);if(!o.c)return{t:'skip'}}
   if(x.B){o.B=x.B.map(cd).filter(Boolean);if(o.B.length<2)return{t:'skip'}}
   if(x.s){o.s=S.sents.find(q=>q.k==x.s);if(!o.s)return{t:'skip'}}return o}
-function jSave(){const j=G.J;S.jr={id:j.id,i:j.i,q:j.q||0,jobs:j.jobs.map(jSer),E:G.E,RS:G.RS,TK:[...G.TK].map(c=>c.k)};save()}
+function jSave(){const j=G.J;S.jr={id:j.id,i:j.i,q:j.q||0,bad:j.bad||{},jobs:j.jobs.map(jSer),E:G.E,RS:G.RS,TK:[...G.TK].map(c=>c.k)};save()}
 function jStart(nd){
   const test=nd.t=='t',W=nd.w,r=S.jr&&S.jr.id==nd.id?S.jr:null,jobs=r?r.jobs.map(jDes):test?jBuildTest(W):jBuildGroup(W);
-  G={mode:'jny',J:{id:nd.id,nd,W,jobs,i:r?r.i:0,q:r?r.q:0,test,label:test?`Unit ${nd.n} test`:`Unit ${nd.n} · Words ${nd.i+1}`},E:r?r.E:{},RS:r?r.RS:{},TK:new Set(r?r.TK.map(k=>S.cards.find(c=>c.k==k)).filter(Boolean):[]),q:[],retry:new Set(),rt:{},total:jobs.length,done:0,ok:0};
+  G={mode:'jny',J:{id:nd.id,nd,W,jobs,i:r?r.i:0,q:r?r.q:0,bad:r&&r.bad||{},test,label:test?`Unit ${nd.n} test`:`Unit ${nd.n} · Words ${nd.i+1}`},E:r?r.E:{},RS:r?r.RS:{},TK:new Set(r?r.TK.map(k=>S.cards.find(c=>c.k==k)).filter(Boolean):[]),q:[],retry:new Set(),rt:{},total:jobs.length,done:0,ok:0};
   VIEW='game';touchStreak();jRun()}
 const jHead=()=>{const j=G.J,n=j.jobs.length;return`<div class="row" style="justify-content:space-between"><button onclick="home()">✕</button><span class="mu">${esc(j.label)} · ${Math.min(j.i+1,n)}/${n}</span></div><div class="bar"><i style="width:${Math.round(j.i/n*100)}%"></i></div>`};
-function jRes(c,ok){if(G.J&&G.J.test&&c)G.RS[c.k]=!!ok}
-function jNext(){const j=G.J,job=j.jobs[j.i];j.i++;if(job&&job.t!='card'){j.q=(j.q||0)+1;if(j.q%10==0&&j.i<j.jobs.length)return jCheck()}jRun()}
+function jRes(c,ok){if(G.J&&G.J.test&&c)G.RS[c.k]=!!ok;if(G.J&&!ok){G.J.bad=G.J.bad||{};G.J.bad[G.J.i]=1}}
+/* ver_72: a lesson stops as soon as more than 30% of its questions were answered wrongly */
+const jQN=j=>j.jobs.filter(x=>x&&x.t!='card'&&x.t!='skip').length;
+const jTooBad=j=>{const b=Object.keys(j.bad||{}).length,n=jQN(j);return n>0&&b>n*.3};
+function failHtml(sub,retry){return`<h1>💪 Keep trying!</h1>${masHtml()}<div class="card" style="text-align:center"><div style="font-size:20px;font-weight:800;margin-bottom:6px">Don't give up – you can do it!</div><div class="mu">${sub}</div><div class="mu" style="margin-top:6px">This lesson stopped because more than 30% of the answers were wrong. Try it again!</div></div>
+  <div class="endb jrb"><button onclick="go('journey')">Back to Journey</button><button class="p" onclick="${retry}">Try again</button></div>`}
+function jFail(){const j=G.J,miss=[...new Set([...j.W,...G.TK].filter(c=>G.E[c.k]))];S.jr=null;S.mu=Date.now();save();JMAP[j.id]=j.nd;VIEW='menu';
+  $.innerHTML=failHtml(miss.length?`Words to review: ${miss.map(c=>`<b>${esc(c.ru)}</b> (${esc(c.en)})`).join(', ')}`:'',`jGo('${j.id}')`)}
+function jNext(){const j=G.J,job=j.jobs[j.i];j.i++;if(job&&job.t!='card'){if(jTooBad(j))return jFail();j.q=(j.q||0)+1;if(j.q%10==0&&j.i<j.jobs.length)return jCheck()}jRun()}
 function jCheck(){const j=G.J;jSave();VIEW='menu';
   $.innerHTML=`<h1>Keep going!</h1><div class="mas"><img alt="" src="${IMG_FOX}"></div><div class="card mu" style="text-align:center">${j.q} questions done · ${Math.round(j.i/j.jobs.length*100)}% of this lesson<br>Your progress is saved.</div><div class="endb jrb"><button onclick="home()">Journey</button><button class="p" onclick="VIEW='game';jRun()">Continue →</button></div>`}
 function jRun(){const j=G.J;if(j.i>=j.jobs.length)return j.test?jTestEnd():jGroupEnd();

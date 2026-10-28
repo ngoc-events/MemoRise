@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Speak Up">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);box-sizing:border-box;height:100%}body{margin:0;font:14px system-ui,sans-serif}[hidden]{display:none!important}</style>
+</head>
+<body>
+<title>Russian Speak Up</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@500;700;800;900&family=PT+Serif:wght@700&display=swap">
+<style>
+/* Layout: one phone screen, no scrolling — topic chips / phrase card / big mic / prev-next */
+:root{
+  --bg:#FFFDF8; --surface:#FFFFFF; --soft:#EAF5FF; --line:#DCE6F3;
+  --ink:#192F60; --muted:#6B7A99; --blue:#238CF4; --red:#FF454D; --mint:#BDEED9; --mint-ink:#127A52; --sun:#FFD166;
+  --good:#18A36A; --near:#E59A00; --miss:#FF454D;
+  --f-body:"Nunito",ui-rounded,system-ui,sans-serif; --f-ru:"PT Serif",Georgia,serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0F1A33; --surface:#17264A; --soft:#1E3260; --line:#2A3E6C; --ink:#EEF3FF; --muted:#9FB0D3;
+  --blue:#4BA3FF; --red:#FF6A70; --mint:#1F5A45; --mint-ink:#9BEACB; --sun:#FFD166; --good:#3FD18F; --near:#FFC447; --miss:#FF7A7F; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0F1A33; --surface:#17264A; --soft:#1E3260; --line:#2A3E6C; --ink:#EEF3FF; --muted:#9FB0D3;
+  --blue:#4BA3FF; --red:#FF6A70; --mint:#1F5A45; --mint-ink:#9BEACB; --sun:#FFD166; --good:#3FD18F; --near:#FFC447; --miss:#FF7A7F; color-scheme:dark}
+html,body{height:100%;overflow:hidden;overscroll-behavior:none}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);-webkit-tap-highlight-color:transparent}
+.app{height:100%;max-width:520px;margin:0 auto;display:grid;grid-template-rows:auto auto 1fr auto auto;gap:12px;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:12px;box-sizing:border-box}
+header{display:flex;align-items:center;justify-content:space-between;gap:8px}
+h1{margin:0;font-size:20px;font-weight:900;letter-spacing:-.2px}
+h1 span{color:var(--red)}
+.streak{font-weight:800;font-size:13px;color:var(--muted);font-variant-numeric:tabular-nums}
+.chips{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;margin:0 -4px;padding:2px 4px}
+.chips::-webkit-scrollbar{display:none}
+.chip{flex:0 0 auto;border:2px solid var(--line);background:var(--surface);color:var(--ink);font:800 14px var(--f-body);padding:7px 14px;border-radius:999px;cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--blue);border-color:var(--blue);color:#fff}
+.card{background:var(--surface);border:2px solid var(--line);border-radius:22px;padding:16px;display:flex;flex-direction:column;gap:10px;min-height:0;overflow:hidden;position:relative}
+.cardtop{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.count{font-weight:800;font-size:13px;color:var(--muted);font-variant-numeric:tabular-nums}
+.seg{display:flex;background:var(--soft);border-radius:999px;padding:3px}
+.seg button{border:0;background:transparent;color:var(--muted);font:800 12px var(--f-body);padding:6px 11px;border-radius:999px;cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--surface);color:var(--ink);box-shadow:0 1px 3px rgba(25,47,96,.15)}
+.main{flex:1;display:flex;flex-direction:column;justify-content:center;gap:8px;min-height:0;text-align:center}
+.ru{font-family:var(--f-ru);font-size:clamp(26px,7.5vw,36px);line-height:1.2;text-wrap:balance;margin:0}
+.ru.hidden-ru{color:transparent;text-shadow:0 0 14px color-mix(in srgb,var(--ink) 55%,transparent);user-select:none}
+.tr{font-size:15px;color:var(--muted);font-style:italic;margin:0}
+.en{font-size:18px;font-weight:700;margin:0}
+.result{min-height:64px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px}
+.heard{font-family:var(--f-ru);font-size:20px;line-height:1.35;text-wrap:balance}
+.w{padding:0 2px;border-radius:5px}
+.w.ok{color:var(--good)} .w.near{color:var(--near);text-decoration:underline wavy} .w.miss{color:var(--miss);text-decoration:line-through}
+.hint{font-size:13px;color:var(--muted);font-weight:700}
+.badge{font:900 15px var(--f-body);padding:4px 12px;border-radius:999px;background:var(--mint);color:var(--mint-ink);font-variant-numeric:tabular-nums}
+.badge.mid{background:color-mix(in srgb,var(--sun) 45%,var(--surface));color:var(--ink)}
+.badge.low{background:color-mix(in srgb,var(--red) 22%,var(--surface));color:var(--ink)}
+.listen{display:flex;justify-content:center;gap:10px}
+.btn{border:2px solid var(--line);background:var(--surface);color:var(--ink);font:800 15px var(--f-body);padding:10px 16px;border-radius:14px;cursor:pointer;display:inline-flex;align-items:center;gap:7px}
+.btn svg{width:20px;height:20px}
+.btn:active{transform:translateY(1px)}
+.controls{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:12px}
+.nav{width:52px;height:52px;border-radius:50%;border:2px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer;display:grid;place-items:center;justify-self:center}
+.nav svg{width:24px;height:24px}
+.mic{width:88px;height:88px;border-radius:50%;border:0;background:var(--red);color:#fff;cursor:pointer;display:grid;place-items:center;box-shadow:0 6px 0 color-mix(in srgb,var(--red) 70%,#000)}
+.mic svg{width:38px;height:38px}
+.mic:active{transform:translateY(3px);box-shadow:0 3px 0 color-mix(in srgb,var(--red) 70%,#000)}
+.mic.on{animation:pulse 1.1s ease-in-out infinite}
+@keyframes pulse{0%,100%{box-shadow:0 6px 0 color-mix(in srgb,var(--red) 70%,#000),0 0 0 0 color-mix(in srgb,var(--red) 45%,transparent)}50%{box-shadow:0 6px 0 color-mix(in srgb,var(--red) 70%,#000),0 0 0 16px transparent}}
+.self{display:flex;gap:10px;justify-content:center}
+.self .btn.good{background:var(--mint);border-color:var(--mint);color:var(--mint-ink)}
+.dots{display:flex;gap:6px;justify-content:center;flex-wrap:wrap}
+.dot{width:10px;height:10px;border-radius:50%;background:var(--line)}
+.dot.cur{outline:2px solid var(--blue);outline-offset:2px}
+.dot.s1{background:var(--red)} .dot.s2{background:var(--sun)} .dot.s3{background:var(--good)}
+.note{position:absolute;inset:auto 12px 12px;background:var(--soft);border-radius:12px;padding:10px 12px;font-size:13px;font-weight:700;color:var(--ink);text-align:left}
+button:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+@media (max-height:640px){.mic{width:72px;height:72px}.ru{font-size:26px}.app{gap:8px}}
+@media (prefers-reduced-motion:reduce){.mic.on{animation:none;outline:4px solid var(--sun)}}
+</style>
+
+<div class="app">
+  <header>
+    <h1>Speak <span>Up</span></h1>
+    <div class="streak" id="stat">0 / 0 mastered</div>
+  </header>
+  <div class="chips" id="chips" role="tablist" aria-label="Topics"></div>
+
+  <section class="card" aria-live="polite">
+    <div class="cardtop">
+      <span class="count" id="count">1 / 8</span>
+      <div class="seg" role="group" aria-label="Mode">
+        <button id="mRepeat" aria-pressed="true">Repeat</button>
+        <button id="mRecall" aria-pressed="false">Recall</button>
+      </div>
+    </div>
+    <div class="main">
+      <p class="ru" id="ru"></p>
+      <p class="tr" id="tr"></p>
+      <p class="en" id="en"></p>
+      <div class="result" id="result"><span class="hint" id="hint">Listen, then tap the mic and say it</span></div>
+    </div>
+    <div class="listen">
+      <button class="btn" id="play"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 8.5a5 5 0 0 1 0 7"/></svg>Listen</button>
+      <button class="btn" id="slow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9v6h4l5 4V5L8 9H4z"/></svg>Slow</button>
+      <button class="btn" id="reveal" hidden>Show</button>
+    </div>
+    <div class="note" id="note" hidden></div>
+  </section>
+
+  <div class="controls">
+    <button class="nav" id="prev" aria-label="Previous phrase"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg></button>
+    <div id="speakArea">
+      <button class="mic" id="mic" aria-label="Speak"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg></button>
+      <div class="self" id="selfCheck" hidden>
+        <button class="btn" id="hard">Again</button>
+        <button class="btn good" id="good">I said it</button>
+      </div>
+    </div>
+    <button class="nav" id="next" aria-label="Next phrase"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg></button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+
+<script>
+const A="́";
+const DECKS={
+ "Greetings":[
+  ["Здра"+A+"вствуйте!","Hello! (formal)"],["Приве"+A+"т! Как дела"+A+"?","Hi! How are you?"],
+  ["Меня"+A+" зову"+A+"т А"+A+"нна.","My name is Anna."],["О"+A+"чень прия"+A+"тно.","Nice to meet you."],
+  ["Спаси"+A+"бо большо"+A+"е!","Thank you very much!"],["До свида"+A+"ния!","Goodbye!"],
+  ["Извини"+A+"те, я не понима"+A+"ю.","Sorry, I don't understand."],["Повтори"+A+"те, пожа"+A+"луйста.","Please say it again."]],
+ "Café":[
+  ["Мо"+A+"жно меню"+A+", пожа"+A+"луйста?","Can I have the menu, please?"],["Я хочу"+A+" ча"+A+"шку ча"+A+"я.","I'd like a cup of tea."],
+  ["Оди"+A+"н ко"+A+"фе с молоко"+A+"м.","One coffee with milk."],["Ско"+A+"лько э"+A+"то сто"+A+"ит?","How much is this?"],
+  ["Счёт, пожа"+A+"луйста.","The bill, please."],["Бы"+A+"ло о"+A+"чень вку"+A+"сно!","It was very tasty!"]],
+ "Getting around":[
+  ["Где метро"+A+"?","Where is the metro?"],["Как пройти"+A+" к вокза"+A+"лу?","How do I get to the station?"],
+  ["Э"+A+"то далеко"+A+"?","Is it far?"],["Напра"+A+"во и"+A+"ли нале"+A+"во?","Right or left?"],
+  ["Мне ну"+A+"жен биле"+A+"т.","I need a ticket."],["Я иду"+A+" домо"+A+"й.","I'm going home."]],
+ "About me":[
+  ["Я из Вьетна"+A+"ма.","I'm from Vietnam."],["Я учу"+A+" ру"+A+"сский язы"+A+"к.","I'm learning Russian."],
+  ["Я немно"+A+"го говорю"+A+" по-ру"+A+"сски.","I speak a little Russian."],["Мне нра"+A+"вится Москва"+A+".","I like Moscow."],
+  ["У меня"+A+" есть брат и сестра"+A+".","I have a brother and a sister."],["Ско"+A+"лько тебе"+A+" лет?","How old are you?"]]
+};
+
+// ---------- state ----------
+let deck=Object.keys(DECKS)[0], idx=0, mode="repeat", revealed=false;
+let scores={}; try{scores=JSON.parse(localStorage.getItem("speakup.scores")||"{}")}catch(e){}
+const save=()=>{try{localStorage.setItem("speakup.scores",JSON.stringify(scores))}catch(e){}};
+const $=id=>document.getElementById(id);
+const phrase=()=>DECKS[deck][idx];
+
+// ---------- text helpers ----------
+const MAP={а:"a",б:"b",в:"v",г:"g",д:"d",е:"e",ё:"yo",ж:"zh",з:"z",и:"i",й:"y",к:"k",л:"l",м:"m",н:"n",о:"o",п:"p",р:"r",с:"s",т:"t",у:"u",ф:"f",х:"kh",ц:"ts",ч:"ch",ш:"sh",щ:"shch",ъ:"",ы:"y",ь:"'",э:"e",ю:"yu",я:"ya"};
+function translit(s){let o="";for(const ch of s){const l=ch.toLowerCase();if(l in MAP){let t=MAP[l];if(ch!==l&&t)t=t[0].toUpperCase()+t.slice(1);o+=t}else o+=ch}return o}
+const norm=w=>w.toLowerCase().replace(/́/g,"").replace(/ё/g,"е").replace(/[^a-zа-я0-9-]/g,"");
+const words=s=>s.split(/\s+/).map(w=>({raw:w,n:norm(w)})).filter(w=>w.n);
+function lev(a,b){const m=a.length,n=b.length;if(!m||!n)return Math.max(m,n);let p=[...Array(n+1).keys()];for(let i=1;i<=m;i++){let c=[i];for(let j=1;j<=n;j++)c[j]=Math.min(p[j]+1,c[j-1]+1,p[j-1]+(a[i-1]===b[j-1]?0:1));p=c}return p[n]}
+const sim=(a,b)=>1-lev(a,b)/Math.max(a.length,b.length,1);
+// align target words against heard words (DP), return per-target status + score
+function grade(target,heard){
+  const T=words(target),H=words(heard),m=T.length,n=H.length;
+  const dp=Array.from({length:m+1},()=>Array(n+1).fill(0));
+  for(let i=1;i<=m;i++)for(let j=1;j<=n;j++){const s=sim(T[i-1].n,H[j-1].n);dp[i][j]=Math.max(dp[i-1][j],dp[i][j-1],dp[i-1][j-1]+(s>=.6?s:0))}
+  const st=Array(m).fill("miss");let i=m,j=n;
+  while(i>0&&j>0){const s=sim(T[i-1].n,H[j-1].n);
+    if(s>=.6&&Math.abs(dp[i][j]-(dp[i-1][j-1]+s))<1e-9){st[i-1]=s>=.99?"ok":"near";i--;j--}
+    else if(dp[i-1][j]>=dp[i][j-1])i--;else j--}
+  const pct=Math.round(dp[m][n]/m*100);
+  return {T,st,pct};
+}
+
+// ---------- speech out ----------
+let ruVoice=null;
+function pickVoice(){const v=speechSynthesis.getVoices().filter(v=>/^ru/i.test(v.lang));ruVoice=v.find(v=>/Milena|Google|Yuri|Katya/i.test(v.name))||v[0]||null}
+if("speechSynthesis" in window){pickVoice();speechSynthesis.onvoiceschanged=pickVoice}
+function say(rate){
+  if(!("speechSynthesis" in window)){showNote("This browser can't read aloud.");return}
+  speechSynthesis.cancel();
+  const u=new SpeechSynthesisUtterance(phrase()[0].replace(/́/g,""));
+  u.lang="ru-RU";u.rate=rate;if(ruVoice)u.voice=ruVoice;
+  if(!ruVoice&&speechSynthesis.getVoices().length)showNote("No Russian voice found. On iPhone add one in Settings › Accessibility › Spoken Content › Voices › Russian.");
+  speechSynthesis.speak(u);
+}
+
+// ---------- speech in ----------
+const SR=window.SpeechRecognition||window.webkitSpeechRecognition;
+let rec=null,listening=false,canListen=!!SR;
+function useSelfCheck(msg){canListen=false;$("mic").hidden=true;$("selfCheck").hidden=false;if(msg)showNote(msg)}
+function listen(){
+  if(listening){rec&&rec.stop();return}
+  speechSynthesis&&speechSynthesis.cancel();
+  rec=new SR();rec.lang="ru-RU";rec.interimResults=true;rec.maxAlternatives=4;rec.continuous=false;
+  let finalAlts=[];
+  rec.onstart=()=>{listening=true;$("mic").classList.add("on");$("result").innerHTML='<span class="hint">Listening… say it in Russian</span>'};
+  rec.onresult=e=>{const r=e.results[e.results.length-1];
+    if(r.isFinal){finalAlts=[...r].map(a=>a.transcript)}
+    else $("result").innerHTML='<span class="heard">'+esc(r[0].transcript)+'</span>'};
+  rec.onerror=e=>{if(e.error==="not-allowed"||e.error==="service-not-allowed")
+      useSelfCheck("The microphone is blocked in this view. Open the app in Safari or Chrome to get scored, or check yourself below.");
+    else if(e.error==="no-speech")$("result").innerHTML='<span class="hint">I didn\'t hear anything. Tap the mic and try again.</span>'};
+  rec.onend=()=>{listening=false;$("mic").classList.remove("on");if(finalAlts.length)showGrade(finalAlts)};
+  try{rec.start()}catch(e){useSelfCheck("Speech input isn't available here. Check yourself below.")}
+}
+function showGrade(alts){
+  const best=alts.map(a=>({a,g:grade(phrase()[0],a)})).sort((x,y)=>y.g.pct-x.g.pct)[0];
+  const {T,st,pct}=best.g;
+  record(pct);
+  revealed=true;render(false);
+  const cls=pct>=85?"":pct>=60?"mid":"low";
+  const msg=pct>=85?"Отли"+A+"чно!":pct>=60?"Almost — try the orange words":"Listen once more, then try again";
+  $("result").innerHTML='<div class="heard">'+T.map((w,k)=>'<span class="w '+st[k]+'">'+esc(w.raw)+'</span>').join(" ")+'</div>'+
+    '<span class="badge '+cls+'">'+pct+'%</span><span class="hint">'+msg+' · heard: “'+esc(best.a)+'”</span>';
+}
+function record(pct){const k=deck+"|"+idx;scores[k]=Math.max(scores[k]||0,pct);save();renderStats()}
+
+// ---------- render ----------
+const esc=s=>s.replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+function showNote(t){const n=$("note");n.textContent=t;n.hidden=false;clearTimeout(showNote.t);showNote.t=setTimeout(()=>n.hidden=true,6000)}
+function renderChips(){$("chips").innerHTML=Object.keys(DECKS).map(d=>'<button class="chip" role="tab" aria-pressed="'+(d===deck)+'" data-d="'+d+'">'+d+'</button>').join("");
+  $("chips").querySelectorAll(".chip").forEach(b=>b.onclick=()=>{deck=b.dataset.d;idx=0;renderChips();render()})}
+function renderStats(){let all=0,ok=0;for(const d in DECKS)DECKS[d].forEach((_,i)=>{all++;if((scores[d+"|"+i]||0)>=85)ok++});$("stat").textContent=ok+" / "+all+" mastered";
+  $("dots").innerHTML=DECKS[deck].map((_,i)=>{const s=scores[deck+"|"+i];const c=s==null?"":s>=85?"s3":s>=60?"s2":"s1";return '<span class="dot '+c+(i===idx?" cur":"")+'"></span>'}).join("")}
+function render(clear=true){
+  const [ru,en]=phrase();const hide=mode==="recall"&&!revealed;
+  $("ru").textContent=ru;$("ru").classList.toggle("hidden-ru",hide);
+  $("tr").textContent=hide?"":translit(ru);
+  $("en").textContent=en;
+  $("reveal").hidden=!hide;
+  $("count").textContent=(idx+1)+" / "+DECKS[deck].length;
+  if(clear)$("result").innerHTML='<span class="hint">'+(canListen?(mode==="recall"?"Say it in Russian from memory":"Listen, then tap the mic and say it"):"Say it out loud, then check yourself")+'</span>';
+  renderStats();
+}
+function go(d){const n=DECKS[deck].length;idx=(idx+d+n)%n;revealed=false;render()}
+function setMode(m){mode=m;revealed=false;$("mRepeat").setAttribute("aria-pressed",m==="repeat");$("mRecall").setAttribute("aria-pressed",m==="recall");render()}
+
+$("play").onclick=()=>say(.9);$("slow").onclick=()=>say(.55);
+$("prev").onclick=()=>go(-1);$("next").onclick=()=>go(1);
+$("mRepeat").onclick=()=>setMode("repeat");$("mRecall").onclick=()=>setMode("recall");
+$("reveal").onclick=()=>{revealed=true;render(false);say(.9)};
+$("mic").onclick=listen;
+$("good").onclick=()=>{record(100);revealed=true;render(false);setTimeout(()=>go(1),500)};
+$("hard").onclick=()=>{record(Math.max(scores[deck+"|"+idx]||0,40));revealed=true;render(false);say(.55)};
+if(!SR)useSelfCheck("This browser has no speech recognition. Chrome or Safari gives you scoring; for now, check yourself.");
+renderChips();render();
+</script>
+</body>
+</html>

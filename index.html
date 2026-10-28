@@ -3,7 +3,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#f6f7fb" media="(prefers-color-scheme: light)"><meta name="theme-color" content="#0f1830" media="(prefers-color-scheme: dark)">
 <script>(function(){function f(){try{var h=innerHeight;if(navigator.standalone===true){var p=innerHeight>=innerWidth,a=Math.max(screen.width,screen.height),b=Math.min(screen.width,screen.height),sh=p?a:b;if(sh>h)h=sh}document.documentElement.style.setProperty('--fh',h+'px')}catch(e){}}f();addEventListener('resize',f);addEventListener('orientationchange',function(){setTimeout(f,150)});addEventListener('pageshow',f)})()</script>
-<title>Russian MemoRise App_ver_72</title>
+<title>Russian MemoRise App_ver_73</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lobster&display=swap&text=%D0%90%D0%91%D0%92%D0%93%D0%94%D0%95%D0%96%D0%97%D0%98%D0%99%D0%9A%D0%9B%D0%9C%D0%9D%D0%9E%D0%9F%D0%A0%D0%A1%D0%A2%D0%A3%D0%A4%D0%A5%D0%A6%D0%A7%D0%A8%D0%A9%D0%AA%D0%AB%D0%AC%D0%AD%D0%AE%D0%AF%D0%B0%D0%B1%D0%B2%D0%B3%D0%B4%D0%B5%D0%B6%D0%B7%D0%B8%D0%B9%D0%BA%D0%BB%D0%BC%D0%BD%D0%BE%D0%BF%D1%80%D1%81%D1%82%D1%83%D1%84%D1%85%D1%86%D1%87%D1%88%D1%89%D1%8A%D1%8B%D1%8C%D1%8D%D1%8E%D1%8F%D0%81%D1%91%CC%81"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800;900&display=swap">
 <style>
 :root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);--bg:#f6f7fb;--card:#fff;--tx:#1f2430;--mu:#6b7280;--pr:#1d6fd8;--ok:#2e9e5b;--bad:#d64545;--bd:#e3e6ee}
@@ -372,7 +372,7 @@ main#app:has(>.gst){display:flex;flex-direction:column;overflow:hidden;padding-b
 .ghc .ghs{margin:4px 0 0}
 </style></head><body><main id="app"></main>
 <script>
-const APP_VER='Russian MemoRise App_ver_72';
+const APP_VER='Russian MemoRise App_ver_73';
 const sv=(b,v='0 0 48 48')=>`<svg xmlns="http://www.w3.org/2000/svg" viewBox="${v}" aria-hidden="true">${b}</svg>`;
 const IC={
 learn:sv('<rect x="14" y="30" width="20" height="14" rx="4" fill="#FF8A5B"/><rect x="12" y="27" width="24" height="6" rx="3" fill="#FF6B3D"/><path d="M24 27V17" stroke="#2FBF71" stroke-width="3" stroke-linecap="round"/><path d="M24 20C24 12 17 10 11 12c0 7 5 10 13 8z" fill="#6EE7B7"/><path d="M24 17c0-7 6-9 12-7 0 7-5 9-12 7z" fill="#2FBF71"/>'),
@@ -1030,7 +1030,7 @@ const TL_LOGO='<svg class="tllogo" viewBox="0 0 48 48" aria-hidden="true"><path 
 const TL_MSG={net:'Cannot reach Wiktionary. Check your internet connection and try again.',http:'Wiktionary is busy right now. Try again in a moment.'};
 const tlNoSt=s=>String(s||'').replace(/[̀́]/g,'');
 const tlSay=t=>`<button class="tlsay" type="button" data-say="${esc(tlNoSt(t))}" aria-label="Listen">${TL_SPK}</button>`;
-function tlHtml(){return`<div class="tlb"><div class="tlhead">${TL_LOGO}<div><h1>Transly</h1><p>Russian ⇄ English · Wiktionary</p></div><button class="tlclr" type="button" onclick="tlClear()">Clear</button></div>
+function tlHtml(){return`<div class="tlb"><div class="tlhead">${TL_LOGO}<div><h1>Transly</h1><p>Russian ⇄ English · Wiktionary · MyMemory</p></div><button class="tlclr" type="button" onclick="tlClear()">Clear</button></div>
 <div class="tlthread" id="tlt"></div>
 <div class="tlcomp"><div class="tlchips">${TL_CHIPS.map(w=>`<button type="button" onclick="tlLookup('${w}')">${w}</button>`).join('')}</div>
 <form class="tlform" onsubmit="return tlSubmit(event)" autocomplete="off"><input id="tlq" type="text" placeholder="Type a Russian or English word…" enterkeyhint="send" autocapitalize="off" spellcheck="false" maxlength="60" aria-label="Word"><button class="tlsend" id="tlsend" type="submit" aria-label="Look up"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></form></div></div>`}
@@ -1099,6 +1099,55 @@ async function tlLookEn(q){let w=q.toLowerCase().replace(/\s+/g,' ');let wt=awai
   const senses=g.slice(0,5).map(x=>({pos:x.pos,text:x.terms.slice(0,3).join(', ')+(x.gloss?` — ${x.gloss}`:'')}));
   const ru=g[0].terms[0];return{dir:'en-ru',head:w,senses,ru,en:w,note:''}}
 
+/* ===== ver_73: extra sources — Russian Wiktionary (ru.wiktionary.org) and MyMemory (api.mymemory.translated.net).
+   Order: English Wiktionary → Russian Wiktionary (merged, duplicates dropped) → MyMemory only when both Wiktionaries have nothing
+   (typically phrases such as "how are you?"). The answer stays in the same short format. ===== */
+const RWK='https://ru.wiktionary.org/';
+const TL_NONE="Sorry, No translation listed for this word.";
+const tlSafe=async p=>{try{return await p}catch(e){return{err:e}}};
+const tlHasS=r=>r&&r.senses&&r.senses.length;
+const tlCyr=t=>/[Ѐ-ӿ]/.test(t),tlLat=t=>/[A-Za-z]/.test(t)&&!/[Ѐ-ӿ]/.test(t);
+function tlUntpl(t){t=String(t);let p;do{p=t;t=t.replace(/\{\{[^{}]*\}\}/g,' ')}while(t!=p);return t}
+function tlRuClean(t){t=String(t).replace(/<ref[^>]*\/>/g,'').replace(/<ref[\s\S]*?<\/ref>/g,'');
+  t=tlUntpl(t).replace(/\[\[(?:[^\]|]*\|)?([^\]]*)\]\]/g,'$1').replace(/'{2,}/g,'').replace(/<[^>]+>/g,'');
+  return tlNoSt(t).replace(/\s+/g,' ').replace(/^[\s:;,.\-–—]+|[\s:;,.\-–—]+$/g,'').trim()}
+async function tlRuWikitext(page){const j=await wkJson(RWK+'w/api.php?action=parse&prop=wikitext&format=json&origin=*&redirects=1&page='+encodeURIComponent(page));
+  const p=j&&j.parse&&j.parse.wikitext;return typeof p=='string'?p:(p&&p['*'])||''}
+function tlRuSec(wt,lang){const re=new RegExp('(^|\\n)=\\s*\\{\\{-'+lang+'-[^}]*\\}\\}\\s*=[^\\n]*\\n([\\s\\S]*?)(?=\\n=\\s*\\{\\{-[^}]+\\}\\}\\s*=|$)');const m=wt.match(re);return m?m[2]:''}
+const TL_RUPOS=[[/\{\{(сущ|Фам|фам)[ _]/,'Noun'],[/\{\{гл[ _]/,'Verb'],[/\{\{прил[ _]/,'Adjective'],[/\{\{(adv|нареч)[ _]/,'Adverb'],[/\{\{мест[ _]/,'Pronoun'],[/\{\{(числ|Числ)[ _-]/,'Numeral'],[/\{\{(предл|prep)[ _]/,'Preposition'],[/\{\{(союз|conj)[ _]/,'Conjunction'],[/\{\{(межд|interj)[ _]/,'Interjection'],[/\{\{(part|част)[ _]/,'Particle'],[/\{\{(phrase|фразеологизм)/i,'Phrase']];
+const tlRuPos=l=>{for(const[r,p]of TL_RUPOS)if(r.test(l))return p;return null};
+/* English word → Russian meanings from ru.wiktionary's "Значение" lists */
+async function tlRwEn(w){const wt=await tlRuWikitext(w)||(w!=w.toLowerCase()?'':await tlRuWikitext(w[0].toUpperCase()+w.slice(1)));if(!wt)return null;
+  const sec=tlRuSec(wt,'en');if(!sec)return null;const senses=[];let pos='',inDef=false;
+  sec.split('\n').forEach(line=>{const p=tlRuPos(line);if(p)pos=p;
+    const h=line.match(/^=+\s*(.*?)\s*=+\s*$/);if(h){inDef=/Значение/i.test(h[1]);return}
+    if(!inDef||senses.length>=6)return;const d=line.match(/^#(?![:*#])\s*(.+)$/);if(!d)return;
+    let raw=d[1];const zn=raw.match(/\{\{значение\s*\|[\s\S]*?определение\s*=\s*([^|}]*)/);if(zn)raw=zn[1];
+    const terms=[];tlRuClean(raw).split(/[,;]/).map(x=>x.replace(/\([^)]*\)/g,'').trim()).forEach(x=>{if(x&&tlCyr(x)&&x.length<=40&&!terms.includes(x)&&!senses.some(s=>s.terms.includes(x))&&terms.length<3)terms.push(x)});
+    if(terms.length)senses.push({pos,text:terms.join(', '),terms})});
+  if(!senses.length)return null;return{dir:'en-ru',head:w,senses:senses.map(({pos,text})=>({pos,text})),ru:senses[0].terms[0],en:w,note:'',_t:senses.flatMap(s=>s.terms)}}
+/* Russian word → English from ru.wiktionary's translation tables (en=…) */
+async function tlRwRu(w){let wt=await tlRuWikitext(w);if(!wt&&tlNoSt(w)!=w)wt=await tlRuWikitext(tlNoSt(w));if(!wt)return null;
+  const sec=tlRuSec(wt,'ru');if(!sec)return null;const senses=[];let pos='';
+  sec.split('\n').forEach(line=>{const p=tlRuPos(line);if(p)pos=p;if(senses.length>=5)return;
+    const m=line.match(/^\|\s*en\s*=\s*(.+)$/);if(!m)return;
+    const terms=[];tlRuClean(m[1]).split(/[,;]/).map(x=>x.replace(/\([^)]*\)/g,'').trim()).forEach(x=>{if(x&&tlLat(x)&&x.length<=40&&!terms.includes(x)&&terms.length<3)terms.push(x)});
+    if(terms.length&&!senses.some(s=>s.text==terms.join(', ')))senses.push({pos,text:terms.join(', ')})});
+  if(!senses.length)return null;const head=tlNoSt(w).toLowerCase();return{dir:'ru-en',head,senses,ru:head,en:tlSummary(senses),note:''}}
+/* MyMemory machine translation (no key, CORS) – used only when no Wiktionary has the word */
+async function tlMyMem(q,ru){const j=await wkJson('https://api.mymemory.translated.net/get?q='+encodeURIComponent(q)+'&langpair='+(ru?'ru|en':'en|ru'));
+  if(!j||+j.responseStatus!=200)return null;const ok=ru?tlLat:tlCyr,out=[],add=t=>{t=String(t||'').replace(/\s+/g,' ').trim();if(t&&ok(t)&&t.toLowerCase()!=q.toLowerCase()&&!out.some(o=>o.toLowerCase()==t.toLowerCase())&&out.length<3)out.push(t)};
+  add(j.responseData&&j.responseData.translatedText);(j.matches||[]).filter(x=>+x.quality>=50).forEach(x=>add(x.translation));
+  if(!out.length)return null;const tidy=t=>/\s/.test(q)?t:t.replace(/[.!?]+$/,'').toLowerCase();const terms=out.map(tidy).filter((t,i,a)=>a.indexOf(t)==i);
+  const senses=[{pos:'',text:terms.join(/\s/.test(q)?' / ':', ')}];return ru?{dir:'ru-en',head:q,senses,ru:q,en:terms[0],note:''}:{dir:'en-ru',head:q,senses,ru:terms[0],en:q,note:''}}
+async function tlLookAll(q,ru){const clean=q.replace(/[?!.,;:¿¡"“”«»]+/g,' ').replace(/\s+/g,' ').trim()||q,low=clean.toLowerCase();
+  const [a,b]=await Promise.all([tlSafe(ru?tlLookRu(clean):tlLookEn(clean)),tlSafe(ru?tlRwRu(low):tlRwEn(low))]);
+  let res=tlHasS(a)?a:null;
+  if(tlHasS(b)){if(!res)res=b;else{const have=res.senses.map(s=>s.text.toLowerCase()).join(' | ');
+    b.senses.forEach(s=>{if(res.senses.length>=5)return;const fresh=s.text.split(', ').filter(t=>!have.includes(t.toLowerCase()));if(fresh.length)res.senses.push({pos:s.pos,text:fresh.join(', ')})})}}
+  if(!res){const c=await tlSafe(tlMyMem(/\s/.test(clean)?q.trim():clean,ru));if(tlHasS(c))res=c;
+    else{if(a&&a.err&&b&&b.err&&(!c||c.err))throw a.err;return{note:(a&&a.note&&!/couldn't find/.test(a.note))?a.note:TL_NONE}}}
+  delete res._t;return res}
 function tlUnitSet(){const J=jBuild(),nd=J.cur>=0?J.flat[J.cur]:J.flat[J.flat.length-1];let n=nd?nd.n:null;
   if(n==null){const ns=S.cards.map(unitNo).filter(x=>x!=null);n=ns.length?Math.max(...ns):1}
   const c=S.cards.find(x=>unitNo(x)==n&&x.set);return c?c.set:'Unit '+n}
@@ -1110,7 +1159,7 @@ function tlAdd(m){const ru=tlNoSt(m.ru).trim(),en=String(m.en||'').trim();
 async function tlLookup(raw){const w=String(raw||'').trim().replace(/\s+/g,' ');if(!w||tlBusy)return;tlBusy=true;
   const sb=document.getElementById('tlsend');if(sb)sb.disabled=true;
   const m={q:w,st:'wait'};TLT.push(m);tlRender(true);
-  try{const r=/[Ѐ-ӿ]/.test(w)?await tlLookRu(w):await tlLookEn(w);
+  try{const r=await tlLookAll(w,/[Ѐ-ӿ]/.test(w));
     m.st='ok';if(r.senses&&r.senses.length){Object.assign(m,r);if(m.ru&&m.en)tlAdd(m)}else m.note=r.note}
   catch(e){m.st='err';m.err=TL_MSG[e&&e.code]||'Something went wrong. Tap send to try again.'}
   tlBusy=false;tlSave();tlRender(true);const sb2=document.getElementById('tlsend');if(sb2)sb2.disabled=false}

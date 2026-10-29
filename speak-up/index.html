@@ -197,14 +197,15 @@ function listen(){
   speechSynthesis&&speechSynthesis.cancel();
   rec=new SR();rec.lang="ru-RU";rec.interimResults=true;rec.maxAlternatives=4;rec.continuous=false;
   // iOS Safari often never marks a result final, so keep the latest text and grade it ourselves
-  let alts=[],done=false,quiet=null,cap=null;
+  const me=rec;let alts=[],done=false,quiet=null,cap=null;
   const finish=()=>{if(done)return;done=true;clearTimeout(quiet);clearTimeout(cap);listening=false;$("mic").classList.remove("on");
-    try{rec.stop()}catch(e){}
+    me.onresult=null;me.onend=null;me.onerror=null;try{me.abort()}catch(e){}
     if(alts.length&&alts.some(a=>a.trim()))showGrade(alts);
     else $("result").innerHTML='<span class="hint">I didn\'t hear anything. Tap the mic and try again.</span>'};
   rec.onstart=()=>{listening=true;$("mic").classList.add("on");$("result").innerHTML='<span class="hint">Listening… say it in Russian</span>';
     cap=setTimeout(finish,10000)};
   rec.onresult=e=>{
+    if(done)return;
     let text="";for(let i=0;i<e.results.length;i++)text+=e.results[i][0].transcript+" ";text=text.trim();
     const last=e.results[e.results.length-1];
     alts=[text,...[...last].slice(1).map(a=>a.transcript)];

@@ -228,7 +228,7 @@ function showGrade(alts){
   $("result").innerHTML='<div class="heard">'+T.map((w,k)=>'<span class="w '+st[k]+'">'+esc(w.raw)+'</span>').join(" ")+'</div>'+
     '<span class="badge '+cls+'">'+pct+'%</span><span class="hint">'+msg+' · heard: “'+esc(best.a)+'”</span>';
 }
-function record(pct){const k=deck+"|"+idx;scores[k]=Math.max(scores[k]||0,pct);save();renderStats()}
+function record(pct){const k=deck+"|"+idx;scores[k]=pct;save();renderStats()}
 
 // ---------- render ----------
 const esc=s=>s.replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
@@ -256,7 +256,7 @@ $("mRepeat").onclick=()=>setMode("repeat");$("mRecall").onclick=()=>setMode("rec
 $("reveal").onclick=()=>{revealed=true;render(false);say(.9)};
 $("mic").onclick=listen;
 $("good").onclick=()=>{record(100);revealed=true;render(false);setTimeout(()=>go(1),500)};
-$("hard").onclick=()=>{record(Math.max(scores[deck+"|"+idx]||0,40));revealed=true;render(false);say(.55)};
+$("hard").onclick=()=>{record(40);revealed=true;render(false);say(.55)};
 if(!SR)useSelfCheck("This browser has no speech recognition. Chrome or Safari gives you scoring; for now, check yourself.");
 renderChips();render();
 </script>

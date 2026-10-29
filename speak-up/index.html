@@ -193,18 +193,28 @@ const SR=window.SpeechRecognition||window.webkitSpeechRecognition;
 let rec=null,listening=false,canListen=!!SR;
 function useSelfCheck(msg){canListen=false;$("mic").hidden=true;$("selfCheck").hidden=false;if(msg)showNote(msg)}
 function listen(){
-  if(listening){rec&&rec.stop();return}
+  if(listening){rec&&rec.stopNow();return}
   speechSynthesis&&speechSynthesis.cancel();
   rec=new SR();rec.lang="ru-RU";rec.interimResults=true;rec.maxAlternatives=4;rec.continuous=false;
-  let finalAlts=[];
-  rec.onstart=()=>{listening=true;$("mic").classList.add("on");$("result").innerHTML='<span class="hint">Listening… say it in Russian</span>'};
-  rec.onresult=e=>{const r=e.results[e.results.length-1];
-    if(r.isFinal){finalAlts=[...r].map(a=>a.transcript)}
-    else $("result").innerHTML='<span class="heard">'+esc(r[0].transcript)+'</span>'};
-  rec.onerror=e=>{if(e.error==="not-allowed"||e.error==="service-not-allowed")
-      useSelfCheck("The microphone is blocked in this view. Open the app in Safari or Chrome to get scored, or check yourself below.");
-    else if(e.error==="no-speech")$("result").innerHTML='<span class="hint">I didn\'t hear anything. Tap the mic and try again.</span>'};
-  rec.onend=()=>{listening=false;$("mic").classList.remove("on");if(finalAlts.length)showGrade(finalAlts)};
+  // iOS Safari often never marks a result final, so keep the latest text and grade it ourselves
+  let alts=[],done=false,quiet=null,cap=null;
+  const finish=()=>{if(done)return;done=true;clearTimeout(quiet);clearTimeout(cap);listening=false;$("mic").classList.remove("on");
+    try{rec.stop()}catch(e){}
+    if(alts.length&&alts.some(a=>a.trim()))showGrade(alts);
+    else $("result").innerHTML='<span class="hint">I didn\'t hear anything. Tap the mic and try again.</span>'};
+  rec.onstart=()=>{listening=true;$("mic").classList.add("on");$("result").innerHTML='<span class="hint">Listening… say it in Russian</span>';
+    cap=setTimeout(finish,10000)};
+  rec.onresult=e=>{
+    let text="";for(let i=0;i<e.results.length;i++)text+=e.results[i][0].transcript+" ";text=text.trim();
+    const last=e.results[e.results.length-1];
+    alts=[text,...[...last].slice(1).map(a=>a.transcript)];
+    $("result").innerHTML='<span class="heard">'+esc(text)+'</span>';
+    clearTimeout(quiet);
+    if(last.isFinal)quiet=setTimeout(finish,300);else quiet=setTimeout(finish,1500)};
+  rec.onerror=e=>{if(e.error==="not-allowed"||e.error==="service-not-allowed"){done=true;listening=false;$("mic").classList.remove("on");
+      useSelfCheck("The microphone is blocked in this view. Open the app in Safari or Chrome to get scored, or check yourself below.")}};
+  rec.onend=finish;
+  rec.stopNow=finish;
   try{rec.start()}catch(e){useSelfCheck("Speech input isn't available here. Check yourself below.")}
 }
 function showGrade(alts){

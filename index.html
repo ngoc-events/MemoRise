@@ -3,7 +3,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#f6f7fb" media="(prefers-color-scheme: light)"><meta name="theme-color" content="#0f1830" media="(prefers-color-scheme: dark)">
 <script>(function(){function f(){try{var h=innerHeight;if(navigator.standalone===true){var p=innerHeight>=innerWidth,a=Math.max(screen.width,screen.height),b=Math.min(screen.width,screen.height),sh=p?a:b;if(sh>h)h=sh}document.documentElement.style.setProperty('--fh',h+'px')}catch(e){}}f();addEventListener('resize',f);addEventListener('orientationchange',function(){setTimeout(f,150)});addEventListener('pageshow',f)})()</script>
-<title>Russian MemoRise App_ver_73</title>
+<title>Russian MemoRise App_ver_74</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lobster&display=swap&text=%D0%90%D0%91%D0%92%D0%93%D0%94%D0%95%D0%96%D0%97%D0%98%D0%99%D0%9A%D0%9B%D0%9C%D0%9D%D0%9E%D0%9F%D0%A0%D0%A1%D0%A2%D0%A3%D0%A4%D0%A5%D0%A6%D0%A7%D0%A8%D0%A9%D0%AA%D0%AB%D0%AC%D0%AD%D0%AE%D0%AF%D0%B0%D0%B1%D0%B2%D0%B3%D0%B4%D0%B5%D0%B6%D0%B7%D0%B8%D0%B9%D0%BA%D0%BB%D0%BC%D0%BD%D0%BE%D0%BF%D1%80%D1%81%D1%82%D1%83%D1%84%D1%85%D1%86%D1%87%D1%88%D1%89%D1%8A%D1%8B%D1%8C%D1%8D%D1%8E%D1%8F%D0%81%D1%91%CC%81"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800;900&display=swap">
 <style>
 :root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);--bg:#f6f7fb;--card:#fff;--tx:#1f2430;--mu:#6b7280;--pr:#1d6fd8;--ok:#2e9e5b;--bad:#d64545;--bd:#e3e6ee}
@@ -370,9 +370,43 @@ main#app:has(>.gst){display:flex;flex-direction:column;overflow:hidden;padding-b
 .ghc{cursor:pointer;position:relative}.ghc .ghx{position:absolute;right:16px;top:16px;color:var(--mu);transition:transform .2s;font-size:18px}.ghc.open .ghx{transform:rotate(180deg)}
 .ghc .ghb{display:none;margin-top:10px}.ghc.open .ghb{display:flex}
 .ghc .ghs{margin:4px 0 0}
+/* ver_74: grammar handbook */
+:root{--gk-ac:#C42639;--c-nom:#5B6480;--c-gen:#A86200;--c-dat:#2C7A4B;--c-acc:#1D5CC0;--c-ins:#7A3DB4;--c-pre:#0D7A80}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--gk-ac:#FF6F7E;--c-nom:#A9B1C9;--c-gen:#F0AE4C;--c-dat:#6FCF97;--c-acc:#86B4FF;--c-ins:#C6A0FF;--c-pre:#5ED1D7}}
+:root[data-theme="dark"]{--gk-ac:#FF6F7E;--c-nom:#A9B1C9;--c-gen:#F0AE4C;--c-dat:#6FCF97;--c-acc:#86B4FF;--c-ins:#C6A0FF;--c-pre:#5ED1D7}
+.gke{color:var(--gk-ac);font-weight:800}
+.gkcases{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px;margin:0 0 14px}
+.gkcase{background:var(--card);border:1px solid var(--bd);border-top:3px solid var(--cc);border-radius:10px;padding:7px 10px;display:grid;gap:1px;font-size:13px}.gkcase b{color:var(--cc)}.gkcase span{font-size:14px}
+.gku{padding:0;overflow:hidden}.gkuh{display:flex;align-items:center;gap:12px;padding:14px 16px;cursor:pointer}
+.gkuno{flex:none;background:var(--pr);color:#fff;font-weight:800;font-size:13px;border-radius:8px;padding:3px 9px}
+.gku .ghx{color:var(--mu);font-size:18px;transition:transform .2s}.gku.open>.gkuh .ghx{transform:rotate(180deg)}
+.gkul{display:none;border-top:1px solid var(--bd)}.gku.open .gkul{display:block}
+.gki{padding:12px 16px;border-bottom:1px solid var(--bd);cursor:pointer}.gki:last-child{border-bottom:0}
+.gki.open{background:color-mix(in srgb,var(--pr) 8%,transparent)}
+.gkit{display:flex;gap:10px;align-items:baseline}.gkn{flex:none;font-weight:800;color:var(--pr);min-width:34px;font-variant-numeric:tabular-nums}
+.gkib{display:none;margin-top:10px}.gki.open .gkib{display:flex}.gkib button{margin:0}
+.gkh{display:flex;gap:12px;align-items:baseline;margin-bottom:6px}.gkh .gkn{font-size:22px}.gkh h2{font-size:21px;line-height:1.25}
+.gkr{color:var(--mu);font-size:15px;margin-top:2px}
+.gkchips{display:flex;gap:6px;flex-wrap:wrap;margin:6px 0 4px}.gkchip{font-size:12px;font-weight:700;color:var(--cc);border:1px solid var(--cc);border-radius:999px;padding:1px 9px}
+.gkd{line-height:1.6}.gkpt{font-size:15px;color:var(--mu);margin:0 0 8px}
+.gktbl{overflow-x:auto;margin:0 -4px}.gkt td{border:1px solid var(--bd);padding:6px 7px;vertical-align:top;line-height:1.45}.gkt td[data-say]{cursor:pointer}
+.gkex{display:grid;gap:10px}.gkx{display:flex;gap:10px;align-items:flex-start;padding:8px 0 8px 10px;border-left:3px solid var(--bd)}
+.gkx .ru{font-weight:700;font-size:17px;line-height:1.45;cursor:pointer}.gkx .mu{font-size:15px;margin-top:2px}
+.gksp{flex:none;margin:0!important;width:38px;height:38px;padding:0!important}
+.gktip{background:color-mix(in srgb,var(--gk-ac) 9%,var(--card));border-radius:10px;padding:9px 12px;margin:12px 0 0;line-height:1.55}.gktip>b:first-child{color:var(--gk-ac)}
+.gkc .ru{font-family:inherit}
+.gkfig{overflow-x:auto;margin:10px 0;-webkit-overflow-scrolling:touch;touch-action:pan-x pan-y}.gkhint{font-size:13px;margin-top:-4px}.gkfig svg{display:block;max-width:100%;height:auto}
+.gkfig svg[viewBox^="0 0 6"],.gkfig svg[viewBox^="0 0 5"]{max-width:none;width:100%;min-width:520px}
+.gkfig svg text{fill:var(--tx);font-size:13px}.gkfig svg .ru{font-size:15px;font-weight:700}.gkfig svg .mu{fill:var(--mu);font-size:12px}
+.gkfig .ln{stroke:var(--mu);stroke-width:2;fill:none}.gkfig .ac{stroke:var(--gk-ac);stroke-width:2.5;fill:none}.gkfig .nv{stroke:var(--pr);stroke-width:2.5;fill:none}
+.gkfig .boxf{fill:color-mix(in srgb,var(--mu) 12%,transparent);stroke:var(--bd)}.gkfig .dotf{fill:var(--gk-ac)}
+.gkfig .mv{display:grid;gap:8px}.gkfig .mv>div{display:grid;grid-template-columns:72px 1fr;gap:2px 12px;align-items:center}.gkfig .mv .ru{font-weight:700;font-size:16px}.gkfig .mv .v{grid-column:2;color:var(--mu);font-size:14px}
+.gkbars{display:grid;gap:6px}.gkbar{display:grid;grid-template-columns:110px 1fr 40px;gap:10px;align-items:center;font-size:15px}
+.gkbar .w{height:12px;background:var(--bd);border-radius:6px;overflow:hidden}.gkbar .w i{display:block;height:100%;background:var(--pr)}.gkbar .p{color:var(--mu);font-size:13px}
+.gkday{display:flex;border:1px solid var(--bd);border-radius:10px;overflow:hidden}.gkday div{padding:8px 4px;text-align:center;display:grid;font-size:14px;min-width:0}.gkday div:nth-child(odd){background:color-mix(in srgb,var(--mu) 10%,transparent)}.gkday .h{color:var(--mu);font-size:12px}
 </style></head><body><main id="app"></main>
 <script>
-const APP_VER='Russian MemoRise App_ver_73';
+const APP_VER='Russian MemoRise App_ver_74';
 const sv=(b,v='0 0 48 48')=>`<svg xmlns="http://www.w3.org/2000/svg" viewBox="${v}" aria-hidden="true">${b}</svg>`;
 const IC={
 learn:sv('<rect x="14" y="30" width="20" height="14" rx="4" fill="#FF8A5B"/><rect x="12" y="27" width="24" height="6" rx="3" fill="#FF6B3D"/><path d="M24 27V17" stroke="#2FBF71" stroke-width="3" stroke-linecap="round"/><path d="M24 20C24 12 17 10 11 12c0 7 5 10 13 8z" fill="#6EE7B7"/><path d="M24 17c0-7 6-9 12-7 0 7-5 9-12 7z" fill="#2FBF71"/>'),
@@ -1566,7 +1600,6 @@ const PEOPLE=[['брат','брата','брату','братом','brother','Th
 const PRON=[['я','меня','I','мне','мной'],['ты','тебя','you','тебе','тобой'],['он','него','he','ему','его'],['она','неё','she','ей','её'],['мы','нас','we','нам','нами'],['вы','вас','you (pl.)','вам','вами'],['они','них','they','им','их']];
 const THINGS=GNOUN.filter(x=>x.ru!='дочь'&&x.ru!='музей');
 /* ---- shared lesson helpers ---- */
-function gramHub(){VIEW='menu';JG=false;$.innerHTML=`<h1>📘 Grammar</h1>`+UNITS.map((u,i)=>[u,i]).sort((a,b)=>parseFloat(a[0].n)-parseFloat(b[0].n)).map(([u,i])=>`<div class="card ghc" onclick="ghTap(event,this)"><span class="ghx" aria-hidden="true">⌄</span><div class="mu">Unit ${u.n}</div><b style="font-size:18px;display:block;padding-right:24px">${u.t}</b><div class="mu ghs">${u.s}</div><div class="row ghb"><button class="p" style="flex:1" onclick="gramLesson(${i},0)">📖 Learn</button><button class="p" style="flex:1" onclick="gramPractice(${i})">🎯 Practice</button></div></div>`).join('')+`<button class="w" onclick="home()">← Home</button>`}
 function ghTap(e,el){if(e.target.closest('button'))return;const o=el.classList.contains('open');document.querySelectorAll('.ghc.open').forEach(x=>x.classList.remove('open'));if(!o){el.classList.add('open');setTimeout(()=>{const r=el.getBoundingClientRect();if(r.bottom>innerHeight-20)el.scrollIntoView({block:'nearest',behavior:'smooth'})},30)}}
 function gramLesson(u,st){VIEW='menu';const L=UNITS[u].L,last=st==L.length-1;
   $.innerHTML=`<div class="gst"><div class="row" style="justify-content:space-between;align-items:center;flex:none"><button onclick="${JG?'home()':'gramHub()'}">✕</button><span class="mu">Unit ${UNITS[u].n} · ${st+1}/${L.length}</span></div>
@@ -1574,10 +1607,453 @@ function gramLesson(u,st){VIEW='menu';const L=UNITS[u].L,last=st==L.length-1;
   <div class="gsc" id="gsc" data-u="${u}" data-st="${st}"><div class="card">${L[st]()}</div></div>
   <div class="gsb"><button onclick="gramLesson(${u},${st-1})"${st>0?'':' disabled'}>← Back</button>${last?`<button class="p" onclick="gramPractice(${u})">🎯 Start practice</button>`:`<button class="p" onclick="gramLesson(${u},${st+1})">Next →</button>`}</div></div>`}
 /* tap the right half of a grammar page → next page, the left half → previous page (like stories) */
-document.addEventListener('click',e=>{const c=e.target.closest&&e.target.closest('#gsc');if(!c||e.target.closest('button,a,input,select,textarea,label,.wd,[onclick]'))return;
+document.addEventListener('click',e=>{const c=e.target.closest&&e.target.closest('#gsc');if(!c||e.target.closest('button,a,input,select,textarea,label,.wd,[onclick],[data-say]'))return;
   const sel=window.getSelection&&String(window.getSelection());if(sel)return;
-  const u=+c.dataset.u,st=+c.dataset.st,n=UNITS[u].L.length,r=c.getBoundingClientRect(),right=e.clientX>r.left+r.width/2;
+  const st=+c.dataset.st,r=c.getBoundingClientRect(),right=e.clientX>r.left+r.width/2;
+  if(c.dataset.bk){const n=+c.dataset.n;if(right){if(st<n-1)bkLesson(c.dataset.bk,st+1)}else if(st>0)bkLesson(c.dataset.bk,st-1);return}
+  const u=+c.dataset.u,n=UNITS[u].L.length;
   if(right){if(st<n-1)gramLesson(u,st+1)}else if(st>0)gramLesson(u,st-1)});
+/* ===== ver_74: Grammar handbook — "Я люблю русский!" A1, 14 units, explained in English ===== */
+const BKCASES={nom:['И.п.','Nominative','кто? что?'],gen:['Р.п.','Genitive','кого? чего? чей? откуда?'],dat:['Д.п.','Dative','кому? чему? к кому?'],acc:['В.п.','Accusative','кого? что? куда?'],ins:['Т.п.','Instrumental','кем? чем? с кем?'],pre:['П.п.','Prepositional','где? о ком? о чём?']};
+const BKFIG={
+where:()=>`<svg viewBox="0 0 660 190" role="img" aria-label="Где, куда, откуда">
+<rect x="250" y="40" width="160" height="110" rx="8" class="boxf"/><path d="M240 46 L330 6 L420 46" class="ln"/>
+<text x="330" y="80" text-anchor="middle" class="ru" style="fill:var(--c-pre)">Где?</text>
+<text x="330" y="100" text-anchor="middle" class="mu">в / на + П.п.</text><text x="330" y="118" text-anchor="middle" class="mu">у + Р.п.</text>
+<circle cx="330" cy="136" r="5" class="dotf"/>
+<path d="M30 95 H236" class="nv"/><path d="M226 87 L238 95 L226 103" class="nv"/>
+<text x="40" y="80" class="ru" style="fill:var(--c-acc)">Куда?</text><text x="40" y="122" class="mu">в / на + В.п.</text><text x="40" y="140" class="mu">к + Д.п.</text>
+<path d="M424 95 H630" class="ac"/><path d="M620 87 L632 95 L620 103" class="ac"/>
+<text x="440" y="80" class="ru" style="fill:var(--c-gen)">Откуда?</text><text x="440" y="122" class="mu">из / с + Р.п.</text><text x="440" y="140" class="mu">от + Р.п.</text>
+<text x="40" y="176" class="mu">иду в банк · к подруге</text><text x="250" y="176" class="mu">в банке · у подруги</text><text x="440" y="176" class="mu">из банка · от подруги</text></svg>`,
+motion:()=>{const r=(g,ru,v)=>`<div><svg viewBox="0 0 72 26" width="72" height="26" aria-hidden="true">${g}</svg><span class="ru">${ru}</span><span class="v">${v}</span></div>`;
+const A='class="nv"',H='<path d="M52 22 V10 L61 4 L70 10 V22 Z" class="boxf"/>';
+return `<div class="mv">${
+r(`<path d="M4 13 H62" ${A}/><path d="M54 6 L64 13 L54 20" ${A}/>`,'идти / ехать','going right now, in one direction')+
+r(`<path d="M6 9 H60" ${A}/><path d="M52 3 L62 9 L52 15" ${A}/><path d="M66 19 H12" class="ac"/><path d="M20 13 L10 19 L20 25" class="ac"/>`,'ходить / ездить','there and back; regularly; have been somewhere')+
+r(`<circle cx="8" cy="13" r="4" class="dotf"/><path d="M16 13 H62" ${A} stroke-dasharray="5 4"/><path d="M54 6 L64 13 L54 20" ${A}/>`,'пойти / поехать','set off; will go (future)')+
+r(`${H}<path d="M2 16 H46" ${A}/><path d="M38 9 L48 16 L38 23" ${A}/>`,'прийти / приехать','arrive (→ в/на + В.п., к + Д.п.)')+
+r(`<path d="M2 22 V10 L11 4 L20 10 V22 Z" class="boxf"/><path d="M26 16 H66" class="ac"/><path d="M58 9 L68 16 L58 23" class="ac"/>`,'уйти / уехать','leave (← из/с + Р.п., от + Р.п.)')}</div>`},
+aspect:()=>`<svg viewBox="0 0 640 150" role="img" aria-label="НСВ процесс и СВ результат">
+<text x="0" y="22" class="ru" style="fill:var(--pr)">НСВ · процесс</text><text x="150" y="22" class="mu">Как долго? долго, 3 часа, весь день, всё утро</text>
+<path d="M10 50 q15 -14 30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0" class="nv"/>
+<text x="10" y="80" class="mu">Он долго писал тест. · Она повторяла правило два часа.</text>
+<text x="0" y="110" class="ru" style="fill:var(--gk-ac)">СВ · результат</text><text x="150" y="110" class="mu">уже, наконец, хорошо</text>
+<path d="M10 132 H400" class="ac"/><path d="M394 120 L418 144 M418 120 L394 144" class="ac"/>
+<text x="430" y="137" class="mu">Он уже написал тест.</text></svg>`,
+seq:()=>`<svg viewBox="0 0 640 140" role="img" aria-label="Параллельные и последовательные действия">
+<text x="0" y="18" class="ru">Параллельно · НСВ + НСВ</text>
+<path d="M10 40 H280" class="nv"/><path d="M272 33 L282 40 L272 47" class="nv"/><path d="M10 60 H280" class="nv"/><path d="M272 53 L282 60 L272 67" class="nv"/>
+<text x="10" y="90" class="mu">Когда Рауль читал рассказ,</text><text x="10" y="108" class="mu">он писал новые слова.</text>
+<text x="340" y="18" class="ru">Последовательно · СВ → СВ</text>
+<path d="M350 50 H470" class="ac"/><path d="M462 43 L472 50 L462 57" class="ac"/><path d="M490 50 H610" class="ac"/><path d="M602 43 L612 50 L602 57" class="ac"/>
+<text x="350" y="40" class="mu">1</text><text x="490" y="40" class="mu">2</text>
+<text x="350" y="90" class="mu">Когда он прочитал рассказ,</text><text x="350" y="108" class="mu">он ответил на вопросы.</text></svg>`,
+compass:()=>`<svg viewBox="0 0 360 190" role="img" aria-label="Стороны света">
+<path d="M180 30 V160 M90 95 H270 M120 45 L240 145 M240 45 L120 145" class="ln" stroke-dasharray="3 4"/>
+<circle cx="180" cy="95" r="6" class="dotf"/>
+<text x="180" y="22" text-anchor="middle" class="ru">север</text><text x="180" y="180" text-anchor="middle" class="ru">юг</text>
+<text x="82" y="100" text-anchor="end" class="ru">запад</text><text x="278" y="100" class="ru">восток</text>
+<text x="112" y="40" text-anchor="end" class="mu">северо-запад</text><text x="248" y="40" class="mu">северо-восток</text>
+<text x="112" y="158" text-anchor="end" class="mu">юго-запад</text><text x="248" y="158" class="mu">юго-восток</text>
+<text x="196" y="116" class="mu">в центре</text></svg>`,
+time:()=>`<svg viewBox="0 0 640 130" role="img" aria-label="Раньше, сейчас, потом">
+<path d="M20 60 H620" class="ln"/><path d="M610 53 L622 60 L610 67" class="ln"/>
+<circle cx="320" cy="60" r="7" class="dotf"/>
+<text x="320" y="40" text-anchor="middle" class="ru" style="fill:var(--gk-ac)">сейчас</text>
+<text x="120" y="40" text-anchor="middle" class="ru">раньше · … назад</text><text x="520" y="40" text-anchor="middle" class="ru">потом · через …</text>
+<text x="120" y="88" text-anchor="middle" class="mu">я читал(а) · был(а) дома</text><text x="320" y="88" text-anchor="middle" class="mu">я читаю · я дома</text><text x="520" y="88" text-anchor="middle" class="mu">я буду читать · буду дома</text>
+<text x="120" y="112" text-anchor="middle" class="mu">Год назад я отдыхал на море.</text><text x="520" y="112" text-anchor="middle" class="mu">Через час я буду отдыхать.</text></svg>`,
+pose:()=>`<svg viewBox="0 0 540 150" role="img" aria-label="стоять, лежать, висеть">
+<path d="M10 120 H530" class="ln"/>
+<rect x="70" y="50" width="34" height="70" rx="4" class="boxf"/><path d="M70 50 h34 v70 h-34 Z" class="nv"/>
+<text x="87" y="142" text-anchor="middle" class="ru">стоять</text>
+<rect x="220" y="104" width="90" height="16" rx="3" class="boxf"/><path d="M220 104 h90 v16 h-90 Z" class="nv"/>
+<text x="265" y="142" text-anchor="middle" class="ru">лежать</text>
+<path d="M400 10 V110" class="ln"/><path d="M440 18 L460 30 L480 18" class="ln"/><rect x="430" y="30" width="60" height="44" rx="3" class="boxf"/><path d="M430 30 h60 v44 h-60 Z" class="nv"/><circle cx="460" cy="18" r="3" class="dotf"/>
+<text x="460" y="142" text-anchor="middle" class="ru">висеть</text>
+<text x="87" y="30" text-anchor="middle" class="mu">стул, шкаф</text><text x="265" y="90" text-anchor="middle" class="mu">ковёр, книга</text><text x="410" y="96" class="mu">картина, часы</text></svg>`,
+place:()=>`<svg viewBox="0 0 560 210" role="img" aria-label="около, напротив, слева от, справа от">
+<rect x="220" y="40" width="120" height="70" rx="6" class="boxf"/><text x="280" y="80" text-anchor="middle" class="ru">театр</text>
+<circle cx="150" cy="75" r="7" class="dotf"/><text x="150" y="60" text-anchor="middle" class="ru">слева от</text><text x="150" y="100" text-anchor="middle" class="mu">театра</text>
+<circle cx="410" cy="75" r="7" class="dotf"/><text x="410" y="60" text-anchor="middle" class="ru">справа от</text><text x="410" y="100" text-anchor="middle" class="mu">театра</text>
+<path d="M60 135 H500" class="ln" stroke-dasharray="8 6"/><text x="505" y="139" class="mu">улица</text>
+<circle cx="280" cy="168" r="7" class="dotf"/><text x="280" y="196" text-anchor="middle" class="ru">напротив театра</text>
+<circle cx="352" cy="28" r="5" class="dotf"/><text x="362" y="24" class="ru">около театра</text></svg>`,
+freq:()=>{const b=[['всегда',100],['каждый день',100],['обычно',75],['часто',50],['иногда',25],['редко',10],['никогда не',0]];return `<div class="gkbars">${b.map(([w,p])=>`<div class="gkbar"><span class="ru">${w}</span><span class="w"><i style="width:${p}%"></i></span><span class="p">${p}%</span></div>`).join('')}</div>`},
+day:()=>`<div class="gkday">${[['утром','04–12',8],['днём','12–17',5],['вечером','17–00',7],['ночью','00–04',4]].map(([w,h,f])=>`<div style="flex:${f}"><span class="ru">${w}</span><span class="h">${h}</span></div>`).join('')}</div>`
+};
+const BK=[
+{u:1,ru:'Привет!',en:'Hello!',items:[
+{n:'1.1',t:'Personal pronouns',r:'Местоимения',p:8,c:['nom'],d:'The seven basic pronouns. <b>Вы</b> is written with a capital letter when you speak politely to one person (someone older, a stranger, a teacher); <b>вы</b> usually means “you (all)”.',
+tb:[['Singular','Plural'],['я · I','мы · we'],['ты · you (informal)','вы / Вы · you (all) / you (polite)'],['он · he, она · she','они · they']],
+ex:[['я + ты = мы','I + you = we'],['он + она = они','he + she = they'],['Здравствуйте, Анна Петровна! Как Вы?','Hello, Anna Petrovna! How are you?']]},
+{n:'1.2',t:'Asking someone’s name: Как тебя зовут?',r:'Местоимения в И.п. и В.п.',p:9,c:['nom','acc'],d:'Russians literally say “They call <i>me</i>…”, so the pronoun is in the accusative case (В.п.).',
+tb:[['Кто? (И.п.)','Как … зовут? (В.п.)'],['я','{меня} зовут'],['ты','{тебя} зовут'],['он / она','{его} / {её} зовут'],['мы · вы · они','{нас} · {вас} · {их} зовут']],
+ex:[['— Как тебя зовут? — Меня зовут Джим.','— What’s your name? — My name is Jim.'],['Его зовут Марк, а её зовут Анна.','His name is Mark, and her name is Anna.']]},
+{n:'1.3',t:'Кто это? and Что это?',r:'Кто это? / Что это?',p:11,c:['nom'],d:'<b>Кто?</b> is used for people and animals, <b>Что?</b> for things. “This is…” is just <b>Это</b> + noun – there is no verb “is”. To negate, put <b>не</b> before the word you negate.',
+ex:[['— Кто это? — Это мама. Это собака.','— Who is this? — This is Mom. This is a dog.'],['— Что это? — Это стол.','— What is this? — This is a table.'],['— Это спортсмен? — Нет, это не спортсмен, это студент.','— Is this an athlete? — No, this is not an athlete, this is a student.']]},
+{n:'1.4',t:'Gender of nouns: он, она, оно, они',r:'Род существительных',p:12,c:['nom'],d:'Look at the last letter to guess the gender. Nouns in <b>-ь</b> can be masculine or feminine – learn them together with the word.',
+tb:[['он (masc.)','она (fem.)','оно (neut.)','они (plural)'],['телефон (ø), музе{й}, слова{рь}','книг{а}, Росси{я}, тетрад{ь}','окн{о}, каф{е}','час{ы}, очк{и}']],
+tip:'Exceptions: <span class="ru">папа, дедушка</span> are masculine (they are men); <span class="ru">кофе</span> is masculine; <span class="ru">время, имя</span> are neuter.'},
+{n:'1.5',t:'Where? здесь, там, слева, справа',r:'Где?',p:12,c:[],d:'Answer the question <b>Где?</b> with an adverb of place. <b>Вот</b> means “here it is / there it is” when you point at something.',
+ex:[['— Где аптека? — Аптека там, слева.','— Where is the pharmacy? — The pharmacy is over there, on the left.'],['— Где метро? — Вот оно!','— Where is the metro? — Here it is!'],['Ресторан здесь, справа.','The restaurant is here, on the right.']]}
+]},
+{u:2,ru:'Кто вы?',en:'Who are you?',items:[
+{n:'2.1',t:'Professions: masculine and feminine',r:'Профессии: он / она',p:16,c:[],d:'Many professions have a feminine form with <b>-ка</b>, <b>-ица</b>, or a different word. Some have only one form for both (врач, инженер, юрист, программист).',
+tb:[['он','она'],['официант','официант{ка}'],['журналист','журналист{ка}'],['спортсмен','спортсмен{ка}'],['актёр','актр{иса}'],['певец','пев{ица}']],
+ex:[['— Кто Вы по профессии? — Я программист.','— What do you do for a living? — I am a programmer.'],['Она врач, а он инженер.','She is a doctor, and he is an engineer.']]},
+{n:'2.2',t:'Verbs, group I: знать, думать',r:'I спряжение',p:18,c:[],d:'Drop <b>-ть</b> from the infinitive and add the ending for each person. Group I endings have the vowel <b>-е-</b>.',
+tb:[['','знать','ending'],['я','зна{ю}','-ю'],['ты','зна{ешь}','-ешь'],['он/она','зна{ет}','-ет'],['мы','зна{ем}','-ем'],['вы','зна{ете}','-ете'],['они','зна{ют}','-ют']],
+ex:[['Я знаю. Ты не знаешь.','I know. You don’t know.'],['Мы думаем, что это интересно.','We think that it is interesting.']],tip:'Same pattern: <span class="ru">думать, работать, читать, слушать, понимать, гулять, играть, отдыхать</span>.'},
+{n:'2.3',t:'Это vs. этот, эта, эти',r:'Это / этот, эта, эти',p:18,c:[],d:'<b>Это</b> (never changes) means “this is…”. <b>Этот / эта / эти</b> mean “this … / these …”, stand before a noun and change with its gender.',
+tb:[['он','она','они'],['{этот} журналист','{эта} актриса','{эти} люди']],
+ex:[['Это Анна. Эта девушка — актриса.','This is Anna. This girl is an actress.'],['Этот мужчина — врач.','This man is a doctor.']]},
+{n:'2.4',t:'Where are you from? из + Genitive',r:'Откуда? из + Р.п.',p:19,c:['gen'],d:'After <b>из</b> a country name goes into the genitive: <b>-а → -ы</b>, <b>-я / -ия → -и</b>, masculine adds <b>-а</b>.',
+tb:[['Это…','Я из…'],['Россия','из Росси{и}'],['Америка','из Америк{и}'],['Китай','из Кита{я}'],['Франция','из Франци{и}']],
+ex:[['— Откуда Вы? — Я из Вьетнама.','— Where are you from? — I am from Vietnam.'],['Жаклин из Франции.','Jacqueline is from France.']]},
+{n:'2.5',t:'Nationality, language, по-русски',r:'Национальность и язык',p:20,c:[],d:'Each country has three “people” words (man / woman / plural). To say you speak a language, use the adverb <b>по-…ски</b>.',
+tb:[['Страна','он','она','они','Как?'],['Россия','русский','русская','русские','по-русски'],['Англия','англичанин','англичанка','англичане','по-английски'],['Америка','американец','американка','американцы','по-английски'],['Франция','француз','француженка','французы','по-французски']],
+ex:[['— Как Вы говорите по-русски? — Немного.','— How well do you speak Russian? — A little.']],tip:'Scale: <span class="ru">очень хорошо › хорошо › неплохо › немного › чуть-чуть › плохо › совсем не говорю</span>.'},
+{n:'2.6',t:'Verbs, group II: говорить',r:'II спряжение',p:20,c:[],d:'Group II verbs (usually ending in <b>-ить</b>) have the vowel <b>-и-</b> in their endings; the “они” form ends in <b>-ят / -ат</b>.',
+tb:[['','говорить','ending'],['я','говор{ю}','-ю / -у'],['ты','говор{ишь}','-ишь'],['он/она','говор{ит}','-ит'],['мы','говор{им}','-им'],['вы','говор{ите}','-ите'],['они','говор{ят}','-ят / -ат']],
+ex:[['Ты говоришь по-английски?','Do you speak English?'],['Они говорят по-русски.','They speak Russian.']]},
+{n:'2.7',t:'Numbers 11–100',r:'Числительные',p:21,c:[],d:'11–19 add <b>-надцать</b>; 20 and 30 add <b>-дцать</b>; 50–80 add <b>-десят</b>. Compound numbers: <span class="ru">двадцать один</span> = 21.',
+tb:[['11–19','20–100'],['одиннадцать, двенадцать, тринадцать…','двадцать, тридцать, сорок'],['пятнадцать, шестнадцать…','пятьдесят, шестьдесят, семьдесят, восемьдесят'],['девятнадцать','девяносто, сто']]},
+{n:'2.8',t:'Asking age: Сколько Вам лет?',r:'Мне … год / года / лет',p:22,c:['dat'],d:'The person whose age you give is in the dative (Д.п.). The word for “years” depends on the last digit.',
+tb:[['Кому?','Last digit','Word'],['мне, тебе, ему, ей','1 (21, 31…)','{год}'],['нам, вам, им','2, 3, 4 (22…)','{года}'],['','5–20, 25–30…','{лет}']],
+ex:[['— Сколько тебе лет? — Мне двадцать один год.','— How old are you? — I am twenty-one.'],['Ему двадцать два года, а ей двадцать пять лет.','He is twenty-two, and she is twenty-five.']]}
+]},
+{u:3,ru:'Моя семья',en:'My family',items:[
+{n:'3.1',t:'Possessive pronouns: мой, твой, наш, ваш',r:'Притяжательные местоимения',p:27,c:[],d:'Possessive pronouns agree with the gender of the <i>thing owned</i>. <b>его, её, их</b> never change. Question: <b>чей / чья / чьё / чьи?</b>',
+tb:[['','он · чей?','она · чья?','оно · чьё?','они · чьи?'],['my','мой брат','мо{я} сестра','мо{ё} вино','мо{и} родители'],['your','твой','тво{я}','тво{ё}','тво{и}'],['our','наш','наш{а}','наш{е}','наш{и}'],['your (pl.)','ваш','ваш{а}','ваш{е}','ваш{и}'],['his / her / their','его / её / их','его / её / их','его / её / их','его / её / их']],
+ex:[['— Чья это сумка? — Это моя сумка.','— Whose bag is this? — It’s my bag.'],['Это его дети.','These are his children.']]},
+{n:'3.2',t:'уже and ещё',r:'уже ≠ ещё',p:29,c:[],d:'<b>уже</b> = already; <b>ещё</b> = still. In the negative: <b>ещё не</b> = not yet; <b>уже не</b> = no longer.',
+ex:[['— Ты уже работаешь? — Нет, я ещё учусь.','— Do you already work? — No, I am still studying.'],['Я ещё не работаю.','I don’t work yet.'],['Дедушка уже не работает.','Grandpa doesn’t work any more.']]},
+{n:'3.3',t:'Verbs in -ся: заниматься',r:'Глаголы на -ся',p:30,c:['ins'],d:'The ending <b>-ся</b> comes after the conjugated form; after a vowel it becomes <b>-сь</b>. <span class="ru">заниматься</span> + instrumental: to do (a sport), to study (music).',
+tb:[['','заниматься'],['я','занимаю{сь}'],['ты','занимаешь{ся}'],['он/она','занимает{ся}'],['мы','занимаем{ся}'],['вы','занимаете{сь}'],['они','занимают{ся}']],
+ex:[['Я занимаюсь спортом.','I do sports.'],['Сестра занимается музыкой.','My sister studies music.']]},
+{n:'3.4',t:'Почему? — Потому что…',r:'Почему? — Потому что',p:31,c:[],d:'Ask for a reason with <b>Почему?</b> and answer with <b>Потому что</b> + a clause.',
+ex:[['— Почему ты не работаешь? — Потому что я студент.','— Why don’t you work? — Because I am a student.']]},
+{n:'3.5',t:'Как? or Что? with languages',r:'говорить по-русски / изучать русский язык',p:32,c:['acc'],d:'<b>говорить, читать, писать, понимать</b> + <b>как?</b> (по-русски). <b>изучать, знать, понимать</b> + <b>что?</b> (русский язык, accusative).',
+ex:[['Я читаю по-русски.','I read in Russian.'],['Я изучаю русский язык.','I study the Russian language.'],['Он знает английский язык.','He knows English.']]},
+{n:'3.6',t:'What time is it? час / часа / часов',r:'Сколько сейчас времени?',p:33,c:['gen'],d:'Same rule as with age: the noun ending depends on the last digit. <b>Когда?</b> (when) → <b>в</b> + the time.',
+tb:[['Last digit','час (hour)','минута (minute)'],['1, 21','один {час}','одна {минута}'],['2, 3, 4','два {часа}','две {минуты}'],['0, 5–20, 30','пять {часов}','пять {минут}']],
+ex:[['Сейчас двадцать один час тридцать одна минута.','It is now 21:31.'],['— Когда он работает? — В десять часов.','— When does he work? — At ten o’clock.']]},
+{n:'3.7',t:'I have…: У меня есть',r:'У кого есть кто / что',p:35,c:['gen'],d:'Russian says “<b>at someone’s</b> there is…”: <b>у</b> + genitive + <b>есть</b> + the thing (nominative). This table also brings together the three pronoun forms you know.',
+tb:[['Это… (И.п.)','… зовут (В.п.)','У … есть (Р.п.)'],['я','меня','у {меня}'],['ты','тебя','у {тебя}'],['он / она','его / её','у {него} / у {неё}'],['мы · вы · они','нас · вас · их','у нас · у вас · у {них}']],
+ex:[['У меня есть брат.','I have a brother.'],['У неё есть собака.','She has a dog.']],tip:'After <span class="ru">у</span> add <b>н-</b>: у <b>н</b>его, у <b>н</b>её, у <b>н</b>их.'},
+{n:'3.8',t:'Genitive of possession: книга Дениса',r:'Родительный падеж',p:36,c:['gen'],d:'The owner comes <i>after</i> the thing and is in the genitive. Names change their endings like this.',
+tb:[['','Dictionary form','Genitive'],['он: ø → -а','Денис','игрушка Денис{а}'],['он: -й, -ь → -я','Андрей, Игорь','Андре{я}, Игор{я}'],['она: -а → -ы','Елена','Елен{ы}'],['она: -я → -и','Юля','Юл{и}'],['она: к, г, х + а → -и','Вика','Вик{и}'],['она: -ь → -и','Любовь','Любов{и}']],
+ex:[['Это машина Андрея.','This is Andrey’s car.'],['Это кошка Вики.','This is Vika’s cat.']]},
+{n:'3.9',t:'2, 3, 4 + genitive singular',r:'Р.п. с числами 2, 3, 4',p:37,c:['gen'],d:'After <b>2, 3, 4</b> the noun is in the genitive singular. The numbers 1 and 2 change with gender: <b>один / одна</b>, <b>два / две</b>.',
+tb:[['','1','2, 3, 4'],['он','один журнал','два журнал{а}'],['она','одна машина, тетрадь','две машин{ы}, тетрад{и}']],
+ex:[['У меня есть два брата и три сестры.','I have two brothers and three sisters.'],['У них две дочери.','They have two daughters.']]}
+]},
+{u:4,ru:'Живу, учусь, работаю',en:'I live, study, work',items:[
+{n:'4.1',t:'Prepositional case: Where? в / на + П.п.',r:'Предложный падеж · Где?',p:42,c:['pre'],d:'Answer <b>Где?</b> with <b>в</b> or <b>на</b> + prepositional. Most words take <b>-е</b>; words ending in <b>-ия, -ие, -ий</b> and feminine nouns in <b>-ь</b> take <b>-и</b>.',
+tb:[['Gender','Ending','Example'],['он','ø, -й, -ь → -е','в магазин{е}, в музе{е}, в Ярославл{е}'],['он','-ий → -ии','в санатори{и}'],['она','-а, -я → -е','в библиотек{е}, в деревн{е}'],['она','-ия → -ии; -ь → -и','в академи{и}; в Твер{и}'],['оно','-о, -е → -е; -ие → -ии','в посольств{е}, на мор{е}; в здани{и}']],
+ex:[['— Где вы сейчас? — Мы в магазине.','— Where are you now? — We are in the shop.']],tip:'Never change: <span class="ru">в метро, в кафе, в кино</span>. At home = <span class="ru">дома</span>.'},
+{n:'4.2',t:'The verb жить (to live)',r:'жить + где?',p:43,c:['pre'],d:'A group I verb, but the stem becomes <b>жив-</b>.',
+tb:[['я живу','мы живём'],['ты живёшь','вы живёте'],['он/она живёт','они живут']],
+ex:[['Я живу в России.','I live in Russia.'],['Ты живёшь в Германии?','Do you live in Germany?']]},
+{n:'4.3',t:'The verb учиться (to study)',r:'учиться + где?',p:44,c:['pre'],d:'<span class="ru">учиться</span> = to study somewhere (a school, a university); different from <span class="ru">изучать</span> + a subject.',
+tb:[['я учусь','мы учимся'],['ты учишься','вы учитесь'],['он/она учится','они учатся']],
+ex:[['Я учусь в университете.','I study at university.'],['Дети учатся в школе.','The children go to school.']]},
+{n:'4.4',t:'в or на? (inside or on top)',r:'в / на',p:45,c:['pre'],d:'<b>в</b> = inside a closed space; <b>на</b> = on a surface.',
+ex:[['Ключ в сумке.','The key is in the bag.'],['Книга на столе.','The book is on the table.'],['Картина на стене, пальто на вешалке.','The picture is on the wall, the coat is on the hanger.']]},
+{n:'4.5',t:'Giving an address',r:'Мой адрес',p:46,c:['pre'],d:'Go from big to small; each part has its own preposition: <b>в</b> городе, <b>на</b> улице, <b>в</b> доме, <b>в</b> квартире.',
+ex:[['Он живёт в Москве, на улице Ленина, в доме 94, в квартире 114.','He lives in Moscow, on Lenin Street, in house 94, flat 114.']]},
+{n:'4.6',t:'Judging with adverbs: Жить здесь хорошо',r:'Наречия-оценки',p:48,c:[],d:'The pattern <b>infinitive + adverb</b> gives an opinion about an activity.',
+tb:[['+','−'],['прекрасно, хорошо','плохо, ужасно'],['дёшево','дорого'],['легко','трудно'],['весело, интересно','грустно, скучно']],
+ex:[['Жить в деревне хорошо.','Living in the country is good.'],['Учиться в университете трудно, но интересно.','Studying at university is hard but interesting.']]},
+{n:'4.7',t:'потому что and поэтому',r:'потому что / поэтому',p:49,c:[],d:'<b>потому что</b> introduces the <i>cause</i> (because); <b>поэтому</b> introduces the <i>result</i> (so, that’s why).',
+ex:[['Джон плохо говорит по-русски, потому что он мало изучает язык.','John speaks Russian badly because he studies the language very little.'],['Джон мало изучает язык, поэтому он плохо говорит по-русски.','John studies the language very little, so he speaks Russian badly.']]}
+]},
+{u:5,ru:'Города, страны',en:'Cities and countries',items:[
+{n:'5.1',t:'Plural of nouns',r:'Множественное число',p:56,c:['nom'],d:'Masculine and feminine nouns usually add <b>-ы</b> or <b>-и</b>; neuter nouns change <b>-о → -а</b>, <b>-е → -я</b>.',
+tb:[['Ending','Plural','Example'],['ø, -а','-ы','магазин{ы}, школ{ы}'],['-й, -я, -ь','-и','музе{и}, академи{и}, словар{и}, церкв{и}'],['after к, г, х, ж, ш, ч, щ','-и','банк{и}, рынк{и}, пляж{и}, аптек{и}'],['-о','-а','окн{а}, озёр{а}'],['-е','-я','мор{я}']],
+tip:'Spelling rule: after <span class="ru">к, г, х, ж, ш, ч, щ</span> never write <span class="ru">ы</span>. Learn by heart: <span class="ru">дома, города, леса, острова; друзья, братья, стулья; люди, дети; сёстры, дочери</span>.'},
+{n:'5.2',t:'Adjectives: какой, какая, какое, какие',r:'Прилагательные',p:59,c:['nom'],d:'Adjectives change their ending with the gender and number of the noun. The ending <b>-ой</b> is used only when the stress falls on the ending (молодой, большой).',
+tb:[['','Какой? (он)','Какая? (она)','Какое? (оно)','Какие? (они)'],['hard','красив{ый}, молод{ой}','красив{ая}','красив{ое}','красив{ые}'],['soft','син{ий}, последн{ий}','син{яя}','син{ее}','син{ие}'],['after ж, ш, ч, щ','хорош{ий}, больш{ой}','хорош{ая}','хорош{ее}, больш{ое}','хорош{ие}'],['after к, г, х','русск{ий}, дорог{ой}','русск{ая}','русск{ое}','русск{ие}']],
+ex:[['— Какой это город? — Это большой город.','— What kind of city is it? — It is a big city.'],['Здесь прекрасные музеи и недорогие рестораны.','There are wonderful museums and inexpensive restaurants here.']]},
+{n:'5.3',t:'Conjunctions и, а, но',r:'Союзы и, а, но',p:60,c:[],d:'<b>и</b> joins two ideas that go the same way (+ и +); <b>но</b> joins opposite ideas (+ но −); <b>а</b> compares two different things.',
+ex:[['Петербург — большой и красивый город.','Petersburg is a big and beautiful city.'],['Наша комната большая, но совсем некрасивая.','Our room is big but not pretty at all.'],['Наша комната большая, а ваша маленькая.','Our room is big, and yours is small.']]},
+{n:'5.4',t:'Directions: на севере, в центре',r:'Стороны света',p:61,c:['pre','gen'],d:'Compass directions use <b>на</b> + prepositional; only “in the centre” is <b>в центре</b>. The larger place follows in the genitive.',fig:'compass',
+ex:[['— Где находится Италия? — На юге Европы.','— Where is Italy? — In the south of Europe.'],['Москва находится на западе России.','Moscow is in the west of Russia.']]},
+{n:'5.5',t:'Reading an email address in Russian',r:'@ собака, . точка',p:64,c:[],d:'Russians call the <b>@</b> sign <b>собака</b> (dog), and the dot is <b>точка</b>.',
+ex:[['anna@mail.ru — анна собака мэйл точка ру','anna@mail.ru']]}
+]},
+{u:6,ru:'Что Вы делали вчера?',en:'What did you do yesterday?',items:[
+{n:'6.1',t:'Prepositional with stressed -у',r:'в саду, на полу',p:66,c:['pre'],d:'Some one-syllable masculine nouns take the ending <b>-у</b> (always stressed) after <b>в / на</b> for a place.',
+tb:[['Что?','Где?'],['сад, лес, шкаф','в сад{у}, в лес{у}, в шкаф{у}'],['аэропорт','в аэропорт{у}'],['пол, берег, мост','на пол{у}, на берег{у}, на мост{у}'],['угол','в угл{у} (in the corner) / на угл{у} (on the street corner)']],
+ex:[['Дети играют в саду.','The children are playing in the garden.'],['Кафе на углу.','The café is on the corner.']]},
+{n:'6.2',t:'В or НА? The extended table',r:'в или на',p:67,c:['pre'],d:'Most words take <b>в</b>. <b>на</b> is used for open spaces (streets, squares), islands, events and activities (lessons, concerts, work). Learn them in pairs.',
+tb:[['в','на'],['в стране','на острове'],['в городе, в парке','на улице, на проспекте, на площади, на стадионе, на вокзале, на почте, на заводе'],['в магазине','на рынке'],['в деревне','на даче'],['в школе, в университете','на уроке, на лекции, на экзамене'],['в офисе','на работе'],['в театре, в музее','на опере, на балете, на экскурсии, на выставке, на концерте']]},
+{n:'6.3',t:'Agreeing: согласен, согласна',r:'Я согласен ≠ Я не согласен',p:68,c:[],d:'A short-form adjective that agrees with the speaker’s gender.',
+tb:[['я, ты, он','я, ты, она','мы, вы, они'],['соглас{ен}','соглас{на}','соглас{ны}']],
+ex:[['— Ты согласна? — Нет, я не согласна.','— Do you agree? — No, I don’t agree.']]},
+{n:'6.4',t:'Days of the week: в + accusative',r:'Когда? в понедельник',p:69,c:['acc'],d:'Answer <b>Когда?</b> with a day of the week: <b>в</b> + accusative (feminine <b>-а → -у</b>). Before <span class="ru">вторник</span> write <b>во</b>.',
+tb:[['Что?','Когда?'],['понедельник, четверг','в понедельник, в четверг'],['вторник','{во} вторник'],['среда, пятница, суббота','в сред{у}, в пятниц{у}, в суббот{у}'],['воскресенье','в воскресенье'],['суббота + воскресенье = выходные','в выходные']],
+ex:[['позавчера → вчера → сегодня → завтра → послезавтра','the day before yesterday → yesterday → today → tomorrow → the day after tomorrow']]},
+{n:'6.5',t:'Past tense of быть: был, была, было, были',r:'Глагол быть · прошедшее время',p:70,c:[],d:'The present tense has no verb “to be”, but the past does: <b>быть</b> agrees with the gender and number of the subject. Impersonal comments use <b>было</b>.',
+tb:[['Сейчас','Вчера'],['я (ты, он) в баре','я {был} в баре'],['я (ты, она) в кафе','я {была} в кафе'],['мы (вы, они) на дискотеке','мы {были} на дискотеке'],['Там весело.','Там {было} весело.']]},
+{n:'6.6',t:'Parts of the day',r:'утром, днём, вечером, ночью',p:70,c:[],d:'Adverbs for the time of day; they answer the question <b>Когда?</b>',fig:'day',
+ex:[['Утром он был в кино.','In the morning he was at the cinema.']]},
+{n:'6.7',t:'Past tense of verbs',r:'Глагол · прошедшее время',p:71,c:[],d:'Drop <b>-ть</b> and add <b>-л</b> (masc.), <b>-ла</b> (fem.), <b>-ли</b> (plural). Verbs in <b>-ся</b> add <b>-ся / -сь</b> at the end.',
+tb:[['Инфинитив','я/ты/он','я/ты/она','мы/вы/они'],['делать','дела{л}','дела{ла}','дела{ли}'],['танцевать','танцева{л}','танцева{ла}','танцева{ли}'],['заниматься','занима{лся}','занима{лась}','занима{лись}'],['учиться','учи{лся}','учи{лась}','учи{лись}']],
+ex:[['В выходные Андрей гулял на озере.','At the weekend Andrey went for a walk by the lake.'],['Раньше она училась в школе, а сейчас учится в университете.','She used to go to school, and now she studies at university.']],tip:'In the present, <span class="ru">танцевать</span> changes <b>-ова-/-ева- → -у-</b>: танцую, танцуешь, танцуют.'},
+{n:'6.8',t:'Adjective or adverb?',r:'Какой? прекрасная / Как? прекрасно',p:72,c:[],d:'An adjective (<b>какой?</b>) goes with a noun. An adverb (<b>как?</b>) goes with a verb or in a sentence without a subject.',
+ex:[['У нас прекрасная дача.','We have a wonderful country house.'],['Музыка была весёлая. / Было весело.','The music was cheerful. / It was fun.'],['Я смотрел интересный детектив. / Было интересно.','I watched an interesting detective film. / It was interesting.']]}
+]},
+{u:7,ru:'Ресторан',en:'Restaurant',items:[
+{n:'7.1',t:'The verbs есть (to eat) and пить (to drink)',r:'есть, пить + что? (В.п.)',p:77,c:['acc'],d:'Two irregular verbs – learn both the present and the past.',
+tb:[['','есть','пить'],['я','ем','пью'],['ты','ешь','пьёшь'],['он/она','ест','пьёт'],['мы','едим','пьём'],['вы','едите','пьёте'],['они','едят','пьют'],['past','ел, ела, ели','пил, пила, пили']],
+ex:[['На завтрак я ем кашу и пью кофе.','For breakfast I eat porridge and drink coffee.']]},
+{n:'7.2',t:'Accusative of inanimate nouns',r:'Винительный падеж',p:78,c:['acc'],d:'The direct object (eat <i>what</i>, like <i>what</i>) is in the accusative. Only <b>feminine -а / -я</b> nouns change; all the others stay as in the nominative.',
+tb:[['','И.п. Это…','В.п. Я ем / пью…','Ending'],['он','сыр, чай','сыр, чай','= И.п.'],['оно','молоко, мороженое','молоко, мороженое','= И.п.'],['они','бананы, яблоки','бананы, яблоки','= И.п.'],['она','рыба, вишня, морковь','рыб{у}, вишн{ю}, морковь','-а → -у, -я → -ю, -ь = И.п.']]},
+{n:'7.3',t:'Adverbs of frequency',r:'всегда … никогда не',p:78,c:[],d:'Put them before the verb. <b>никогда</b> needs <b>не</b> before the verb (double negative).',fig:'freq',
+ex:[['Я никогда не ем мясо.','I never eat meat.'],['Что ты обычно ешь на завтрак?','What do you usually eat for breakfast?']]},
+{n:'7.4',t:'любить and готовить: б → бл, в → вл',r:'любить (II) + что? / + инфинитив',p:79,c:['acc'],d:'Group II verbs whose stem ends in <b>б, в, п, м</b> add <b>л</b> in the “я” form.',
+tb:[['','любить','готовить'],['я','люб{л}ю','готов{л}ю'],['ты','любишь','готовишь'],['они','любят','готовят']],
+ex:[['Я люблю кофе. А ты?','I love coffee. And you?'],['Ты хорошо готовишь мясо?','Do you cook meat well?']]},
+{n:'7.5',t:'The verb хотеть (to want)',r:'хотеть + что? (В.п.)',p:80,c:['acc'],d:'The singular is conjugated like group I (т becomes ч), the plural like group II.',
+tb:[['я хочу','мы хотим'],['ты хочешь','вы хотите'],['он/она хочет','они хотят']],
+ex:[['Я не хочу кофе. Я хочу чай.','I don’t want coffee. I want tea.']]},
+{n:'7.6',t:'Hundreds, thousands and roubles',r:'100–1000+, рубль / рубля / рублей',p:81,c:['gen'],d:'Read prices with the last-digit rule. When ordering, the number 1 agrees with the gender: один / одну / одно / одни.',
+tb:[['Number','Say'],['100–500','сто, двести, триста, четыреста, пятьсот'],['600–900','шестьсот, семьсот, восемьсот, девятьсот'],['1000+','тысяча, две тысячи, пять тысяч'],['1, 21, 31','{рубль}'],['2–4, 22–24','{рубля}'],['0, 5–20, 25–30','{рублей}']],
+ex:[['Будьте добры, один бутерброд и одну колу.','One sandwich and one cola, please.'],['— Сколько это стоит? — Пятьсот семьдесят шесть рублей.','— How much is it? — Five hundred seventy-six roubles.']]},
+{n:'7.7',t:'Accusative of adjectives',r:'В.п. прилагательных',p:83,c:['acc'],d:'Masculine (inanimate), neuter and plural adjectives stay the same. Feminine: <b>-ая → -ую</b>, <b>-яя → -юю</b>. Adjectives of nationality are a common example.',
+tb:[['','Какой / какая это…?','Какой / какую ты любишь?'],['он','дорогой шоколад','дорогой шоколад'],['оно','хорошее вино','хорошее вино'],['они','вкусные фрукты','вкусные фрукты'],['она','вкусная итальянская пицца','вкусн{ую} итальянск{ую} пиццу']],
+ex:[['Я люблю русскую кухню.','I love Russian cuisine.'],['Это чешское пиво, а это швейцарский шоколад.','This is Czech beer, and this is Swiss chocolate.']]},
+{n:'7.8',t:'Accusative of pronouns; how much you like it',r:'В.п. местоимений',p:84,c:['acc'],d:'Replace a noun you have already mentioned with an accusative pronoun.',
+tb:[['Это…','Ты любишь…?'],['я · ты','{меня} · {тебя}'],['он / оно · она','{его} · {её}'],['мы · вы · они','{нас} · {вас} · {их}']],
+ex:[['— Ты любишь швейцарский сыр? — Да, я его люблю.','— Do you like Swiss cheese? — Yes, I like it.']],tip:'Scale: <span class="ru">очень люблю › люблю › не очень люблю › не люблю › совсем не люблю</span>.'}
+]},
+{u:8,ru:'Мой день',en:'My day',items:[
+{n:'8.1',t:'вставать and ложиться',r:'вставать (I) ≠ ложиться (II)',p:90,c:[],d:'<span class="ru">вставать</span> drops <b>-ва-</b> when conjugated (встаю). <span class="ru">ложиться спать</span> = to go to bed. <b>рано</b> ≠ <b>поздно</b> (early ≠ late).',
+tb:[['','вставать','ложиться'],['я','встаю','ложусь'],['ты','встаёшь','ложишься'],['он/она','встаёт','ложится'],['мы','встаём','ложимся'],['вы','встаёте','ложитесь'],['они','встают','ложатся']],
+ex:[['Обычно я встаю рано, в 7 часов.','I usually get up early, at 7 o’clock.'],['Я ложусь спать в 23.00.','I go to bed at 11 pm.']]},
+{n:'8.2',t:'идти + Куда? (not Где?)',r:'Глагол идти · Где? П.п. → Куда? В.п.',p:90,c:['acc','pre'],d:'Being somewhere: <b>Где?</b> + prepositional. Going somewhere: <b>Куда?</b> + accusative. <span class="ru">идти</span> = to go on foot, in one direction, right now.',fig:'where',
+tb:[['','идти','Где? → Куда?'],['я','иду','в театр{е} → в театр'],['ты','идёшь','в музе{е} → в музей'],['он/она','идёт','на озер{е} → на озеро'],['мы','идём','на работ{е} → на работ{у}'],['вы','идёте','на лекци{и} → на лекци{ю}'],['они','идут','на площад{и} → на площадь']],
+ex:[['Это больница. Она работает в больнице. Она идёт в больницу.','This is a hospital. She works at the hospital. She is going to the hospital.']],tip:'<span class="ru">Где Антон? — Дома.</span> but <span class="ru">Куда идёт Антон? — Домой.</span>'},
+{n:'8.3',t:'ехать + Куда? and на чём?',r:'Глагол ехать',p:92,c:['acc','pre'],d:'<span class="ru">ехать</span> = to go by transport, in one direction. The means of transport: <b>на</b> + prepositional.',
+tb:[['','ехать','на чём?'],['я','еду','на машин{е}'],['ты','едешь','на автобус{е}'],['он/она','едет','на поезд{е}, на трамва{е}'],['мы','едем','на велосипед{е}'],['вы','едете','на метро'],['они','едут','на такси']],
+ex:[['Я в России. → Я еду в Россию.','I am in Russia. → I am going to Russia.'],['Татьяна едет на работу на машине.','Tatyana drives to work.']]},
+{n:'8.4',t:'ходить and ездить: going regularly',r:'ходить – ездить · настоящее время',p:94,c:['acc'],d:'Multidirectional verbs: for repeated trips or going there and back. They often go with adverbs of frequency (see 7.3).',fig:'motion',
+tb:[['','ходить (on foot)','ездить (by transport)'],['я','хо{ж}у','е{з}жу'],['ты','ходишь','ездишь'],['он/она','ходит','ездит'],['мы','ходим','ездим'],['вы','ходите','ездите'],['они','ходят','ездят']],
+ex:[['Сейчас Владимир идёт в спортзал. Он часто ходит в спортзал.','Vladimir is going to the gym now. He often goes to the gym.'],['Аня часто ездит в университет на велосипеде.','Anya often cycles to university.']]},
+{n:'8.5',t:'каждый, каждое, каждую, каждые',r:'Каждый + В.п.',p:95,c:['acc'],d:'“Every…” for time is in the accusative and agrees with the gender of the noun.',
+ex:[['каждый день, каждый вечер','every day, every evening'],['каждое утро','every morning'],['каждую среду, каждую пятницу','every Wednesday, every Friday'],['каждые выходные','every weekend']]},
+{n:'8.6',t:'ходил / ездил = went and came back',r:'ходить – ездить · прошедшее время',p:96,c:['acc','pre'],d:'The past <b>ходил / ездил</b> + Куда? means the same as <b>был</b> + Где?',
+tb:[['','Куда? (В.п.)','= Где? (П.п.)'],['Он ходил','в институт','= был в институт{е}'],['Она ездила','в Москву','= была в Москв{е}']],
+ex:[['— Том, куда ты ходил вчера? — Я ходил в Кремль.','— Tom, where did you go yesterday? — I went to the Kremlin.']]},
+{n:'8.7',t:'Future: пойти, поехать',r:'Глаголы идти – ехать · будущее время',p:97,c:['acc'],d:'Add <b>по-</b> to say “will go”. Often used with <b>завтра, послезавтра, в следующий…</b>; <b>в прошлый…</b> goes with the past.',
+tb:[['','пойти','поехать'],['я','пойду','поеду'],['ты','пойдёшь','поедешь'],['он/она','пойдёт','поедет'],['мы','пойдём','поедем'],['вы','пойдёте','поедете'],['они','пойдут','поедут']],
+ex:[['Завтра я пойду в театр на оперу.','Tomorrow I will go to the theatre to see an opera.'],['В следующий вторник мы поедем в Тулу.','Next Tuesday we will go to Tula.'],['Антон хочет есть. Он пойдёт в ресторан.','Anton is hungry. He will go to a restaurant.']]},
+{n:'8.8',t:'Free or busy; inviting and replying',r:'свободен ≠ занят · Давай пойдём!',p:99,c:[],d:'Short-form adjectives agree with gender. Invite with <b>Давай(те)</b> + the future “мы” form of the verb.',
+tb:[['','Free','Busy'],['я, ты, он','свобод{ен}','зан{ят}'],['я, ты, она','свобод{на}','зан{ята}'],['мы, вы, они','свобод{ны}','зан{яты}']],
+ex:[['— Давай пойдём в кафе! — С удовольствием!','— Let’s go to a café! — With pleasure!'],['— Хорошая идея, давай пойдём!','— Good idea, let’s go!'],['— К сожалению, я занят. Может быть, в следующий раз.','— Unfortunately I am busy. Maybe next time.']]}
+]},
+{u:9,ru:'Кино. Музыка. Театр.',en:'Cinema, music, theatre',items:[
+{n:'9.1',t:'любить and нравиться',r:'Я люблю оперу = Мне нравится опера',p:104,c:['acc','dat','nom'],d:'Two ways to say “like”. With <b>нравиться</b> the person who likes is in the dative and the thing liked is the subject in the nominative; the verb agrees with that thing (нравится / нравятся).',
+tb:[['любить + что? (В.п.)','нравиться: кому? (Д.п.) + что? (И.п.)'],['Я люблю джаз.','Мне нравится джаз.'],['Ты любишь классическую музыку?','Тебе нравится классическая музыка?'],['Он любит детективы.','Ему нравятся детективы.']],
+tip:'Scale: <span class="ru">ненавижу › не люблю › мне нравится › люблю › очень люблю</span>. <span class="ru">любить</span> also takes an infinitive: <span class="ru">люблю смотреть балет</span>.'},
+{n:'9.2',t:'Accusative of people (animate nouns)',r:'В.п. неодуш. и одуш.',p:105,c:['acc'],d:'Masculine nouns for people or animals change in the accusative (like the genitive); feminine nouns change as for things. Used with <span class="ru">любить, слушать, смотреть, знать, ждать, ненавидеть</span>.',
+tb:[['И.п.','что? (thing)','кого? (person)'],['концерт / Борис','концерт','Борис{а}'],['опера / Лариса','опер{у}','Ларис{у}'],['симфония / Валерия','симфони{ю}','Валери{ю}'],['Сергей','—','Серге{я}']],
+ex:[['Я обожаю Бориса Эйфмана.','I adore Boris Eifman.'],['Я жду Валерию.','I am waiting for Valeria.']],tip:'<span class="ru">ждать</span>: жду, ждёшь, ждёт, ждём, ждёте, ждут.'},
+{n:'9.3',t:'играть во что? and на чём?',r:'играть в + В.п. / на + П.п.',p:106,c:['acc','pre'],d:'Playing a sport or a game: <b>в</b> + accusative. Playing an instrument: <b>на</b> + prepositional.',
+ex:[['Он играет в футбол, в хоккей, в теннис.','He plays football, hockey and tennis.'],['Она играет на гитаре, на скрипке, на пианино.','She plays the guitar, the violin and the piano.']]},
+{n:'9.4',t:'The verbs писать and петь',r:'писать (I), петь (I)',p:107,c:[],d:'Two verbs whose stem changes when conjugated.',
+tb:[['','писать','петь'],['я','пишу','пою'],['ты','пишешь','поёшь'],['он/она','пишет','поёт'],['мы','пишем','поём'],['вы','пишете','поёте'],['они','пишут','поют'],['past','писал, -а, -и','пел, -а, -и']],
+ex:[['Я не пью, я пою в хоре.','I don’t drink, I sing in a choir.']]},
+{n:'9.5',t:'Compound future: буду + infinitive',r:'Будущее время',p:108,c:[],d:'Conjugate <b>быть</b> in the future and add an infinitive (imperfective aspect).',
+tb:[['я буду','мы будем'],['ты будешь','вы будете'],['он/она будет','они будут']],
+ex:[['Они будут смотреть футбол.','They will watch football.'],['Вечером я буду играть в теннис.','This evening I will play tennis.']]},
+{n:'9.6',t:'The three tenses',r:'Три времени глагола',p:108,c:[],d:'Summary: the past with <b>-л</b>, the present conjugated by person, the future with <b>буду</b> + infinitive.',fig:'time',
+tb:[['Раньше (past)','Сейчас (present)','Потом (future)'],['я / ты / он читал','я читаю','я буду читать'],['я / ты / она читала','ты читаешь','ты будешь читать'],['мы / вы / они читали','вы читаете','вы будете читать'],['был / была / были дома','я дома','я буду дома']]},
+{n:'9.7',t:'через and назад',r:'Предлоги через и назад',p:109,c:['acc','gen'],d:'<b>через</b> + a time = in (the future); a time + <b>назад</b> = ago (the past). The ending depends on the number.',
+tb:[['','1','2, 3, 4','5…20'],['минута','минут{у}','минуты','минут'],['час','час','часа','часов'],['день','день','дня','дней'],['неделя','недел{ю}','недели','недель'],['месяц','месяц','месяца','месяцев'],['год','год','года','{лет}']],
+ex:[['Через час я буду отдыхать.','In an hour I will be resting.'],['Две недели назад я ездил в Москву.','Two weeks ago I went to Moscow.']]},
+{n:'9.8',t:'Starting, lasting, ending',r:'начинается / идёт / заканчивается',p:110,c:[],d:'Talking about show times. <span class="ru">идёт</span> here means “is on / lasts”.',
+ex:[['— Когда начинается балет? — В 12 часов дня.','— When does the ballet start? — At 12 noon.'],['— Когда он заканчивается? — В три часа.','— When does it end? — At three o’clock.'],['— Сколько идёт спектакль? — Он идёт два часа.','— How long is the play? — It lasts two hours.']]},
+{n:'9.9',t:'Prepositional with о / об: talking about something',r:'Предложный падеж · О чём?',p:112,c:['pre'],d:'The endings are exactly the same as for place. Before a vowel use <b>об</b>.',
+tb:[['Что?','Где?','О чём?'],['город, музей, письмо','в город{е}, в музе{е}','о город{е}, о письм{е}'],['Москва, деревня','в Москв{е}','о деревн{е}'],['тетрадь','в тетрад{и}','о тетрад{и}'],['санаторий, общежитие, Россия','в Росси{и}','об общежити{и}']],
+ex:[['Это фильм о любви.','This is a film about love.'],['Фильм об истории.','A film about history.']]},
+{n:'9.10',t:'Past tense of понравиться',r:'Мне понравился фильм',p:113,c:['dat','nom'],d:'The verb agrees with the gender of the <i>thing liked</i>, not with the speaker.',
+tb:[['Thing','Мне (не) понравил…'],['фильм (masc.)','понравил{ся}'],['опера (fem.)','понравил{ась}'],['ток-шоу (neut.) / in general','понравил{ось}'],['актёры (plural)','понравил{ись}']],
+ex:[['Вчера я был в клубе. Мне очень понравилось.','Yesterday I went to a club. I liked it a lot.']]},
+{n:'9.11',t:'Prepositional of pronouns: о ком?',r:'П.п. личных местоимений',p:114,c:['pre'],d:'Used when you talk or think about someone.',
+tb:[['Кто это?','О ком мы говорим?'],['я · ты','{обо мне} · о тебе'],['он · она','о {нём} · о {ней}'],['мы · вы · они','о нас · о вас · о {них}']],
+ex:[['— Я сегодня думала о тебе. А ты обо мне?','— I thought about you today. And did you think about me?']]}
+]},
+{u:10,ru:'Дом, квартира',en:'House and flat',items:[
+{n:'10.1',t:'Rooms and daily routines',r:'в спальне, в гостиной',p:120,c:['pre'],d:'Some room names are really adjectives, so in the prepositional they take adjective endings <b>-ой / -ей</b>.',
+tb:[['Room','Где?'],['спальня, кухня','в спальн{е}, на кухн{е}'],['гостиная, ванная','в гостин{ой}, в ванн{ой}'],['детская, прихожая','в детск{ой}, в прихож{ей}']],
+ex:[['Я сплю в спальне, а готовлю ужин на кухне.','I sleep in the bedroom and cook dinner in the kitchen.']],tip:'Verbs that go with them: <span class="ru">спать (сплю, спишь), чистить зубы (чищу), умываться (умываюсь), мыть посуду (мою, моешь)</span>.'},
+{n:'10.2',t:'стоять, лежать, висеть',r:'Где? стоит / лежит / висит',p:121,c:['pre'],d:'Russian shows the position of an object: standing upright, lying flat or hanging.',fig:'pose',
+ex:[['Стул стоит в комнате. Стулья стоят в комнате.','The chair is in the room. The chairs are in the room.'],['Ковёр лежит на полу.','The carpet is on the floor.'],['Картина висит на стене.','The picture is hanging on the wall.']]},
+{n:'10.3',t:'There is no…: нет + genitive',r:'Р.п. «Нет кого / чего»',p:122,c:['gen'],d:'The negative of <b>есть</b> is <b>нет</b> + genitive. The genitive endings for things are the same as after 2, 3, 4.',
+tb:[['','Здесь есть…','Здесь нет…','Ending'],['masc.','стол, календарь','стол{а}, календар{я}','-а / -я'],['neut.','кресло, здание','кресл{а}, здани{я}','-а / -я'],['fem.','картина, занавеска','картин{ы}, занавеск{и}','-ы / -и'],['fem.','фотография, тетрадь','фотографи{и}, тетрад{и}','-и']],
+ex:[['— В гостиной есть диван? — Нет, там нет дивана.','— Is there a sofa in the living room? — No, there is no sofa there.']]},
+{n:'10.4',t:'Has…, but has no…',r:'У кого есть…, но нет…',p:123,c:['gen'],d:'Combines 3.7 and 10.3. <b>нет ни…, ни…</b> = has neither… nor…',
+ex:[['У Максима есть ноутбук.','Maxim has a laptop.'],['У Михаила есть машина, но нет гаража.','Mikhail has a car but no garage.'],['У Алексея нет ни машины, ни гаража.','Aleksey has neither a car nor a garage.']]},
+{n:'10.5',t:'Prepositions + genitive: без, около, далеко от',r:'без, около, (не)далеко от + Р.п.',p:124,c:['gen'],d:'These prepositions always take the genitive.',
+ex:[['Олег пьёт чай без сахара.','Oleg drinks tea without sugar.'],['Он отдыхает недалеко от Тамани, около моря.','He is on holiday not far from Taman, near the sea.'],['Я работаю далеко от дома.','I work far from home.']],tip:'<span class="ru">искать</span> (to look for): ищу, ищешь, ищет, ищем, ищете, ищут.'},
+{n:'10.6',t:'Having / not having in the past and future',r:'был / не было · будет / не будет',p:125,c:['gen','nom'],d:'When you <b>have</b> something, the verb agrees with the thing (был душ, была ванна). When you <b>don’t</b>, it is always <b>не было / не будет</b> + genitive.',
+tb:[['','У меня есть (+) И.п.','У меня нет (−) Р.п.'],['Past','был душ, было зеркало, была ванна, были деньги','{не было} душа, зеркала, ванны, денег'],['Future','будет душ, будет ванна, будут деньги','{не будет} душа, ванны, денег']],
+ex:[['Раньше у меня не было машины.','I didn’t use to have a car.']]},
+{n:'10.7',t:'Ordinal numbers: which floor, which flat',r:'Порядковые числительные',p:127,c:['pre'],d:'Ordinal numbers change their endings like adjectives. In the prepositional: <b>на каком этаже?</b> → -ом; <b>в какой квартире?</b> → -ой.',
+tb:[['1–5','6–10'],['первый, второй, третий','шестой, седьмой, восьмой'],['четвёртый, пятый','девятый, десятый']],
+ex:[['— На каком этаже ты живёшь? — На третьем этаже.','— Which floor do you live on? — On the third floor.'],['Она живёт в первой квартире.','She lives in flat number one.']],tip:'<span class="ru">видеть</span> (вижу, видишь) and <span class="ru">слышать</span> (слышу, слышишь) are group II.'},
+{n:'10.8',t:'Possessive pronouns in the prepositional',r:'в моём доме, в моей квартире',p:129,c:['pre'],d:'Possessive pronouns also change with the case. <b>его, её, их</b> still never change.',
+tb:[['','masc. / neut.','fem.'],['мой, твой','в мо{ём}, тво{ём} доме','в мо{ей}, тво{ей} квартире'],['наш, ваш','в наш{ем} районе','в ваш{ей} деревне'],['его, её, их','в его городе','в её квартире']],
+ex:[['В нашем доме четыре спальни.','There are four bedrooms in our house.']]},
+{n:'10.9',t:'The relative pronoun который, которая',r:'Слово который',p:130,c:[],d:'Joins two sentences into one, like “which / that / who”. <b>который</b> agrees with the gender of the noun it replaces.',
+ex:[['Это супермаркет. Он находится около дома. → Это супермаркет, который находится около дома.','This is a supermarket. It is near the house. → This is the supermarket that is near the house.'],['Это деревня, которая находится недалеко от Сиднея.','This is a village that is not far from Sydney.']]}
+]},
+{u:11,ru:'В университете',en:'At university',items:[
+{n:'11.1',t:'Study words: сдать, получить, поступить',r:'сдавать – сдать, поступать – поступить',p:134,c:['acc','pre'],d:'<span class="ru">сдавать</span> = to take an exam; <span class="ru">сдать</span> = to pass it. <span class="ru">поступить</span> + <b>куда?</b> (accusative) = to get into (a university).',
+ex:[['Он хорошо сдавал экзамены и получал отличные оценки.','He did well in exams and got excellent marks.'],['Рауль закончил школу и поступил в университет.','Raul finished school and got into university.']],tip:'<span class="ru">Учиться <b>в</b> университете <b>на</b> факультете</span> · <span class="ru">Поступить <b>в</b> университет <b>на</b> факультет</span>.'},
+{n:'11.2',t:'Imperfective (НСВ): talking about an action as a fact',r:'Глаголы НСВ · Факт',p:134,c:[],d:'Most verbs come in aspect pairs: <b>НСВ</b> (imperfective) and <b>СВ</b> (perfective). When you just ask or talk about an action as a fact, use НСВ.',
+ex:[['— Рауль, ты делаешь домашнее задание? — Нет, не делаю. Я смотрю телевизор.','— Raul, are you doing your homework? — No, I’m not. I am watching TV.']]},
+{n:'11.3',t:'НСВ = process, СВ = result',r:'НСВ процесс — СВ результат',p:135,c:[],d:'НСВ answers <b>Как долго?</b> and stresses the process. СВ stresses that the action is finished and has a result; it often goes with <b>уже, наконец</b>.',fig:'aspect',
+tb:[['НСВ · процесс','СВ · результат'],['Мария читает книгу.','Мария {про}читала книгу.'],['Он смотрел фильм весь вечер.','Он уже {по}смотрел фильм.'],['Она повторяла правило два часа.','Она наконец повтор{и}ла правило.'],['Он отдыхал весь день.','Он хорошо отдох{ну}л?']]},
+{n:'11.4',t:'How НСВ – СВ pairs are formed',r:'Пары глаголов',p:136,c:[],d:'Three ways: add a prefix, change the suffix, or use a completely different word.',
+tb:[['Type','НСВ → СВ'],['prefix','делать → {с}делать, читать → {про}читать, писать → {на}писать, учить → {вы}учить, смотреть → {по}смотреть, знать → {у}знать'],['suffix','повторять → повтор{и}ть, решать → реш{и}ть, отвечать → ответ{и}ть, понимать → по{ня}ть, отдыхать → отдох{ну}ть'],['drop -ва-','сдавать → сдать, вставать → встать, уставать → устать'],['other word','говорить → {сказать}, покупать → {купить}, искать → {найти}']]},
+{n:'11.5',t:'начинать / заканчивать + НСВ',r:'начинать – начать + инфинитив НСВ',p:137,c:[],d:'After the verbs “to begin, to finish” always use an imperfective infinitive.',
+ex:[['Он начал играть в футбол в 13:00 и закончил играть в 15:00.','He started playing football at 1 pm and finished at 3 pm.']]},
+{n:'11.6',t:'Repeated (НСВ) or once (СВ)',r:'Повторяемость и однократность',p:138,c:[],d:'Repeated actions (часто, обычно, каждый день, всегда, никогда) use НСВ. One specific time with a result (вчера, сегодня, в среду, в прошлый четверг) uses СВ.',
+tb:[['НСВ · повтор','СВ · 1 раз + результат'],['Каждое утро Мария встаёт в 7 часов.','Сегодня Мария встала в 9 часов.'],['Иван обычно покупает продукты на рынке.','А сегодня он купил их в магазине.'],['Анна редко смотрит боевики.','Но вчера она посмотрела фильм «Адреналин».'],['Они часто обедают в ресторане.','В прошлую пятницу она пообедала в ресторане.']]},
+{n:'11.7',t:'Two actions: at the same time or one after the other',r:'Параллельные и последовательные действия',p:140,c:[],d:'Two things happening at the same time: НСВ + НСВ. One finished and then the next: СВ → СВ.',fig:'seq',
+ex:[['Когда Рауль читал рассказ, он писал новые слова.','While Raul was reading the story, he was writing down new words.'],['Когда он прочитал рассказ, он ответил на вопросы.','When he had read the story, he answered the questions.']]},
+{n:'11.8',t:'мочь, уметь, должен',r:'мочь / уметь / должен + инфинитив',p:141,c:[],d:'<b>мочь</b> = can (it is possible, allowed); <b>уметь</b> = can, know how to (a learned skill); <b>должен</b> = must.',
+tb:[['','мочь','уметь','должен'],['я','могу','умею','должен / должна'],['ты','можешь','умеешь','должен / должна'],['он/она','может','умеет','должен / должна'],['мы, вы','можем, можете','умеем, умеете','должны'],['они','могут','умеют','должны']],
+ex:[['Рауль умеет играть на гитаре.','Raul can play the guitar.'],['Он может играть целый день.','He can play all day long.'],['Ты должен учиться в университете.','You must study at university.']]}
+]},
+{u:12,ru:'День рождения',en:'Birthday',items:[
+{n:'12.1',t:'Dative: giving to someone',r:'Дательный падеж · Кому?',p:146,c:['dat'],d:'The recipient (to whom you give, send, call) is in the dative.',
+tb:[['','Это…','Кому можно подарить?','Ending'],['masc.','отец, ребёнок','отц{у}, ребёнк{у}','ø → -у'],['masc.','Андрей, учитель','Андре{ю}, учител{ю}','-й, -ь → -ю'],['fem.','мама, тётя','мам{е}, тёт{е}','-а, -я → -е'],['fem.','Мария; дочь, площадь','Мари{и}; дочер{и}, площад{и}','-ия → -ии; -ь → -и'],['neut.','молоко, море','молок{у}, мор{ю}','-о → -у, -е → -ю']],
+ex:[['Отцу можно подарить галстук.','You can give your father a tie.'],['Маме можно подарить цветы.','You can give your mother flowers.']]},
+{n:'12.2',t:'Dative of pronouns',r:'Д.п. местоимений',p:147,c:['dat'],d:'You have already met it in 2.8 (Мне 20 лет) and 9.1 (Мне нравится).',
+tb:[['Это…','Кому?'],['я · ты','{мне} · {тебе}'],['он · она','{ему} · {ей}'],['мы · вы · они','{нам} · {вам} · {им}']],
+ex:[['Ты поможешь мне?','Will you help me?'],['Давай позвоним ему.','Let’s call him.'],['Не мешайте им!','Don’t disturb them!']]},
+{n:'12.3',t:'Verb + кому? + что?',r:'Глаголы с Д.п. и В.п.',p:148,c:['dat','acc'],d:'Verbs of giving, saying and writing have two objects: the person in the dative and the thing in the accusative.',
+tb:[['НСВ – СВ','кому? (Д.п.)','что? (В.п.)'],['давать – дать','другу','книгу'],['дарить – подарить','жене','цветы'],['показывать – показать, говорить – сказать','маме','фото, правду'],['писать – написать, предлагать – предложить','подруге','письмо, идею'],['звонить – позвонить','брату','—']]},
+{n:'12.4',t:'Need, have to, may: нужно, надо, можно',r:'Мне нужно + инфинитив',p:148,c:['dat'],d:'A sentence without a subject: the person in the dative + <b>нужно / надо / можно / не нужно</b> + infinitive.',
+ex:[['Ей нужно купить подарок Алисе.','She needs to buy a present for Alisa.'],['Ему нужно заказать столик в ресторане.','He needs to book a table at a restaurant.']]},
+{n:'12.5',t:'этот and тот',r:'этот / тот',p:150,c:[],d:'<b>этот</b> = this (near), <b>тот</b> = that (far). Both agree with gender.',
+tb:[['','near','far'],['masc.','этот костюм','{тот} костюм'],['neut.','это платье','{то} платье'],['fem.','эта юбка','{та} юбка'],['plural','эти ботинки','{те} ботинки']],
+ex:[['Этот костюм дешёвый, а тот дорогой.','This suit is cheap, and that one is expensive.']]},
+{n:'12.6',t:'Future НСВ and СВ; tricky forms',r:'Будущее время · НСВ (факт) / СВ (результат)',p:151,c:[],d:'Future НСВ = <b>буду</b> + infinitive (in general, a process). Future СВ = a perfective verb conjugated like the present; it stresses the result.',
+tb:[['НСВ (факт)','СВ (результат)'],['Я буду покупать брюки.','Я обязательно куплю эти брюки.'],['Ты будешь искать перчатки?','Ты обязательно найдёшь перчатки!']],
+ex:[['дать: дам, дашь, даст, дадим, дадите, дадут','to give'],['найти: найду, найдёшь, найдут · взять: возьму, возьмёт','to find · to take'],['купить: куплю, купишь · показать: покажу, покажем · помочь: помогу, поможешь, помогут','to buy · to show · to help']],tip:'Past of <span class="ru">идти / пойти</span>: <span class="ru">шёл, шла, шли / пошёл, пошла, пошли</span>.'},
+{n:'12.7',t:'Months, seasons, weather and holidays',r:'Когда? в январе · зимой',p:153,c:['pre'],d:'Months: <b>в</b> + prepositional. Seasons: the adverbs <b>зимой, весной, летом, осенью</b>. Dates: a neuter ordinal number + the month in the genitive.',
+ex:[['— Когда в России празднуют Рождество? — В январе, седьмого января.','— When is Christmas celebrated in Russia? — In January, on the seventh of January.'],['Восьмое марта — Международный женский день.','The eighth of March is International Women’s Day.'],['Зимой здесь холодно и идёт снег.','In winter it is cold here and it snows.']]},
+{n:'12.8',t:'Preparing, congratulating, celebrating',r:'готовиться к, поздравлять с, праздновать',p:154,c:['dat','acc','ins'],d:'Each verb needs its own case, so learn it together with its question.',
+tb:[['Verb','Goes with'],['готовиться – подготовиться','+ к чему? (Д.п.) к празднику'],['поздравлять – поздравить','+ кого? (В.п.) с чем? (Т.п.) друга с днём рождения'],['праздновать – отпраздновать','+ что? (В.п.) Новый год']],
+ex:[['Я хочу поздравить тебя с днём рождения!','I want to wish you a happy birthday!']]},
+{n:'12.9',t:'Sentences without a subject: Им дарят подарки',r:'Безличные предложения',p:155,c:['dat'],d:'A verb in the <b>они</b> form without a subject means “people…, someone…”. Compare: <span class="ru">Они дарят подарки</span> (they give presents) and <span class="ru">Им дарят подарки</span> (they are given presents).',
+ex:[['Они готовят ужин.','They are cooking dinner.'],['Им готовят ужин.','Dinner is being cooked for them.']]},
+{n:'12.10',t:'Allowed and forbidden: можно, нельзя',r:'можно / нельзя + инфинитив',p:157,c:[],d:'Used for signs and rules.',
+ex:[['Здесь нельзя говорить по телефону.','You may not talk on the phone here.'],['— В музее можно фотографировать? — Нет, нельзя.','— Can you take photos in the museum? — No, you can’t.']]}
+]},
+{u:13,ru:'В городе',en:'In the city',items:[
+{n:'13.1',t:'Spending time: провести время',r:'проводить – провести время',p:160,c:[],d:'Pattern: провести время / отпуск + <b>как?</b> + <b>с кем?</b> + <b>где?</b>',
+ex:[['Я прекрасно провёл время с друзьями в Суздале.','I had a wonderful time with friends in Suzdal.']]},
+{n:'13.2',t:'Verbs with при- (arrive) and у- (leave)',r:'прийти, приехать / уйти, уехать',p:160,c:['acc','gen'],d:'<b>при-</b> = to arrive; <b>у-</b> = to leave. On foot use the root <b>-йти</b>, by transport the root <b>-ехать</b>.',
+tb:[['','прийти','уйти','приехать','уехать'],['Past','пришёл, пришла, пришли','ушёл, ушла, ушли','приехал, -а, -и','уехал, -а, -и'],['Future','приду, придёшь, придут','уйду, уйдёшь, уйдут','приеду, приедешь','уеду, уедешь']],
+ex:[['Он пришёл в магазин. = Он сейчас в магазине.','He has come to the shop. = He is in the shop now.'],['Он ушёл из магазина. = Его сейчас нет в магазине.','He has left the shop. = He is not in the shop now.'],['— Куда она пришла? — На рынок. — Откуда он уехал? — Из Москвы.','— Where did she come to? — To the market. — Where did he leave from? — From Moscow.']]},
+{n:'13.3',t:'Где? Куда? Откуда? (summary table)',r:'Где? · Куда? · Откуда?',p:162,c:['pre','acc','gen','dat'],d:'Three sets of prepositions that go in pairs. A word that takes <b>в</b> takes <b>из</b> when leaving; a word that takes <b>на</b> takes <b>с</b>; for people use <b>у / к / от</b>.',fig:'where',
+tb:[['Где?','Куда?','Откуда?'],['в + П.п. · в банке','в + В.п. · в банк','из + Р.п. · из банка'],['на + П.п. · на работе','на + В.п. · на работу','с + Р.п. · с работы'],['у + Р.п. · у подруги','к + Д.п. · к подруге','от + Р.п. · от подруги']]},
+{n:'13.4',t:'Pronouns after у, к, от',r:'ко мне / у меня / от меня',p:163,c:['gen','dat'],d:'Third-person pronouns add <b>н-</b> after a preposition. Before <span class="ru">мне</span> write <b>ко</b>.',
+tb:[['','к кому?','у кого?','от кого?'],['я','{ко} мне','у меня','от меня'],['ты','к тебе','у тебя','от тебя'],['он / она','к {н}ему / к {н}ей','у {н}его / у {н}её','от {н}его / от {н}её'],['мы · вы','к нам · к вам','у нас · у вас','от нас · от вас'],['они','к {н}им','у {н}их','от {н}их']],
+ex:[['Вчера друг пришёл ко мне в 9 часов. Он был у меня час. Он ушёл от меня в 10.','Yesterday a friend came to my place at 9. He stayed for an hour. He left at 10.']]},
+{n:'13.5',t:'Verbs of motion: summary',r:'идти – ходить – пойти – прийти – уйти',p:164,c:[],d:'The five verb pairs (on foot / by transport) from Units 8 and 13. Follow the arrows to choose the right one.',fig:'motion'},
+{n:'13.6',t:'Giving directions: около, напротив, налево',r:'около, напротив, слева от, справа от + Р.п.',p:166,c:['gen'],d:'These prepositions of place take the genitive. Tell apart <b>Где?</b> (слева, справа, здесь) and <b>Куда?</b> (налево, направо, сюда).',fig:'place',
+tb:[['Где находится?','Куда идём?'],['слева (от), справа (от)','налево, направо'],['здесь, там','сюда, туда'],['наверху, внизу','наверх, вниз'],['дома','домой']],
+ex:[['— Извините, скажите, пожалуйста, где находится остановка автобуса? — Напротив галереи.','— Excuse me, could you tell me where the bus stop is? — Opposite the gallery.'],['Идите прямо, потом поверните направо.','Go straight on, then turn right.']]},
+{n:'13.7',t:'прийти (once) and приходить (regularly)',r:'прийти (СВ) / приходить (НСВ)',p:168,c:[],d:'The aspect rule (11.6) applied to prefixed verbs of motion.',
+tb:[['Once (СВ)','Regularly (НСВ)'],['Я приду к вам через полчаса.','Я прихожу сюда каждые выходные.'],['Сегодня Егор приехал сюда.','Каждое воскресенье Егор приезжает сюда.']]},
+{n:'13.8',t:'Verbs and the prepositions they take',r:'влюбиться в, вернуться из…',p:169,c:['acc','gen'],d:'Learn each verb together with its question.',
+tb:[['Verb','Goes with'],['влюбляться – влюбиться','в кого? во что?'],['собираться – собраться','где?'],['открывается вид','на что? откуда?'],['фотографироваться','где? на фоне чего?'],['возвращаться – вернуться','откуда? куда?'],['посетить','что?']],
+ex:[['После вечеринки я понял, что влюбился в неё.','After the party I realised that I had fallen in love with her.']]},
+{n:'13.9',t:'потому что (reason) and чтобы (purpose)',r:'Почему? потому что / Зачем? чтобы',p:171,c:[],d:'<b>Почему?</b> asks for the cause → <b>потому что</b>. <b>Зачем?</b> asks for the purpose → <b>чтобы</b> + infinitive.',
+ex:[['Мы пойдём в парк, потому что сегодня хорошая погода.','We will go to the park because the weather is nice today.'],['Мы пойдём в парк, чтобы отдохнуть там.','We will go to the park to relax there.'],['Катя приходит сюда не только чтобы гулять, но и чтобы заниматься спортом.','Katya comes here not only to walk but also to do sports.']]}
+]},
+{u:14,ru:'Читаем русскую литературу',en:'Reading Russian literature',items:[
+{n:'14.1',t:'Instrumental: with whom, with what',r:'Творительный падеж · С кем? С чем?',p:177,c:['ins'],d:'After <b>с</b> (with, together with) the noun is in the instrumental.',
+tb:[['','Это…','С кем? С чем?','Ending'],['fem.','Катя, сестра','с Кат{ей}, с сестр{ой}','-я → -ей, -а → -ой'],['masc.','друг, папа','с друг{ом}, с пап{ой}','ø → -ом'],['masc.','преподаватель, музей, муж','с преподавател{ем}, с музе{ем}, с муж{ем}','-ь, -й, ж, ш → -ем'],['neut.','молоко, море','с молок{ом}, с мор{ем}','-о → -ом, -е → -ем']],
+ex:[['Японец шёл с большим чемоданом.','The Japanese man was walking with a big suitcase.'],['Я пью кофе с молоком.','I drink coffee with milk.']],tip:'Learn by heart: <span class="ru">дочь → с дочерью, мать → с матерью, отец → с отцом</span>.'},
+{n:'14.2',t:'Instrumental of pronouns; working as…',r:'со мной, с тобой · работать кем?',p:178,c:['ins'],d:'The instrumental is also used with <b>работать, быть, стать</b> to name a profession.',
+tb:[['Это…','С кем?'],['я · ты','{со мной} · с тобой'],['он · она','с {ним} · с {ней}'],['мы · вы · они','с нами · с вами · с {ними}']],
+ex:[['Мы часто путешествуем вместе. Я люблю разговаривать с ним.','We often travel together. I love talking to him.'],['Он работал официантом, а хотел быть художником.','He worked as a waiter, but he wanted to be an artist.']]},
+{n:'14.3',t:'Verbs + с кем?',r:'знакомиться, встречаться, спорить, советоваться',p:180,c:['ins','pre'],d:'Verbs for things two people do together take <b>с</b> + instrumental.',
+tb:[['НСВ','СВ','Goes with'],['знакомиться','познакомиться','с кем? где?'],['встречаться','встретиться','с кем? где?'],['спорить','поспорить','с кем? о чём?'],['советоваться','посоветоваться','с кем? о чём?']],
+ex:[['Фандорин познакомился с Масой в Японии.','Fandorin met Masa in Japan.'],['Фандорин часто советуется с другом.','Fandorin often asks his friend for advice.']]},
+{n:'14.4',t:'Conditional sentences: Если…, то…',r:'Если …, то …',p:181,c:[],d:'<b>Если</b> = if, <b>то</b> = then (it can be left out).',
+ex:[['Если у Фандорина сложное дело, то он советуется с Масой.','If Fandorin has a difficult case, he asks Masa for advice.'],['Если до гостиницы далеко идти пешком, возьми такси.','If the hotel is too far to walk, take a taxi.']]},
+{n:'14.5',t:'The imperative',r:'Императив',p:182,c:[],d:'Take the present “они” form and drop the ending. If the stem ends in a vowel, add <b>-й(те)</b>; if it ends in a consonant, add <b>-и(те)</b>. <b>-те</b> is for “вы”.',
+tb:[['Group','Инфинитив','ты','вы'],['I (-а-, -я-)','читать, работать, гулять','чита{й}, работа{й}, гуля{й}','чита{йте}'],['II (-е-, -и-)','смотреть, говорить','смотр{и}, говор{и}','смотр{ите}'],['Learn by heart','купить, идти, сказать, писать','куп{и}, ид{и}, скаж{и}, пиш{и}','купите, идите, скажите, пишите']],
+ex:[['Дайте, пожалуйста, два билета.','Two tickets, please.'],['Не гуляйте так поздно, это опасно!','Don’t walk around so late, it’s dangerous!']]}
+]}
+];
+/* ---- grammar handbook: hub, story lessons, auto-practice ---- */
+const BKMAP={'1.2':'1.1','1.4':'1.2','2.2':'2.1','2.3':'2.2','2.6':'2.3','2.8':'2.4','3.1':'3.1','3.8':'3.2','3.9':'3.3','4.1':'4.1','4.2':'4.2','4.3':'4.3','5.1':'5.1','5.2':'5.2'};
+const bkApp=n=>{const m=BKMAP[n];if(!m)return -1;return UNITS.findIndex(u=>u.n==m)};
+const bkItem=n=>{for(const U of BK)for(const it of U.items)if(it.n==n)return it;return null};
+const bkHl=s=>String(s).replace(/\{([^}]*)\}/g,'<b class="gke">$1</b>');
+const bkPlain=s=>String(s).replace(/<[^>]+>/g,'').replace(/[{}]/g,'').replace(/\s+/g,' ').trim();
+const bkSay=t=>{const p=bkPlain(t);return /[Ѐ-ӿ]/.test(p)?` data-say="${esc(p.replace(/\([^)]*\)/g,'').replace(/[→=·]/g,',').replace(/\s*,\s*(,\s*)+/g,', ').trim())}"`:''};
+const bkChips=it=>it.c&&it.c.length?`<div class="gkchips">${it.c.map(k=>`<span class="gkchip" style="--cc:var(--c-${k})">${BKCASES[k][0]} · ${BKCASES[k][1]}</span>`).join('')}</div>`:'';
+function bkPages(it){const P=[],head=`<div class="gkh"><span class="gkn">${it.n}</span><div><h2 style="margin:0">${it.t}</h2><div class="gkr ru">${it.r}</div></div></div>${bkChips(it)}`;
+  const intro=head+`<p class="gkd">${it.d}</p>`+(it.fig?`<div class="gkfig">${BKFIG[it.fig]()}</div>${['where','aspect','seq','time','pose','place'].includes(it.fig)?'<div class="mu gkhint">↔ Swipe the picture sideways to see all of it</div>':''}`:'');
+  const tbl=it.tb?`<div class="gktbl"><table class="gt gkt"><tr>${it.tb[0].map(h=>`<th>${bkHl(h)}</th>`).join('')}</tr>${it.tb.slice(1).map(r=>`<tr>${r.map(c=>`<td${bkSay(c)}>${bkHl(c)}</td>`).join('')}</tr>`).join('')}</table></div>`:'';
+  const exs=(it.ex?`<div class="gkex">${it.ex.map(([r,v])=>`<div class="gkx"><button class="spk gksp" aria-label="Listen"${bkSay(r)}><span class="ico">${SPK}</span></button><div><div class="ru"${bkSay(r)}>${bkHl(r)}</div><div class="mu">${v}</div></div></div>`).join('')}</div>`:'')+(it.tip?`<p class="gktip"><b>Tip · </b>${it.tip}</p>`:'');
+  const small=!it.tb&&!(it.ex&&it.ex.length>1)&&!it.fig;
+  if(small)P.push(intro+exs);else{P.push(intro);if(tbl)P.push(`<h3 class="gkpt">${it.n} · ${it.t}</h3>`+tbl+(exs&&!(it.ex&&it.ex.length)?exs:''));if(it.ex&&it.ex.length)P.push(`<h3 class="gkpt">${it.n} · Examples</h3>`+exs);else if(!tbl&&exs)P.push(exs)}
+  const a=bkApp(it.n);if(a>=0)UNITS[a].L.forEach((f,i)=>P.push(()=>f()));
+  return P}
+let BKP=null;
+function bkLesson(n,st){const it=bkItem(n);if(!it)return gramHub();VIEW='menu';JG=false;if(!BKP||BKP.n!=n)BKP={n,P:bkPages(it)};const P=BKP.P,L=P.length;st=Math.max(0,Math.min(L-1,st));const last=st==L-1,pr=bkHasPr(it);
+  const pg=P[st],html=typeof pg=='function'?pg():pg;
+  $.innerHTML=`<div class="gst"><div class="row" style="justify-content:space-between;align-items:center;flex:none"><button onclick="gramHub()">✕</button><span class="mu">Grammar ${it.n} · ${st+1}/${L}</span></div>
+  <div class="gsbars" aria-hidden="true">${P.map((_,k)=>`<i class="${k<=st?'on':''}${k==st?' cur':''}"></i>`).join('')}</div>
+  <div class="gsc" id="gsc" data-bk="${it.n}" data-st="${st}" data-n="${L}"><div class="card gkc">${html}</div></div>
+  <div class="gsb"><button onclick="bkLesson('${it.n}',${st-1})"${st>0?'':' disabled'}>← Back</button>${last?(pr?`<button class="p" onclick="bkPractice('${it.n}')">🎯 Start practice</button>`:`<button class="p" onclick="gramHub()">Done ✓</button>`):`<button class="p" onclick="bkLesson('${it.n}',${st+1})">Next →</button>`}</div></div>`}
+/* practice questions are built from the examples and from the highlighted endings in the tables */
+function bkSents(it){const out=[];(it.ex||[]).forEach(([r,v])=>{const R=bkPlain(r),V=bkPlain(v);if(/→|=|:/.test(R))return;
+  const rs=R.split(/\s*—\s*/).map(x=>x.trim()).filter(Boolean),vs=V.split(/\s*—\s*/).map(x=>x.trim()).filter(Boolean);
+  const pairs=rs.length==vs.length?rs.map((x,i)=>[x,vs[i]]):(rs.length==1?[[R.replace(/^—\s*/,''),V.replace(/^—\s*/,'')]]:[]);
+  pairs.forEach(([a,b])=>{const n=a.split(/\s+/).length;if(n>=2&&n<=15&&/[Ѐ-ӿ]/.test(a)&&b.split(/\s+/).length<=16)out.push({ru:a,en:b})})});return out}
+let BKALL=null;const bkAllS=()=>BKALL||(BKALL=BK.flatMap(U=>U.items.flatMap(bkSents)));
+function bkEnds(it){const out=[];if(!it.tb)return out;const re=/\{([^}]+)\}/g,all=[];
+  it.tb.slice(1).forEach(r=>r.forEach(c=>{let x;while((x=re.exec(c)))all.push(x[1])}));const uniq=[...new Set(all)];if(uniq.length<2)return out;
+  it.tb.slice(1).forEach((row,ri)=>row.forEach((cell,ci)=>{const ms=[...cell.matchAll(/\{([^}]+)\}/g)];if(!ms.length)return;
+    ms.forEach((m,mi)=>{if(out.length>=12)return;let k=-1;const blank=cell.replace(/\{([^}]+)\}/g,(s,g)=>{k++;return k==mi?'___':g});
+      const key=m[1],opts=[key,...shuf(uniq.filter(u=>u!=key)).slice(0,3)];
+      const lab=[ci>0?bkPlain(row[0]):'',bkPlain(it.tb[0][ci])].filter(Boolean).join(' · ');
+      out.push({t:'w',title:`${it.n} · Fill in the gap`,prompt:lab?`<span class="mu">${esc(lab)}</span>`:'Choose the missing part:',ru:bkPlain(blank),opts:shuf(opts),key,explain:bkHl(cell),say:bkPlain(cell).replace(/\([^)]*\)/g,'')})})}));
+  return out}
+const bkHasPr=it=>bkApp(it.n)>=0||bkSents(it).length+bkEnds(it).length>0;
+function bkQs(it){const S1=bkSents(it),E=shuf(bkEnds(it)).slice(0,5),Q=[...E];
+  shuf(S1).slice(0,4).forEach((s,i)=>{if(i%2==0)Q.push({t:'b',s:{ru:s.ru,en:s.en,dir:'er',title:'Translate into Russian:'}});
+    else{const pool=shuf(bkAllS().filter(x=>x.en!=s.en)).slice(0,3).map(x=>x.en);Q.push({t:'w',title:`${it.n} · What does it mean?`,prompt:'Choose the English meaning:',ru:s.ru,opts:shuf([s.en,...pool]),key:s.en,explain:`<b>${esc(s.ru)}</b> = ${esc(s.en)}`,say:s.ru})}});
+  if(Q.length<3&&S1.length)S1.forEach(s=>{if(Q.length<4&&!Q.some(q=>q.s&&q.s.ru==s.ru))Q.push({t:'b',s:{ru:s.ru,en:s.en,dir:'re'}})});
+  return Q}
+function bkPractice(n){const it=bkItem(n);if(!it)return;const a=bkApp(n);if(a>=0){JG=false;return gramPractice(a)}
+  const Q=bkQs(it);if(!Q.length)return bkLesson(n,0);VIEW='game';JG=false;touchStreak();G={mode:'gram',unit:-1,bk:n,q:shuf(Q),total:Q.length,done:0,ok:0,R:it.tip||it.d,again:`bkPractice('${n}')`};next()}
+/* hub */
+let GKU=null,GKI=null;
+function gramHub(){VIEW='menu';JG=false;BKP=null;const N=BK.reduce((s,U)=>s+U.items.length,0);
+  $.innerHTML=`<h1>📘 Grammar</h1><div class="mu" style="margin:-4px 0 12px">“Я люблю русский!” A1 · 14 units · ${N} grammar points. Tap a unit, then a grammar point.</div>
+  <div class="gkcases">${Object.entries(BKCASES).map(([k,[a,nm,q]])=>`<div class="gkcase" style="--cc:var(--c-${k})"><b>${a} · ${nm}</b><span class="ru">${q}</span></div>`).join('')}</div>`+
+  BK.map(U=>`<div class="card gku${GKU==U.u?' open':''}" data-u="${U.u}"><div class="gkuh" onclick="gkU(this.parentNode)"><span class="gkuno">Unit ${U.u}</span><div style="flex:1;min-width:0"><b class="ru" style="font-size:18px">${U.ru}</b><div class="mu">${U.en} · ${U.items.length} points</div></div><span class="ghx" aria-hidden="true">⌄</span></div>
+  <div class="gkul">${U.items.map(it=>`<div class="gki${GKI==it.n?' open':''}" data-n="${it.n}" onclick="gkI(event,this)"><div class="gkit"><span class="gkn">${it.n}</span><div style="min-width:0"><b>${it.t}</b><div class="mu ru" style="font-size:14px">${it.r}</div></div></div><div class="row gkib"><button class="p" style="flex:1" onclick="bkLesson('${it.n}',0)">📖 Learn</button>${bkHasPr(it)?`<button class="p" style="flex:1" onclick="bkPractice('${it.n}')">🎯 Practice</button>`:''}</div></div>`).join('')}</div></div>`).join('')+`<button class="w" onclick="home()">← Home</button>`;
+  if(GKI){const e=document.querySelector(`.gki[data-n="${GKI}"]`);if(e)setTimeout(()=>e.scrollIntoView({block:'center'}),20)}}
+function gkU(el){const o=el.classList.contains('open');document.querySelectorAll('.gku.open').forEach(x=>x.classList.remove('open'));GKU=null;if(!o){el.classList.add('open');GKU=+el.dataset.u;setTimeout(()=>el.scrollIntoView({block:'start',behavior:'smooth'}),30)}}
+function gkI(e,el){if(e.target.closest('button'))return;const o=el.classList.contains('open');document.querySelectorAll('.gki.open').forEach(x=>x.classList.remove('open'));GKI=null;if(!o){el.classList.add('open');GKI=el.dataset.n;setTimeout(()=>{const r=el.getBoundingClientRect();if(r.bottom>innerHeight-20)el.scrollIntoView({block:'nearest',behavior:'smooth'})},30)}}
+document.addEventListener('click',e=>{const s=e.target.closest&&e.target.closest('[data-say]');if(s&&s.closest('.gkc')){e.stopPropagation();speak(s.dataset.say)}},true);
 /* ---- Unit 1: numbers 1-4 ---- */
 let PG={n:2,k:'газета'};
 function pgHtml(){const x=GNOUN.find(z=>z.ru==PG.k),n=PG.n,w=numWord(n,x.g),f=nForm(n,x);let p=0;while(p<x.ru.length&&p<f.length&&x.ru[p]==f[p])p++;
@@ -2057,7 +2533,7 @@ function gPick(i){if(G.ans)return;G.ans=true;const q=G.c,ok=q.opts[i]==q.key;
   document.getElementById('fb').innerHTML=`<div class="fb ${ok?'ok':'no'}" style="text-align:left;font-size:17px;line-height:1.5;font-weight:400">${ok?'✔ ':'✘ '}${q.explain}</div>${fbar('speak(G.c.say)')}`;speak(q.say)}
 function gEnd(){const u=G.unit,R=u>=0?UNITS[u].R:G.R;if(u>=0){S.jp[`g:${UNITS[u].n}`]=Date.now();S.mu=Date.now();save()}
   if(u>=0&&JG){const nx=jNextNode(`g:${UNITS[u].n}`);$.innerHTML=`<h1>🎉 Done!</h1>${masHtml()}<div class="endb"><div class="card mu">Remember: ${R}</div><div class="jrb" style="margin-top:10px"><button onclick="go('journey')">Back to Journey</button>${nx?`<button class="p" onclick="jGo('${nx.id}')">Next Lesson</button>`:'<span></span>'}</div></div>`;return}
-  $.innerHTML=`<h1>🎉 Done!</h1>${masHtml()}<div class="endb"><div class="card mu">Remember: ${R}</div><button class="p w" style="text-align:center" onclick="${u>=0?'gramPractice('+u+')':G.again}">Practice again</button>${u>=0?`<button class="w" style="text-align:center" onclick="gramLesson(${u},0)">📖 Review the lesson</button><button class="w" style="text-align:center" onclick="gramHub()">All grammar units</button>`:'<button class="w" style="text-align:center" onclick="home()">Home</button>'}</div>`}
+  $.innerHTML=`<h1>🎉 Done!</h1>${masHtml()}<div class="endb"><div class="card mu">Remember: ${R}</div><button class="p w" style="text-align:center" onclick="${u>=0?'gramPractice('+u+')':G.again}">Practice again</button>${u>=0?`<button class="w" style="text-align:center" onclick="gramLesson(${u},0)">📖 Review the lesson</button><button class="w" style="text-align:center" onclick="gramHub()">All grammar units</button>`:(G.bk?`<button class="w" style="text-align:center" onclick="bkLesson('${G.bk}',0)">📖 Review the lesson</button><button class="w" style="text-align:center" onclick="gramHub()">All grammar units</button>`:'<button class="w" style="text-align:center" onclick="home()">Home</button>')}</div>`}
 /* ---------- Journey (Unit path) ---------- */
 S.jp=S.jp||{};S.jo=S.jo||{};
 const JSV=(b,o)=>`<svg viewBox="0 0 48 48" width="26" height="26" aria-hidden="true" ${o||''}>${b}</svg>`;

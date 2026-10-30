@@ -3,7 +3,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#f6f7fb" media="(prefers-color-scheme: light)"><meta name="theme-color" content="#0f1830" media="(prefers-color-scheme: dark)">
 <script>(function(){function f(){try{var h=innerHeight;if(navigator.standalone===true){var p=innerHeight>=innerWidth,a=Math.max(screen.width,screen.height),b=Math.min(screen.width,screen.height),sh=p?a:b;if(sh>h)h=sh}document.documentElement.style.setProperty('--fh',h+'px')}catch(e){}}f();addEventListener('resize',f);addEventListener('orientationchange',function(){setTimeout(f,150)});addEventListener('pageshow',f)})()</script>
-<title>Russian MemoRise App_ver_76</title>
+<title>Russian MemoRise App_ver_77</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lobster&display=swap&text=%D0%90%D0%91%D0%92%D0%93%D0%94%D0%95%D0%96%D0%97%D0%98%D0%99%D0%9A%D0%9B%D0%9C%D0%9D%D0%9E%D0%9F%D0%A0%D0%A1%D0%A2%D0%A3%D0%A4%D0%A5%D0%A6%D0%A7%D0%A8%D0%A9%D0%AA%D0%AB%D0%AC%D0%AD%D0%AE%D0%AF%D0%B0%D0%B1%D0%B2%D0%B3%D0%B4%D0%B5%D0%B6%D0%B7%D0%B8%D0%B9%D0%BA%D0%BB%D0%BC%D0%BD%D0%BE%D0%BF%D1%80%D1%81%D1%82%D1%83%D1%84%D1%85%D1%86%D1%87%D1%88%D1%89%D1%8A%D1%8B%D1%8C%D1%8D%D1%8E%D1%8F%D0%81%D1%91%CC%81"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800;900&display=swap">
 <style>
 :root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);--bg:#f6f7fb;--card:#fff;--tx:#1f2430;--mu:#6b7280;--pr:#1d6fd8;--ok:#2e9e5b;--bad:#d64545;--bd:#e3e6ee}
@@ -507,9 +507,37 @@ main#app:has(>.gst){display:flex;flex-direction:column;overflow:hidden;padding-b
 .gppc{margin:0!important;min-width:76px;padding:12px 16px!important;font-size:20px!important;font-weight:800;border-radius:16px!important;touch-action:none;-webkit-user-select:none;user-select:none;cursor:grab;box-shadow:0 4px 0 color-mix(in srgb,var(--uc) 35%,transparent)}
 .gppc.lift{opacity:.3}.gppc.ok{background:var(--c-dat)!important;color:#fff!important;border-color:var(--c-dat)!important}.gppc.no{background:var(--gk-ac)!important;color:#fff!important;border-color:var(--gk-ac)!important}.gppc.off{opacity:.35}
 .gpghost{position:fixed;z-index:200;pointer-events:none;margin:0!important;box-shadow:0 12px 28px rgba(0,0,0,.25)!important}
+/* ver_77: full coverage cards */
+.gltag{display:inline-block;background:var(--uc);color:#fff;border-radius:999px;padding:3px 10px;letter-spacing:.04em}
+.vchips{display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
+.vchip{display:inline-block;padding:8px 12px;border-radius:14px;font-size:17px;font-weight:700;background:color-mix(in srgb,var(--cc) 12%,var(--card));border:2px solid color-mix(in srgb,var(--cc) 45%,transparent);cursor:pointer}
+.vchip .gke,.vci .gke,.vcj .gke,.vrc .gke{color:#fff;background:var(--gk-ac);border-radius:7px;padding:0 4px}
+.vgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(140px,100%),1fr));gap:8px}
+.vcol{border-radius:16px;overflow:hidden;border:2px solid color-mix(in srgb,var(--cc) 50%,transparent);background:var(--card)}
+.vch{display:grid;justify-items:center;gap:1px;padding:8px 6px;background:color-mix(in srgb,var(--cc) 16%,var(--card));color:var(--cc);font-size:21px;font-weight:900;text-align:center;cursor:pointer}
+.vch span{font-size:22px;line-height:1.1}.vch small{font-size:12px;color:var(--mu);font-weight:700}
+.vci{padding:8px 10px;font-size:17px;font-weight:700;text-align:center;border-top:1px solid var(--bd);cursor:pointer}
+.vconj{border-radius:16px;border:2px solid var(--bd);overflow:hidden;background:var(--card)}
+.vcjh{padding:8px 12px;font-size:18px;font-weight:900;text-align:center;background:var(--us);cursor:pointer}
+.vcjg{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--bd)}
+.vcj{display:flex;gap:8px;align-items:baseline;padding:10px 12px;background:var(--card);font-size:19px;cursor:pointer}
+.vcjp{flex:none;font-size:13px;font-weight:800;color:#fff;background:var(--cc);border-radius:8px;padding:2px 7px}
+.vcj:nth-child(odd):last-child{grid-column:1/-1;justify-content:center}
+.vwarn{display:grid;gap:8px;background:color-mix(in srgb,#F5B400 16%,var(--card));border:2px solid color-mix(in srgb,#F5B400 60%,transparent);border-radius:16px;padding:12px 14px;font-size:16.5px;line-height:1.5}
+.vscale{display:flex;flex-wrap:wrap;gap:6px;justify-content:center}
+.vscale span{padding:7px 10px;border-radius:12px;font-size:15px;font-weight:800;color:#fff;background:color-mix(in srgb,var(--gk-ac) calc(var(--k)*100%),var(--c-dat));cursor:pointer}
+.vqc{border:2px dashed var(--uc);border-radius:16px;padding:12px 14px;background:var(--card)}
+.vqc summary{list-style:none;cursor:pointer;font-size:19px;font-weight:800;line-height:1.45}.vqc summary::-webkit-details-marker{display:none}
+.vqcs{display:block;font-size:13px;font-weight:600;color:var(--mu);margin-top:2px}.vqc[open] .vqcs{display:none}
+.vqca{margin-top:8px;font-size:19px;font-weight:900;color:var(--c-dat);cursor:pointer}
+.vnat{display:grid;gap:8px}
+.vnr{display:grid;grid-template-columns:62px 1fr 1fr;gap:6px;align-items:center;background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:8px}
+.vnr .vchip{font-size:14.5px;padding:6px 8px;text-align:center}.vnr .vchip:last-child{grid-column:2/-1}
+.vnf{grid-row:span 3;display:grid;justify-items:center;font-size:28px}.vnf small{font-size:11.5px;font-weight:700;color:var(--mu)}
+.vkey{display:inline-block;font-size:13px;font-weight:800;color:#fff;background:var(--cc);border-radius:8px;padding:1px 7px}
 </style></head><body><main id="app"></main>
 <script>
-const APP_VER='Russian MemoRise App_ver_76';
+const APP_VER='Russian MemoRise App_ver_77';
 const sv=(b,v='0 0 48 48')=>`<svg xmlns="http://www.w3.org/2000/svg" viewBox="${v}" aria-hidden="true">${b}</svg>`;
 const IC={
 learn:sv('<rect x="14" y="30" width="20" height="14" rx="4" fill="#FF8A5B"/><rect x="12" y="27" width="24" height="6" rx="3" fill="#FF6B3D"/><path d="M24 27V17" stroke="#2FBF71" stroke-width="3" stroke-linecap="round"/><path d="M24 20C24 12 17 10 11 12c0 7 5 10 13 8z" fill="#6EE7B7"/><path d="M24 17c0-7 6-9 12-7 0 7-5 9-12 7z" fill="#2FBF71"/>'),
@@ -1942,7 +1970,7 @@ const GL2={
   const w=pk(GDAT),n=pk([20,25,30,18]);return{hint:`🎂 ${w[2]} ${n}.`,txt:`___ ${n} лет.`,pcs:glOpts(w[1],GDAT.map(x=>x[1]).concat(['меня','его'])),key:w[1],why:`${w[0]} → <b>${w[1]}</b>`,say:`${w[1]} ${nWord(n)} лет`}}}
 };
 /* ---- lesson pages ---- */
-function glStep(s,i,n){return `<div class="glstep"><div class="gln">${n} · step ${i+1}</div><h2 class="glh">${s.t}</h2><div class="glv">${s.v}</div><p class="glr">${s.r}</p>${s.ex?`<div class="glex">${s.ex.map(([r,e])=>`<div class="gkx"><button class="spk gksp" aria-label="Listen"${glS(r)}><span class="ico">${SPK}</span></button><div><div class="ru"${glS(r)}>${glE(r)}</div><div class="mu">${e}</div></div></div>`).join('')}</div>`:''}</div>`}
+function glStep(s,i,n){return `<div class="glstep"><div class="gln">${s.tag?`<span class="gltag">${s.tag}</span>`:`${n} · step ${i+1}`}</div><h2 class="glh">${s.t}</h2><div class="glv">${s.v}</div>${s.r?`<p class="glr">${s.r}</p>`:''}${s.ex?`<div class="glex">${s.ex.map(([r,e])=>`<div class="gkx"><button class="spk gksp" aria-label="Listen"${glS(r)}><span class="ico">${SPK}</span></button><div><div class="ru"${glS(r)}>${glE(r)}</div><div class="mu">${e}</div></div></div>`).join('')}</div>`:''}</div>`}
 let GLM={};
 function glMachineHTML(n){const L=GL2[n],m=L.m;if(!GLM[n])GLM[n]=m.def?[...m.def]:m.rows.map(r=>0);const sel=GLM[n].map((k,i)=>m.rows[i].o[k]),r=m.run(sel);
   let out;if(r.parts)out=`<div class="glout c-${r.c}"${glS(r.parts.map(p=>p.join('')).join(' '))}>${r.parts.map(([a,b])=>`<span>${esc(a)}<b class="vend c-r">${esc(b)}</b></span>`).join(' ')}</div>`;
@@ -1951,7 +1979,7 @@ function glMachineHTML(n){const L=GL2[n],m=L.m;if(!GLM[n])GLM[n]=m.def?[...m.def
   return `<div class="glm" id="glm"><div class="glmt">⚙️ ${m.title}</div>${m.rows.map((row,ri)=>`<div class="glml">${row.l}</div><div class="glmo">${row.o.map((o,oi)=>`<button class="glchip${GLM[n][ri]==oi?' on':''}" onclick="glPick('${n}',${ri},${oi})">${esc(o)}</button>`).join('')}</div>`).join('')}
   <div class="glbox"><div class="glgear" aria-hidden="true">⚙️</div><div class="glin">${esc(r.inp)}</div><div class="glarrow">⬇</div>${out}<div class="glwhy">💡 ${r.why}</div></div><div class="mu" style="font-size:13px;margin-top:6px">Tap the big answer to hear it.</div></div>`}
 function glPick(n,ri,oi){GLM[n][ri]=oi;sfx('tap');const el=document.getElementById('glm');if(!el)return;el.outerHTML=glMachineHTML(n);const b=document.querySelector('#glm .glbox');if(b){b.classList.add('spin');setTimeout(()=>b.classList.remove('spin'),450)}const o=document.querySelector('#glm .glout');if(o&&o.dataset.say)speak(o.dataset.say)}
-function glPages(n){const L=GL2[n];return [...L.steps.map((s,i)=>glStep(s,i,n)),()=>glMachineHTML(n)]}
+function glPages(n){const L=GL2[n],X=(typeof GLX!='undefined'&&GLX[n])||[],all=[...L.steps,...X];return [...all.map((s,i)=>glStep(s,i,n)),()=>glMachineHTML(n)]}
 /* ---- practice: drag a piece into the gap (or tap it) ---- */
 let GP=null;const GPROUND=8;
 function glPractice(n){if(!GL2[n])return;VIEW='game';JG=false;touchStreak();GP={n,i:0,ok:0,streak:GP&&GP.n==n?GP.streak:0,best:0,q:null,done:false};glNextQ()}
@@ -1981,6 +2009,77 @@ function gpDown(e,el){if(GP.ans)return;e.preventDefault();GPD={el,x:e.clientX,y:
     const s=document.getElementById('gpslot'),sr=s&&s.getBoundingClientRect(),over=sr&&ev.clientX>sr.left-20&&ev.clientX<sr.right+20&&ev.clientY>sr.top-24&&ev.clientY<sr.bottom+24;
     d.ghost.remove();el.classList.remove('lift');if(s)s.classList.remove('hot');if(over)glChoose(el.dataset.v)};
   document.addEventListener('pointermove',mv);document.addEventListener('pointerup',up);document.addEventListener('pointercancel',up)}
+/* ===== ver_77: full coverage cards — every case from the book, drawn as visuals ===== */
+const vChips=(a,c='b')=>`<div class="vchips">${a.map(w=>`<span class="vchip c-${c}"${glS(w)}>${glE(w)}</span>`).join('')}</div>`;
+const vGrid=cols=>`<div class="vgrid" style="--n:${cols.length}">${cols.map(k=>`<div class="vcol c-${k.c}"><div class="vch"${glS(k.h)}>${k.em?`<span>${k.em}</span>`:''}${glE(k.h)}${k.cap?`<small>${glE(k.cap)}</small>`:''}</div>${k.items.map(w=>`<div class="vci"${glS(w)}>${glE(w)}</div>`).join('')}</div>`).join('')}</div>`;
+const vConj=(verb,rows,c='r')=>`<div class="vconj"><div class="vcjh"${glS(verb)}>${glE(verb)}</div><div class="vcjg">${rows.map(([p,f])=>`<div class="vcj c-${c}"${glS(p+' '+f)}><span class="vcjp">${p}</span><b>${glE(f)}</b></div>`).join('')}</div></div>`;
+const vWarn=a=>`<div class="vwarn">${a.map(x=>`<div>⚠️ ${x}</div>`).join('')}</div>`;
+const vScale=(a,cap)=>`<div class="vscale">${a.map((w,i)=>`<span${glS(w)} style="--k:${i/(a.length-1)}">${glE(w)}</span>`).join('')}</div>${cap?`<div class="mu" style="text-align:center;font-size:13px">${cap}</div>`:''}`;
+const vQC=(q,a)=>`<details class="vqc"><summary>${glE(q)}<span class="vqcs">👆 tap to check</span></summary><div class="vqca"${glS(a)}>✅ ${glE(a)}</div></details>`;
+const vNote=(em,t)=>`<div class="vnote"><span>${em}</span><div>${t}</div></div>`;
+const GLX={
+'1.1':[
+ {tag:'📋 All of them',t:'Singular and plural',v:vGrid([{h:'One person',c:'b',em:'👤',items:['я · I','ты · you','он · he','она · she','Вы · you (polite)']},{h:'Many people',c:'p',em:'👥',items:['мы · we','вы · you all','они · they']}]),r:'Every “one person” word has a “many people” partner: я → мы, ты → вы, он / она → они.'},
+ {tag:'⚠️ Watch out',t:'вы has two meanings',v:vBins([{h:'вы',em:'👥',cap:'you all – many people',c:'p'},{h:'Вы',em:'🧓',cap:'you – one person, politely (capital В in writing)',c:'o'}]),r:'Spoken, they sound the same. In writing, the polite one gets a capital letter.',ex:[['Здравствуйте, Анна Петровна! Как Вы?','Hello, Anna Petrovna! How are you?'],['Ребята, как вы?','Guys, how are you all?']]},
+ {tag:'✅ Quick check',t:'Your turn',v:vQC('You speak to your teacher. “you” = ?','Вы')+vQC('я + он = ?','мы')+vQC('он + она = ?','они')}],
+'1.2':[
+ {tag:'📋 All of them',t:'Who? → Как … зовут?',v:vConj('Как … зовут?',[['я','{меня} зовут'],['ты','{тебя} зовут'],['он','{его} зовут'],['она','{её} зовут'],['мы','{нас} зовут'],['вы / Вы','{вас} зовут'],['они','{их} зовут']]),r:'Seven pairs to learn. Only the first word changes – <b>зовут</b> stays the same.'},
+ {tag:'⚠️ Watch out',t:'Friendly or polite?',v:vBins([{h:'Как тебя зовут?',em:'👫',cap:'to a friend or a child',c:'b'},{h:'Как Вас зовут?',em:'🧑‍💼',cap:'to an adult you don’t know',c:'p'}]),r:'Same question, two levels of politeness: <b>тебя</b> (ты) and <b>Вас</b> (Вы).'},
+ {tag:'💬 Examples',t:'From the book',v:'',r:'Listen and repeat – the changing word is in red.',ex:[['— Как {тебя} зовут? — {Меня} зовут Джим.','— What is your name? — My name is Jim.'],['{Его} зовут Марк, а {её} зовут Анна.','His name is Mark, and her name is Anna.']]},
+ {tag:'✅ Quick check',t:'Your turn',v:vQC('Как ___ зовут? (asking a friend)','Как тебя зовут?')+vQC('Her name is Olga: ___ зовут Ольга.','Её зовут Ольга.')+vQC('Their names: ___ зовут…','Их зовут…')}],
+'1.3':[
+ {tag:'💬 Examples',t:'Questions and answers',v:'',r:'The answer always starts with <b>Это</b>.',ex:[['— {Кто} это? — Это мама. Это собака.','— Who is this? — This is Mom. This is a dog.'],['— {Что} это? — Это стол.','— What is this? — This is a table.'],['— Это спортсмен? — Нет, это {не} спортсмен, это студент.','— Is this an athlete? — No, this is not an athlete, this is a student.']]},
+ {tag:'⚠️ Watch out',t:'Animals are “who”!',v:vChips(['🐱 Кто это? — Это кошка.','🐶 Кто это? — Это собака.'],'b'),r:'In English a cat is “what”, in Russian it is <b>Кто</b> – it is alive.'},
+ {tag:'✅ Quick check',t:'Your turn',v:vQC('___ это? — Это кошка.','Кто это? (animals take Кто)')+vQC('___ это? — Это машина.','Что это?')+vQC('This is not a table: Это ___ стол.','Это не стол.')}],
+'1.4':[
+ {tag:'📋 All of them',t:'The gender chart',v:vGrid([{h:'он',c:'b',em:'♂️',cap:'consonant, -й, -ь',items:['телефон','стол','музе{й}','словар{ь}']},{h:'она',c:'r',em:'♀️',cap:'-а, -я, -ь',items:['книг{а}','Росси{я}','тетрад{ь}']},{h:'оно',c:'g',em:'⚧️',cap:'-о, -е',items:['окн{о}','каф{е}','мор{е}']},{h:'они',c:'p',em:'🔢',cap:'-ы, -и',items:['час{ы}','очк{и}']}]),r:'Read each column top to bottom – the red letter is what decides the gender.'},
+ {tag:'⚠️ Watch out',t:'Exceptions to remember',v:vWarn(['<b>папа</b> 👨, <b>дедушка</b> 👴 end in -а but are <b>он</b> – they are men.','<b>кофе</b> ☕ is <b>он</b>.','<b>время</b> ⏰ (time) and <b>имя</b> 🏷️ (name) end in -я but are <b>оно</b>.','Words in <b>-ь</b> can be он (словарь) or она (тетрадь) – learn each one.']),r:'Just a few exceptions – everything else follows the last letter.'},
+ {tag:'✅ Quick check',t:'Your turn',v:vQC('словарь, окно, лампа: which gender?','словарь — он, окно — оно, лампа — она')+vQC('папа — он or она?','он (a man)')+vQC('время — ?','оно (exception)')}],
+'1.5':[
+ {tag:'📋 All of them',t:'Four places + Вот',v:vChips(['📍 здесь · here','👉 там · there','⬅️ слева · on the left','➡️ справа · on the right','🫵 Вот! · Here it is!'],'b'),r:'Opposites: <b>здесь ↔ там</b>, <b>слева ↔ справа</b>.'},
+ {tag:'💬 Examples',t:'From the book',v:'',r:'Answer <b>Где?</b> with one of the four words.',ex:[['— {Где} аптека? — Аптека {там}, {слева}.','— Where is the pharmacy? — It is over there, on the left.'],['— {Где} метро? — Вот оно!','— Where is the metro? — Here it is!'],['Ресторан {здесь, справа}.','The restaurant is here, on the right.']]},
+ {tag:'✅ Quick check',t:'Your turn',v:vQC('The opposite of слева?','справа')+vQC('The opposite of здесь?','там')}],
+'2.1':[
+ {tag:'📋 All of them',t:'Jobs: he → she',v:vRows([['официант 🍽️','официант{ка}'],['журналист 📰','журналист{ка}'],['спортсмен 🏃','спортсмен{ка}'],['студент 🧑‍🎓','студент{ка}'],['актёр 🎭','актр{иса}'],['певец 🎤','пев{ица}']]),r:'Most add <b>-ка</b>; some change to <b>-иса</b> or <b>-ица</b>.'},
+ {tag:'⚠️ Watch out',t:'Same word for both',v:vChips(['🩺 врач','🛠️ инженер','⚖️ юрист','💻 программист'],'g'),r:'These jobs have only one form: <b>Она врач</b>, <b>Он врач</b>.'},
+ {tag:'💬 Examples',t:'From the book',v:'',r:'',ex:[['— Кто Вы по профессии? — Я программист.','— What is your profession? — I am a programmer.'],['Она врач, а он инженер.','She is a doctor, and he is an engineer.']]},
+ {tag:'✅ Quick check',t:'Your turn',v:vQC('Female forms of журналист and певец?','журналистка, певица')+vQC('She is a doctor: Она ___.','Она врач.')}],
+'2.2':[
+ {tag:'📋 All of them',t:'знать in all persons',v:vConj('знать → зна-',[['я','зна{ю}'],['ты','зна{ешь}'],['он / она','зна{ет}'],['мы','зна{ем}'],['вы','зна{ете}'],['они','зна{ют}']]),r:'Tap any form to hear it.'},
+ {tag:'📋 Same pattern',t:'Verbs that work the same',v:vChips(['дум{ать}','работ{ать}','чит{ать}','слуш{ать}','поним{ать}','гул{ять}','игр{ать}','отдых{ать}'],'o'),r:'Group I verbs usually end in <b>-ать, -ять, -еть</b>. Conjugate them exactly like знать.'},
+ {tag:'⚠️ Watch out',t:'Verbs in -овать',v:vRows([['танц{овать}','я танц{ую}']]),r:'-овать / -евать verbs change -ова- to <b>-у-</b>: танцую, танцуешь… (more in Unit 6).'},
+ {tag:'💬 Examples',t:'From the book',v:'',r:'',ex:[['{Я} зна{ю}. Ты не знаешь.','I know. You don’t know.'],['{Мы} дума{ем}, что это интересно.','We think that it is interesting.']]},
+ {tag:'✅ Quick check',t:'Your turn',v:vQC('Мы ___ (думать), что это интересно.','думаем')+vQC('Они ___ (читать).','читают')+vQC('Ты ___ (работать)?','работаешь')}],
+'2.3':[
+ {tag:'📋 All of them',t:'this … for every gender',v:vGrid([{h:'этот',c:'b',em:'👨',cap:'он: -ø, -й, -ь',items:['этот журналист','этот стол']},{h:'эта',c:'r',em:'👩',cap:'она: -а, -я, -ь',items:['эта актриса','эта книга']},{h:'это',c:'g',em:'🪟',cap:'оно: -о, -е',items:['это окно','это кафе']},{h:'эти',c:'p',em:'👥',cap:'они: -ы, -и',items:['эти люди','эти часы']}]),r:'The word for “this” matches the gender colour of its noun.'},
+ {tag:'⚠️ Watch out',t:'Это окно. or это окно?',v:vBins([{h:'Это окно.',em:'👉🪟',cap:'This is a window. (a full sentence)',c:'o'},{h:'это окно…',em:'🪟✨',cap:'this window… (part of a sentence)',c:'g'}]),r:'With a neuter noun both look the same – the meaning depends on the sentence.'},
+ {tag:'💬 Examples',t:'From the book',v:'',r:'',ex:[['{Это} Анна. Эта девушка — актриса.','This is Anna. This girl is an actress.'],['{Этот} мужчина — врач.','This man is a doctor.']]},
+ {tag:'✅ Quick check',t:'Your turn',v:vQC('___ девушка — актриса. (this girl)','Эта')+vQC('___ люди (these people)','эти люди')}],
+'2.4':[
+ {tag:'📋 All of them',t:'Country → из …',v:vRows([['Вьетнам 🇻🇳','из Вьетнам{а}'],['Казахстан 🇰🇿','из Казахстан{а}'],['Америк{а} 🇺🇸','из Америк{и}'],['Росси{я} 🇷🇺','из Росси{и}'],['Франци{я} 🇫🇷','из Франци{и}'],['Испани{я} 🇪🇸','из Испани{и}'],['Кита{й} 🇨🇳','из Кита{я}']]),r:'The five rules in one picture.'},
+ {tag:'📋 The rules',t:'Which ending?',v:vGrid([{h:'+ а',c:'b',cap:'consonant',items:['Вьетнам{а}']},{h:'-а → -ы',c:'r',cap:'(-и after к, г, х)',items:['Канад{ы}','Америк{и}']},{h:'-я → -и',c:'g',cap:'-ия → -ии',items:['Росси{и}']},{h:'-й → -я',c:'p',cap:'',items:['Кита{я}']}]),r:'Find the last letter of the country, then pick the column.'},
+ {tag:'💬 Examples',t:'From the book',v:'',r:'',ex:[['— Откуда Вы? — Я из Вьетнама.','— Where are you from? — I am from Vietnam.'],['Жаклин из Франции.','Jacqueline is from France.']]},
+ {tag:'✅ Quick check',t:'Your turn',v:vQC('Я из ___ (Италия).','из Италии')+vQC('Я из ___ (Китай).','из Китая')}],
+'2.5':[
+ {tag:'📋 All of them',t:'He · she · they · language',v:`<div class="vnat">${[['🇷🇺','Россия','русский','русская','русские','по-русски'],['🇬🇧','Англия','англичанин','англичанка','англичане','по-английски'],['🇺🇸','Америка','американец','американка','американцы','по-английски'],['🇫🇷','Франция','француз','француженка','французы','по-французски']].map(r=>`<div class="vnr"><div class="vnf">${r[0]}<small>${r[1]}</small></div><span class="vchip c-b"${glS(r[2])}>${r[2]}</span><span class="vchip c-r"${glS(r[3])}>${r[3]}</span><span class="vchip c-p"${glS(r[4])}>${r[4]}</span><span class="vchip c-g"${glS(r[5])}>🗣️ ${r[5]}</span></div>`).join('')}</div>`,r:'<span class="vkey c-b">он</span> <span class="vkey c-r">она</span> <span class="vkey c-p">они</span> <span class="vkey c-g">language</span> – Americans and the English both speak <b>по-английски</b>.'},
+ {tag:'📋 How well?',t:'From “very well” to “not at all”',v:vScale(['очень хорошо','хорошо','неплохо','немного','чуть-чуть','плохо','совсем не говорю'],'very well ← → not at all'),r:'Answer <b>Как Вы говорите по-русски?</b> with one of these.',ex:[['— Как Вы говорите по-русски? — Немного.','— How well do you speak Russian? — A little.']]},
+ {tag:'✅ Quick check',t:'Your turn',v:vQC('Speak French: говорить ___','по-французски')+vQC('She is Russian: Она ___.','русская')}],
+'2.6':[
+ {tag:'📋 All of them',t:'говорить in all persons',v:vConj('говорить → говор-',[['я','говор{ю}'],['ты','говор{ишь}'],['он / она','говор{ит}'],['мы','говор{им}'],['вы','говор{ите}'],['они','говор{ят}']]),r:'Group II = the <b>и</b> verbs: -ишь, -ит, -им, -ите.'},
+ {tag:'⚠️ Watch out',t:'After ж, ш, ч, щ',v:vConj('учить · слышать',[['я','уч{у}'],['они','уч{ат}'],['я','слыш{у}'],['они','слыш{ат}']],'o'),r:'After <b>ж, ш, ч, щ</b> write <b>-у</b> (not -ю) and <b>-ат</b> (not -ят).'},
+ {tag:'💬 Examples',t:'From the book',v:'',r:'',ex:[['{Ты} говор{ишь} по-английски?','Do you speak English?'],['{Они} говор{ят} по-русски.','They speak Russian.']]},
+ {tag:'✅ Quick check',t:'Your turn',v:vQC('Они ___ (говорить) по-русски.','говорят')+vQC('Я ___ (учить) слова.','учу')}],
+'2.7':[
+ {tag:'📋 All of them',t:'11 to 19',v:vGrid([{h:'11–15',c:'b',items:['один{надцать}','две{надцать}','три{надцать}','четыр{надцать}','пят{надцать}']},{h:'16–19',c:'b',items:['шест{надцать}','сем{надцать}','восем{надцать}','девят{надцать}']}]),r:'Watch the spelling: <b>двенадцать</b> (12), <b>четырнадцать</b> (14), and the soft sign drops: пять → пятнадцать.'},
+ {tag:'📋 All of them',t:'The tens',v:vGrid([{h:'-дцать',c:'g',items:['два{дцать} · 20','три{дцать} · 30']},{h:'-десят',c:'p',items:['пять{десят} · 50','шесть{десят} · 60','семь{десят} · 70','восемь{десят} · 80']},{h:'by heart',c:'r',items:['сорок · 40','девяносто · 90','сто · 100']}]),r:'Three groups of tens – the red column you just learn by heart.'},
+ {tag:'💬 Examples',t:'Putting numbers together',v:vRows([['35','тридцать пять'],['89','восемьдесят девять'],['124','сто двадцать четыре']]),r:'Big number first, then the smaller ones – just like in English.'},
+ {tag:'✅ Quick check',t:'Your turn',v:vQC('Say 45','сорок пять')+vQC('Say 17','семнадцать')+vQC('Say 92','девяносто два')}],
+'2.8':[
+ {tag:'📋 All of them',t:'Who? → to whom?',v:vConj('Сколько … лет?',[['я','{мне}'],['ты','{тебе}'],['он','{ему}'],['она','{ей}'],['мы','{нам}'],['вы / Вы','{вам}'],['они','{им}']],'g'),r:'Age always uses these “to me” words (the dative).'},
+ {tag:'📋 The rule',t:'Look at the last digit',v:vGrid([{h:'год',c:'b',cap:'ends in 1',items:['1 год','21 год','31 год']},{h:'года',c:'g',cap:'ends in 2, 3, 4',items:['2 года','23 года','44 года']},{h:'лет',c:'r',cap:'5–9, 0, and 11–14',items:['5 лет','11 лет','20 лет']}]),r:'Careful: 11, 12, 13, 14 always take <b>лет</b>.'},
+ {tag:'💬 Examples',t:'From the book',v:'',r:'',ex:[['— Сколько тебе {лет}? — Мне двадцать {один год}.','— How old are you? — I am 21.'],['Ему двадцать {два года}, а ей двадцать {пять лет}.','He is 22, and she is 25.']]},
+ {tag:'✅ Quick check',t:'Your turn',v:vQC('Ему 23 ___.','года')+vQC('Мне 11 ___.','лет')+vQC('Ей 31 ___.','год')}]
+};
 /* ---- Unit 1: numbers 1-4 ---- */
 let PG={n:2,k:'газета'};
 function pgHtml(){const x=GNOUN.find(z=>z.ru==PG.k),n=PG.n,w=numWord(n,x.g),f=nForm(n,x);let p=0;while(p<x.ru.length&&p<f.length&&x.ru[p]==f[p])p++;

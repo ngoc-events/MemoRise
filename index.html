@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#f6f7fb" media="(prefers-color-scheme: light)"><meta name="theme-color" content="#0f1830" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f6f7fb" media="(prefers-color-scheme: light)"><meta name="theme-color" content="#171C25" media="(prefers-color-scheme: dark)">
 <script>(function(){function f(){try{var h=innerHeight;if(navigator.standalone===true){var p=innerHeight>=innerWidth,a=Math.max(screen.width,screen.height),b=Math.min(screen.width,screen.height),sh=p?a:b;if(sh>h)h=sh}document.documentElement.style.setProperty('--fh',h+'px')}catch(e){}}f();addEventListener('resize',f);addEventListener('orientationchange',function(){setTimeout(f,150)});addEventListener('pageshow',f)})()</script>
-<title>Russian MemoRise App_ver_78</title>
+<title>Russian MemoRise App_ver_79</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lobster&display=swap&text=%D0%90%D0%91%D0%92%D0%93%D0%94%D0%95%D0%96%D0%97%D0%98%D0%99%D0%9A%D0%9B%D0%9C%D0%9D%D0%9E%D0%9F%D0%A0%D0%A1%D0%A2%D0%A3%D0%A4%D0%A5%D0%A6%D0%A7%D0%A8%D0%A9%D0%AA%D0%AB%D0%AC%D0%AD%D0%AE%D0%AF%D0%B0%D0%B1%D0%B2%D0%B3%D0%B4%D0%B5%D0%B6%D0%B7%D0%B8%D0%B9%D0%BA%D0%BB%D0%BC%D0%BD%D0%BE%D0%BF%D1%80%D1%81%D1%82%D1%83%D1%84%D1%85%D1%86%D1%87%D1%88%D1%89%D1%8A%D1%8B%D1%8C%D1%8D%D1%8E%D1%8F%D0%81%D1%91%CC%81"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800;900&display=swap">
 <style>
 :root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);--bg:#f6f7fb;--card:#fff;--tx:#1f2430;--mu:#6b7280;--pr:#1d6fd8;--ok:#2e9e5b;--bad:#d64545;--bd:#e3e6ee}
@@ -547,9 +547,15 @@ main#app:has(>.gst){display:flex;flex-direction:column;overflow:hidden;padding-b
 .vpc b{font-size:20px;line-height:1.3;overflow-wrap:anywhere}.vpc small{font-size:12px;color:var(--mu);font-weight:600}
 .vpc .gke{color:#fff;background:var(--gk-ac);border-radius:7px;padding:0 4px}
 .vpc{align-content:center}.vpl{justify-self:center}.vpf{white-space:nowrap}.vpc b{font-size:19px}.vpc.same b{font-size:24px;color:var(--cc)}
+/* ver_79: plain subject labels, wrapped machine options, grey-blue dark background */
+.vpl{background:none!important;color:var(--mu)!important;padding:0!important;font-size:13px!important;font-weight:700!important}
+.vpc{background:var(--card)!important}
+.glmo{flex-wrap:wrap;overflow:visible}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#171C25;--card:#212835;--bd:#333C4D;--mu:#A1AABB;--sky:#232A36}}
+:root[data-theme="dark"]{--bg:#171C25;--card:#212835;--bd:#333C4D;--mu:#A1AABB;--sky:#232A36}
 </style></head><body><main id="app"></main>
 <script>
-const APP_VER='Russian MemoRise App_ver_78';
+const APP_VER='Russian MemoRise App_ver_79';
 const sv=(b,v='0 0 48 48')=>`<svg xmlns="http://www.w3.org/2000/svg" viewBox="${v}" aria-hidden="true">${b}</svg>`;
 const IC={
 learn:sv('<rect x="14" y="30" width="20" height="14" rx="4" fill="#FF8A5B"/><rect x="12" y="27" width="24" height="6" rx="3" fill="#FF6B3D"/><path d="M24 27V17" stroke="#2FBF71" stroke-width="3" stroke-linecap="round"/><path d="M24 20C24 12 17 10 11 12c0 7 5 10 13 8z" fill="#6EE7B7"/><path d="M24 17c0-7 6-9 12-7 0 7-5 9-12 7z" fill="#2FBF71"/>'),
@@ -1788,7 +1794,7 @@ const bkFind=n=>{for(const U of BK)for(const it of U.items)if(it.n==n)return{U,i
 const bkItem=n=>{const f=bkFind(n);return f&&f.it};
 const bkHl=s=>String(s==null?'':s).replace(/\{([^}]*)\}/g,'<b class="gke">$1</b>');
 const bkPlain=s=>String(s==null?'':s).replace(/<br\s*\/?>/gi,' ').replace(/<[^>]+>/g,'').replace(/[{}]/g,'').replace(/&nbsp;/g,' ').replace(/\s+/g,' ').trim();
-const bkSay=t=>{const p=bkPlain(t).replace(/\([^)]*\)/g,'').replace(/[→=·›♂♀⚧️🔢]/g,',').replace(/\s*,\s*(,\s*)+/g,', ').replace(/^[\s,]+|[\s,]+$/g,'').trim();return /[Ѐ-ӿ]/.test(p)?` data-say="${esc(p)}"`:''};
+const bkSay=t=>{const p=bkPlain(t).replace(/\([^)]*\)/g,'').replace(/[—–]/g,' ').replace(/[→=·›♂♀⚧️🔢]/g,',').replace(/\s*,\s*(,\s*)+/g,', ').replace(/^[\s,]+|[\s,]+$/g,'').trim();return /[Ѐ-ӿ]/.test(p)?` data-say="${esc(p)}"`:''};
 const BKCOL={r:'var(--gk-ac)',b:'var(--pr)',g:'var(--c-dat)',o:'var(--c-gen)',p:'var(--c-ins)',t:'var(--c-pre)',nom:'var(--c-nom)',gen:'var(--c-gen)',dat:'var(--c-dat)',acc:'var(--c-acc)',ins:'var(--c-ins)',pre:'var(--c-pre)'};
 const BKSECS=['hook','info','c','d','fig','tb','ex','tip','quiz'];
 const bkVis=(it,s)=>s=='info'?!!(it.info&&it.info.items&&it.info.items.some(x=>x.op==null)):s=='c'?!!(it.c&&it.c.length):s=='ex'?!!(it.ex&&it.ex.length):s=='fig'?!!(it.fig&&BKFIG[it.fig]):s=='tb'?!!(it.tb&&it.tb.length):!!it[s];
@@ -1840,13 +1846,13 @@ function bkEnds(it){const out=[];if(!it.tb)return out;const all=[];
 function bkQuizQ(it){if(!it.quiz)return null;const q=bkPlain(it.quiz[0]),a=bkPlain(it.quiz[1]).replace(/\s*\([^)]*\)\s*$/,'');if(!q.includes('___')||!a||a.length>40||/[,—]/.test(a))return null;
   const pool=shuf([...new Set(bkEnds(it).map(x=>x.key).concat(bkAllS().flatMap(s=>s.ru.split(/\s+/))).map(w=>w.replace(/[.,!?«»"]/g,'')).filter(w=>w&&w!=a&&/[Ѐ-ӿ]/.test(w)&&/[Ѐ-ӿ]/.test(a)==/[Ѐ-ӿ]/.test(w)))]).slice(0,3);
   if(pool.length<2)return null;return{t:'w',title:`${it.n} · Quick check`,prompt:'Choose the answer:',ru:q,opts:shuf([a,...pool]),key:a,explain:bkHl(it.quiz[1]),say:a}}
-const bkHasPr=it=>!!GL2[it.n]||bkApp(it.n)>=0||bkSents(it).length+bkEnds(it).length>0||!!bkQuizQ(it);
+const bkHasPr=it=>GL2[it.n]?!!GL2[it.n].gen:bkApp(it.n)>=0||bkSents(it).length+bkEnds(it).length>0||!!bkQuizQ(it);
 function bkQs(it){const S1=bkSents(it),E=shuf(bkEnds(it)).slice(0,5),Q=[...E],qq=bkQuizQ(it);if(qq)Q.push(qq);
   shuf(S1).slice(0,4).forEach((s,i)=>{if(i%2==0)Q.push({t:'b',s:{ru:s.ru,en:s.en,dir:'er',title:'Translate into Russian:'}});
     else{const pool=shuf(bkAllS().filter(x=>x.en!=s.en)).slice(0,3).map(x=>x.en);Q.push({t:'w',title:`${it.n} · What does it mean?`,prompt:'Choose the English meaning:',ru:s.ru,opts:shuf([s.en,...pool]),key:s.en,explain:`<b>${esc(s.ru)}</b> = ${esc(s.en)}`,say:s.ru})}});
   if(Q.length<3&&S1.length)S1.forEach(s=>{if(Q.length<4&&!Q.some(q=>q.s&&q.s.ru==s.ru))Q.push({t:'b',s:{ru:s.ru,en:s.en,dir:'re'}})});
   return Q}
-function bkPractice(n){const it=bkItem(n);if(!it)return;if(GL2[n])return glPractice(n);const a=bkApp(n);if(a>=0){JG=false;return gramPractice(a)}
+function bkPractice(n){const it=bkItem(n);if(!it)return;if(GL2[n]){if(GL2[n].gen)return glPractice(n);return bkLesson(n,0)}const a=bkApp(n);if(a>=0){JG=false;return gramPractice(a)}
   const Q=bkQs(it);if(!Q.length)return bkLesson(n,0);VIEW='game';JG=false;touchStreak();G={mode:'gram',unit:-1,bk:n,q:shuf(Q),total:Q.length,done:0,ok:0,R:bkHl(it.hook||it.tip||it.d||it.t),again:`bkPractice('${n}')`};next()}
 /* hub */
 let GKU=null,GKI=null;
@@ -1861,13 +1867,13 @@ function gkI(e,el){if(e.target.closest('button'))return;const o=el.classList.con
 document.addEventListener('click',e=>{const s=e.target.closest&&e.target.closest('[data-say]');if(s&&s.closest('.gkc')){e.stopPropagation();speak(s.dataset.say)}},true);
 /* ===== ver_76: redesigned grammar lessons (Units 1–2): one idea per card, big visuals, a "machine" to play with, drag-and-drop practice ===== */
 const GLP=[['я','I'],['ты','you'],['он','he'],['она','she'],['мы','we'],['вы','you (pl./polite)'],['они','they']];
-const GLCOL={он:'b',она:'r',оно:'g',они:'p'};
+const GLCOL={он:'b',она:'r',оно:'p',они:'y'};
 const vPers=(head,f,c='r',cap={})=>{const cell=(ps,cl)=>{ps=ps.filter(k=>f[k]!=null&&f[k]!=='');if(!ps.length)return`<div class="vpc empty"></div>`;const forms=[...new Set(ps.map(k=>f[k]))];
   const lab=ps.join(' / ');const cp=ps.map(k=>cap[k]).filter(Boolean);const same=bkPlain(forms.join(' / '))==lab;return`<div class="vpc c-${cl||c}${same?' same':''}"${glS(forms.length==1?ps[0]+' '+forms[0]:forms.join(', '))}>${same?'':`<span class="vpl">${lab}</span>`}<b>${forms.map(f=>`<span class="vpf">${glE(f)}</span>`).join('<span class="vps"> / </span>')}</b>${cp.length?`<small>${[...new Set(cp)].join(' / ')}</small>`:''}</div>`};
   return`<div class="vpers">${head?`<div class="vph"${glS(head)}>${glE(head)}</div>`:''}<div class="vpg"><div class="vpcolh">singular</div><div class="vpcolh">plural</div>${cell(['я'])}${cell(['мы'])}${cell(['ты'])}${cell(['вы'])}${cell(['он','она','оно'])}${cell(['они'])}</div></div>`};
 const ETOC={этот:'b',эта:'r',это:'p',эти:'y'};
 
-const glS=t=>{const p=bkPlain(t);return /[Ѐ-ӿ]/.test(p)?` data-say="${esc(p)}"`:''};
+const glS=t=>{const p=bkPlain(t).replace(/\s*[—–]\s*/g,' ').replace(/^\s+/,'');return /[Ѐ-ӿ]/.test(p)?` data-say="${esc(p)}"`:''};
 const glE=s=>bkHl(s);
 /* ---- visual building blocks ---- */
 const vT=(t,c='b',cap='')=>`<span class="vt c-${c}"${glS(t)}><b>${glE(t)}</b>${cap?`<small>${glE(cap)}</small>`:''}</span>`;
@@ -1907,7 +1913,7 @@ const glOpts=(key,pool,n=4)=>shuf([key,...shuf([...new Set(pool.filter(x=>x!=key
 /* ---- the 13 lessons ---- */
 const GL2={
 '1.1':{steps:[
- {t:'Who is who?',v:vPers('',{я:'я',ты:'ты',он:'он',она:'она',оно:'оно',мы:'мы',вы:'вы',они:'они'},'b',{я:'I',ты:'you',он:'he',она:'she',оно:'it',мы:'we',вы:'you all · Вы = you (polite)',они:'they'}),r:'Little words that replace people. Left: one person – right: many people.',ex:[['Я студент.','I am a student.'],['Она врач.','She is a doctor.']]},
+ {t:'Who is who?',v:vPers('',{я:'я',ты:'ты',он:'он',она:'она',оно:'оно',мы:'мы',вы:'вы',они:'они'},'b',{я:'I',ты:'you',он:'he',она:'she',оно:'it',мы:'we',вы:'you all · Вы = you (polite)',они:'they'}),r:'',ex:[['Я студент.','I am a student.'],['Она врач.','She is a doctor.']]},
  {t:'ты or Вы?',v:vBins([{h:'ты',em:'👫 🧒',cap:'friend, child, family',c:'b'},{h:'Вы',em:'👩‍🏫 🧓 🧑‍💼',cap:'teacher, older person, stranger',c:'p'}]),r:'<b>ты</b> is friendly. <b>Вы</b> (capital В) is polite – for one person you respect. Small <b>вы</b> means “you all”.',ex:[['Как ты?','How are you? (friend)'],['Как Вы?','How are you? (polite)']]}],
  m:{title:'Pronoun mixer',rows:[{l:'Person 1',o:['я','ты','он','она']},{l:'Person 2',o:['ты','он','она']}],
   run:([a,b])=>{const s=[a,b],r=s.includes('я')?'мы':s.includes('ты')?'вы':'они';return{inp:`${a} + ${b}`,out:r,end:'',why:r=='мы'?'There is <b>я</b> in the group → <b>мы</b> (we).':r=='вы'?'There is <b>ты</b> but no <b>я</b> → <b>вы</b> (you all).':'No я, no ты → <b>они</b> (they).',c:r=='мы'?'g':r=='вы'?'p':'o'}}},
@@ -1926,10 +1932,10 @@ const GL2={
  m:{title:'Кто / Что sorter',rows:[{l:'Pick something',o:GKTO.map(x=>x[1]+' '+x[0])}],run:([s])=>{const x=GKTO.find(z=>s.endsWith(z[0]));return{inp:s,out:`${x[2]} это? — Это ${x[0]}.`,hl:x[2],why:x[2]=='Кто'?'A person or an animal → <b>Кто?</b>':'A thing → <b>Что?</b>',c:x[2]=='Кто'?'b':'o'}}},
  gen:()=>{const x=pk(GKTO);return{hint:`<span class="vbe">${x[1]}</span>`,txt:`— ___ это? — Это ${x[0]}.`,pcs:shuf(['Кто','Что']),key:x[2],why:x[2]=='Кто'?'person / animal → Кто':'thing → Что',say:`${x[2]} это? Это ${x[0]}.`}}},
 '1.4':{steps:[
- {t:'Every word has a gender',v:`<div class="vcards">${[['он','b','♂ masculine'],['она','r','♀ feminine'],['оно','g','neuter'],['они','p','plural']].map(x=>vT(...x)).join('')}</div>`,r:'Even a table or a book is “he” or “she” in Russian. Don’t worry – the <b>last letter</b> tells you.'},
- {t:'Look at the last letter',v:`<div class="vword-row">${vWord('стол','','b','он · consonant')}${vWord('книг','а','r','она · -а')}${vWord('окн','о','g','оно · -о')}${vWord('час','ы','p','они · -ы')}</div>`,r:'<b>consonant / -й</b> → он · <b>-а / -я</b> → она · <b>-о / -е</b> → оно · <b>-ы / -и</b> → они'},
+ {t:'Every word has a gender',v:`<div class="vcards">${[['он','b','♂ masculine'],['она','r','♀ feminine'],['оно','p','neuter'],['они','y','plural']].map(x=>vT(...x)).join('')}</div>`,r:'Even a table or a book is “he” or “she” in Russian. Don’t worry – the <b>last letter</b> tells you.'},
+ {t:'Look at the last letter',v:`<div class="vword-row">${vWord('стол','','b','он · consonant')}${vWord('книг','а','r','она · -а')}${vWord('окн','о','p','оно · -о')}${vWord('час','ы','y','они · -ы')}</div>`,r:'<b>consonant / -й</b> → он · <b>-а / -я</b> → она · <b>-о / -е</b> → оно · <b>-ы / -и</b> → они'},
  {t:'Tricky ones',v:vBins([{h:'-ь ?',em:'📕 словарь = он<br>📓 тетрадь = она',cap:'learn -ь words one by one',c:'o'},{h:'он!',em:'👨 папа · ☕ кофе',cap:'men are always он',c:'b'}]),r:'Words in <b>-ь</b> can be он or она. <b>папа</b> is он because he is a man.'}],
- m:{title:'Gender detector',rows:[{l:'Pick a word',o:GNOUNS.map(x=>x[3]+' '+x[0])}],run:([s])=>{const x=GNOUNS.find(z=>s.endsWith(' '+z[0])),[st,en]=glEnd(x[0]);return{inp:s,word:[st,en],out:x[2],why:gRule(x[0],x[2]),c:GLCOL[x[2]]}}},
+ m:{title:'Gender detector',rows:[{l:'Pick a word',o:['стол','музей','словарь','книга','тетрадь','окно','море','часы','папа','кофе'].map(w=>{const x=GNOUNS.find(z=>z[0]==w);return x[3]+' '+x[0]})}],run:([s])=>{const x=GNOUNS.find(z=>s.endsWith(' '+z[0])),[st,en]=glEnd(x[0]);return{inp:s,word:[st,en],out:x[2],why:gRule(x[0],x[2]),c:GLCOL[x[2]]}}},
  gen:()=>{const x=pk(GNOUNS);return{hint:`<span class="vbe">${x[3]}</span> ${x[1]}`,txt:`${x[0]} → ___`,pcs:['он','она','оно','они'],key:x[2],why:gRule(x[0],x[2]),say:x[0]}}},
 '1.5':{steps:[
  {t:'Где? = Where?',v:`<div class="vmap"><span class="c-b">⬅️<b>слева</b></span><span class="c-r">📍<b>здесь</b></span><span class="c-b">➡️<b>справа</b></span><span class="c-o vmap-far">👉<b>там</b></span></div>`,r:'Four words answer <b>Где?</b>: здесь (here), там (there), слева (on the left), справа (on the right).',ex:[['Где аптека? — Там, слева.','Where is the pharmacy? — Over there, on the left.']]},
@@ -1950,17 +1956,17 @@ const GL2={
 '2.3':{steps:[
  {t:'Это = This is…',v:vEq(['Это','p','this is'],'+',['Анна','o','Anna'],'=',['Это Анна.','p','This is Anna.']),r:'<b>Это</b> never changes. It introduces something.'},
  {t:'этот / эта / эти = this …',v:`<div class="vcards">${[['этот','b','он · этот стол'],['эта','r','она · эта книга'],['это','p','оно · это окно'],['эти','y','они · эти часы']].map(x=>vT(...x)).join('')}</div>`,r:'Before a noun, “this” follows the gender of the noun – same colours as он, она, оно, они.',ex:[['Эта девушка — актриса.','This girl is an actress.'],['Этот мужчина — врач.','This man is a doctor.']]}],
- m:{title:'“This” machine',rows:[{l:'Noun',o:GNOUNS.filter(x=>x[0]!='Россия').map(x=>x[3]+' '+x[0])}],run:([s])=>{const x=GNOUNS.find(z=>s.endsWith(' '+z[0]));return{inp:s,out:`${GETOT[x[2]]} ${x[0]}`,hl:GETOT[x[2]],why:`${x[0]} is <b>${x[2]}</b> → <b>${GETOT[x[2]]}</b>`,c:ETOC[GETOT[x[2]]]}}},
+ m:{title:'“This” machine',rows:[{l:'Noun',o:['стол','дом','телефон','книга','машина','мама','окно','письмо','часы','очки'].map(w=>{const x=GNOUNS.find(z=>z[0]==w);return x[3]+' '+x[0]})}],run:([s])=>{const x=GNOUNS.find(z=>s.endsWith(' '+z[0]));return{inp:s,out:`${GETOT[x[2]]} ${x[0]}`,hl:GETOT[x[2]],why:`${x[0]} is <b>${x[2]}</b> → <b>${GETOT[x[2]]}</b>`,c:ETOC[GETOT[x[2]]]}}},
  gen:()=>{const x=pk(GNOUNS.filter(z=>z[0]!='Россия'));return{hint:`${x[3]} this ${x[1]}`,txt:`___ ${x[0]}`,pcs:['этот','эта','это','эти'],key:GETOT[x[2]],why:`${x[0]} = ${x[2]} → <b>${GETOT[x[2]]}</b>`,say:`${GETOT[x[2]]} ${x[0]}`}}},
 '2.4':{steps:[
  {t:'Откуда? = Where from?',v:vEq(['из','b','from'],'+',['Росси{и}','o','Russia']),r:'After <b>из</b> (from) the country changes its ending.',ex:[['Откуда Вы? — Я из Вьетнама.','Where are you from? — I am from Vietnam.']]},
  {t:'The ending rules',v:vRows([['Вьетнам','Вьетнам{а}'],['Америк{а}','Америк{и}'],['Росси{я}','Росси{и}'],['Кита{й}','Кита{я}']]),r:'consonant → <b>+а</b> · <b>-а → -ы</b> (after к, г, х → <b>-и</b>) · <b>-я / -ия → -и</b> · <b>-й → -я</b>'}],
- m:{title:'“From” machine',rows:[{l:'Country',o:GCOUNTRY.map(x=>x[2]+' '+x[0])}],run:([s])=>{const x=GCOUNTRY.find(z=>s.endsWith(' '+z[0])),[st,en,why]=izGen(x[0]);return{inp:s,word:[st,en],pre:'из',why:`${why}: from ${x[1]}`,c:'o'}}},
+ m:{title:'“From” machine',rows:[{l:'Country',o:['Россия','Америка','Китай','Франция','Вьетнам','Испания','Италия','Германия','Казахстан','Канада'].map(w=>{const x=GCOUNTRY.find(z=>z[0]==w);return x[2]+' '+x[0]})}],run:([s])=>{const x=GCOUNTRY.find(z=>s.endsWith(' '+z[0])),[st,en,why]=izGen(x[0]);return{inp:s,word:[st,en],pre:'из',why:`${why}: from ${x[1]}`,c:'o'}}},
  gen:()=>{const x=pk(GCOUNTRY),[st,en,why]=izGen(x[0]),key=st+en,w=x[0],b=w.replace(/[аяйь]$/,'');
   const pool=/ия$/.test(w)?[w,b+'ю',b+'ей',w.slice(0,-2)+'ы']:/я$/.test(w)?[w,b+'ю',b+'ей',b+'е']:/а$/.test(w)?[w,b+'у',b+'е',b+'ой',/[гкхжшчщ]а$/.test(w)?b+'ы':b+'и']:/[йь]$/.test(w)?[w,b+'е',b+'ю',b+'ем']:[w,w+'у',w+'е',w+'ом'];
   return{hint:`${x[2]} from ${x[1]}`,txt:`Я из ___.`,pcs:glOpts(key,pool.filter(z=>z!=key)),key,why:`${x[0]} → из <b>${key}</b> (${why})`,say:`Я из ${key}`}}},
 '2.5':{steps:[
- {t:'One country, three people',v:`<div class="vcards">${vT('русский','b','he')}${vT('русская','r','she')}${vT('русские','p','they')}</div>`,r:'Each nationality has a form for a man, a woman and a group.'},
+ {t:'One country, three people',v:`<div class="vcards">${vT('русский','b','he')}${vT('русская','r','she')}${vT('русские','y','they')}</div>`,r:'Each nationality has a form for a man, a woman and a group.'},
  {t:'Speaking a language',v:vEq(['говорить','b','speak'],'+',['по-русски','r','in Russian']),r:'Use <b>по-…ски</b> after говорить, читать, понимать.',ex:[['Как Вы говорите по-русски? — Немного.','How well do you speak Russian? — A little.']]}],
  m:{title:'Nationality machine',rows:[{l:'Country',o:GNAT.map(x=>x[1]+' '+x[0])},{l:'Form',o:['он','она','они','язык 🗣️']}],run:([c,f])=>{const x=GNAT.find(z=>c.endsWith(' '+z[0])),i=['он','она','они','язык 🗣️'].indexOf(f),w=x[2+i];return{inp:`${c} · ${f}`,out:i==3?`говорить ${w}`:`${i==0?'Он':i==1?'Она':'Они'} ${w}.`,hl:w,why:i==3?`speak ${x[6]}`:`${['a man','a woman','people'][i]} from ${x[0]}`,c:['b','r','p','g'][i]}}},
  gen:()=>{const x=pk(GNAT),i=Math.floor(Math.random()*4);if(i==3){return{hint:`${x[1]} He speaks ${x[6]}.`,txt:'Он говорит ___.',pcs:glOpts(x[5],GNAT.map(z=>z[5])),key:x[5],why:`${x[6]} → <b>${x[5]}</b>`,say:`Он говорит ${x[5]}`}}
@@ -1992,10 +1998,10 @@ function glMachineHTML(n){const L=GL2[n],m=L.m;if(!GLM[n])GLM[n]=m.def?[...m.def
   let out;if(r.parts)out=`<div class="glout c-${r.c}"${glS(r.parts.map(p=>p.join('')).join(' '))}>${r.parts.map(([a,b])=>`<span>${esc(a)}<b class="vend c-r">${esc(b)}</b></span>`).join(' ')}</div>`;
   else if(r.word)out=`<div class="glout c-${r.c}"${glS((r.pre?r.pre+' ':'')+r.word.join(''))}>${r.pre?`<span class="glpre">${esc(r.pre)}</span> `:''}${esc(r.word[0])}${r.word[1]?`<b class="vend c-${r.c}">${esc(r.word[1])}</b>`:''}${r.out?` <span class="glbadge c-${r.c}">${esc(r.out)}</span>`:''}</div>`;
   else out=`<div class="glout c-${r.c}"${glS(r.out)}>${r.hl?esc(r.out).replace(esc(r.hl),`<b class="vend c-${r.c}">${esc(r.hl)}</b>`):`<b class="vend c-${r.c}">${esc(r.out)}</b>`}</div>`;
-  return `<div class="glm" id="glm"><div class="glmt">⚙️ ${m.title}</div>${m.rows.map((row,ri)=>`<div class="glml">${row.l}</div><div class="glmo">${row.o.map((o,oi)=>`<button class="glchip${GLM[n][ri]==oi?' on':''}" onclick="glPick('${n}',${ri},${oi})">${esc(o)}</button>`).join('')}</div>`).join('')}
+  return `<div class="glm" id="glm"><div class="glmt">⚙️ ${m.title}</div>${m.rows.map((row,ri)=>`<div class="glml">${row.l}</div><div class="glmo">${row.o.slice(0,10).map((o,oi)=>`<button class="glchip${GLM[n][ri]==oi?' on':''}" onclick="glPick('${n}',${ri},${oi})">${esc(o)}</button>`).join('')}</div>`).join('')}
   <div class="glbox"><div class="glgear" aria-hidden="true">⚙️</div><div class="glin">${esc(r.inp)}</div><div class="glarrow">⬇</div>${out}<div class="glwhy">💡 ${r.why}</div></div><div class="mu" style="font-size:13px;margin-top:6px">Tap the big answer to hear it.</div></div>`}
 function glPick(n,ri,oi){GLM[n][ri]=oi;sfx('tap');const el=document.getElementById('glm');if(!el)return;el.outerHTML=glMachineHTML(n);const b=document.querySelector('#glm .glbox');if(b){b.classList.add('spin');setTimeout(()=>b.classList.remove('spin'),450)}const o=document.querySelector('#glm .glout');if(o&&o.dataset.say)speak(o.dataset.say)}
-function glPages(n){const L=GL2[n],X=(typeof GLX!='undefined'&&GLX[n])||[],all=[...L.steps,...X];return [...all.map((s,i)=>glStep(s,i,n)),()=>glMachineHTML(n)]}
+function glPages(n){const L=GL2[n],X=(typeof GLX!='undefined'&&GLX[n])||[],all=[...L.steps,...X];return [...all.map((s,i)=>glStep(s,i,n)),...(L.m?[()=>glMachineHTML(n)]:[])]}
 /* ---- practice: drag a piece into the gap (or tap it) ---- */
 let GP=null;const GPROUND=8;
 function glPractice(n){if(!GL2[n])return;VIEW='game';JG=false;touchStreak();GP={n,i:0,ok:0,streak:GP&&GP.n==n?GP.streak:0,best:0,q:null,done:false};glNextQ()}
@@ -2010,7 +2016,7 @@ function glPRender(){const q=GP.q,it=bkItem(GP.n);
 function glFb(){const q=GP.q,ok=GP.pick==q.key;return`<div class="gpfb ${ok?'ok':'no'}">${ok?'✔ Correct!':`✘ The answer is <b>${esc(q.key)}</b>`}<div class="gpwhy">💡 ${q.why}</div></div>`}
 function glChoose(v){if(GP.ans)return;GP.ans=true;GP.pick=v;const ok=v==GP.q.key;GP.hist=GP.hist||[];GP.hist[GP.i]=ok;
   if(ok){GP.ok++;GP.streak++;S.xp+=5;S.mu=Date.now();save();sfx('ok')}else{GP.streak=0;sfx('no')}
-  glPRender();if(GP.q.say)speak(GP.q.say.replace('___',GP.q.key));const s=document.getElementById('gpslot');if(s)s.classList.add(ok?'ok':'no');if(ok)setTimeout(()=>{if(GP&&GP.ans&&GP.pick==GP.q.key&&document.getElementById('gpslot'))glAdvance()},1500)}
+  glPRender();if(GP.q.say)speak(GP.q.say.replace('___',GP.q.key).replace(/\s*[—–]\s*/g,' '));const s=document.getElementById('gpslot');if(s)s.classList.add(ok?'ok':'no');if(ok)setTimeout(()=>{if(GP&&GP.ans&&GP.pick==GP.q.key&&document.getElementById('gpslot'))glAdvance()},1500)}
 function glAdvance(){if(!GP)return;GP.i++;if(GP.i>=GPROUND)return glFin();glNextQ()}
 function glFin(){const n=GP.n,ok=GP.ok,st=ok>=7?3:ok>=5?2:ok>=3?1:0;if(st>=2){S.jp['gl:'+n]=Date.now();save()}sfx(st>=2?'win':'tap');VIEW='menu';
   $.innerHTML=`<h1>${st==3?'🏆 Excellent!':st==2?'🎉 Well done!':st==1?'💪 Getting there!':'🌱 Keep practising!'}</h1>${masHtml()}<div class="card" style="text-align:center"><div style="font-size:40px;letter-spacing:6px">${'⭐'.repeat(st)}${'☆'.repeat(3-st)}</div><div class="big" style="margin:4px 0">${ok} / ${GPROUND}</div><div class="mu">Grammar ${n} · ${esc(bkItem(n).t)}</div></div>
@@ -2035,8 +2041,7 @@ const vQC=(q,a)=>`<details class="vqc"><summary>${glE(q)}<span class="vqcs">👆
 const vNote=(em,t)=>`<div class="vnote"><span>${em}</span><div>${t}</div></div>`;
 const GLX={
 '1.1':[
- {tag:'📋 All of them',t:'Singular and plural',v:vPers('',{я:'я',ты:'ты',он:'он',она:'она',оно:'оно',мы:'мы',вы:'вы',они:'они'},'b',{я:'I',ты:'you',он:'he',она:'she',оно:'it',мы:'we',вы:'you all',они:'they'}),r:'Every “one person” word has a “many people” partner: я → мы, ты → вы, он / она / оно → они.'},
- {tag:'⚠️ Watch out',t:'вы has two meanings',v:vBins([{h:'вы',em:'👥',cap:'you all – many people',c:'p'},{h:'Вы',em:'🧓',cap:'you – one person, politely (capital В in writing)',c:'o'}]),r:'Spoken, they sound the same. In writing, the polite one gets a capital letter.',ex:[['Здравствуйте, Анна Петровна! Как Вы?','Hello, Anna Petrovna! How are you?'],['Ребята, как вы?','Guys, how are you all?']]},
+  {tag:'⚠️ Watch out',t:'вы has two meanings',v:vBins([{h:'вы',em:'👥',cap:'you all – many people',c:'p'},{h:'Вы',em:'🧓',cap:'you – one person, politely (capital В in writing)',c:'o'}]),r:'Spoken, they sound the same. In writing, the polite one gets a capital letter.',ex:[['Здравствуйте, Анна Петровна! Как Вы?','Hello, Anna Petrovna! How are you?'],['Ребята, как вы?','Guys, how are you all?']]},
  {tag:'✅ Quick check',t:'Your turn',v:vQC('You speak to your teacher. “you” = ?','Вы')+vQC('я + он = ?','мы')+vQC('он + она = ?','они')}],
 '1.2':[
  {tag:'📋 All of them',t:'Who? → Как … зовут?',v:vPers('Как … зовут?',{я:'{меня} зовут',ты:'{тебя} зовут',он:'{его} зовут',она:'{её} зовут',мы:'{нас} зовут',вы:'{вас} зовут',они:'{их} зовут'}),r:'Seven pairs to learn. Only the first word changes – <b>зовут</b> stays the same.'},
@@ -2048,7 +2053,7 @@ const GLX={
  {tag:'⚠️ Watch out',t:'Animals are “who”!',v:vChips(['🐱 Кто это? — Это кошка.','🐶 Кто это? — Это собака.'],'b'),r:'In English a cat is “what”, in Russian it is <b>Кто</b> – it is alive.'},
  {tag:'✅ Quick check',t:'Your turn',v:vQC('___ это? — Это кошка.','Кто это? (animals take Кто)')+vQC('___ это? — Это машина.','Что это?')+vQC('This is not a table: Это ___ стол.','Это не стол.')}],
 '1.4':[
- {tag:'📋 All of them',t:'The gender chart',v:vGrid([{h:'он',c:'b',em:'♂️',cap:'consonant, -й, -ь',items:['телефон','стол','музе{й}','словар{ь}']},{h:'она',c:'r',em:'♀️',cap:'-а, -я, -ь',items:['книг{а}','Росси{я}','тетрад{ь}']},{h:'оно',c:'g',em:'⚧️',cap:'-о, -е',items:['окн{о}','каф{е}','мор{е}']},{h:'они',c:'p',em:'🔢',cap:'-ы, -и',items:['час{ы}','очк{и}']}]),r:'Read each column top to bottom – the red letter is what decides the gender.'},
+ {tag:'📋 All of them',t:'The gender chart',v:vGrid([{h:'он',c:'b',em:'♂️',cap:'consonant, -й, -ь',items:['телефон','стол','музе{й}','словар{ь}']},{h:'она',c:'r',em:'♀️',cap:'-а, -я, -ь',items:['книг{а}','Росси{я}','тетрад{ь}']},{h:'оно',c:'p',em:'⚧️',cap:'-о, -е',items:['окн{о}','каф{е}','мор{е}']},{h:'они',c:'y',em:'🔢',cap:'-ы, -и',items:['час{ы}','очк{и}']}]),r:'Read each column top to bottom – the red letter is what decides the gender.'},
  {tag:'⚠️ Watch out',t:'Exceptions to remember',v:vWarn(['<b>папа</b> 👨, <b>дедушка</b> 👴 end in -а but are <b>он</b> – they are men.','<b>кофе</b> ☕ is <b>он</b>.','<b>время</b> ⏰ (time) and <b>имя</b> 🏷️ (name) end in -я but are <b>оно</b>.','Words in <b>-ь</b> can be он (словарь) or она (тетрадь) – learn each one.']),r:'Just a few exceptions – everything else follows the last letter.'},
  {tag:'✅ Quick check',t:'Your turn',v:vQC('словарь, окно, лампа: which gender?','словарь — он, окно — оно, лампа — она')+vQC('папа — он or она?','он (a man)')+vQC('время — ?','оно (exception)')}],
 '1.5':[
@@ -2077,12 +2082,12 @@ const GLX={
  {tag:'💬 Examples',t:'',v:'',r:'',ex:[['— Откуда Вы? — Я из Вьетнама.','— Where are you from? — I am from Vietnam.'],['Жаклин из Франции.','Jacqueline is from France.']]},
  {tag:'✅ Quick check',t:'Your turn',v:vQC('Я из ___ (Италия).','из Италии')+vQC('Я из ___ (Китай).','из Китая')}],
 '2.5':[
- {tag:'📋 All of them',t:'He · she · they · language',v:`<div class="vnat">${[['🇷🇺','Россия','русский','русская','русские','по-русски'],['🇬🇧','Англия','англичанин','англичанка','англичане','по-английски'],['🇺🇸','Америка','американец','американка','американцы','по-английски'],['🇫🇷','Франция','француз','француженка','французы','по-французски']].map(r=>`<div class="vnr"><div class="vnf">${r[0]}<small>${r[1]}</small></div><span class="vchip c-b"${glS(r[2])}>${r[2]}</span><span class="vchip c-r"${glS(r[3])}>${r[3]}</span><span class="vchip c-p"${glS(r[4])}>${r[4]}</span><span class="vchip c-g"${glS(r[5])}>🗣️ ${r[5]}</span></div>`).join('')}</div>`,r:'<span class="vkey c-b">он</span> <span class="vkey c-r">она</span> <span class="vkey c-p">они</span> <span class="vkey c-g">language</span> – Americans and the English both speak <b>по-английски</b>.'},
+ {tag:'📋 All of them',t:'He · she · they · language',v:`<div class="vnat">${[['🇷🇺','Россия','русский','русская','русские','по-русски'],['🇬🇧','Англия','англичанин','англичанка','англичане','по-английски'],['🇺🇸','Америка','американец','американка','американцы','по-английски'],['🇫🇷','Франция','француз','француженка','французы','по-французски']].map(r=>`<div class="vnr"><div class="vnf">${r[0]}<small>${r[1]}</small></div><span class="vchip c-b"${glS(r[2])}>${r[2]}</span><span class="vchip c-r"${glS(r[3])}>${r[3]}</span><span class="vchip c-y"${glS(r[4])}>${r[4]}</span><span class="vchip c-g"${glS(r[5])}>🗣️ ${r[5]}</span></div>`).join('')}</div>`,r:'<span class="vkey c-b">он</span> <span class="vkey c-r">она</span> <span class="vkey c-y">они</span> <span class="vkey c-g">language</span> – Americans and the English both speak <b>по-английски</b>.'},
  {tag:'📋 How well?',t:'From “very well” to “not at all”',v:vScale(['очень хорошо','хорошо','неплохо','немного','чуть-чуть','плохо','совсем не говорю'],'very well ← → not at all'),r:'Answer <b>Как Вы говорите по-русски?</b> with one of these.',ex:[['— Как Вы говорите по-русски? — Немного.','— How well do you speak Russian? — A little.']]},
  {tag:'✅ Quick check',t:'Your turn',v:vQC('Speak French: говорить ___','по-французски')+vQC('She is Russian: Она ___.','русская')}],
 '2.6':[
  {tag:'📋 All of them',t:'говорить in all persons',v:vPers('говорить → говор-',{я:'говор{ю}',ты:'говор{ишь}',он:'говор{ит}',она:'говор{ит}',оно:'говор{ит}',мы:'говор{им}',вы:'говор{ите}',они:'говор{ят}'}),r:'Group II = the <b>и</b> verbs: -ишь, -ит, -им, -ите.'},
- {tag:'⚠️ Watch out',t:'After ж, ш, ч, щ',v:vRows([['учить','я уч{у} · они уч{ат}'],['слышать','я слыш{у} · они слыш{ат}']]),r:'After <b>ж, ш, ч, щ</b> write <b>-у</b> (not -ю) and <b>-ат</b> (not -ят).'},
+ {tag:'⚠️ Watch out',t:'After ж, ш, ч, щ',v:vRows([['учить','я уч{у}<br>они уч{ат}'],['слышать','я слыш{у}<br>они слыш{ат}']]),r:'After <b>ж, ш, ч, щ</b> write <b>-у</b> (not -ю) and <b>-ат</b> (not -ят).'},
  {tag:'💬 Examples',t:'',v:'',r:'',ex:[['{Ты} говор{ишь} по-английски?','Do you speak English?'],['{Они} говор{ят} по-русски.','They speak Russian.']]},
  {tag:'✅ Quick check',t:'Your turn',v:vQC('Они ___ (говорить) по-русски.','говорят')+vQC('Я ___ (учить) слова.','учу')}],
 '2.7':[
@@ -2145,10 +2150,7 @@ Object.assign(GL2,{
   const i=Math.floor(Math.random()*6),g2=Math.random()<.3,st=g2?'уч':'занима',e=U3sjEnd(i,g2),p=GLP[GPI[i]][0];const all=g2?['усь','ишься','ится','имся','итесь','атся']:['юсь','ешься','ется','емся','етесь','ются'];
   return{hint:`${GLP[GPI[i]][1]} ${g2?'study':'do sport'}`,txt:`${ucap(p)} ${st}___ ${g2?'в школе':'спортом'}.`,pcs:shuf(all.map(z=>'-'+z)),key:'-'+e,why:`${p} → <b>${st}${e}</b>`,say:`${p} ${st}${e}`}}},
 '3.4':{steps:[
- {t:'Почему? → Потому что…',v:vEq(['Почему?','b','why?'],'→',['Потому что…','g','because…']),r:'Ask the reason with <b>Почему?</b>, answer with <b>Потому что</b> + a full sentence.',ex:[['— Почему ты не работаешь? — Потому что я студент.','— Why don’t you work? — Because I am a student.']]}],
- m:{title:'Reason machine',rows:[{l:'Question',o:U3WHY.map(x=>x[0])},{l:'Reason',o:U3WHY.map(x=>x[1])}],run:([q,r])=>({inp:`Почему ${q}?`,out:`Потому что ${r}.`,hl:'Потому что',why:`Почему…? → <b>Потому что</b> + reason`,c:'g'})},
- gen:()=>{const x=pk(U3WHY);if(Math.random()<.5)return{hint:`Why ${x[2]}?`,txt:`— ___ ${x[0]}? — Потому что ${x[1]}.`,pcs:['Почему','Где','Кто','Как'],key:'Почему',why:'why = <b>Почему</b>',say:`Почему ${x[0]}?`};
-  return{hint:`Because ${x[3]}.`,txt:`— Почему ${x[0]}? — ___ ${x[1]}.`,pcs:shuf(['Потому что','Почему','Что','Как']),key:'Потому что',why:'because = <b>Потому что</b>',say:`Потому что ${x[1]}`}}},
+ {t:'Почему? → Потому что…',v:vEq(['Почему?','b','why?'],'→',['Потому что…','g','because…']),r:'Ask the reason with <b>Почему?</b>, answer with <b>Потому что</b> + a full sentence.',ex:[['— Почему ты не работаешь? — Потому что я студент.','— Why don’t you work? — Because I am a student.']]}]},
 '3.5':{steps:[
  {t:'Как? → по-русски',v:vEq(['говорю','b','I speak'],'+',['по-русски','r','how? in Russian']),r:'With <b>говорить, читать, писать, понимать</b> say <b>how</b>: <b>по-русски</b>.',ex:[['Я читаю по-русски.','I read Russian.']]},
  {t:'Что? → русский язык',v:vEq(['изучаю','b','I study'],'+',['русский язык','g','what? the Russian language']),r:'With <b>изучать, знать</b> say <b>what</b>: <b>русский язык</b>.',ex:[['Я изучаю русский язык.','I study the Russian language.'],['Он знает английский язык.','He knows English.']]}],
@@ -2199,9 +2201,7 @@ Object.assign(GLX,{
  {tag:'💬 Examples',t:'',v:'',r:'',ex:[['Я занима{юсь} спортом.','I do sport.'],['Сестра занима{ется} музыкой.','My sister studies music.']]},
  {tag:'✅ Quick check',t:'Your turn',v:vQC('Она ___ (заниматься) спортом.','занимается')+vQC('Вы ___ (заниматься) музыкой?','занимаетесь')}],
 '3.4':[
- {tag:'⚠️ Watch out',t:'Почему ≠ Потому что',v:vBins([{h:'Почему?',em:'❓',cap:'question: why?',c:'b'},{h:'Потому что',em:'💡',cap:'answer: because',c:'g'}]),r:'They look alike – but one asks and one answers. (Coming in 4.7: <b>поэтому</b> = so.)'},
- {tag:'💬 Examples',t:'',v:'',r:'',ex:[['— {Почему} ты не работаешь? — {Потому что} я студент.','— Why don’t you work? — Because I am a student.'],['— Почему ты дома? — Потому что я болею.','— Why are you at home? — Because I am ill.']]},
- {tag:'✅ Quick check',t:'Your turn',v:vQC('An answer to Почему? starts with…','Потому что…')}],
+ {tag:'💬 Examples',t:'',v:'',r:'',ex:[['— {Почему} ты не работаешь? — {Потому что} я студент.','— Why don’t you work? — Because I am a student.'],['— Почему ты дома? — Потому что я болею.','— Why are you at home? — Because I am ill.']]}],
 '3.5':[
  {tag:'📋 All of them',t:'Which verb takes what?',v:vGrid([{h:'как?',c:'r',cap:'+ по-русски',items:['говорить','читать','писать','понимать']},{h:'что?',c:'g',cap:'+ русский язык',items:['изучать','знать','понимать']}]),r:'<b>понимать</b> can take both: понимаю по-русски / понимаю русский язык.'},
  {tag:'📋 Languages',t:'The two forms of each language',v:vRows(U3LANGS.map(x=>[x[3]+' '+x[0]+' язык',x[1]])),r:'Left: what? (язык) – right: how? (по-…ски).'},
@@ -2225,6 +2225,145 @@ Object.assign(GLX,{
  {tag:'⚠️ Watch out',t:'два or две?',v:vBins([{h:'два',em:'👨🍎',cap:'он, оно: два брата, два яблока',c:'b'},{h:'две',em:'👩',cap:'она: две сестры, две машины',c:'r'}]),r:'3 and 4 never change: три, четыре.'},
  {tag:'💬 Examples',t:'',v:'',r:'',ex:[['У меня есть два брат{а} и три сестр{ы}.','I have two brothers and three sisters.'],['У них две дочер{и}.','They have two daughters.']]},
  {tag:'✅ Quick check',t:'Your turn',v:vQC('У меня 2 ___ (сестра).','две сестры')+vQC('3 ___ (стол)','три стола')}]
+});
+/* ===== ver_79: Units 5–6 redesigned ===== */
+const U5pl=w=>/о$/.test(w)?[w.slice(0,-1),'а','-о → -а']:/е$/.test(w)?[w.slice(0,-1),'я','-е → -я']:/[гкхжшчщ]а$/.test(w)?[w.slice(0,-1),'и','-а after к, г, х, ж, ш, ч, щ → -и']:/а$/.test(w)?[w.slice(0,-1),'ы','-а → -ы']:/[яйь]$/.test(w)?[w.slice(0,-1),'и',`-${w.slice(-1)} → -и`]:/[гкхжшчщ]$/.test(w)?[w,'и','after к, г, х, ж, ш, ч, щ → -и']:[w,'ы','consonant → + ы'];
+const U5N=[['магазин','🏪','shop'],['школа','🏫','school'],['музей','🏛️','museum'],['словарь','📕','dictionary'],['банк','🏦','bank'],['аптека','💊','pharmacy'],['окно','🪟','window'],['море','🌊','sea'],['книга','📖','book'],['пляж','🏖️','beach'],['ресторан','🍽️','restaurant'],['улица','🛣️','street'],['неделя','📅','week'],['письмо','✉️','letter'],['стол','🪑','table'],['машина','🚗','car']];
+const U5IRR=[['дом','дома'],['город','города'],['друг','друзья'],['брат','братья'],['стул','стулья'],['человек','люди'],['ребёнок','дети'],['сестра','сёстры'],['дочь','дочери']];
+const U5adj=(a,g)=>{const st=a.slice(0,-2),en=a.slice(-2),l=st.slice(-1),soft=en=='ий'&&!/[кгхжшчщ]/.test(l);if(g=='m')return[st,en];if(g=='f')return[st,soft?'яя':'ая'];if(g=='n')return[st,soft||(/[жшчщ]/.test(l)&&en!='ой')?'ее':'ое'];return[st,soft||/[кгхжшчщ]/.test(l)?'ие':'ые']};
+const U5ADJ=[['новый','new'],['красивый','beautiful'],['молодой','young'],['синий','blue'],['хороший','good'],['большой','big'],['русский','Russian'],['дорогой','expensive'],['маленький','small'],['последний','last']];
+const U5AN=[['город','m','🏙️','city'],['дом','m','🏠','house'],['погода','f','🌤️','weather'],['машина','f','🚗','car'],['озеро','n','🏞️','lake'],['окно','n','🪟','window'],['музеи','p','🏛️','museums'],['часы','p','⌚','watch']];
+const U5G={m:'он',f:'она',n:'оно',p:'они'},U5GC={m:'b',f:'r',n:'p',p:'y'};
+const U5CJ={город:['Город большой {и} красивый.','Город большой, {но} скучный.','Наш город большой, {а} ваш маленький.','The city is big and beautiful.','The city is big, but boring.','Our city is big, and yours is small.'],комната:['Комната большая {и} светлая.','Комната большая, {но} некрасивая.','Наша комната большая, {а} ваша маленькая.','The room is big and bright.','The room is big, but not pretty.','Our room is big, and yours is small.'],погода:['Сегодня тепло {и} солнечно.','Сегодня тепло, {но} идёт дождь.','Сегодня тепло, {а} вчера было холодно.','Today it is warm and sunny.','Today it is warm, but it is raining.','Today it is warm, and yesterday it was cold.'],музей:['Музей большой {и} интересный.','Музей большой, {но} скучный.','Этот музей большой, {а} тот маленький.','The museum is big and interesting.','The museum is big, but boring.','This museum is big, and that one is small.']};
+const U5CK=['и','но','а'],U5CR=['+ and +','+ but −','A ↔ B'];
+const U5DIR=[['север','севере','north','⬆️'],['юг','юге','south','⬇️'],['запад','западе','west','⬅️'],['восток','востоке','east','➡️'],['центр','центре','centre','🎯']];
+const U5PL=[['России','Russia'],['Европы','Europe'],['Азии','Asia'],['Москвы','Moscow'],['Вьетнама','Vietnam']];
+const U5FACT=[['Италия','юге','Европы','Italy is in the south of Europe.'],['Норвегия','севере','Европы','Norway is in the north of Europe.'],['Москва','западе','России','Moscow is in the west of Russia.'],['Владивосток','востоке','России','Vladivostok is in the east of Russia.'],['Сочи','юге','России','Sochi is in the south of Russia.'],['Кремль','центре','Москвы','The Kremlin is in the centre of Moscow.'],['Испания','западе','Европы','Spain is in the west of Europe.'],['Япония','востоке','Азии','Japan is in the east of Asia.'],['Ханой','севере','Вьетнама','Hanoi is in the north of Vietnam.']];
+const U5MAIL=[['anna@mail.ru','анна собака мэйл точка ру'],['ivan@yandex.ru','иван собака яндекс точка ру'],['olga@gmail.com','ольга собака джимэйл точка ком'],['mark@inbox.ru','марк собака инбокс точка ру']];
+const U6U=[['сад','в','саду','garden','🌳'],['лес','в','лесу','forest','🌲'],['шкаф','в','шкафу','wardrobe','🗄️'],['аэропорт','в','аэропорту','airport','✈️'],['пол','на','полу','floor','🟫'],['берег','на','берегу','shore','🏖️'],['мост','на','мосту','bridge','🌉'],['угол','в','углу','corner (inside)','📐'],['парк','в','парке','park','🌳'],['стол','на','столе','table','🪑']];
+const U6VN=[['страна','в стране','country','🌍','a closed space'],['город','в городе','city','🏙️','a closed space'],['парк','в парке','park','🌳','a closed space'],['магазин','в магазине','shop','🏪','a building'],['школа','в школе','school','🏫','a building'],['университет','в университете','university','🎓','a building'],['офис','в офисе','office','🏢','a building'],['театр','в театре','theatre','🎭','a building'],['музей','в музее','museum','🏛️','a building'],['деревня','в деревне','village','🏡','a closed space'],['остров','на острове','island','🏝️','an island'],['улица','на улице','street','🛣️','an open space'],['площадь','на площади','square','⛲','an open space'],['стадион','на стадионе','stadium','🏟️','an open space'],['вокзал','на вокзале','station','🚉','learn it'],['почта','на почте','post office','📮','learn it'],['завод','на заводе','factory','🏭','learn it'],['рынок','на рынке','market','🧺','an open space'],['дача','на даче','dacha','🏡','learn it'],['урок','на уроке','lesson','📚','an event'],['лекция','на лекции','lecture','🧑‍🏫','an event'],['экзамен','на экзамене','exam','📝','an event'],['работа','на работе','work','💼','an activity'],['концерт','на концерте','concert','🎤','an event'],['выставка','на выставке','exhibition','🖼️','an event'],['экскурсия','на экскурсии','excursion','🚌','an event']];
+const U6SG=[['я 👨','согласен','m'],['я 👩','согласна','f'],['ты 👨','согласен','m'],['ты 👩','согласна','f'],['он','согласен','m'],['она','согласна','f'],['мы','согласны','p'],['вы','согласны','p'],['они','согласны','p']];
+const U6D=[['понедельник','в понедельник','Monday'],['вторник','во вторник','Tuesday'],['среда','в среду','Wednesday'],['четверг','в четверг','Thursday'],['пятница','в пятницу','Friday'],['суббота','в субботу','Saturday'],['воскресенье','в воскресенье','Sunday'],['выходные','в выходные','the weekend']];
+const U6B=[['я 👨','был','m'],['я 👩','была','f'],['ты 👨','был','m'],['он','был','m'],['она','была','f'],['окно','было','n'],['мы','были','p'],['вы','были','p'],['они','были','p'],['Там весело →','было','n']];
+const U6BP=[['в баре','at the bar'],['в кафе','at the café'],['дома','at home'],['на дискотеке','at the disco'],['в театре','at the theatre']];
+const U6H=[[7,'утром','morning'],[9,'утром','morning'],[11,'утром','morning'],[13,'днём','afternoon'],[15,'днём','afternoon'],[18,'вечером','evening'],[20,'вечером','evening'],[23,'вечером','evening'],[1,'ночью','night'],[3,'ночью','night']];
+const U6PV=[['делать','дела','did'],['читать','чита','read'],['гулять','гуля','walked'],['работать','работа','worked'],['говорить','говори','spoke'],['жить','жи','lived'],['танцевать','танцева','danced'],['заниматься','занима','did sport',1],['учиться','учи','studied',1]];
+const U6PS=[['он','m'],['она','f'],['оно','n'],['они','p']];
+const u6past=(v,g)=>{const e={m:'л',f:'ла',n:'ло',p:'ли'}[g];return v[3]?[v[1],e+(g=='m'?'ся':'сь')]:[v[1],e]};
+const U6AA=[['весёлый','весело','музыка','f','весёлая','cheerful','fun'],['интересный','интересно','фильм','m','интересный','interesting','interesting'],['прекрасный','прекрасно','дача','f','прекрасная','wonderful','wonderful'],['скучный','скучно','лекция','f','скучная','boring','boring'],['хороший','хорошо','погода','f','хорошая','good','good'],['трудный','трудно','экзамен','m','трудный','difficult','difficult'],['красивый','красиво','озеро','n','красивое','beautiful','beautiful']];
+Object.assign(GL2,{
+'5.1':{steps:[
+ {t:'One → many',v:`<div class="vword-row">${vWord('магазин','','b','one')}<span class="vop">→</span>${vWord('магазин','ы','y','many')}</div>`,r:'Most he- and she-words get <b>-ы</b> or <b>-и</b> in the plural.'},
+ {t:'Which ending?',v:vGrid([{h:'-ы',c:'b',cap:'consonant, -а',items:['магазин{ы}','школ{ы}']},{h:'-и',c:'r',cap:'-й, -я, -ь',items:['музе{и}','словар{и}']},{h:'-а / -я',c:'p',cap:'оно: -о, -е',items:['окн{а}','мор{я}']}]),r:'Neuter words change <b>-о → -а</b> and <b>-е → -я</b>.'},
+ {t:'The spelling rule',v:vChips(['банк{и}','рынк{и}','пляж{и}','аптек{и}'],'r'),r:'After <b>к, г, х, ж, ш, ч, щ</b> never write <b>ы</b> – write <b>и</b>.'}],
+ m:{title:'Plural machine',rows:[{l:'One…',o:U5N.slice(0,10).map(x=>x[1]+' '+x[0])}],run:([s])=>{const x=U5N.find(z=>s.endsWith(' '+z[0])),[st,en,why]=U5pl(x[0]);return{inp:s,word:[st,en],out:'они',why,c:'y'}}},
+ gen:()=>{if(Math.random()<.2){const x=pk(U5IRR);return{hint:`Plural of ${x[0]} (by heart!)`,txt:`${x[0]} → ___`,pcs:glOpts(x[1],[x[0]+'ы',x[0]+'и',x[0]+'а',x[1]]),key:x[1],why:`irregular: ${x[0]} → <b>${x[1]}</b>`,say:x[1]}}
+  const x=pk(U5N),[st,en,why]=U5pl(x[0]),key=st+en,b=x[0].replace(/[аяоейь]$/,'');return{hint:`${x[1]} many ${x[2]}s`,txt:`${x[0]} → ___`,pcs:glOpts(key,[b+'ы',b+'и',b+'а',b+'я'].filter(z=>z!=key)),key,why:`${why}: <b>${key}</b>`,say:key}}},
+'5.2':{steps:[
+ {t:'The adjective copies the noun',v:`<div class="vcards">${vT('нов{ый} дом','b','он')}${vT('нов{ая} машина','r','она')}${vT('нов{ое} окно','p','оно')}${vT('нов{ые} часы','y','они')}</div>`,r:'An adjective takes the gender of its noun: <b>какой? какая? какое? какие?</b>'},
+ {t:'The question shows the ending',v:vRows([['Какой?','-ый / -ий / -ой'],['Какая?','-ая / -яя'],['Какое?','-ое / -ее'],['Какие?','-ые / -ие']]),r:'Look at the end of the question word – the adjective ends almost the same way.',ex:[['— Какой это город? — Это большой город.','— What kind of city is it? — It is a big city.']]}],
+ m:{title:'Adjective machine',rows:[{l:'Adjective',o:U5ADJ.map(x=>x[0])},{l:'Noun',o:U5AN.map(x=>x[2]+' '+x[0])}],run:([a,n])=>{const N=U5AN.find(z=>n.endsWith(' '+z[0])),[st,en]=U5adj(a,N[1]);return{inp:`${a} · ${n}`,word:[st,en],out:N[0],why:`${N[0]} is <b>${U5G[N[1]]}</b> → <b>-${en}</b>`,c:U5GC[N[1]]}}},
+ gen:()=>{const a=pk(U5ADJ),N=pk(U5AN),[st,en]=U5adj(a[0],N[1]),key=st+en;return{hint:`${N[2]} ${a[1]} ${N[3]}`,txt:`___ ${N[0]}`,pcs:shuf([...new Set(['m','f','n','p'].map(g=>U5adj(a[0],g).join('')))]),key,why:`${N[0]} = ${U5G[N[1]]} → <b>${key}</b>`,say:`${key} ${N[0]}`}}},
+'5.3':{steps:[
+ {t:'Three little linking words',v:vGrid([{h:'и',c:'g',em:'➕➕',cap:'and (same direction)',items:['большой {и} красивый']},{h:'но',c:'r',em:'➕➖',cap:'but (opposite)',items:['большой, {но} скучный']},{h:'а',c:'b',em:'🅰️↔🅱️',cap:'and / while (two different things)',items:['мой большой, {а} твой маленький']}]),r:'<b>и</b> adds, <b>но</b> turns around, <b>а</b> compares two things.'}],
+ m:{title:'Link machine',rows:[{l:'Relation',o:U5CR},{l:'Topic',o:Object.keys(U5CJ)}],run:([r,t])=>{const i=U5CR.indexOf(r),S=U5CJ[t];return{inp:`${r} · ${t}`,out:bkPlain(S[i]),hl:U5CK[i],why:`${['+ and + → <b>и</b>','+ but − → <b>но</b>','two different things → <b>а</b>'][i]} · ${S[i+3]}`,c:['g','r','b'][i]}}},
+ gen:()=>{const t=pk(Object.keys(U5CJ)),i=Math.floor(Math.random()*3),S=U5CJ[t];return{hint:S[i+3],txt:S[i].replace(/\{[^}]+\}/,'___'),pcs:['и','но','а'],key:U5CK[i],why:['same direction → <b>и</b>','opposite → <b>но</b>','comparing two things → <b>а</b>'][i],say:bkPlain(S[i])}}},
+'5.4':{steps:[
+ {t:'The four directions',v:`<div class="gkfig">${BKFIG.compass()}</div>`,r:'Directions use <b>на</b> + prepositional: на север<b>е</b>, на юг<b>е</b>, на запад<b>е</b>, на восток<b>е</b>.'},
+ {t:'… of what?',v:vEq(['на юге','b','in the south'],'+',['Европ{ы}','o','of Europe']),r:'The bigger place comes after, in the genitive (like 3.8).',ex:[['— Где находится Италия? — На юге Европы.','— Where is Italy? — In the south of Europe.'],['Москва находится на западе России.','Moscow is in the west of Russia.']]}],
+ m:{title:'Compass machine',rows:[{l:'Direction',o:U5DIR.map(x=>x[3]+' '+x[0])},{l:'Of…',o:U5PL.map(x=>x[0])}],run:([d,p])=>{const D=U5DIR.find(z=>d.endsWith(' '+z[0])),pr=D[0]=='центр'?'в':'на';return{inp:`${d} · ${p}`,out:`${pr} ${D[1]} ${p}`,hl:`${pr} ${D[1]}`,why:D[0]=='центр'?'centre is special: <b>в центре</b>':`на + ${D[0]} → <b>на ${D[1]}</b> (in the ${D[2]})`,c:D[0]=='центр'?'r':'b'}}},
+ gen:()=>{const f=pk(U5FACT),pr=f[1]=='центре'?'в':'на',key=`${pr} ${f[1]}`,base=f[1].slice(0,-1);return{hint:f[3],txt:`${f[0]} находится ___ ${f[2]}.`,pcs:glOpts(key,[`${pr=='в'?'на':'в'} ${f[1]}`,`${pr} ${base}`,`${pr} ${base}а`]),key,why:pr=='в'?'<b>в центре</b> (exception)':`<b>на</b> + prepositional: ${key}`,say:`${f[0]} находится ${key} ${f[2]}`}}},
+'5.5':{steps:[
+ {t:'A dog in your email!',v:vBins([{h:'@',em:'🐶',cap:'собака (dog)',c:'o'},{h:'.',em:'⚫',cap:'точка (dot)',c:'b'}]),r:'Russians read <b>@</b> as <b>собака</b> and <b>.</b> as <b>точка</b>.',ex:[['anna@mail.ru — анна собака мэйл точка ру','anna@mail.ru']]}],
+ m:{title:'Email reader',rows:[{l:'Email',o:U5MAIL.map(x=>x[0])}],run:([e])=>{const x=U5MAIL.find(z=>z[0]==e);return{inp:e,out:x[1],hl:'собака',why:'@ → <b>собака</b> · . → <b>точка</b>',c:'o'}}},
+ gen:()=>{if(Math.random()<.5){const k=pk([['@','собака'],['.','точка']]);return{hint:`How do Russians read “${k[0]}”?`,txt:`${k[0]} = ___`,pcs:['собака','точка','кошка','линия'],key:k[1],why:`${k[0]} = <b>${k[1]}</b>`,say:k[1]}}
+  const x=pk(U5MAIL),w=x[1].split(' ');return{hint:x[0],txt:`${w[0]} ___ ${w.slice(2).join(' ')}`,pcs:['собака','точка','кошка','линия'],key:'собака',why:'@ = <b>собака</b>',say:x[1]}}},
+'6.1':{steps:[
+ {t:'A special “where” ending',v:`<div class="vword-row">${vWord('сад','','b','garden')}<span class="vop">→</span>${vWord('в сад','у','r','in the garden')}</div>`,r:'A few short <b>он</b>-words take a stressed <b>-у</b> (not -е) after в / на for a place.',ex:[['Дети играют в саду.','The children are playing in the garden.']]},
+ {t:'в углу or на углу?',v:vBins([{h:'в углу',em:'📐',cap:'in the corner (of a room)',c:'b'},{h:'на углу',em:'🚦',cap:'on the corner (of a street)',c:'o'}]),r:'Same ending, different preposition – different meaning.',ex:[['Кафе на углу.','The café is on the corner.']]}],
+ m:{title:'Where machine',rows:[{l:'Place',o:U6U.map(x=>x[4]+' '+x[0])}],run:([s])=>{const x=U6U.find(z=>s.endsWith(' '+z[0])),sp=x[2].endsWith('у');return{inp:s,word:[x[2].slice(0,-1),x[2].slice(-1)],pre:x[1],why:sp?`special stressed <b>-у</b>: ${x[1]} ${x[2]}`:`normal <b>-е</b>: ${x[1]} ${x[2]}`,c:sp?'r':'b'}}},
+ gen:()=>{const x=pk(U6U.slice(0,8)),key=`${x[1]} ${x[2]}`;return{hint:`${x[4]} ${x[3]}`,txt:`Это ___ (${x[0]}).`,pcs:glOpts(key,[`${x[1]} ${x[0]}е`,`${x[1]=='в'?'на':'в'} ${x[2]}`,`${x[1]} ${x[0]}`]),key,why:`${x[0]} → <b>${key}</b> (stressed -у)`,say:`Это ${key}`}}},
+'6.2':{steps:[
+ {t:'Inside → в',v:vChips(['🏙️ в городе','🏪 в магазине','🏫 в школе','🏢 в офисе','🎭 в театре'],'b'),r:'Most places – buildings and closed spaces – take <b>в</b>.'},
+ {t:'Open space or event → на',v:vChips(['🛣️ на улице','⛲ на площади','🏝️ на острове','📚 на уроке','🎤 на концерте','💼 на работе'],'o'),r:'Open spaces, islands, events and activities take <b>на</b>.'}],
+ m:{title:'в or на?',rows:[{l:'Place',o:['город','школа','офис','театр','остров','улица','рынок','урок','работа','концерт'].map(w=>{const x=U6VN.find(z=>z[0]==w);return x[3]+' '+x[0]})}],run:([s])=>{const x=U6VN.find(z=>s.endsWith(' '+z[0])),na=x[1].startsWith('на');return{inp:s,out:x[1],hl:na?'на':'в',why:`${x[0]} is ${x[4]} → <b>${na?'на':'в'}</b>`,c:na?'o':'b'}}},
+ gen:()=>{const x=pk(U6VN),na=x[1].startsWith('на'),rest=x[1].replace(/^(в|на) /,'');return{hint:`${x[3]} ${x[2]}`,txt:`Он ___ ${rest}.`,pcs:['в','на'],key:na?'на':'в',why:`${x[0]}: ${x[4]} → <b>${x[1]}</b>`,say:`Он ${x[1]}`}}},
+'6.3':{steps:[
+ {t:'Agree like a man or a woman',v:vPers('',{я:'соглас{ен} / соглас{на}',ты:'соглас{ен} / соглас{на}',он:'соглас{ен}',она:'соглас{на}',мы:'соглас{ны}',вы:'соглас{ны}',они:'соглас{ны}'}),r:'A man says <b>согласен</b>, a woman says <b>согласна</b>, many people say <b>согласны</b>.',ex:[['— Ты согласна? — Нет, я не согласна.','— Do you agree? — No, I don’t agree.']]}],
+ m:{title:'Agree machine',rows:[{l:'Who?',o:U6SG.map(x=>x[0])}],run:([w])=>{const x=U6SG.find(z=>z[0]==w);return{inp:w,out:`${ucap(w.split(' ')[0])} ${x[1]}.`,hl:x[1],why:x[2]=='m'?'a man → <b>согласен</b>':x[2]=='f'?'a woman → <b>согласна</b>':'many people → <b>согласны</b>',c:x[2]=='m'?'b':x[2]=='f'?'r':'y'}}},
+ gen:()=>{const x=pk(U6SG),w=x[0].split(' ');return{hint:`${w[1]||''} ${w[0]=='я'?'I agree.':w[0]=='ты'?'Do you agree?':w[0]=='мы'?'We agree.':w[0]=='вы'?'Do you agree? (pl.)':w[0]=='он'?'He agrees.':w[0]=='она'?'She agrees.':'They agree.'}`,txt:`${ucap(w[0])} ___${w[0]=='ты'||w[0]=='вы'?'?':'.'}`,pcs:['согласен','согласна','согласны'],key:x[1],why:x[2]=='m'?'man → <b>согласен</b>':x[2]=='f'?'woman → <b>согласна</b>':'plural → <b>согласны</b>',say:`${w[0]} ${x[1]}`}}},
+'6.4':{steps:[
+ {t:'Когда? → в + day',v:vRows([['понедельник','в понедельник'],['среда','в сред{у}'],['пятница','в пятниц{у}']]),r:'On a day = <b>в</b> + the day. Feminine days change <b>-а → -у</b>.'},
+ {t:'Two special ones',v:vBins([{h:'во вторник',em:'2️⃣',cap:'в becomes во before в-',c:'o'},{h:'в выходные',em:'🛋️',cap:'at the weekend (Sat + Sun)',c:'g'}]),r:'Easier to say: <b>во</b> вторник.'}],
+ m:{title:'Day machine',rows:[{l:'Day',o:U6D.map(x=>x[0])}],run:([d])=>{const x=U6D.find(z=>z[0]==d),f=/а$/.test(d);return{inp:d,out:x[1],hl:x[1].split(' ')[0]=='во'?'во':f?x[1].split(' ')[1]:x[1].split(' ')[0],why:d=='вторник'?'<b>во</b> before вторник':f?'feminine day: <b>-а → -у</b>':`<b>в</b> + ${d} (no change)`,c:f?'r':'b'}}},
+ gen:()=>{const x=pk(U6D),rest=x[1].replace(/^(в|во) /,''),b=x[0].replace(/а$/,'');return{hint:`📅 on ${x[2]}`,txt:'Когда? — ___',pcs:glOpts(x[1],[`в ${x[0]}`,`во ${rest}`,`в ${b}е`,`в ${rest}`].filter(z=>z!=x[1])),key:x[1],why:`on ${x[2]} = <b>${x[1]}</b>`,say:x[1]}}},
+'6.5':{steps:[
+ {t:'Now there is no “is”… yesterday there is!',v:vEq(['Сейчас я дома.','b','now – no verb'],'→',['Вчера я был дома.','o','yesterday – был']),r:'In the present Russian has no “to be”, but in the past you need <b>быть</b>.'},
+ {t:'был · была · было · были',v:vPers('быть – past',{я:'был / был{а}',ты:'был / был{а}',он:'был',она:'был{а}',оно:'был{о}',мы:'был{и}',вы:'был{и}',они:'был{и}'}),r:'It agrees with the subject: man <b>был</b>, woman <b>была</b>, it <b>было</b>, plural <b>были</b>.'},
+ {t:'It was fun!',v:vEq(['Там весело.','b','it is fun'],'→',['Там было весело.','p','it was fun']),r:'Comments without a subject always use <b>было</b>.'}],
+ m:{title:'Yesterday machine',rows:[{l:'Who?',o:U6B.map(x=>x[0])},{l:'Where?',o:U6BP.map(x=>x[0])}],run:([w,p])=>{const x=U6B.find(z=>z[0]==w);if(w.startsWith('Там'))return{inp:w,out:'Там было весело.',hl:'было',why:'no subject → <b>было</b>',c:'p'};return{inp:`${w} · ${p}`,out:`${ucap(w.split(' ')[0])} ${x[1]} ${p}.`,hl:x[1],why:{m:'masculine → <b>был</b>',f:'feminine → <b>была</b>',n:'neuter → <b>было</b>',p:'plural → <b>были</b>'}[x[2]],c:{m:'b',f:'r',n:'p',p:'y'}[x[2]]}}},
+ gen:()=>{const x=pk(U6B.filter(z=>!z[0].startsWith('окно'))),p=pk(U6BP),w=x[0].split(' ');if(w[0]=='Там')return{hint:'It was fun there.',txt:'Там ___ весело.',pcs:['был','была','было','были'],key:'было',why:'no subject → <b>было</b>',say:'Там было весело'};
+  return{hint:`${w[1]||''} ${({я:'I was',ты:'You were',он:'He was',она:'She was',мы:'We were',вы:'You were',они:'They were'})[w[0]]} ${p[1]}.`,txt:`${ucap(w[0])} ___ ${p[0]}.`,pcs:['был','была','было','были'],key:x[1],why:{m:'masculine → <b>был</b>',f:'feminine → <b>была</b>',p:'plural → <b>были</b>'}[x[2]],say:`${w[0]} ${x[1]} ${p[0]}`}}},
+'6.6':{steps:[
+ {t:'Four parts of the day',v:`<div class="gkfig">${BKFIG.day()}</div>`+vChips(['🌅 утром · in the morning','☀️ днём · in the afternoon','🌆 вечером · in the evening','🌙 ночью · at night'],'b'),r:'These words already mean “in the…” – no preposition needed.',ex:[['Утром он был в кино.','In the morning he was at the cinema.']]}],
+ m:{title:'Clock → part of the day',rows:[{l:'Time',o:U6H.map(x=>`🕐 ${x[0]}:00`)}],run:([t])=>{const h=parseInt(t.replace(/\D+/,'')),x=U6H.find(z=>z[0]==h);return{inp:t,out:x[1],why:`${h}:00 is ${x[2]=='night'?'at night':'in the '+x[2]} → <b>${x[1]}</b>`,c:'b'}}},
+ gen:()=>{const h=Math.floor(Math.random()*24),p=h>=4&&h<12?'утром':h<17&&h>=12?'днём':h>=17?'вечером':'ночью';return{hint:`🕐 ${h}:00`,txt:'Когда? — ___',pcs:['утром','днём','вечером','ночью'],key:p,why:'4–12 утром · 12–17 днём · 17–24 вечером · 0–4 ночью',say:p}}},
+'6.7':{steps:[
+ {t:'Cut -ть, add -л',v:`<div class="vword-row">${vWord('чита','ть','o','infinitive')}<span class="vop">✂️</span>${vWord('чита','л','b','он читал')}</div>`,r:'The past tense is easy: cut off <b>-ть</b> and add <b>-л</b>.'},
+ {t:'Agree with the gender',v:vPers('читать – past',{я:'чита{л} / чита{ла}',ты:'чита{л} / чита{ла}',он:'чита{л}',она:'чита{ла}',оно:'чита{ло}',мы:'чита{ли}',вы:'чита{ли}',они:'чита{ли}'}),r:'Not by person, but by gender: <b>-л</b> (he), <b>-ла</b> (she), <b>-ло</b> (it), <b>-ли</b> (plural).',ex:[['В выходные Андрей гулял на озере.','At the weekend Andrey went for a walk by the lake.']]},
+ {t:'Verbs with -ся',v:vRows([['заниматься','он занима{лся}<br>она занима{лась}'],['учиться','они учи{лись}']]),r:'The tail comes last: <b>-лся</b>, then <b>-лась, -лось, -лись</b> (after a vowel → -сь).'}],
+ m:{title:'Past machine',rows:[{l:'Verb',o:U6PV.map(x=>x[0])},{l:'Who?',o:U6PS.map(x=>x[0])}],run:([v,w])=>{const V=U6PV.find(z=>z[0]==v),g=U6PS.find(z=>z[0]==w)[1],[st,en]=u6past(V,g);return{inp:`${v} · ${w}`,word:[st,en],pre:w,why:`${v} → ${V[1]} + <b>-${en}</b>`,c:{m:'b',f:'r',n:'p',p:'y'}[g]}}},
+ gen:()=>{const V=pk(U6PV),S=pk(U6PS.filter(z=>z[0]!='оно')),[st,en]=u6past(V,S[1]),all=V[3]?['лся','лась','лось','лись']:['л','ла','ло','ли'];return{hint:`${({он:'He',она:'She',они:'They'})[S[0]]} ${V[2]}.`,txt:`${ucap(S[0])} ${st}___`,pcs:all.map(z=>'-'+z),key:'-'+en,why:`${S[0]} → <b>-${en}</b>`,say:`${S[0]} ${st}${en}`}}},
+'6.8':{steps:[
+ {t:'What kind? or How?',v:vBins([{h:'Какая?',em:'🎵',cap:'весёлая музыка – adjective + noun',c:'b'},{h:'Как?',em:'🥳',cap:'Было весело. – adverb, no noun',c:'o'}]),r:'Adjectives (<b>какой?</b>) describe a noun. Adverbs (<b>как?</b>) describe an action or the situation and usually end in <b>-о</b>.',ex:[['Музыка была весёлая. / Было весело.','The music was cheerful. / It was fun.']]}],
+ m:{title:'Adjective ↔ adverb',rows:[{l:'Word',o:U6AA.map(x=>x[0])},{l:'Use',o:['Какой? + noun','Как? Было …']}],run:([w,u])=>{const x=U6AA.find(z=>z[0]==w);if(u.startsWith('Как?'))return{inp:`${w} · how?`,out:`Было ${x[1]}.`,hl:x[1],why:`no noun → adverb in <b>-о</b>: ${x[1]} (${x[6]})`,c:'o'};const v={m:'был',f:'была',n:'было'}[x[3]];return{inp:`${w} · ${x[2]}`,out:`${ucap(x[2])} ${v} ${x[4]}.`,hl:x[4],why:`${x[2]} is ${U5G[x[3]]} → <b>${x[4]}</b>`,c:U5GC[x[3]]}}},
+ gen:()=>{const x=pk(U6AA);if(Math.random()<.5)return{hint:`It was ${x[6]}.`,txt:'Было ___.',pcs:shuf([x[1],x[4],x[0]].filter((z,i,a)=>a.indexOf(z)==i)),key:x[1],why:'no noun → adverb: <b>'+x[1]+'</b>',say:`Было ${x[1]}`};
+  const v={m:'был',f:'была',n:'было'}[x[3]];return{hint:`The ${x[2]=='музыка'?'music':x[2]=='фильм'?'film':x[2]=='дача'?'dacha':x[2]=='лекция'?'lecture':x[2]=='погода'?'weather':x[2]=='экзамен'?'exam':'lake'} was ${x[5]}.`,txt:`${ucap(x[2])} ${v} ___.`,pcs:shuf([...new Set([x[1],x[4],x[0]])]),key:x[4],why:`${x[2]} is a noun (${U5G[x[3]]}) → adjective <b>${x[4]}</b>`,say:`${x[2]} ${v} ${x[4]}`}}}
+});
+Object.assign(GLX,{
+'5.1':[
+ {tag:'📋 All of them',t:'Every plural ending',v:vRows([['магазин','магазин{ы}'],['школ{а}','школ{ы}'],['музе{й}','музе{и}'],['академи{я}','академи{и}'],['словар{ь}','словар{и}'],['банк','банк{и}'],['аптек{а}','аптек{и}'],['окн{о}','окн{а}'],['мор{е}','мор{я}']]),r:'consonant / -а → <b>-ы</b> · -й, -я, -ь and after к, г, х, ж, ш, ч, щ → <b>-и</b> · -о → <b>-а</b> · -е → <b>-я</b>'},
+ {tag:'⚠️ Watch out',t:'Learn these by heart',v:vRows(U5IRR.map(x=>[x[0],x[1]])),r:'Some very common words have their own plural.'},
+ {tag:'✅ Quick check',t:'Your turn',v:vQC('Plural: банк, окно, музей','банки, окна, музеи')+vQC('Plural: друг','друзья')}],
+'5.2':[
+ {tag:'📋 All of them',t:'The four adjective types',v:vGrid([{h:'hard',c:'o',items:['красив{ый} · красив{ая}','красив{ое} · красив{ые}']},{h:'soft',c:'o',items:['син{ий} · син{яя}','син{ее} · син{ие}']},{h:'after ж, ш, ч, щ',c:'o',items:['хорош{ий} · хорош{ая}','хорош{ее} · хорош{ие}']},{h:'after к, г, х',c:'o',items:['русск{ий} · русск{ая}','русск{ое} · русск{ие}']}]),r:'Each box: он · она on the first line, оно · они on the second.'},
+ {tag:'⚠️ Watch out',t:'Stressed -ой',v:vChips(['молод{ой}','больш{ой}','дорог{ой}'],'o'),r:'When the stress is on the ending, the masculine is <b>-ой</b>. The other forms stay normal: молодая, большое, дорогие.'},
+ {tag:'💬 Examples',t:'',v:'',r:'',ex:[['— Какой это город? — Это {большой} город.','— What kind of city is it? — It is a big city.'],['Здесь {прекрасные} музеи и {недорогие} рестораны.','There are wonderful museums and inexpensive restaurants here.']]},
+ {tag:'✅ Quick check',t:'Your turn',v:vQC('___ (хороший) погода, ___ (большой) озеро','хорошая погода, большое озеро')+vQC('___ (синий) машина','синяя машина')}],
+'5.3':[
+ {tag:'💬 Examples',t:'',v:'',r:'',ex:[['Петербург — большой {и} красивый город.','Petersburg is a big and beautiful city.'],['Наша комната большая, {но} совсем некрасивая.','Our room is big, but not beautiful at all.'],['Наша комната большая, {а} ваша маленькая.','Our room is big, and yours is small.']]},
+ {tag:'✅ Quick check',t:'Your turn',v:vQC('Он старый, ___ симпатичный. (but)','но')+vQC('Я студент, ___ он врач.','а')}],
+'5.4':[
+ {tag:'⚠️ Watch out',t:'The centre is different',v:vBins([{h:'на',em:'🧭',cap:'на севере, на юге, на западе, на востоке',c:'b'},{h:'в',em:'🎯',cap:'в центре',c:'r'}]),r:'Only “in the centre” takes <b>в</b>.'},
+ {tag:'💬 Examples',t:'',v:'',r:'',ex:[['— Где находится Италия? — {На юге} Европы.','— Where is Italy? — In the south of Europe.'],['Москва находится {на западе} России.','Moscow is in the west of Russia.'],['Кремль находится {в центре} Москвы.','The Kremlin is in the centre of Moscow.']]},
+ {tag:'✅ Quick check',t:'Your turn',v:vQC('Москва находится ___ западе России.','на западе')+vQC('Ханой находится ___ Вьетнама. (north)','на севере')}],
+'5.5':[
+ {tag:'✅ Quick check',t:'Your turn',v:vQC('Read: ivan@mail.ru','иван собака мэйл точка ру')}],
+'6.1':[
+ {tag:'📋 All of them',t:'The -у words',v:vGrid([{h:'в … -у',c:'b',items:['в сад{у}','в лес{у}','в шкаф{у}','в аэропорт{у}','в угл{у}']},{h:'на … -у',c:'o',items:['на пол{у}','на берег{у}','на мост{у}','на угл{у}']}]),r:'Only for a <b>place</b> (Где?). Talking <b>about</b> them uses -е: о саде, о лесе.'},
+ {tag:'💬 Examples',t:'',v:'',r:'',ex:[['Дети играют в сад{у}.','The children are playing in the garden.'],['Кафе на угл{у}.','The café is on the corner.']]},
+ {tag:'✅ Quick check',t:'Your turn',v:vQC('Игрушки ___ (пол).','на полу')+vQC('Мы гуляем ___ (лес).','в лесу')}],
+'6.2':[
+ {tag:'📋 All of them',t:'Learn them in pairs',v:vRows([['в стране','на острове'],['в городе, в парке','на улице, на площади'],['в магазине','на рынке'],['в деревне','на даче'],['в школе, в университете','на уроке, на лекции'],['в офисе','на работе'],['в театре, в музее','на концерте, на выставке']]),r:'Left: <b>в</b> · right: <b>на</b>. Also на: стадион, вокзал, почта, завод, экзамен, опера, балет, экскурсия.'},
+ {tag:'✅ Quick check',t:'Your turn',v:vQC('Он ___ работе, а она ___ офисе.','на работе, в офисе')+vQC('Мы ___ концерте.','на концерте')}],
+'6.3':[
+ {tag:'✅ Quick check',t:'Your turn',v:vQC('Мы ___. (agree)','согласны')+vQC('Anna: «Я ___.»','согласна')}],
+'6.4':[
+ {tag:'📋 All of them',t:'The whole week',v:vRows(U6D.map(x=>[x[0],x[1].replace(/^во /,'{во} ').replace(/(сред|пятниц|суббот)у$/,'$1{у}')])),r:'And the days around today: позавчера → вчера → сегодня → завтра → послезавтра.'},
+ {tag:'✅ Quick check',t:'Your turn',v:vQC('Когда? (on Saturday)','в субботу')+vQC('Когда? (on Tuesday)','во вторник')}],
+'6.5':[
+ {tag:'📋 All of them',t:'Now → yesterday',v:vRows([['я (он) в баре','я {был} в баре'],['я (она) в кафе','я {была} в кафе'],['мы на дискотеке','мы {были} на дискотеке'],['Там весело.','Там {было} весело.']]),r:'Same place words – just add the right form of быть.'},
+ {tag:'✅ Quick check',t:'Your turn',v:vQC('Вчера она ___ в театре. Там ___ весело.','была · было')}],
+'6.6':[
+ {tag:'✅ Quick check',t:'Your turn',v:vQC('8 p.m. is…','вечером')+vQC('10 a.m. is…','утром')}],
+'6.7':[
+ {tag:'📋 All of them',t:'More verbs',v:vRows([['делать','дела{л} · дела{ла} · дела{ли}'],['танцевать','танцева{л} · танцева{ла} · танцева{ли}'],['заниматься','занима{лся} · занима{лась} · занима{лись}'],['учиться','учи{лся} · учи{лась} · учи{лись}']]),r:'Every verb works the same way in the past.'},
+ {tag:'⚠️ Watch out',t:'танцевать in the present',v:vRows([['танц{ева}ть','я танц{у}ю, они танц{у}ют']]),r:'In the past it stays танцевал, but in the present <b>-ева- → -у-</b>.'},
+ {tag:'💬 Examples',t:'',v:'',r:'',ex:[['В выходные Андрей гуля{л} на озере.','At the weekend Andrey went for a walk by the lake.'],['Раньше она учи{лась} в школе, а сейчас учится в университете.','She used to go to school, and now she is at university.']]},
+ {tag:'✅ Quick check',t:'Your turn',v:vQC('Она ___ (заниматься) спортом.','занималась')+vQC('Мы ___ (читать).','читали')}],
+'6.8':[
+ {tag:'💬 Examples',t:'',v:'',r:'',ex:[['У нас {прекрасная} дача.','We have a wonderful dacha.'],['Музыка была {весёлая}. / Было {весело}.','The music was cheerful. / It was fun.'],['Я смотрел {интересный} детектив. / Было {интересно}.','I watched an interesting detective film. / It was interesting.']]},
+ {tag:'✅ Quick check',t:'Your turn',v:vQC('Фильм был ___ (весёлый / весело).','весёлый')+vQC('На уроке было ___ (интересный / интересно).','интересно')}]
 });
 /* ---- Unit 1: numbers 1-4 ---- */
 let PG={n:2,k:'газета'};

@@ -14,7 +14,7 @@ t();addEventListener('orientationchange',function(){setTimeout(t,60);setTimeout(
 if(window.matchMedia)try{matchMedia('(orientation: portrait)').addEventListener('change',t)}catch(e){}})()</script>
 <meta name="theme-color" content="#f6f7fb" media="(prefers-color-scheme: light)"><meta name="theme-color" content="#171C25" media="(prefers-color-scheme: dark)">
 <script>(function(){function f(){try{var h=innerHeight;if(navigator.standalone===true){var p=innerHeight>=innerWidth,a=Math.max(screen.width,screen.height),b=Math.min(screen.width,screen.height),sh=(p?a:b)/(window.__vs||1);if(sh>h)h=sh}document.documentElement.style.setProperty('--fh',h+'px')}catch(e){}}f();addEventListener('resize',f);addEventListener('orientationchange',function(){setTimeout(f,150)});addEventListener('pageshow',f)})()</script>
-<title>Russian MemoRise App_ver_85</title>
+<title>Russian MemoRise App_ver_86</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lobster&display=swap&text=%D0%90%D0%91%D0%92%D0%93%D0%94%D0%95%D0%96%D0%97%D0%98%D0%99%D0%9A%D0%9B%D0%9C%D0%9D%D0%9E%D0%9F%D0%A0%D0%A1%D0%A2%D0%A3%D0%A4%D0%A5%D0%A6%D0%A7%D0%A8%D0%A9%D0%AA%D0%AB%D0%AC%D0%AD%D0%AE%D0%AF%D0%B0%D0%B1%D0%B2%D0%B3%D0%B4%D0%B5%D0%B6%D0%B7%D0%B8%D0%B9%D0%BA%D0%BB%D0%BC%D0%BD%D0%BE%D0%BF%D1%80%D1%81%D1%82%D1%83%D1%84%D1%85%D1%86%D1%87%D1%88%D1%89%D1%8A%D1%8B%D1%8C%D1%8D%D1%8E%D1%8F%D0%81%D1%91%CC%81"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800;900&display=swap">
 <style>
 :root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);--bg:#f6f7fb;--card:#fff;--tx:#1f2430;--mu:#6b7280;--pr:#1d6fd8;--ok:#2e9e5b;--bad:#d64545;--bd:#e3e6ee}
@@ -644,10 +644,10 @@ html.duo .nav>button:nth-child(4){grid-column:5}html.duo .nav>button:nth-child(5
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bgw:var(--bgD)}}
 html.bgtab{--bgh:max(100vw,440px)}
 html.bgtab body{background:var(--bg);isolation:isolate}
-html.bgtab body::before{content:"";position:fixed;inset:-14px;z-index:-1;pointer-events:none;filter:blur(3px);
+html.bgtab body::before{content:"";position:fixed;inset:-14px;z-index:-1;pointer-events:none;
  background:linear-gradient(180deg,transparent calc(var(--bgh)*.76 + env(safe-area-inset-top,0px) + 14px),var(--bg) calc(var(--bgh)*.99 + env(safe-area-inset-top,0px) + 14px)) top/100% 100% no-repeat,var(--bgw) center calc(env(safe-area-inset-top,0px) + 14px)/var(--bgh) var(--bgh) no-repeat,var(--bg)}
 html.bgtab main.split{background:none!important;position:relative;isolation:isolate}
-html.bgtab main.split::before{content:"";position:absolute;inset:-14px;z-index:-1;pointer-events:none;filter:blur(3px);background:linear-gradient(180deg,rgba(245,250,255,.22),rgba(245,250,255,.45) 55%,rgba(245,250,255,.8)),var(--bgw) center 70%/cover no-repeat}
+html.bgtab main.split::before{content:"";position:absolute;inset:-14px;z-index:-1;pointer-events:none;background:linear-gradient(180deg,rgba(245,250,255,.22),rgba(245,250,255,.45) 55%,rgba(245,250,255,.8)),var(--bgw) center 70%/cover no-repeat}
 :root[data-theme="dark"] html.bgtab main.split::before,:root[data-theme="dark"].bgtab main.split::before{background:linear-gradient(rgba(23,28,37,.55),rgba(23,28,37,.8)),var(--bgw) center 70%/cover no-repeat}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]).bgtab main.split::before{background:linear-gradient(rgba(23,28,37,.55),rgba(23,28,37,.8)),var(--bgw) center 70%/cover no-repeat}}
 html.bgtab main#app,html.bgtab main#app:has(>.hb){background:none}
@@ -781,14 +781,9 @@ main:has(.endb)>.mas.mfxs{flex:1 1 0;min-height:180px;max-height:410px;padding:0
 .sures>.hint:only-child,.sures>.sunote:only-child{margin-top:26px}
 .suheard{font-size:var(--sufs,40px);font-weight:900;line-height:1.2;white-space:nowrap;max-width:100%;overflow:hidden;text-overflow:ellipsis}
 .suheard .slx{font-size:.4em}
-.suwave{flex:none;display:flex;align-items:center;justify-content:center;gap:4px;width:200px;max-width:80%;height:44px;border-radius:12px;background:#E6F4FF}
-.suwave i{display:block;width:5px;border-radius:3px;height:5px;background:#3AA8F0;transition:height .06s linear}
-.suwave.off i{opacity:.45}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .suwave{background:#1F3550}}
-:root[data-theme="dark"] .suwave{background:#1F3550}
 </style></head><body><main id="app"></main>
 <script>
-const APP_VER='Russian MemoRise App_ver_85';
+const APP_VER='Russian MemoRise App_ver_86';
 const sv=(b,v='0 0 48 48')=>`<svg xmlns="http://www.w3.org/2000/svg" viewBox="${v}" aria-hidden="true">${b}</svg>`;
 const IC={
 learn:sv('<rect x="14" y="30" width="20" height="14" rx="4" fill="#FF8A5B"/><rect x="12" y="27" width="24" height="6" rx="3" fill="#FF6B3D"/><path d="M24 27V17" stroke="#2FBF71" stroke-width="3" stroke-linecap="round"/><path d="M24 20C24 12 17 10 11 12c0 7 5 10 13 8z" fill="#6EE7B7"/><path d="M24 17c0-7 6-9 12-7 0 7-5 9-12 7z" fill="#2FBF71"/>'),
@@ -2738,42 +2733,29 @@ function startSpeak(){if(!S.cards.length)return;const q=pickQueue(S.cards,6);con
 const suCur=()=>SU.q[SU.i];
 function suSay(rate){if(!SU)return;const c=suCur();if(!c)return;try{speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(tlNoSt(c.ru));u.lang='ru-RU';u.rate=rate;const v=speechSynthesis.getVoices().filter(v=>/^ru/i.test(v.lang));const pv=v.find(v=>/Milena|Google|Yuri|Katya/i.test(v.name))||v[0];if(pv)u.voice=pv;speechSynthesis.speak(u)}catch(e){}}
 function suFs(t){const n=String(t).length;return n<=9?'clamp(30px,9vw,40px)':n<=14?'clamp(26px,7.4vw,34px)':n<=20?'clamp(21px,6vw,27px)':'clamp(17px,4.8vw,22px)'}
-function suWave(){return`<div class="suwave${SU.listening?'':' off'}" id="suwave">${'<i></i>'.repeat(17)}</div>`}
-/* live microphone level → bars (a scrolling voice-memo style waveform); stops with the recognizer */
-let SUM=null;
-async function suMicOn(){suMicOff();if(!navigator.mediaDevices||!navigator.mediaDevices.getUserMedia)return;let lsOff=false;try{lsOff=localStorage.getItem('suNoWave')=='1'}catch(e){}if(lsOff)return;
-  try{const st=await navigator.mediaDevices.getUserMedia({audio:{echoCancellation:true,noiseSuppression:true}});if(!SU||!SU.listening){st.getTracks().forEach(t=>t.stop());return}
-    const C=window.AudioContext||window.webkitAudioContext,ac=new C(),src=ac.createMediaStreamSource(st),an=ac.createAnalyser();an.fftSize=1024;an.smoothingTimeConstant=.2;src.connect(an);
-    const buf=new Float32Array(an.fftSize),hist=Array(17).fill(0);let last=0,peak=.02;
-    SUM={st,ac,raf:0};const loop=t=>{if(!SUM)return;SUM.raf=requestAnimationFrame(loop);if(t-last<55)return;last=t;
-      an.getFloatTimeDomainData(buf);let r=0;for(let i=0;i<buf.length;i++)r+=buf[i]*buf[i];r=Math.sqrt(r/buf.length);
-      peak=Math.max(peak*.995,r,.02);const lv=Math.min(1,Math.max(0,(r-.006)/(peak*.9)));hist.push(lv);hist.shift();
-      const w=document.getElementById('suwave');if(!w)return;const bs=w.children;for(let k=0;k<bs.length;k++)bs[k].style.height=(5+34*hist[k])+'px'};
-    SUM.raf=requestAnimationFrame(loop)}catch(e){}}
-function suMicOff(){if(!SUM)return;try{cancelAnimationFrame(SUM.raf);SUM.st.getTracks().forEach(t=>t.stop());SUM.ac.close()}catch(e){}SUM=null;const w=document.getElementById('suwave');if(w){w.classList.add('off');[...w.children].forEach(b=>b.style.height='')}}
 function suDraw(){const c=suCur(),n=SU.q.length,hide=SU.mode=='recall'&&!SU.rev,w=tlNoSt(c.ru);
   const hint=SU.res||(SU.note?`<div class="sunote">${SU.note}</div>`:`<span class="hint">${SU.self?'Say it out loud, then check yourself':SU.mode=='recall'?'Say it in Russian from memory':'Listen, then tap the mic and say it'}</span>`);
   $.innerHTML=`<div class="sut" style="--sufs:${suFs(w)}"><div class="row" style="justify-content:space-between;align-items:center"><button onclick="suQuit()">✕</button><div class="suseg"><button class="${SU.mode=='repeat'?'on':''}" onclick="suMode('repeat')">Repeat</button><button class="${SU.mode=='recall'?'on':''}" onclick="suMode('recall')">Recall</button></div></div>
   <div class="sudots">${SU.q.map((_,k)=>{const v=SU.sc[k];return`<i class="${v==null?'':v>=85?'s3':v>=60?'s2':'s1'}${k==SU.i?' cur':''}"></i>`}).join('')}</div>
   <div class="card sucard"><div class="suimg">${imgHtml(c,110)}</div><p class="suru${hide?' hid':''}">${esc(w)}</p><p class="sutr">${hide?'':esc(supTr(w))}</p><p class="suen">${esc(c.en)}</p>
-  ${SU.self?'':suWave()}<div class="sures" id="sures">${hint}</div>
+  <div class="sures" id="sures">${hint}</div>
   <div class="row" style="justify-content:center;gap:8px"><button onclick="suSay(.9)"><span class="ico">${SPK}</span> Listen</button><button onclick="suSay(.55)">🐢 Slow</button>${hide?'<button onclick="SU.rev=true;suDraw();suSay(.9)">Show</button>':''}</div></div>
   <div class="suctl"><button class="sunav" onclick="suGo(-1)" ${SU.i?'':'disabled'} aria-label="Previous">‹</button>
   ${SU.self?`<div class="row" style="gap:8px"><button onclick="suSelf(40)">Again</button><button class="p" onclick="suSelf(100)">I said it</button></div>`:`<button class="sumic${SU.listening?' on':''}" id="sumic" onclick="suListen()" aria-label="Speak"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg></button>`}
   <button class="sunav" onclick="suGo(1)" aria-label="Next">${SU.i==n-1?'✓':'›'}</button></div></div>`}
 function suMode(m){SU.mode=m;SU.rev=false;SU.res='';suDraw()}
 function suGo(d){if(!SU)return;if(SU.listening&&SU.rec)SU.rec.stopNow();const n=SU.q.length;if(SU.i+d>=n)return suEnd();SU.i=Math.max(0,SU.i+d);SU.rev=false;SU.res='';SU.note='';suDraw();if(SU.mode=='repeat')setTimeout(()=>suSay(.9),200)}
-function suQuit(){try{suMicOff();SU&&SU.rec&&SU.rec.stopNow()}catch(e){}SU=null;home()}
+function suQuit(){try{SU&&SU.rec&&SU.rec.stopNow()}catch(e){}SU=null;home()}
 function suRecord(p){SU.sc[SU.i]=p;const c=suCur();c.sp=Math.max(c.sp||0,p);S.xp+=p>=85?5:p>=60?3:1;S.mu=Date.now();save()}
 function suSelf(p){suRecord(p);SU.rev=true;if(p>=85){SU.res='<span class="subadge">✔ Great!</span>';suDraw();setTimeout(()=>{if(SU)suGo(1)},600)}else{SU.res='<span class="hint">Listen once more, then try again</span>';suDraw();suSay(.55)}}
 function suListen(){if(SU.listening){SU.rec&&SU.rec.stopNow();return}try{speechSynthesis.cancel()}catch(e){}
   const rec=new SUP_SR();rec.lang='ru-RU';rec.interimResults=true;rec.maxAlternatives=4;rec.continuous=false;SU.rec=rec;const me=rec,idx=SU.i;let alts=[],done=false,quiet=null,cap=null;
-  const finish=()=>{if(done)return;done=true;clearTimeout(quiet);clearTimeout(cap);suMicOff();if(!SU)return;SU.listening=false;SU.talk=false;me.onresult=null;me.onend=null;me.onerror=null;try{me.abort()}catch(e){}
+  const finish=()=>{if(done)return;done=true;clearTimeout(quiet);clearTimeout(cap);if(!SU)return;SU.listening=false;SU.talk=false;me.onresult=null;me.onend=null;me.onerror=null;try{me.abort()}catch(e){}
     if(SU.i!=idx)return;if(alts.length&&alts.some(a=>a.trim()))suShow(alts);else{SU.miss=(SU.miss||0)+1;const w=tlNoSt(suCur().ru),sh=supN(w).length<=3&&!/\s/.test(w.trim());SU.res=`<span class="hint">I didn’t hear anything.${sh?` Short words are hard to catch – say it clearly 2–3 times: «${esc(w)}, ${esc(w)}».`:' Tap the mic and try again.'}</span>${SU.miss>=2?'<div class="row" style="justify-content:center;margin-top:6px"><button onclick="suSelf(100)">✔ I said it</button></div>':''}`;suDraw()}};
-  const talk=()=>{if(!SU||done)return;SU.talk=true};rec.onsoundstart=talk;rec.onspeechstart=talk;rec.onstart=()=>{SU.listening=true;SU.talk=false;setTimeout(()=>{if(SU&&SU.listening&&!done)suMicOn()},120);SU.res='<span class="hint">Listening… say it in Russian</span>';suDraw();cap=setTimeout(finish,10000)};
+  const talk=()=>{if(!SU||done)return;SU.talk=true};rec.onsoundstart=talk;rec.onspeechstart=talk;rec.onstart=()=>{SU.listening=true;SU.talk=false;SU.res='<span class="hint">Listening… say it in Russian</span>';suDraw();cap=setTimeout(finish,10000)};
   rec.onresult=e=>{if(done)return;let text='';for(let i=0;i<e.results.length;i++)text+=e.results[i][0].transcript+' ';text=text.trim();const last=e.results[e.results.length-1];alts=[text,...[...last].slice(1).map(a=>a.transcript)];
     talk();const r=document.getElementById('sures');if(r)r.innerHTML=`<span class="suheard">${esc(text)}</span>`;clearTimeout(quiet);quiet=setTimeout(finish,last.isFinal?300:1500)};
-  rec.onerror=e=>{if(e.error==='audio-capture'&&SUM){try{localStorage.setItem('suNoWave','1')}catch(x){}}if(e.error==='not-allowed'||e.error==='service-not-allowed'){done=true;SU.listening=false;SU.self=true;SU.note='The microphone is blocked here. Open the app in Safari or Chrome to get scored, or check yourself.';suDraw()}};
+  rec.onerror=e=>{if(e.error==='not-allowed'||e.error==='service-not-allowed'){done=true;SU.listening=false;SU.self=true;SU.note='The microphone is blocked here. Open the app in Safari or Chrome to get scored, or check yourself.';suDraw()}};
   rec.onend=finish;rec.stopNow=finish;try{rec.start()}catch(e){SU.self=true;SU.note='Speech input isn’t available here. Check yourself.';suDraw()}}
 function suShow(alts){if(!SU)return;const target=tlNoSt(suCur().ru),best=alts.filter(a=>a&&a.trim()).map(a=>({a,g:supGrade(target,a)})).sort((x,y)=>y.g.pct-x.g.pct)[0],{T,st,al,pct}=best.g;suRecord(pct);SU.rev=true;SU.miss=0;
   const cls=pct>=85?'':pct>=60?'mid':'low',fx=supFixes(al),msg=pct>=85?'':pct>=60?'Almost – fix the coloured sounds':'Listen once more, then try again';

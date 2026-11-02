@@ -828,7 +828,7 @@ main:has(.endb)>.mas.mfxs{flex:1 1 0;min-height:180px;max-height:410px;padding:0
 .jmnote b{font-size:18px}.jmnote span{font-size:14px;color:var(--mu);line-height:1.4}.jmnote button{margin:4px 0 0}
 </style></head><body><main id="app"></main>
 <script>
-const APP_VER='Russian MemoRise App_ver_87';
+const APP_VER='Russian MemoRise App_ver_88';
 const sv=(b,v='0 0 48 48')=>`<svg xmlns="http://www.w3.org/2000/svg" viewBox="${v}" aria-hidden="true">${b}</svg>`;
 const IC={
 learn:sv('<rect x="14" y="30" width="20" height="14" rx="4" fill="#FF8A5B"/><rect x="12" y="27" width="24" height="6" rx="3" fill="#FF6B3D"/><path d="M24 27V17" stroke="#2FBF71" stroke-width="3" stroke-linecap="round"/><path d="M24 20C24 12 17 10 11 12c0 7 5 10 13 8z" fill="#6EE7B7"/><path d="M24 17c0-7 6-9 12-7 0 7-5 9-12 7z" fill="#2FBF71"/>'),
@@ -4113,5 +4113,95 @@ function jPreview(){const nL=jmSet().lm.length,units=[];let k=0,n=1;
   const flat=[];units.forEach(u=>u.nodes.forEach(x=>flat.push(x)));return{units,flat,cur:-1}}
 const jPreviewNote=()=>`<div class="jmnote"><b>Your ${esc(C.name)} Journey</b><span>Add words in Setting → Add / Manage Vocabularies. Name the sets “Unit 1 – …”, “Unit 2 – …” and your lessons appear on this map.</span><button class="p" type="button" onclick="vocab()">Add words</button></div>`;
 cApply();if(fixForms())save(1);applyIll();home();initSync();
+</script>
+<script>
+/* ===== ver_88: Daily Mix – one session that mixes review, new words and grammar.
+   - Memory level 0–5 for every word (from its memory score) and every grammar unit (stored in S.dp.gs)
+   - Spaced repetition: words keep their SM-2 schedule; grammar units come back after 0.5/1/3/7/14/30 days
+   - Active recall: the game gets harder as the level rises (choose → listen → type/puzzle → sentence)
+   - 85% rule: the last answers set the difficulty – over 90% = harder games + more new words, under 80% = easier games + more review */
+const DP_N=20,DP_INT=[.5,1,3,7,14,30];
+function dpS(){S.dp=S.dp||{};const d=S.dp;d.acc=d.acc||[];d.gs=d.gs||{};return d}
+function cLv(c){if(isNew(c))return 0;const m=c.memory_score||0;return m<25?1:m<50?2:m<70?3:m<85?4:5}
+function dpGramUnits(){if(!C.gram||typeof UNITS=='undefined')return[];return UNITS.map((u,i)=>[u,i]).filter(([u])=>S.jp['g:'+u.n]).map(x=>x[1])}
+function dpGramDue(){const now=Date.now(),gs=dpS().gs;return dpGramUnits().filter(i=>{const g=gs[UNITS[i].n];return!g||g.due<=now})}
+/* new words follow the Journey: only units up to the one you are on now */
+function dpNewPool(){let J;try{J=jBuild()}catch(e){return[]}const nd=J.cur>=0?J.flat[J.cur]:null,mx=nd?nd.n:Infinity,out=[];
+  J.units.filter(u=>u.n<=mx).forEach(u=>u.W.forEach(c=>{if(isNew(c))out.push(c)}));return out}
+function dpAcc(){const j=G&&G.J,cur=j&&j.acc?j.acc:[],a=dpS().acc.concat(cur).slice(-10);return a.length?a.filter(Boolean).length/a.length:.85}
+function dpD(){const j=G&&G.J,n=dpS().acc.length+(j&&j.acc?j.acc.length:0);if(n<4)return 0;const a=dpAcc();return a>.9?1:a<.8?-1:0}
+/* tier 0 recognise · 1 recognise by ear / other direction · 2 recall (type, puzzle) · 3 use it in a sentence */
+function dpJob(c,t){for(;t>=0;t--){
+  if(t==3){const s=jSent(c);if(s)return{t:pk(['sb','sf']),c,s}}
+  else if(t==2){const p=[...c.ru.replace(/\s/g,'')].length>=3;return{t:p&&Math.random()<.4?'puzzle':'typing',c}}
+  else if(t==1)return{t:pk(['quiz','listen']),c};
+  else{const oth=shuf(S.cards.filter(x=>x!==c&&!isNew(x))).slice(0,3);if(oth.length>=2&&Math.random()<.4)return{t:'match',c,B:[c,...oth]};return{t:'quiz',c}}}
+  return{t:'quiz',c}}
+const dpBase=c=>[0,0,1,2,3,3][cLv(c)];
+function dpMk(c,t){t=Math.max(0,Math.min(3,t));const o=dpJob(c,t);o.tier=t;return o}
+function dpPick(){const j=G.J,P=j.P,i=j.i,D=dpD(),acc=dpAcc(),free=k=>j.jobs[k]&&j.jobs[k].t=='dp';
+  if(P.gq.length&&i%5==4)return P.gq.shift();
+  const newOne=()=>{const c=P.nw.shift();P.newN++;j.jobs[i+1]=dpMk(c,0);if(free(i+5))j.jobs[i+5]=dpMk(c,1);return{t:'card',c}};
+  const share=acc<.75?0:D>0?.4:D<0?.12:.25,maxNew=D>0?5:D<0?2:3;
+  if(P.nw.length&&P.newN<maxNew&&free(i+1)&&(Math.random()<share||(!P.due.length&&acc>=.75)))return newOne();
+  let c=P.due.shift();if(c)return dpMk(c,dpBase(c)+D);
+  c=P.extra.shift();if(c)return dpMk(c,dpBase(c)+D);
+  if(P.gq.length)return P.gq.shift();
+  if(P.nw.length&&free(i+1))return newOne();
+  return{t:'skip'}}
+function dpStart(){const d=dpS(),now=Date.now(),known=S.cards.filter(c=>!isNew(c));
+  const due=known.filter(c=>c.due<=now).map(c=>[Math.min(30,(now-c.due)/DAY*10)+(100-(c.memory_score||0))*.3+Math.random()*8,c]).sort((a,b)=>b[0]-a[0]).map(x=>x[1]);
+  const ds=new Set(due),extra=known.filter(c=>!ds.has(c)).map(c=>[(100-(c.memory_score||0))+(now-(c.last_reviewed||0))/DAY*5+Math.random()*10,c]).sort((a,b)=>b[0]-a[0]).map(x=>x[1]);
+  const nw=dpNewPool().slice(0,8);let gq=[];
+  shuf(dpGramDue()).slice(0,2).forEach(u=>{try{gq=gq.concat(shuf(UNITS[u].P().filter(q=>q&&q.t!='b'&&q.opts&&q.key)).slice(0,2).map(q=>({t:'gq',u,q})))}catch(e){}});
+  if(!known.length&&!nw.length){VIEW='menu';$.innerHTML=`<h1>Daily Mix</h1>${masHtml(0,'console')}<div class="card" style="text-align:center"><div class="mu">Add some words first – Setting → Add / Manage Vocabularies.</div></div><div class="endb"><button class="w" style="text-align:center" onclick="home()">Home</button></div>`;return}
+  const N=Math.max(6,Math.min(DP_N,known.length*2+nw.length*2+gq.length));
+  G={mode:'jny',J:{id:'dp',daily:true,nd:null,W:[],jobs:Array.from({length:N},()=>({t:'dp'})),i:0,q:0,bad:{},test:false,label:'Daily Mix',
+     P:{due,extra,nw,gq,newN:0},rec:{},acc:[],gr:{}},E:{},RS:{},TK:new Set(),q:[],retry:new Set(),rt:{},total:N,done:0,ok:0};
+  VIEW='game';touchStreak();jRun()}
+/* hook the Journey runner so the same games run the Daily Mix */
+const _dpRun=jRun,_dpNext=jNext,_dpRes=jRes;
+jRun=function(){const j=G&&G.J;if(!j||!j.daily)return _dpRun();
+  if(j.i>=j.jobs.length)return dpEnd();
+  let job=j.jobs[j.i];if(job.t=='dp'){job=dpPick();j.jobs[j.i]=job}
+  if(job.t=='skip'){j.i++;return jRun()}
+  if(job.t=='gq')return dpGram(job);
+  return _dpRun()};
+jNext=function(){const j=G&&G.J;if(!j||!j.daily)return _dpNext();
+  const job=j.jobs[j.i],r=j.rec[j.i];
+  if(job&&r!==undefined&&job.t!='card'){j.acc.push(r?1:0);
+    if(!r&&job.c){const t=Math.max(0,(job.tier||1)-1),k=j.jobs.findIndex((x,ix)=>ix>=j.i+3&&x.t=='dp');if(k>=0)j.jobs[k]=dpMk(job.c,t)}}
+  j.i++;jRun()};
+jRes=function(c,ok){const j=G&&G.J;if(j&&j.daily){const v=j.rec[j.i];j.rec[j.i]=v===undefined?!!ok:(v&&!!ok);return}return _dpRes(c,ok)};
+/* grammar question inside the Daily Mix */
+function dpGram(job){const q=job.q;G.c=q;G.job=job;G.ans=false;VIEW='game';
+  $.innerHTML=jHead()+`<div class="card" style="text-align:center"><div class="sub">Grammar ${esc(UNITS[job.u].n)} · ${q.title||''}</div><div style="font-size:20px;margin:10px 0">${q.prompt||''}</div>${q.html?`<div style="font-size:26px;font-weight:700;margin:8px 0;line-height:1.5">${q.html}</div><div class="mu">${q.en||''}</div>`:q.ru?`<div style="font-size:28px;font-weight:700;margin:8px 0">${esc(q.ru)}</div>`:''}<div id="so" style="margin-top:12px">${q.opts.map((o,i)=>`<button class="w" style="font-size:${q.t=='w'?18:22}px;font-weight:700;text-align:center" onclick="dpGPick(${i})">${esc(o)}</button>`).join('')}</div><div id="fb"></div></div>`}
+function dpGPick(i){if(G.ans)return;G.ans=true;const q=G.c,ok=q.opts[i]==q.key,j=G.J,n=UNITS[G.job.u].n;
+  [...document.querySelectorAll('#so button')].forEach((b,k)=>{b.disabled=true;if(q.opts[k]==q.key)b.classList.add('ok');else if(k==i)b.classList.add('no')});
+  j.rec[j.i]=ok;j.gr[n]=(j.gr[n]===undefined?true:j.gr[n])&&ok;if(ok){S.xp+=10;S.mu=Date.now();save()}try{sfx(ok?'ok':'no')}catch(e){}
+  document.getElementById('fb').innerHTML=`<div class="fb ${ok?'ok':'no'}" style="text-align:left;font-size:17px;line-height:1.5;font-weight:400">${ok?'✔ ':'✘ '}${q.explain||''}</div>${fbar(q.say?'speak(G.c.say)':'')}`;if(q.say)speak(q.say)}
+function dpEnd(){const j=G.J,d=dpS(),all=[...G.TK];let up=0,nw=0;
+  all.forEach(c=>{const b=cLv(c),e=G.E[c.k]||0;if(b==0)nw++;grade(c,e==0?4:e<3?3:0);if(cLv(c)>b)up++});
+  Object.keys(j.gr).forEach(n=>{const g=d.gs[n]||{lv:0,due:0},ok=j.gr[n];g.lv=ok?Math.min(5,g.lv+1):Math.max(0,g.lv-1);g.due=Date.now()+(ok?DP_INT[g.lv]:.5)*DAY;d.gs[n]=g});
+  d.acc=d.acc.concat(j.acc).slice(-30);d.last=Date.now();S.xp+=20;S.mu=Date.now();save();
+  const a=j.acc,pct=a.length?Math.round(a.filter(Boolean).length/a.length*100):0,good=pct>=80;
+  const tip=pct>90?'Too easy? Next time: harder games and more new words.':pct>=80?'Right in the sweet spot!':'A bit tough – next time: more review, easier games.';
+  const ch=(v,l,col)=>`<div class="chip2" style="background:color-mix(in srgb,${col} 22%,var(--card))">${v}<span>${l}</span></div>`;
+  VIEW='menu';$.innerHTML=`<h1>${good?'🎯 Daily Mix done!':'💪 Daily Mix done'}</h1>${masHtml(0,good?'cheer':'console')}<div class="card" style="text-align:center"><div class="big" style="margin:0">${pct}%</div>
+  <div class="dpbar"><i style="width:${pct}%"></i><b style="left:85%"></b></div><div class="mu" style="font-size:13px">${tip}</div>
+  <div class="chips" style="margin:10px 0 0">${ch(all.length-nw,'reviewed','#238CF4')}${ch(nw,'new','#FFD86B')}${ch(Object.keys(j.gr).length,'grammar','#2BB57F')}${ch(up,'level up','#FF454D')}</div></div>
+  <div class="endb jrb"><button onclick="home()">Home</button><button class="p" onclick="dpStart()">Again</button></div>`;if(good)confetti()}
+/* Daily Mix card on Home */
+function dpInfo(){const now=Date.now(),known=S.cards.filter(c=>!isNew(c)),nw=dpNewPool().length;
+  return{due:known.filter(c=>c.due<=now).length,nw:Math.min(3,nw),g:dpGramDue().length,can:known.length+nw>0}}
+const DP_ICO=`<svg viewBox="0 0 48 48" width="40" height="40" aria-hidden="true"><circle cx="24" cy="24" r="20" fill="#FF454D"/><circle cx="24" cy="24" r="13.5" fill="#FFFDF8"/><circle cx="24" cy="24" r="7.5" fill="#238CF4"/><path d="M24 24L40 8" stroke="#192F60" stroke-width="3.2" stroke-linecap="round"/><path d="M36 6l6 0 0 6" fill="none" stroke="#192F60" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+const _dpHome=home;
+home=function(){_dpHome();try{if(TAB!='home')return;const ch=document.querySelector('#app .chips');if(!ch)return;const f=dpInfo();if(!f.can)return;
+  const el=document.createElement('div');el.className='card dpc';
+  el.innerHTML=`${DP_ICO}<div style="flex:1;min-width:0"><b style="font-size:18px">Daily Mix</b><div class="mu" style="font-size:13px">${f.due} review · ${f.nw} new${f.g?` · ${f.g} grammar`:''}</div></div><button class="p" onclick="dpStart()">Go →</button>`;
+  ch.after(el);fitScreen();requestAnimationFrame(fitScreen)}catch(e){}};
+(function(){const st=document.createElement('style');st.textContent=`.dpc{display:flex;align-items:center;gap:12px;margin-top:12px}.dpc button{margin:0;width:auto;flex:none;padding:11px 18px}
+.dpbar{position:relative;height:12px;border-radius:8px;background:color-mix(in srgb,var(--mu) 18%,var(--card));margin:10px 4px 6px;overflow:visible}.dpbar i{position:absolute;left:0;top:0;bottom:0;border-radius:8px;background:#2BB57F}.dpbar b{position:absolute;top:-4px;width:3px;height:20px;border-radius:2px;background:#192F60;transform:translateX(-50%)}`;document.head.appendChild(st)})();
+if(VIEW=='home')home();
 </script></body></html>
 </body></html>

@@ -17,7 +17,7 @@ t();addEventListener('orientationchange',function(){setTimeout(t,60);setTimeout(
 if(window.matchMedia)try{matchMedia('(orientation: portrait)').addEventListener('change',t)}catch(e){}})()</script>
 <meta name="theme-color" content="#f6f7fb" media="(prefers-color-scheme: light)"><meta name="theme-color" content="#171C25" media="(prefers-color-scheme: dark)">
 <script>(function(){function f(){try{var h=innerHeight;if(navigator.standalone===true){var p=innerHeight>=innerWidth,a=Math.max(screen.width,screen.height),b=Math.min(screen.width,screen.height),sh=(p?a:b)/(window.__vs||1);if(sh>h)h=sh}document.documentElement.style.setProperty('--fh',h+'px')}catch(e){}}f();addEventListener('resize',f);addEventListener('orientationchange',function(){setTimeout(f,150)});addEventListener('pageshow',f)})()</script>
-<title>Russian MemoRise App_ver_89</title>
+<title>Russian MemoRise App_ver_91</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lobster&display=swap&text=%D0%90%D0%91%D0%92%D0%93%D0%94%D0%95%D0%96%D0%97%D0%98%D0%99%D0%9A%D0%9B%D0%9C%D0%9D%D0%9E%D0%9F%D0%A0%D0%A1%D0%A2%D0%A3%D0%A4%D0%A5%D0%A6%D0%A7%D0%A8%D0%A9%D0%AA%D0%AB%D0%AC%D0%AD%D0%AE%D0%AF%D0%B0%D0%B1%D0%B2%D0%B3%D0%B4%D0%B5%D0%B6%D0%B7%D0%B8%D0%B9%D0%BA%D0%BB%D0%BC%D0%BD%D0%BE%D0%BF%D1%80%D1%81%D1%82%D1%83%D1%84%D1%85%D1%86%D1%87%D1%88%D1%89%D1%8A%D1%8B%D1%8C%D1%8D%D1%8E%D1%8F%D0%81%D1%91%CC%81"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800;900&display=swap">
 <style>
 :root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);--bg:#f6f7fb;--card:#fff;--tx:#1f2430;--mu:#6b7280;--pr:#1d6fd8;--ok:#2e9e5b;--bad:#d64545;--bd:#e3e6ee}
@@ -831,7 +831,7 @@ main:has(.endb)>.mas.mfxs{flex:1 1 0;min-height:180px;max-height:410px;padding:0
 .jmnote b{font-size:18px}.jmnote span{font-size:14px;color:var(--mu);line-height:1.4}.jmnote button{margin:4px 0 0}
 </style></head><body><main id="app"></main>
 <script>
-const APP_VER='Russian MemoRise App_ver_90';
+const APP_VER='Russian MemoRise App_ver_91';
 const sv=(b,v='0 0 48 48')=>`<svg xmlns="http://www.w3.org/2000/svg" viewBox="${v}" aria-hidden="true">${b}</svg>`;
 const IC={
 learn:sv('<rect x="14" y="30" width="20" height="14" rx="4" fill="#FF8A5B"/><rect x="12" y="27" width="24" height="6" rx="3" fill="#FF6B3D"/><path d="M24 27V17" stroke="#2FBF71" stroke-width="3" stroke-linecap="round"/><path d="M24 20C24 12 17 10 11 12c0 7 5 10 13 8z" fill="#6EE7B7"/><path d="M24 17c0-7 6-9 12-7 0 7-5 9-12 7z" fill="#2FBF71"/>'),
@@ -955,10 +955,10 @@ const COURSES={
   test:'¡Hola! ¿Cómo estás? Hoy hace buen tiempo.',tip:'iPhone/iPad: Settings → Accessibility → Spoken Content → Voices → Spanish (Spain) → download an Enhanced voice (e.g. Mónica, Jorge).<br>Android: Settings → Text-to-speech output → Google Speech Services → install Spanish (Spain) voice data.<br>Windows/Edge: "Microsoft Elvira/Alvaro Online (Natural)". Chrome desktop: "Google español".'}};
 const C_ORDER=['ru','vi','es'];
 let CS=(()=>{let o=null;try{o=JSON.parse(localStorage.getItem('mrCourses')||'null')}catch(e){}o=o&&typeof o=='object'?o:{};
-  if(!COURSES[o.cur])o.cur='ru';if(!Array.isArray(o.on))o.on=C_ORDER.slice();o.on=C_ORDER.filter(k=>o.on.includes(k));if(!o.on.includes(o.cur))o.on.unshift(o.cur);o.o=o.o||{};o.n=o.n||{};return o})();
+  if(!COURSES[o.cur])o.cur='ru';o.on=C_ORDER.slice();if(o.o&&o.o.vi)delete o.o.vi.forms;o.o=o.o||{};o.n=o.n||{};return o})();
 let C=COURSES[CS.cur];
 const cSave=()=>{try{localStorage.setItem('mrCourses',JSON.stringify(CS))}catch(e){}};
-const cFlag=(k,id)=>{id=id||C.id;const o=CS.o[id]||{};return k in o?!!o[k]:!!COURSES[id][k]};
+const cFlag=(k,id)=>{id=id||C.id;if(k=='forms'&&id=='vi')return false;const o=CS.o[id]||{};return k in o?!!o[k]:!!COURSES[id][k]};
 let ADM=false;const admTok=()=>{try{return localStorage.getItem('mrAdmTok')||''}catch(e){return''}};try{ADM=localStorage.getItem('mrAdmOn')=='1'&&!!admTok()}catch(e){}if(ADM)document.documentElement.classList.add('adm');
 let KEY=(ADM?'adm_':'')+C.key;const DAY=864e5;
 const blankS=()=>({cards:[],sents:[],sdead:{},xp:0,streak:0,last:'',dead:{},mu:0});
@@ -1779,7 +1779,7 @@ $.innerHTML=`<h1>📚 Vocabulary</h1><div class="card">
 <div class="row" style="margin-top:8px"><button class="p" onclick="imp()">Add words</button>${C.id!='ru'?'':`<button onclick="document.getElementById('t').value='${SAMPLE.replace(/\n/g,'\\n').replace(/'/g,"\\'")}'">Use sample</button>`}
 <button onclick="document.getElementById('f').click()">Upload .txt/.csv file</button><input type="file" id="f" accept=".txt,.csv,.tsv" hidden onchange="fl(this)"></div><div id="m" class="mu" style="margin-top:6px"></div></div>
 <div id="ed"></div>
-${S.cards.length?`<div class="card"><b>🎨 Illustrations</b><div class="mu">Words from your units use the built-in MemoRise pictures. New words without one are drawn by Claude in the same style (created once, then saved).</div><div class="row" style="margin-top:8px">${(()=>{const n=S.cards.filter(c=>!c.img||((c.iv||0)<ILLV)).length;return `<button class="p" id="gb" onclick="genImgs()" ${n?'':'disabled'}>${n?'Draw '+n+' pictures in the MemoRise style':'All words have pictures'}</button>`})()}</div><div id="gm" class="mu" style="margin-top:6px"></div></div>`:''}
+${S.cards.length?`<div class="card"><b>🎨 Illustrations</b><div class="row" style="margin-top:8px">${(()=>{const n=S.cards.filter(c=>!c.img||((c.iv||0)<ILLV)).length;return `<button class="p" id="gb" onclick="genImgs()" ${n?'':'disabled'}>${n?'Draw '+n+' pictures in the MemoRise style':'All words have pictures'}</button>`})()}</div><div id="gm" class="mu" style="margin-top:6px"></div></div>`:''}
 <div class="card"><div class="row" style="align-items:center;justify-content:space-between;flex-wrap:nowrap"><b id="vc"></b><select id="sf" onchange="SETF=this.value;paintList()"></select></div><div class="list" id="vl" style="margin-top:6px"></div>
 ${S.cards.length?`<div class="row" style="margin-top:8px"><button onclick="if(confirm('Reset all learning progress?')){S.cards.forEach(c=>Object.assign(c,{ef:2.5,int:0,reps:0,due:0,lapses:0,memory_score:0,correct_count:0,wrong_count:0,last_reviewed:0,recent:[],u:Date.now()}));save();vocab()}">Reset progress</button><button onclick="if(confirm('Delete all vocabulary?')){S.cards.forEach(c=>S.dead[c.k]=Date.now());S.cards=[];save();vocab()}">Delete all</button></div>`:''}</div>
 <button class="w" onclick="dataView()">📊 View learning data</button><button class="w" onclick="backupView()">💾 Backup & restore</button><button class="w" onclick="home()">← Home</button><div class="mu sy" style="text-align:center;margin-top:8px">${syLine()}</div>`;paintList()}
@@ -3507,7 +3507,7 @@ function jHtml(PJ){const DK=jmDark();
     else if(nd.t=='t'&&!nd.done){const fx=Math.max(0,Math.min(W-66,out>0?p.x+sz/2:p.x-sz/2-66));h+=`<div class="jfox" style="left:${fx}px;top:${p.y-100}px"><svg width="66" height="139" viewBox="200 105 95 200" aria-hidden="true">${FOX53(false)}</svg></div>`}
   });
   const dn=J.flat.filter(x=>x.done).length;
-  JMW=$.clientWidth;return`<div class="jmap" style="width:${W}px;height:${H}px;margin-left:calc(50% - ${W/2}px)">${g}<div class="jmtop">${lchip()}<div><b>Journey</b><span>${PJ?esc(C.name):dn+'/'+J.flat.length+' steps'}</span></div><span class="pill jmpill">${ico(IC.flame)}${S.streak}</span></div>${PJ?jPreviewNote():''}${h}</div>`}
+  JMW=$.clientWidth;return`<div class="jmap" style="width:${W}px;height:${H}px;margin-left:calc(50% - ${W/2}px)">${g}<div class="jmtop"><span class="lchw">${lchip()}</span><div><b>Journey</b><span>${PJ?esc(C.name):dn+'/'+J.flat.length+' steps'}</span></div><span class="pill jmpill">${ico(IC.flame)}${S.streak}</span></div>${PJ?jPreviewNote():''}${h}</div>`}
 let JMW=0;addEventListener('resize',()=>{const w=$.clientWidth;if(VIEW=='home'&&TAB=='journey'&&Math.abs(w-JMW)>8){JMW=w;home()}});
 
 function jRestart(id){if(S.jr&&S.jr.id==id){S.jr=null;save()}jGo(id)}
@@ -4071,18 +4071,18 @@ async function setCourse(id){if(!COURSES[id])return;if(id==C.id){home();return}
   home();if(DB)sync()}
 function cApply(){const de=document.documentElement,b=C.id=='ru'||!BGS[C.id]?[BG_L,BG_D]:BGS[C.id];
   de.style.setProperty('--bgL',`url(${b[0]})`);de.style.setProperty('--bgD',`url(${b[1]})`);de.dataset.course=C.id}
-function cSet(id,k,v){if(k=='show'){if(id==C.id)return langView();CS.on=v?C_ORDER.filter(x=>x==id||CS.on.includes(x)):CS.on.filter(x=>x!=id)}
-  else{CS.o[id]=CS.o[id]||{};CS.o[id][k]=!!v}cSave();langView()}
+function cSet(id,k,v){
+  CS.o[id]=CS.o[id]||{};CS.o[id][k]=!!v;cSave();langView()}
 function langView(){VIEW='menu';TAB='settings';lshX();
-  const tg=(id,k,lab,sub,dis)=>`<label class="ltg${dis?' dis':''}"><span class="ltx"><b>${lab}</b>${sub?`<span>${sub}</span>`:''}</span><input type="checkbox" ${(k=='show'?CS.on.includes(id):cFlag(k,id))?'checked':''} ${dis?'disabled':''} onchange="cSet('${id}','${k}',this.checked)"><i aria-hidden="true"></i></label>`;
+  const tg=(id,k,lab,sub,dis)=>`<label class="ltg${dis?' dis':''}"><span class="ltx"><b>${lab}</b>${sub?`<span>${sub}</span>`:''}</span><input type="checkbox" ${cFlag(k,id)?'checked':''} ${dis?'disabled':''} onchange="cSet('${id}','${k}',this.checked)"><i aria-hidden="true"></i></label>`;
   const info=t=>`<div class="linf">${t}</div>`;
   const rows={
    ru:()=>tg('ru','forms','Form Challenge &amp; Form column','Verb conjugation and noun cases')+info('Typing uses the Cyrillic keyboard on screen.')+info('Grammar: 14 units · Dialogues: 28 conversations'),
-   vi:()=>tg('vi','lax','Accept answers without tone marks','Typing: “cam on” also counts for “cảm ơn”')+tg('vi','forms','Form Challenge &amp; Form column','Vietnamese words don’t change form, so this is off')+info('Multi-syllable words such as <b>cảm ơn</b> or <b>xe đạp</b> stay together as one word in Word Puzzle and Sentence Builder.')+info('Typing uses your phone’s own keyboard.')+info('Grammar and Dialogues: will be added later'),
+   vi:()=>tg('vi','lax','Accept answers without tone marks','Typing: “cam on” also counts for “cảm ơn”')+info('Multi-syllable words such as <b>cảm ơn</b> or <b>xe đạp</b> stay together as one word in Word Puzzle and Sentence Builder.')+info('Typing uses your phone’s own keyboard.')+info('Grammar and Dialogues: will be added later'),
    es:()=>tg('es','lax','Accept answers without accents','Typing: “cancion” also counts for “canción”')+tg('es','forms','Form Challenge &amp; Form column','Verb conjugation: yo, tú, él / ella…')+info('Typing uses your phone’s own keyboard.')+info('Grammar and Dialogues: will be added later')};
-  $.innerHTML=`<h1>🌐 Languages</h1><div class="mu" style="margin:-4px 0 12px">Each language has its own Journey, vocabulary, sentences and progress. XP and the streak are shared by all of them.</div>`+
+  $.innerHTML=`<h1>🌐 Languages</h1>`+
   C_ORDER.map(id=>{const K=COURSES[id],cur=id==C.id;return`<div class="card lcard${cur?' cur':''}"><div class="lch">${flagSvg(id,46)}<div style="flex:1;min-width:0"><b style="font-size:19px">${K.name}</b><div class="mu">${K.own} · ${CS.n[id]||0} words</div></div>${cur?'<span class="ltag">Learning now</span>':`<button class="p" type="button" onclick="setCourse('${id}').then(langView)">Switch</button>`}</div>
-   ${tg(id,'show','Show in the language switcher',cur?'The course you are learning is always shown':'',cur)}${rows[id]()}</div>`}).join('')+
+   ${rows[id]()}</div>`}).join('')+
   `<button class="w" onclick="go('settings')">← Setting</button>`;$.scrollTop=0}
 function soonView(t,what){VIEW='menu';$.innerHTML=`<h1>${t}</h1><div class="card" style="text-align:center">${flagSvg(C.id,52)}<div style="font-size:19px;font-weight:800;margin:10px 0 4px">${what} for ${C.name} are coming soon</div><div class="mu">They will be added unit by unit. Meanwhile, all the word and sentence games already work with your ${C.name} vocabulary.</div></div><button class="w" onclick="go('games')">← GAMES</button>`}
 
@@ -4122,94 +4122,6 @@ const jPreviewNote=()=>`<div class="jmnote"><b>Your ${esc(C.name)} Journey</b><s
 cApply();if(fixForms())save(1);applyIll();home();initSync();
 </script>
 <script>
-/* ===== ver_88: Daily Mix – one session that mixes review, new words and grammar.
-   - Memory level 0–5 for every word (from its memory score) and every grammar unit (stored in S.dp.gs)
-   - Spaced repetition: words keep their SM-2 schedule; grammar units come back after 0.5/1/3/7/14/30 days
-   - Active recall: the game gets harder as the level rises (choose → listen → type/puzzle → sentence)
-   - 85% rule: the last answers set the difficulty – over 90% = harder games + more new words, under 80% = easier games + more review */
-const DP_N=20,DP_INT=[.5,1,3,7,14,30];
-function dpS(){S.dp=S.dp||{};const d=S.dp;d.acc=d.acc||[];d.gs=d.gs||{};return d}
-function cLv(c){if(isNew(c))return 0;const m=c.memory_score||0;return m<25?1:m<50?2:m<70?3:m<85?4:5}
-function dpGramUnits(){if(!C.gram||typeof UNITS=='undefined')return[];return UNITS.map((u,i)=>[u,i]).filter(([u])=>S.jp['g:'+u.n]).map(x=>x[1])}
-function dpGramDue(){const now=Date.now(),gs=dpS().gs;return dpGramUnits().filter(i=>{const g=gs[UNITS[i].n];return!g||g.due<=now})}
-/* new words follow the Journey: only units up to the one you are on now */
-function dpNewPool(){let J;try{J=jBuild()}catch(e){return[]}const nd=J.cur>=0?J.flat[J.cur]:null,mx=nd?nd.n:Infinity,out=[];
-  J.units.filter(u=>u.n<=mx).forEach(u=>u.W.forEach(c=>{if(isNew(c))out.push(c)}));return out}
-function dpAcc(){const j=G&&G.J,cur=j&&j.acc?j.acc:[],a=dpS().acc.concat(cur).slice(-10);return a.length?a.filter(Boolean).length/a.length:.85}
-function dpD(){const j=G&&G.J,n=dpS().acc.length+(j&&j.acc?j.acc.length:0);if(n<4)return 0;const a=dpAcc();return a>.9?1:a<.8?-1:0}
-/* tier 0 recognise · 1 recognise by ear / other direction · 2 recall (type, puzzle) · 3 use it in a sentence */
-function dpJob(c,t){for(;t>=0;t--){
-  if(t==3){const s=jSent(c);if(s)return{t:pk(['sb','sf']),c,s}}
-  else if(t==2){const p=[...c.ru.replace(/\s/g,'')].length>=3;return{t:p&&Math.random()<.4?'puzzle':'typing',c}}
-  else if(t==1)return{t:pk(['quiz','listen']),c};
-  else{const oth=shuf(S.cards.filter(x=>x!==c&&!isNew(x))).slice(0,3);if(oth.length>=2&&Math.random()<.4)return{t:'match',c,B:[c,...oth]};return{t:'quiz',c}}}
-  return{t:'quiz',c}}
-const dpBase=c=>[0,0,1,2,3,3][cLv(c)];
-function dpMk(c,t){t=Math.max(0,Math.min(3,t));const o=dpJob(c,t);o.tier=t;return o}
-function dpPick(){const j=G.J,P=j.P,i=j.i,D=dpD(),acc=dpAcc(),free=k=>j.jobs[k]&&j.jobs[k].t=='dp';
-  if(P.gq.length&&i%5==4)return P.gq.shift();
-  const newOne=()=>{const c=P.nw.shift();P.newN++;j.jobs[i+1]=dpMk(c,0);if(free(i+5))j.jobs[i+5]=dpMk(c,1);return{t:'card',c}};
-  const share=acc<.75?0:D>0?.4:D<0?.12:.25,maxNew=D>0?5:D<0?2:3;
-  if(P.nw.length&&P.newN<maxNew&&free(i+1)&&(Math.random()<share||(!P.due.length&&acc>=.75)))return newOne();
-  let c=P.due.shift();if(c)return dpMk(c,dpBase(c)+D);
-  c=P.extra.shift();if(c)return dpMk(c,dpBase(c)+D);
-  if(P.gq.length)return P.gq.shift();
-  if(P.nw.length&&free(i+1))return newOne();
-  return{t:'skip'}}
-function dpStart(){const d=dpS(),now=Date.now(),known=S.cards.filter(c=>!isNew(c));
-  const due=known.filter(c=>c.due<=now).map(c=>[Math.min(30,(now-c.due)/DAY*10)+(100-(c.memory_score||0))*.3+Math.random()*8,c]).sort((a,b)=>b[0]-a[0]).map(x=>x[1]);
-  const ds=new Set(due),extra=known.filter(c=>!ds.has(c)).map(c=>[(100-(c.memory_score||0))+(now-(c.last_reviewed||0))/DAY*5+Math.random()*10,c]).sort((a,b)=>b[0]-a[0]).map(x=>x[1]);
-  const nw=dpNewPool().slice(0,8);let gq=[];
-  shuf(dpGramDue()).slice(0,2).forEach(u=>{try{gq=gq.concat(shuf(UNITS[u].P().filter(q=>q&&q.t!='b'&&q.opts&&q.key)).slice(0,2).map(q=>({t:'gq',u,q})))}catch(e){}});
-  if(!known.length&&!nw.length){VIEW='menu';$.innerHTML=`<h1>Daily Mix</h1>${masHtml(0,'console')}<div class="card" style="text-align:center"><div class="mu">Add some words first – Setting → Add / Manage Vocabularies.</div></div><div class="endb"><button class="w" style="text-align:center" onclick="home()">Home</button></div>`;return}
-  const N=Math.max(6,Math.min(DP_N,known.length*2+nw.length*2+gq.length));
-  G={mode:'jny',J:{id:'dp',daily:true,nd:null,W:[],jobs:Array.from({length:N},()=>({t:'dp'})),i:0,q:0,bad:{},test:false,label:'Daily Mix',
-     P:{due,extra,nw,gq,newN:0},rec:{},acc:[],gr:{}},E:{},RS:{},TK:new Set(),q:[],retry:new Set(),rt:{},total:N,done:0,ok:0};
-  VIEW='game';touchStreak();jRun()}
-/* hook the Journey runner so the same games run the Daily Mix */
-const _dpRun=jRun,_dpNext=jNext,_dpRes=jRes;
-jRun=function(){const j=G&&G.J;if(!j||!j.daily)return _dpRun();
-  if(j.i>=j.jobs.length)return dpEnd();
-  let job=j.jobs[j.i];if(job.t=='dp'){job=dpPick();j.jobs[j.i]=job}
-  if(job.t=='skip'){j.i++;return jRun()}
-  if(job.t=='gq')return dpGram(job);
-  return _dpRun()};
-jNext=function(){const j=G&&G.J;if(!j||!j.daily)return _dpNext();
-  const job=j.jobs[j.i],r=j.rec[j.i];
-  if(job&&r!==undefined&&job.t!='card'){j.acc.push(r?1:0);
-    if(!r&&job.c){const t=Math.max(0,(job.tier||1)-1),k=j.jobs.findIndex((x,ix)=>ix>=j.i+3&&x.t=='dp');if(k>=0)j.jobs[k]=dpMk(job.c,t)}}
-  j.i++;jRun()};
-jRes=function(c,ok){const j=G&&G.J;if(j&&j.daily){const v=j.rec[j.i];j.rec[j.i]=v===undefined?!!ok:(v&&!!ok);return}return _dpRes(c,ok)};
-/* grammar question inside the Daily Mix */
-function dpGram(job){const q=job.q;G.c=q;G.job=job;G.ans=false;VIEW='game';
-  $.innerHTML=jHead()+`<div class="card" style="text-align:center"><div class="sub">Grammar ${esc(UNITS[job.u].n)} · ${q.title||''}</div><div style="font-size:20px;margin:10px 0">${q.prompt||''}</div>${q.html?`<div style="font-size:26px;font-weight:700;margin:8px 0;line-height:1.5">${q.html}</div><div class="mu">${q.en||''}</div>`:q.ru?`<div style="font-size:28px;font-weight:700;margin:8px 0">${esc(q.ru)}</div>`:''}<div id="so" style="margin-top:12px">${q.opts.map((o,i)=>`<button class="w" style="font-size:${q.t=='w'?18:22}px;font-weight:700;text-align:center" onclick="dpGPick(${i})">${esc(o)}</button>`).join('')}</div><div id="fb"></div></div>`}
-function dpGPick(i){if(G.ans)return;G.ans=true;const q=G.c,ok=q.opts[i]==q.key,j=G.J,n=UNITS[G.job.u].n;
-  [...document.querySelectorAll('#so button')].forEach((b,k)=>{b.disabled=true;if(q.opts[k]==q.key)b.classList.add('ok');else if(k==i)b.classList.add('no')});
-  j.rec[j.i]=ok;j.gr[n]=(j.gr[n]===undefined?true:j.gr[n])&&ok;if(ok){S.xp+=10;S.mu=Date.now();save()}try{sfx(ok?'ok':'no')}catch(e){}
-  document.getElementById('fb').innerHTML=`<div class="fb ${ok?'ok':'no'}" style="text-align:left;font-size:17px;line-height:1.5;font-weight:400">${ok?'✔ ':'✘ '}${q.explain||''}</div>${fbar(q.say?'speak(G.c.say)':'')}`;if(q.say)speak(q.say)}
-function dpEnd(){const j=G.J,d=dpS(),all=[...G.TK];let up=0,nw=0;
-  all.forEach(c=>{const b=cLv(c),e=G.E[c.k]||0;if(b==0)nw++;grade(c,e==0?4:e<3?3:0);if(cLv(c)>b)up++});
-  Object.keys(j.gr).forEach(n=>{const g=d.gs[n]||{lv:0,due:0},ok=j.gr[n];g.lv=ok?Math.min(5,g.lv+1):Math.max(0,g.lv-1);g.due=Date.now()+(ok?DP_INT[g.lv]:.5)*DAY;d.gs[n]=g});
-  d.acc=d.acc.concat(j.acc).slice(-30);d.last=Date.now();S.xp+=20;S.mu=Date.now();save();
-  const a=j.acc,pct=a.length?Math.round(a.filter(Boolean).length/a.length*100):0,good=pct>=80;
-  const tip=pct>90?'Too easy? Next time: harder games and more new words.':pct>=80?'Right in the sweet spot!':'A bit tough – next time: more review, easier games.';
-  const ch=(v,l,col)=>`<div class="chip2" style="background:color-mix(in srgb,${col} 22%,var(--card))">${v}<span>${l}</span></div>`;
-  VIEW='menu';$.innerHTML=`<h1>${good?'🎯 Daily Mix done!':'💪 Daily Mix done'}</h1>${masHtml(0,good?'cheer':'console')}<div class="card" style="text-align:center"><div class="big" style="margin:0">${pct}%</div>
-  <div class="dpbar"><i style="width:${pct}%"></i><b style="left:85%"></b></div><div class="mu" style="font-size:13px">${tip}</div>
-  <div class="chips" style="margin:10px 0 0">${ch(all.length-nw,'reviewed','#238CF4')}${ch(nw,'new','#FFD86B')}${ch(Object.keys(j.gr).length,'grammar','#2BB57F')}${ch(up,'level up','#FF454D')}</div></div>
-  <div class="endb jrb"><button onclick="home()">Home</button><button class="p" onclick="dpStart()">Again</button></div>`;if(good)confetti()}
-/* Daily Mix card on Home */
-function dpInfo(){const now=Date.now(),known=S.cards.filter(c=>!isNew(c)),nw=dpNewPool().length;
-  return{due:known.filter(c=>c.due<=now).length,nw:Math.min(3,nw),g:dpGramDue().length,can:known.length+nw>0}}
-const DP_ICO=`<svg viewBox="0 0 48 48" width="40" height="40" aria-hidden="true"><circle cx="24" cy="24" r="20" fill="#FF454D"/><circle cx="24" cy="24" r="13.5" fill="#FFFDF8"/><circle cx="24" cy="24" r="7.5" fill="#238CF4"/><path d="M24 24L40 8" stroke="#192F60" stroke-width="3.2" stroke-linecap="round"/><path d="M36 6l6 0 0 6" fill="none" stroke="#192F60" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
-const _dpHome=home;
-home=function(){_dpHome();try{if(TAB!='home')return;const ch=document.querySelector('#app .chips');if(!ch)return;const f=dpInfo();if(!f.can)return;
-  const el=document.createElement('div');el.className='card dpc';
-  el.innerHTML=`${DP_ICO}<div style="flex:1;min-width:0"><b style="font-size:18px">Daily Mix</b><div class="mu" style="font-size:13px">${f.due} review · ${f.nw} new${f.g?` · ${f.g} grammar`:''}</div></div><button class="p" onclick="dpStart()">Go →</button>`;
-  ch.after(el);fitScreen();requestAnimationFrame(fitScreen)}catch(e){}};
-(function(){const st=document.createElement('style');st.textContent=`.dpc{display:flex;align-items:center;gap:10px;margin-top:10px;padding:10px 12px}.dpc svg{width:34px;height:34px;flex:none}.dpc button{margin:0;width:auto;flex:none;padding:9px 16px}html.tabl main.split{overflow:hidden}main.split>.s2{overflow-y:auto}
-.dpbar{position:relative;height:12px;border-radius:8px;background:color-mix(in srgb,var(--mu) 18%,var(--card));margin:10px 4px 6px;overflow:visible}.dpbar i{position:absolute;left:0;top:0;bottom:0;border-radius:8px;background:#2BB57F}.dpbar b{position:absolute;top:-4px;width:3px;height:20px;border-radius:2px;background:#192F60;transform:translateX(-50%)}`;document.head.appendChild(st)})();
-
 /* ===== ver_89: default vocabulary (published by the admin to content.json in the GitHub repo) + admin mode =====
    Everyone: the default words of each course are added to their own list; words they edit or delete stay their way.
    Admin: edits a separate draft list with the normal vocabulary screens, then publishes it for everyone. Grammar is the same for all. */
@@ -4266,6 +4178,30 @@ async function admPublish(){const m=document.getElementById('am');if(m)m.textCon
   catch(e){if(m)m.textContent=e.status==409?'Someone else just published – tap Publish again.':e.status==401||e.status==403?'Your key cannot write to the repository any more. Sign out and sign in again.':'Could not publish. Check your internet and try again.'}}
 const admCss=document.createElement('style');admCss.textContent=`html.adm body::after{content:"ADMIN · default words";position:fixed;top:calc(env(safe-area-inset-top,0px) + 4px);left:50%;transform:translateX(-50%);z-index:9999;pointer-events:none;background:#FF9F1C;color:#fff;font:800 11px/1.6 Nunito,system-ui,sans-serif;padding:1px 10px;border-radius:999px;box-shadow:0 2px 6px rgba(0,0,0,.18)}`;document.head.appendChild(admCss);
 setTimeout(dBoot,0);
+
+/* ===== ver_91: Journey flag chip floats – shown at the start, hidden while you keep scrolling one way, back as soon as you scroll the other way ===== */
+(function(){const fc=document.createElement('div');fc.id='jchip';document.body.appendChild(fc);let ly=0,dir=0,acc=0,sig='';
+  const on=()=>TAB=='journey'&&VIEW=='home'&&$.querySelector('.jmtop .lchw');
+  const show=v=>fc.classList.toggle('hid',!v);
+  function sync(){const ph=on();if(!ph){fc.style.display='none';return}const k=C.id+'|'+ADM;if(sig!==k||!fc.firstChild){fc.innerHTML=lchip();sig=k}
+    const r=ph.getBoundingClientRect();fc.style.display='';fc.style.left=Math.round(r.left)+'px';ly=$.scrollTop;dir=0;acc=0;show(true)}
+  new MutationObserver(()=>{sig='';sync()}).observe($,{childList:true});addEventListener('resize',()=>{if(on())sync()});
+  $.addEventListener('scroll',()=>{if(!on())return;const y=$.scrollTop,dy=y-ly;ly=y;if(!dy)return;if(y<8){show(true);dir=0;acc=0;return}
+    const d=dy>0?1:-1;if(d!==dir){dir=d;acc=0;show(true);return}acc+=Math.abs(dy);if(acc>36)show(false)},{passive:true})})();
+/* ===== ver_91: swipe in from the left edge = back (Languages, Vocabulary and every screen with a ← button) ===== */
+(function(){let x0=0,y0=0,tr=false,moved=0;const back=()=>{if(VIEW=='game'||VIEW=='home')return null;const b=[...$.querySelectorAll('button')].filter(b=>/^\s*←/.test(b.textContent));return b.length?b[b.length-1]:null};
+  document.addEventListener('touchstart',e=>{const t=e.touches[0];tr=false;if(e.touches.length!=1||t.clientX>28||!back())return;x0=t.clientX;y0=t.clientY;tr=true;moved=0},{passive:true});
+  document.addEventListener('touchmove',e=>{if(!tr)return;const t=e.touches[0],dx=t.clientX-x0,dy=t.clientY-y0;if(Math.abs(dy)>Math.max(40,dx)){tr=false;$.style.transform='';return}
+    moved=Math.max(0,dx);$.style.transition='none';$.style.transform=`translateX(${Math.min(moved,innerWidth)*.6}px)`},{passive:true});
+  const done=()=>{if(!tr)return;tr=false;const b=back();$.style.transition='transform .18s ease-out';
+    if(moved>80&&b){$.style.transform=`translateX(${innerWidth*.6}px)`;setTimeout(()=>{$.style.transition='none';$.style.transform='';b.click()},150)}else $.style.transform=''};
+  document.addEventListener('touchend',done);document.addEventListener('touchcancel',done)})();
+const jcCss=document.createElement('style');jcCss.textContent=`.jmtop .lchw{flex:none;visibility:hidden;display:inline-flex}
+#jchip{position:fixed;top:calc(14px + env(safe-area-inset-top,0px));z-index:30;transition:transform .22s ease,opacity .22s ease}
+#jchip.hid{transform:translateY(calc(-100% - 24px - env(safe-area-inset-top,0px)));opacity:0;pointer-events:none}
+#jchip .lchip{background:rgba(255,253,248,.92)}
+:root[data-theme="dark"] #jchip .lchip{background:rgba(38,46,60,.92)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) #jchip .lchip{background:rgba(38,46,60,.92)}}`;document.head.appendChild(jcCss);
 if(VIEW=='home')home();
 </script></body></html>
 </body></html>

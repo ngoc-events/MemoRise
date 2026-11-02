@@ -14,7 +14,7 @@ t();addEventListener('orientationchange',function(){setTimeout(t,60);setTimeout(
 if(window.matchMedia)try{matchMedia('(orientation: portrait)').addEventListener('change',t)}catch(e){}})()</script>
 <meta name="theme-color" content="#f6f7fb" media="(prefers-color-scheme: light)"><meta name="theme-color" content="#171C25" media="(prefers-color-scheme: dark)">
 <script>(function(){function f(){try{var h=innerHeight;if(navigator.standalone===true){var p=innerHeight>=innerWidth,a=Math.max(screen.width,screen.height),b=Math.min(screen.width,screen.height),sh=(p?a:b)/(window.__vs||1);if(sh>h)h=sh}document.documentElement.style.setProperty('--fh',h+'px')}catch(e){}}f();addEventListener('resize',f);addEventListener('orientationchange',function(){setTimeout(f,150)});addEventListener('pageshow',f)})()</script>
-<title>Russian MemoRise App_ver_87</title>
+<title>Russian MemoRise App_ver_89</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lobster&display=swap&text=%D0%90%D0%91%D0%92%D0%93%D0%94%D0%95%D0%96%D0%97%D0%98%D0%99%D0%9A%D0%9B%D0%9C%D0%9D%D0%9E%D0%9F%D0%A0%D0%A1%D0%A2%D0%A3%D0%A4%D0%A5%D0%A6%D0%A7%D0%A8%D0%A9%D0%AA%D0%AB%D0%AC%D0%AD%D0%AE%D0%AF%D0%B0%D0%B1%D0%B2%D0%B3%D0%B4%D0%B5%D0%B6%D0%B7%D0%B8%D0%B9%D0%BA%D0%BB%D0%BC%D0%BD%D0%BE%D0%BF%D1%80%D1%81%D1%82%D1%83%D1%84%D1%85%D1%86%D1%87%D1%88%D1%89%D1%8A%D1%8B%D1%8C%D1%8D%D1%8E%D1%8F%D0%81%D1%91%CC%81"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800;900&display=swap">
 <style>
 :root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);--bg:#f6f7fb;--card:#fff;--tx:#1f2430;--mu:#6b7280;--pr:#1d6fd8;--ok:#2e9e5b;--bad:#d64545;--bd:#e3e6ee}
@@ -828,7 +828,7 @@ main:has(.endb)>.mas.mfxs{flex:1 1 0;min-height:180px;max-height:410px;padding:0
 .jmnote b{font-size:18px}.jmnote span{font-size:14px;color:var(--mu);line-height:1.4}.jmnote button{margin:4px 0 0}
 </style></head><body><main id="app"></main>
 <script>
-const APP_VER='Russian MemoRise App_ver_88';
+const APP_VER='Russian MemoRise App_ver_89';
 const sv=(b,v='0 0 48 48')=>`<svg xmlns="http://www.w3.org/2000/svg" viewBox="${v}" aria-hidden="true">${b}</svg>`;
 const IC={
 learn:sv('<rect x="14" y="30" width="20" height="14" rx="4" fill="#FF8A5B"/><rect x="12" y="27" width="24" height="6" rx="3" fill="#FF6B3D"/><path d="M24 27V17" stroke="#2FBF71" stroke-width="3" stroke-linecap="round"/><path d="M24 20C24 12 17 10 11 12c0 7 5 10 13 8z" fill="#6EE7B7"/><path d="M24 17c0-7 6-9 12-7 0 7-5 9-12 7z" fill="#2FBF71"/>'),
@@ -956,7 +956,8 @@ let CS=(()=>{let o=null;try{o=JSON.parse(localStorage.getItem('mrCourses')||'nul
 let C=COURSES[CS.cur];
 const cSave=()=>{try{localStorage.setItem('mrCourses',JSON.stringify(CS))}catch(e){}};
 const cFlag=(k,id)=>{id=id||C.id;const o=CS.o[id]||{};return k in o?!!o[k]:!!COURSES[id][k]};
-let KEY=C.key;const DAY=864e5;
+let ADM=false;const admTok=()=>{try{return localStorage.getItem('mrAdmTok')||''}catch(e){return''}};try{ADM=localStorage.getItem('mrAdmOn')=='1'&&!!admTok()}catch(e){}if(ADM)document.documentElement.classList.add('adm');
+let KEY=(ADM?'adm_':'')+C.key;const DAY=864e5;
 const blankS=()=>({cards:[],sents:[],sdead:{},xp:0,streak:0,last:'',dead:{},mu:0});
 const shGet=()=>{try{return JSON.parse(localStorage.getItem('mrShared')||'null')}catch(e){return null}};
 function loadS(){let s=blankS();try{const r=localStorage.getItem(KEY);if(r)s=Object.assign(s,JSON.parse(r))}catch(e){}
@@ -1381,7 +1382,7 @@ async function regen(i){const c=S.cards[i],m=document.getElementById('em'),hint=
 /* ---------- Sync (private per-account db) ---------- */
 const syLine=()=>`${syncMsg}${DB?' · <a href="#" onclick="sync();return false">Sync now</a>':''}${typeof claude=='undefined'?' · <a href="#" onclick="syncView();return false">'+(DB?'Sync settings':'Set up sync')+'</a>':''}`;
 const paintSync=()=>document.querySelectorAll('.sy').forEach(e=>e.innerHTML=syLine());
-function schedSync(){if(!DB)return;clearTimeout(syncT);syncT=setTimeout(sync,3000)}
+function schedSync(){if(!DB||ADM)return;clearTimeout(syncT);syncT=setTimeout(sync,3000)}
 
 /* ---------- Cloud sync outside Claude: a private GitHub Gist ---------- */
 const GHF='russian-memorise-sync.json',GHD='Russian MemoRise sync (do not edit)';
@@ -1417,7 +1418,7 @@ async function initSync(){
   if(!DB){syncMsg='☁️ Sync off (data is stored on this device only)';paintSync();return}
   sync()}
 async function sync(){
-  if(!DB||syncing)return;if(VIEW=='game'){schedSync();return}
+  if(!DB||syncing||ADM)return;if(VIEW=='game'){schedSync();return}
  syncing=true;syncMsg='☁️ Syncing…';paintSync();let changed=false;
   try{
     const col=DB.collection('data/users/'+UID+(C.id=='ru'?'':'_'+C.id)),snap=await col.limit(1000).get(),rem={};let meta=null;
@@ -3375,13 +3376,14 @@ SI.font='<svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" s
 const sRow=(c,ic,t,s,f)=>`<button class="srow" style="--c:${c}" onclick="${f}"><span class="sic">${ic}</span><span class="stx"><b>${t}</b>${s?`<span>${s}</span>`:''}</span></button>`;
 const HSV=c=>`<svg viewBox="0 0 12 12" width="12" height="12" aria-hidden="true"><path d="${HRT}" fill="${c}"/></svg>`;
 function setHtml(){return heroSet()+`<div class="spanel">
+${ADM?sRow('#FF9F1C',SI.vocab,'Admin · default words',S.cards.length+' words · tap to publish','admView()'):''}
 ${sRow('#FF9F1C',SI.lang,'Languages','Learning '+C.name,'langView()')}
 ${sRow('#238CF4',SI.vocab,'Add / Manage Vocabularies','Build your word list','vocab()')}
 ${sRow('#2BB57F',SI.sent,'Add / manage sentences','Save your useful sentences','sentView()')}
 <div class="ssy sy">${syLine()}</div>
 ${sRow('#FF454D',SI.voice,'Voice settings','','voiceView()')}
 ${C.font?sRow('#7A5AF8',SI.font,'Font Setting','','fontView()'):''}
-<p class="sver">${HSV('#FF8A93')}${APP_VER}${HSV('#FF8A93')}</p>
+<p class="sver" onclick="admView()">${HSV('#FF8A93')}${APP_VER}${HSV('#FF8A93')}</p>
 <svg class="sdeco" viewBox="0 0 358 66" aria-hidden="true"><path d="M0,66 L0,44 Q40,26 84,42 Q130,30 170,46 Q220,34 268,46 L358,40 L358,66 Z" style="fill:color-mix(in srgb,#238CF4 10%,var(--card))"/><path d="M30,48 L30,30 M24,36 Q30,28 30,30 M36,34 Q30,26 30,30" stroke="#6CC08F" stroke-width="2" fill="none" stroke-linecap="round"/><path transform="translate(24,16)" d="${HRT}" fill="#FF454D"/><circle cx="62" cy="42" r="4" fill="#238CF4" opacity=".5"/><path d="M280,48 L280,32" stroke="#6CC08F" stroke-width="2" stroke-linecap="round"/><circle cx="280" cy="30" r="5" fill="#FF454D"/><circle cx="280" cy="30" r="2" fill="#FFC94A"/><ellipse cx="320" cy="44" rx="20" ry="21" fill="#FF454D"/><circle cx="320" cy="18" r="14" fill="#FF454D"/><circle cx="320" cy="19" r="9" fill="#FFE3CC"/><path d="M311,15 Q320,8 329,15" fill="#7A3E20"/><circle cx="316.5" cy="19.5" r="1.4" fill="#192F60"/><circle cx="323.5" cy="19.5" r="1.4" fill="#192F60"/><circle cx="314.5" cy="23" r="1.6" fill="#FF8A93"/><circle cx="325.5" cy="23" r="1.6" fill="#FF8A93"/><ellipse cx="320" cy="46" rx="12" ry="13" fill="#FFFDF8"/><circle cx="320" cy="44" r="5" fill="#FFC94A"/><circle cx="320" cy="44" r="2.2" fill="#FF454D"/><path transform="translate(342,6) scale(.9)" d="${HRT}" fill="#FF8A93"/></svg></div>`}
 
 /* ---- GAMES ---- */
@@ -4058,9 +4060,9 @@ addEventListener('keydown',e=>{if(e.key=='Escape')lshX()});
 async function setCourse(id){if(!COURSES[id])return;if(id==C.id){home();return}
   while(syncing)await new Promise(r=>setTimeout(r,120));
   clearTimeout(syncT);save(1);
-  C=COURSES[id];CS.cur=id;if(!CS.on.includes(id))CS.on=C_ORDER.filter(k=>k==id||CS.on.includes(k));cSave();KEY=C.key;
+  C=COURSES[id];CS.cur=id;if(!CS.on.includes(id))CS.on=C_ORDER.filter(k=>k==id||CS.on.includes(k));cSave();KEY=(ADM?'adm_':'')+C.key;
   S=loadS();prepS();VI=null;VIsig='';PHR=null;G=null;SU=null;JOV={};SETF='__all';DVS='__all';Object.keys(JMAP).forEach(k=>delete JMAP[k]);
-  tlLoad();cApply();if(fixForms())save(1);applyIll();CS.n[id]=S.cards.length;cSave();
+  tlLoad();cApply();if(fixForms())save(1);applyIll();if(ADM)admSeed();else dMerge();CS.n[id]=S.cards.length;cSave();
   home();if(DB)sync()}
 function cApply(){const de=document.documentElement,b=C.id=='ru'||!BGS[C.id]?[BG_L,BG_D]:BGS[C.id];
   de.style.setProperty('--bgL',`url(${b[0]})`);de.style.setProperty('--bgD',`url(${b[1]})`);de.dataset.course=C.id}
@@ -4202,6 +4204,63 @@ home=function(){_dpHome();try{if(TAB!='home')return;const ch=document.querySelec
   ch.after(el);fitScreen();requestAnimationFrame(fitScreen)}catch(e){}};
 (function(){const st=document.createElement('style');st.textContent=`.dpc{display:flex;align-items:center;gap:12px;margin-top:12px}.dpc button{margin:0;width:auto;flex:none;padding:11px 18px}
 .dpbar{position:relative;height:12px;border-radius:8px;background:color-mix(in srgb,var(--mu) 18%,var(--card));margin:10px 4px 6px;overflow:visible}.dpbar i{position:absolute;left:0;top:0;bottom:0;border-radius:8px;background:#2BB57F}.dpbar b{position:absolute;top:-4px;width:3px;height:20px;border-radius:2px;background:#192F60;transform:translateX(-50%)}`;document.head.appendChild(st)})();
+
+/* ===== ver_89: default vocabulary (published by the admin to content.json in the GitHub repo) + admin mode =====
+   Everyone: the default words of each course are added to their own list; words they edit or delete stay their way.
+   Admin: edits a separate draft list with the normal vocabulary screens, then publishes it for everyone. Grammar is the same for all. */
+const ADM_REPO='ngoc-events/MemoRise',DEF_FILE='content.json';
+const DFLD=['ru','en','pos','form','fv','set','img','iv','l192'],DUPD=['ru','en','pos','form','fv','set'];
+const dSig=c=>JSON.stringify([c.ru||'',c.en||'',c.pos||'',c.form||'',c.set||'']);
+let DEF=null;try{DEF=JSON.parse(localStorage.getItem('mrDef')||'null')}catch(e){}
+const dCourse=id=>DEF&&DEF.courses&&DEF.courses[id||C.id];
+function dCard(d,t){const c={k:d.k,u:t,ef:2.5,int:0,reps:0,due:0,lapses:0,memory_score:0,correct_count:0,wrong_count:0,last_reviewed:0,recent:[],set:''};DFLD.forEach(f=>{if(d[f]!==undefined)c[f]=d[f]});c.db=dSig(c);fix(c);return c}
+function dMerge(){if(ADM)return false;const D=dCourse();if(!D||!Array.isArray(D.cards))return false;
+  S.dl=S.dl||{};let ch=false;const t=Date.now(),byK={},byRu=new Set();S.cards.forEach(c=>{byK[c.k]=c;byRu.add(norm(c.ru))});
+  D.cards.forEach(d=>{if(!d||!d.k||!d.ru)return;const u=byK[d.k];
+    if(!u){if(S.dead[d.k]||S.dl[d.k])return;if(byRu.has(norm(d.ru))){S.dl[d.k]=1;ch=true;return}const c=dCard(d,t);S.cards.push(c);byK[c.k]=c;byRu.add(norm(c.ru));ch=true;return}
+    const sg=dSig(d);if(u.db&&dSig(u)===u.db&&sg!==u.db){DUPD.forEach(f=>{if(d[f]!==undefined)u[f]=d[f]});u.db=sg;u.u=t;ch=true}});
+  (D.dead||[]).forEach(k=>{const u=byK[k];if(u&&u.db&&dSig(u)===u.db){S.cards=S.cards.filter(x=>x!==u);S.dead[k]=t;ch=true}});
+  if(ch){applyIll();save()}return ch}
+async function dFetch(){try{const r=await fetch(DEF_FILE+'?t='+Date.now(),{cache:'no-store'});if(!r.ok)return false;const j=await r.json();if(!j||typeof j.courses!='object')return false;
+  if(DEF&&DEF.v===j.v)return false;DEF=j;try{localStorage.setItem('mrDef',JSON.stringify(j))}catch(e){}return true}catch(e){return false}}
+async function dBoot(){let a=dMerge();const f=await dFetch();if(f&&dMerge())a=true;if(ADM&&admSeed())a=true;if(a&&VIEW=='home')home()}
+/* admin */
+const b64e=s=>btoa(unescape(encodeURIComponent(s))),b64d=s=>decodeURIComponent(escape(atob(String(s).replace(/\s/g,''))));
+async function ghRepo(path,m,body,raw){const r=await fetch('https://api.github.com/repos/'+ADM_REPO+path,{method:m||'GET',cache:'no-store',headers:{Authorization:'Bearer '+admTok(),Accept:raw?'application/vnd.github.raw+json':'application/vnd.github+json',...(body?{'Content-Type':'application/json'}:{})},body:body?JSON.stringify(body):undefined});
+  if(!r.ok){const e=new Error('GitHub '+r.status);e.status=r.status;throw e}return raw?r.text():r.json()}
+function admSeed(){if(!ADM||S.cards.length||S.admSeeded)return false;const D=dCourse(),t=Date.now();S.admSeeded=1;if(D&&Array.isArray(D.cards))D.cards.forEach(d=>{if(d&&d.k&&d.ru)S.cards.push(dCard(d,t))});applyIll();save(1);return true}
+function admSwitch(on){clearTimeout(syncT);save(1);ADM=!!on;try{localStorage.setItem('mrAdmOn',ADM?'1':'0')}catch(e){}document.documentElement.classList.toggle('adm',ADM);
+  KEY=(ADM?'adm_':'')+C.key;S=loadS();prepS();VI=null;VIsig='';PHR=null;G=null;SU=null;JOV={};SETF='__all';DVS='__all';Object.keys(JMAP).forEach(k=>delete JMAP[k]);
+  if(fixForms())save(1);applyIll();if(ADM)admSeed();else{dMerge();if(DB)sync()}CS.n[C.id]=S.cards.length;cSave()}
+function admView(m){VIEW='menu';TAB='settings';const t=admTok(),D=dCourse(),pub=D&&D.at?new Date(D.at).toLocaleString():'not published yet';
+  $.innerHTML=`<h1>🔑 Admin</h1>`+(!t?`<div class="card"><b>Admin sign-in</b><div class="mu" style="margin:4px 0 8px">Only the owner of the app can publish the default vocabulary. Sign in with a GitHub key that can write to <b>${ADM_REPO}</b>.</div>
+  <input id="ak" type="password" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="Paste your key (ghp_… or github_pat_…)"><div class="row" style="margin-top:8px"><button class="p" onclick="admLogin()">Sign in</button></div><div id="am" class="mu" style="margin-top:8px;min-height:22px"></div></div>
+  <div class="card mu"><b>How to get the key</b><br>1. github.com → Settings → Developer settings → Personal access tokens → Fine-grained tokens → Generate new token.<br>2. Repository access: <b>Only select repositories → MemoRise</b>.<br>3. Permissions → Repository permissions → <b>Contents: Read and write</b>. Generate and copy it.<br>(A classic token with the <b>repo</b> box ticked also works.)</div>`
+  :`<div class="card"><b>${ADM?'You are editing the default words':'Signed in as admin'}</b><div class="mu" style="margin:4px 0 8px">${ADM?`Course: <b>${C.name}</b> · ${S.cards.length} default words in your draft.<br>Add, edit or delete words in <b>Setting → Add / Manage Vocabularies</b> as usual, then publish. Everyone gets the published words; words a learner has changed or deleted stay their way. Your own words and progress are kept apart.`:'Open the admin draft to edit the default vocabulary for all learners. Your own words and progress are not touched.'}</div>
+  <div class="mu" style="font-size:13px;margin-bottom:10px">Last published (${C.name}): ${esc(pub)}${D&&D.cards?` · ${D.cards.length} words`:''}</div>
+  ${ADM?`<div class="row" style="flex-wrap:wrap;gap:8px"><button class="p" onclick="admPublish()">⬆️ Publish ${S.cards.length} words</button><button onclick="vocab()">Edit words</button><button onclick="admCopyMine()">Copy my own words in</button></div>`:`<button class="p w" style="text-align:center" onclick="admSwitch(true);admView()">Edit the default words</button>`}
+  <div id="am" class="mu" style="margin-top:8px;min-height:22px">${m||''}</div></div>
+  <div class="row" style="gap:8px">${ADM?`<button onclick="admSwitch(false);home()">← Back to my own words</button>`:''}<button onclick="admOut()">Sign out admin</button></div>`)+`<button class="w" style="margin-top:8px" onclick="home()">← Home</button>`}
+async function admLogin(){const m=document.getElementById('am'),t=(document.getElementById('ak').value||'').trim();if(!t){m.textContent='Paste your key first.';return}m.textContent='Checking…';
+  try{localStorage.setItem('mrAdmTok',t)}catch(e){}
+  try{const r=await ghRepo('');if(!r.permissions||!r.permissions.push)throw Object.assign(new Error('no push'),{status:403});await dFetch();admSwitch(true);admView('Signed in ✔')}
+  catch(e){try{localStorage.removeItem('mrAdmTok')}catch(x){}m.textContent=e.status==401?'This key is not valid.':e.status==403||e.status==404?'This key cannot write to '+ADM_REPO+'.':'Could not connect. Check your internet and try again.'}}
+function admOut(){if(ADM)admSwitch(false);try{localStorage.removeItem('mrAdmTok')}catch(e){}home()}
+function admCopyMine(){let mine=[];try{const r=JSON.parse(localStorage.getItem(C.key)||'{}');mine=Array.isArray(r.cards)?r.cards:[]}catch(e){}
+  const have=new Set(S.cards.map(c=>norm(c.ru))),t=Date.now();let n=0;mine.forEach(c=>{if(!c||!c.ru||have.has(norm(c.ru)))return;const d={k:'d_'+mk()};DFLD.forEach(f=>{if(c[f]!==undefined)d[f]=c[f]});S.cards.push(dCard(d,t));have.add(norm(c.ru));n++});
+  save(1);admView(n?`Copied ${n} words from your own list. Publish when ready.`:'No new words to copy – your draft already has them.')}
+async function admPublish(){const m=document.getElementById('am');if(m)m.textContent='Publishing…';
+  try{S.cards.forEach(c=>{if(!/^d_/.test(c.k))c.k='d_'+c.k});save(1);
+    let sha,cur={v:0,courses:{}};try{const f=await ghRepo('/contents/'+DEF_FILE+'?ref=main');sha=f.sha;cur=JSON.parse(await ghRepo('/contents/'+DEF_FILE+'?ref=main','GET',null,1))}catch(e){if(e.status!=404)throw e}
+    cur.courses=cur.courses&&typeof cur.courses=='object'?cur.courses:{};const old=cur.courses[C.id]||{};
+    const cards=S.cards.map(c=>{const o={k:c.k};DFLD.forEach(f=>{if(c[f]!==undefined&&c[f]!=='')o[f]=c[f]});return o}),ks=new Set(cards.map(c=>c.k));
+    const dead=[...new Set([...(old.dead||[]),...(old.cards||[]).map(c=>c.k)])].filter(k=>!ks.has(k)),now=Date.now();
+    cur.courses[C.id]={cards,dead,at:now};cur.v=now;
+    await ghRepo('/contents/'+DEF_FILE,'PUT',{message:`Default vocabulary (${C.name}): ${cards.length} words`,content:b64e(JSON.stringify(cur)),branch:'main',...(sha?{sha}:{})});
+    DEF=cur;try{localStorage.setItem('mrDef',JSON.stringify(cur))}catch(e){}admView(`✔ Published ${cards.length} words. Learners get them the next time they open the app (GitHub Pages can take a few minutes).`)}
+  catch(e){if(m)m.textContent=e.status==409?'Someone else just published – tap Publish again.':e.status==401||e.status==403?'Your key cannot write to the repository any more. Sign out and sign in again.':'Could not publish. Check your internet and try again.'}}
+const admCss=document.createElement('style');admCss.textContent=`html.adm body::after{content:"ADMIN · default words";position:fixed;top:calc(env(safe-area-inset-top,0px) + 4px);left:50%;transform:translateX(-50%);z-index:9999;pointer-events:none;background:#FF9F1C;color:#fff;font:800 11px/1.6 Nunito,system-ui,sans-serif;padding:1px 10px;border-radius:999px;box-shadow:0 2px 6px rgba(0,0,0,.18)}`;document.head.appendChild(admCss);
+setTimeout(dBoot,0);
 if(VIEW=='home')home();
 </script></body></html>
 </body></html>

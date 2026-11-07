@@ -17,7 +17,7 @@ t();addEventListener('orientationchange',function(){setTimeout(t,60);setTimeout(
 if(window.matchMedia)try{matchMedia('(orientation: portrait)').addEventListener('change',t)}catch(e){}})()</script>
 <meta name="theme-color" content="#f6f7fb" media="(prefers-color-scheme: light)"><meta name="theme-color" content="#171C25" media="(prefers-color-scheme: dark)">
 <script>(function(){function f(){try{var h=innerHeight;if(navigator.standalone===true){var p=innerHeight>=innerWidth,a=Math.max(screen.width,screen.height),b=Math.min(screen.width,screen.height),sh=(p?a:b)/(window.__vs||1);if(sh>h)h=sh}document.documentElement.style.setProperty('--fh',h+'px')}catch(e){}}f();addEventListener('resize',f);addEventListener('orientationchange',function(){setTimeout(f,150)});addEventListener('pageshow',f)})()</script>
-<title>Russian MemoRise App_ver_92</title>
+<title>Russian MemoRise App_ver_93</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lobster&display=swap&text=%D0%90%D0%91%D0%92%D0%93%D0%94%D0%95%D0%96%D0%97%D0%98%D0%99%D0%9A%D0%9B%D0%9C%D0%9D%D0%9E%D0%9F%D0%A0%D0%A1%D0%A2%D0%A3%D0%A4%D0%A5%D0%A6%D0%A7%D0%A8%D0%A9%D0%AA%D0%AB%D0%AC%D0%AD%D0%AE%D0%AF%D0%B0%D0%B1%D0%B2%D0%B3%D0%B4%D0%B5%D0%B6%D0%B7%D0%B8%D0%B9%D0%BA%D0%BB%D0%BC%D0%BD%D0%BE%D0%BF%D1%80%D1%81%D1%82%D1%83%D1%84%D1%85%D1%86%D1%87%D1%88%D1%89%D1%8A%D1%8B%D1%8C%D1%8D%D1%8E%D1%8F%D0%81%D1%91%CC%81"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800;900&display=swap">
 <style>
 :root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);--bg:#f6f7fb;--card:#fff;--tx:#1f2430;--mu:#6b7280;--pr:#1d6fd8;--ok:#2e9e5b;--bad:#d64545;--bd:#e3e6ee}
@@ -841,7 +841,7 @@ main:has(.endb)>.mas.mfxs{flex:1 1 0;min-height:180px;max-height:410px;padding:0
 .tray.ans:not(.ok) .pzans{color:var(--ok)}
 </style></head><body><main id="app"></main>
 <script>
-const APP_VER='Russian MemoRise App_ver_92';
+const APP_VER='Russian MemoRise App_ver_93';
 const sv=(b,v='0 0 48 48')=>`<svg xmlns="http://www.w3.org/2000/svg" viewBox="${v}" aria-hidden="true">${b}</svg>`;
 const IC={
 learn:sv('<rect x="14" y="30" width="20" height="14" rx="4" fill="#FF8A5B"/><rect x="12" y="27" width="24" height="6" rx="3" fill="#FF6B3D"/><path d="M24 27V17" stroke="#2FBF71" stroke-width="3" stroke-linecap="round"/><path d="M24 20C24 12 17 10 11 12c0 7 5 10 13 8z" fill="#6EE7B7"/><path d="M24 17c0-7 6-9 12-7 0 7-5 9-12 7z" fill="#2FBF71"/>'),
@@ -954,13 +954,13 @@ const MS={};['happy','cheer','think','enc','surp','sad','sleep'].forEach(k=>MS[k
 const ico=h=>`<span class="ico">${h}</span>`;
 /* ===== ver_87: language courses – every language has its own Journey, vocabulary, sentences and progress; XP & streak are shared ===== */
 const COURSES={
- ru:{id:'ru',name:'Russian',own:'Русский',tts:'ru-RU',wk:'ru',key:'ruSRS_v1',kb:'ru',grp:0,forms:1,lax:0,trans:1,gram:1,dial:1,font:1,L:'Я',hi:['Давай','учиться!'],
+ ru:{id:'ru',name:'Russian',own:'Русский',tts:'ru-RU',wk:'ru',key:'ruSRS_v1',kb:'ru',grp:0,edt:1,forms:1,lax:0,trans:1,gram:1,dial:1,font:1,L:'Я',hi:['Давай','учиться!'],
   ex:'привет - hello&#10;спасибо - thank you',sx:'Я люблю читать книги. ; I like reading books.',chips:['спасибо','интересный','идти','beautiful','to eat','friend'],
   test:'Здравствуйте! Как у вас дела? Сегодня хорошая погода.',tip:'iPhone/iPad: Settings → Accessibility → Spoken Content → Voices → Russian → download an Enhanced/Premium voice (e.g. Milena, Yuri).<br>Android: Settings → Text-to-speech output → Google Speech Services → install Russian voice data.<br>Windows/Edge: "Microsoft Svetlana/Dariya Online (Natural)". Chrome desktop: "Google русский".'},
  vi:{id:'vi',name:'Vietnamese',own:'Tiếng Việt',tts:'vi-VN',wk:'vi',key:'viSRS_v1',kb:'device',grp:1,forms:0,lax:1,trans:0,gram:0,dial:0,font:0,L:'Ă',hi:['Cùng học','nào!'],
   ex:'xin chào - hello&#10;cảm ơn - thank you',sx:'Tôi thích đọc sách. ; I like reading books.',chips:['cảm ơn','xe đạp','đẹp','beautiful','to eat','friend'],
   test:'Xin chào! Bạn có khỏe không? Hôm nay trời đẹp quá.',tip:'iPhone/iPad: Settings → Accessibility → Spoken Content → Voices → Vietnamese → download an Enhanced voice (e.g. Linh).<br>Android: Settings → Text-to-speech output → Google Speech Services → install Vietnamese voice data.<br>Windows/Edge: "Microsoft HoaiMy/NamMinh Online (Natural)". Chrome desktop: "Google Tiếng Việt".'},
- es:{id:'es',name:'Spanish',own:'Español',tts:'es-ES',wk:'es',key:'esSRS_v1',kb:'device',grp:0,forms:1,lax:0,trans:0,gram:0,dial:0,font:0,L:'Ñ',hi:['¡Vamos a','aprender!'],
+ es:{id:'es',name:'Spanish',own:'Español',tts:'es-ES',wk:'es',key:'esSRS_v1',kb:'device',grp:0,edt:1,forms:1,lax:0,trans:0,gram:0,dial:0,font:0,L:'Ñ',hi:['¡Vamos a','aprender!'],
   ex:'hola - hello&#10;gracias - thank you',sx:'Me gusta leer libros. ; I like reading books.',chips:['gracias','hablar','bonito','beautiful','to eat','friend'],
   PN:['yo','tú','él / ella','nosotros','vosotros','ellos'],
   test:'¡Hola! ¿Cómo estás? Hoy hace buen tiempo.',tip:'iPhone/iPad: Settings → Accessibility → Spoken Content → Voices → Spanish (Spain) → download an Enhanced voice (e.g. Mónica, Jorge).<br>Android: Settings → Text-to-speech output → Google Speech Services → install Spanish (Spain) voice data.<br>Windows/Edge: "Microsoft Elvira/Alvaro Online (Natural)". Chrome desktop: "Google español".'}};
@@ -1877,7 +1877,7 @@ function mt(s,i){if(G.lock)return;const b=document.getElementById(s+i);if(b.disa
   bl.classList.remove('sel');br.classList.remove('sel');
   if(l==r){[bl,br].forEach(x=>{x.classList.add('ok');x.disabled=true});if(G.t=='am')bl.textContent=G.B[l].ru;if(++G.m==G.B.length)finishBoard()}
   else{G.miss.add(l);G.miss.add(r);G.lock=true;[bl,br].forEach(x=>x.classList.add('no'));setTimeout(()=>{[bl,br].forEach(x=>x.classList.remove('no'));G.lock=false},600)}}
-/* ---------- Learning data (read-only) ---------- */
+/* ---------- Learning data (editable word columns for courses with edt) ---------- */
 let DV={k:'memory_score',d:1},DVS='__all';
 const stOf=c=>isNew(c)?'New':isMastered(c)?'Mastered':c.due<=Date.now()?'Due':'Learning';
 const rel=(t,fut)=>{if(!t)return'—';const d=fut?t-Date.now():Date.now()-t,a=Math.abs(d)/6e4,h=a/60,dd=h/24,u=dd>=1?Math.round(dd)+'d':h>=1?Math.round(h)+'h':Math.max(1,Math.round(a))+'m';return fut?(d<=0?u+' overdue':'in '+u):u+' ago'};
@@ -1888,18 +1888,21 @@ const COLS=[['ru','Word',c=>c.ru,c=>`<b>${esc(c.ru)}</b>`],['en','English',c=>c.
  ['last_reviewed','Last review',c=>c.last_reviewed||0,c=>rel(c.last_reviewed,false)],['due','Next review',c=>isNew(c)?1e15:c.due,c=>isNew(c)?'—':rel(c.due,true)],
  ['status','Status',c=>stOf(c),c=>stOf(c)],['recent','Last 5',c=>(c.recent||[]).join(''),c=>(c.recent||[]).map(x=>x?'✓':'✗').join(' ')||'—']];
 function dvSort(k){DV=DV.k==k?{k,d:-DV.d}:{k,d:k=='ru'||k=='en'||k=='set'||k=='status'?1:-1};dataView()}
-function dataView(){VIEW='menu';const col=COLS.find(x=>x[0]==DV.k)||COLS[3],cs=S.cards.filter(c=>DVS==='__all'||(c.set||'')===DVS);
+function dataView(){VIEW='menu';const ED=cFlag('edt'),col=COLS.find(x=>x[0]==DV.k)||COLS[3],cs=S.cards.filter(c=>DVS==='__all'||(c.set||'')===DVS);
   const rows=cs.slice().sort((a,b)=>{const x=col[2](a),y=col[2](b);return(typeof x=='number'?x-y:String(x).localeCompare(String(y)))*DV.d});
   const n=x=>cs.filter(c=>stOf(c)==x).length,avg=cs.length?Math.round(cs.reduce((a,c)=>a+(c.memory_score||0),0)/cs.length):0;
   $.innerHTML=`<h1>📊 Learning data</h1>
   <div class="card"><div class="row" style="align-items:center;justify-content:space-between;flex-wrap:nowrap"><b>${cs.length} words</b><select onchange="DVS=this.value;dataView()"><option value="__all">All sets</option>${setNames().map(x=>`<option value="${esc(x)}"${x===DVS?' selected':''}>${esc(x)}</option>`).join('')}</select></div>
   <div class="mu" style="margin-top:6px">New ${n('New')} · Learning ${n('Learning')} · Due ${n('Due')} · Mastered ${n('Mastered')} · Avg score ${avg}</div></div>
-  <div class="dtw"><table class="dt"><thead><tr>${dvCols().map(x=>`<th onclick="dvSort('${x[0]}')">${x[1]}${x[0]==DV.k?(DV.d>0?' ▲':' ▼'):''}</th>`).join('')}</tr></thead><tbody>${rows.map(c=>`<tr>${dvCols().map(x=>`<td>${x[3](c)}</td>`).join('')}</tr>`).join('')}</tbody></table></div>
-  <div class="mu" style="margin:8px 2px">Tap a column title to sort. Score = memory (0–100) · Streak = correct answers in a row · Mastered = last 3 answers correct.</div>
+  <div class="dtw"><table class="dt"><thead><tr>${dvCols().map(x=>`<th onclick="dvSort('${x[0]}')">${x[1]}${x[0]==DV.k?(DV.d>0?' ▲':' ▼'):''}</th>`).join('')}</tr></thead><tbody>${rows.map(c=>`<tr data-k="${esc(c.k)}">${dvCols().map(x=>ED&&DVED.includes(x[0])?`<td class="dved" contenteditable="plaintext-only" spellcheck="false" data-f="${x[0]}" onfocus="dvF(this)" onblur="dvB(this)" onkeydown="dvK(event,this)" onpaste="dvP(event,this)">${esc(x[2](c)||'')}</td>`:`<td>${x[3](c)}</td>`).join('')}</tr>`).join('')}</tbody></table></div>
+  <div class="mu" style="margin:8px 2px">${ED?'Tap a cell in Word, English, Part of Speech, Form or Set to edit it. Paste several cells, a column or a whole block copied from Excel / Google Sheets into a cell and they fill to the right and down. ':''}Tap a column title to sort. Score = memory (0–100) · Streak = correct answers in a row · Mastered = last 3 answers correct.</div>
   <div class="card"><b>Adjust score</b><div class="mu" style="margin:4px 0 8px">Adds points to every word in the set chosen in the filter above (result stays between 0 and 100). Use a negative number to subtract.</div>
   <div class="row" style="flex-wrap:nowrap;align-items:center"><input id="dvn" type="number" value="5" style="width:90px"><button class="p" id="dvb" style="flex:1" onclick="dvBump()"${DVS==='__all'?' disabled':''}>${DVS==='__all'?'Choose a set above first':'Apply to '+esc(DVS||'No set')+' ('+cs.length+' words)'}</button></div></div>
   ${!cFlag('forms')?'':`<div class="card"><b>Part of Speech &amp; Form</b><div class="mu" style="margin:4px 0 8px">${C.id=='ru'?"Claude fills in Part of Speech (V, Он, Она, Оно) and Form (verb: 6 present forms; noun: 12 forms = 6 cases singular + 6 cases plural) for words that don't have them yet, and updates older noun entries to the full set of forms. Fix any word with ✏️ edit in the vocabulary list.":C.id=='es'?"Claude fills in Part of Speech (V for verbs) and Form (the 6 present-tense forms: yo, tú, él/ella, nosotros, vosotros, ellos) for words that don't have them yet. Fix any word with ✏️ edit in the vocabulary list.":"Claude fills in the Form column for words that don't have it yet. Fix any word with ✏️ edit in the vocabulary list."}</div>
   <button class="p w" style="text-align:center" id="gg" onclick="genGram()"${!S.cards.some(needGram)?' disabled':''}>${!S.cards.some(needGram)?'All words are filled in':'Fill in '+S.cards.filter(needGram).length+' words'}</button></div>`}
+  ${ED?`<div class="card"><b>Paste or upload a table</b><div class="mu" style="margin:4px 0 8px">Columns: <code>word</code>, <code>english</code>, <code>part_of_speech</code>, <code>form</code>, <code>set</code> – with a title row (any order, other columns are ignored, e.g. the downloaded CSV) or without one (in this order). Words already in the list are updated, new words are added. Empty cells don't change anything.</div>
+  <textarea id="dvt" spellcheck="false" placeholder="word&#9;english&#9;part_of_speech&#9;form&#9;set"></textarea>
+  <div class="row" style="margin-top:8px"><button class="p" onclick="dvImp(document.getElementById('dvt').value)">Apply table</button><button onclick="document.getElementById('dvf').click()">Upload .csv/.txt</button><input id="dvf" type="file" accept=".csv,.txt,.tsv,text/csv,text/plain" hidden onchange="dvFile(this)"></div></div>`:''}
   <div id="dm" class="mu" style="min-height:22px"></div>
   <button class="w p" style="text-align:center" onclick="dvDownload()">⬇ Download CSV</button><button class="w" style="text-align:center" onclick="vocab()">← Back</button>`}
 let dvc=0;
@@ -3393,7 +3396,7 @@ const sRow=(c,ic,t,s,f)=>`<button class="srow" style="--c:${c}" onclick="${f}"><
 const HSV=c=>`<svg viewBox="0 0 12 12" width="12" height="12" aria-hidden="true"><path d="${HRT}" fill="${c}"/></svg>`;
 function setHtml(){return heroSet()+`<div class="spanel">
 ${ADM?sRow('#FF9F1C',SI.vocab,'Admin · default words',S.cards.length+' words · tap to publish','admView()'):''}
-${sRow('#FF9F1C',SI.lang,'Languages','Learning '+C.name,'langView()')}
+${sRow('#FF9F1C',SI.lang,'Language Course','Learning '+C.name,'langView()')}
 ${sRow('#238CF4',SI.vocab,'Add / Manage Vocabularies','Build your word list','vocab()')}
 ${sRow('#2BB57F',SI.sent,'Add / manage sentences','Save your useful sentences','sentView()')}
 <div class="ssy sy">${syLine()}</div>
@@ -4083,17 +4086,18 @@ async function setCourse(id){if(!COURSES[id])return;if(id==C.id){home();return}
 function cApply(){const de=document.documentElement,b=C.id=='ru'||!BGS[C.id]?[BG_L,BG_D]:BGS[C.id];
   de.style.setProperty('--bgL',`url(${b[0]})`);de.style.setProperty('--bgD',`url(${b[1]})`);de.dataset.course=C.id}
 function cSet(id,k,v){
-  CS.o[id]=CS.o[id]||{};CS.o[id][k]=!!v;cSave();langView()}
+  CS.o[id]=CS.o[id]||{};CS.o[id][k]=!!v;cSave();const y=$.scrollTop;langView();$.scrollTop=y}
+const LOPEN=new Set();function lcTog(id){LOPEN.has(id)?LOPEN.delete(id):LOPEN.add(id);const y=$.scrollTop;langView();$.scrollTop=y}
 function langView(){VIEW='menu';TAB='settings';lshX();
   const tg=(id,k,lab,sub,dis)=>`<label class="ltg${dis?' dis':''}"><span class="ltx"><b>${lab}</b>${sub?`<span>${sub}</span>`:''}</span><input type="checkbox" ${cFlag(k,id)?'checked':''} ${dis?'disabled':''} onchange="cSet('${id}','${k}',this.checked)"><i aria-hidden="true"></i></label>`;
   const rows={
    ru:()=>tg('ru','forms','Form Challenge &amp; Form column','Verb conjugation and noun cases'),
    vi:()=>tg('vi','lax','Accept answers without tone marks','Typing: “cam on” also counts for “cảm ơn”'),
    es:()=>tg('es','lax','Accept answers without accents','Typing: “cancion” also counts for “canción”')+tg('es','forms','Form Challenge &amp; Form column','Verb conjugation: yo, tú, él / ella…')};
-  $.innerHTML=`<h1>🌐 Languages</h1>`+
-  C_ORDER.map(id=>{const K=COURSES[id],cur=id==C.id;return`<div class="card lcard${cur?' cur':''}"><div class="lch">${flagSvg(id,46)}<div style="flex:1;min-width:0"><b style="font-size:19px">${K.name}</b><div class="mu">${K.own} · ${CS.n[id]||0} words</div></div>${cur?'<span class="ltag">Learning now</span>':`<button class="p" type="button" onclick="setCourse('${id}').then(langView)">Switch</button>`}</div>
-   ${rows[id]()}</div>`}).join('')+
-  `<button class="w" onclick="go('settings')">← Setting</button>`;$.scrollTop=0}
+  $.innerHTML=`<h1>🌐 Language Course</h1>`+
+  C_ORDER.map(id=>{const K=COURSES[id],cur=id==C.id,op=LOPEN.has(id);return`<div class="card lcard${cur?' cur':''}${op?' open':''}"><div class="lch" onclick="if(!event.target.closest('button'))lcTog('${id}')">${flagSvg(id,46)}<div style="flex:1;min-width:0"><b style="font-size:19px">${K.name}</b><div class="mu">${K.own} · ${CS.n[id]||0} words</div></div>${cur?'<span class="ltag">Learning now</span>':`<button class="p" type="button" onclick="setCourse('${id}').then(langView)">Switch</button>`}<span class="lchev" aria-hidden="true">⌄</span></div>
+   <div class="lset">${rows[id]()}</div></div>`}).join('')+
+  `<button class="w" onclick="go('settings')">← Setting</button>`}
 function soonView(t,what){VIEW='menu';$.innerHTML=`<h1>${t}</h1><div class="card" style="text-align:center">${flagSvg(C.id,52)}<div style="font-size:19px;font-weight:800;margin:10px 0 4px">${what} for ${C.name} are coming soon</div><div class="mu">They will be added unit by unit. Meanwhile, all the word and sentence games already work with your ${C.name} vocabulary.</div></div><button class="w" onclick="go('games')">← GAMES</button>`}
 
 /* Vietnamese: a vocabulary word of several syllables (cảm ơn, xe đạp) is one token everywhere */
@@ -4214,6 +4218,47 @@ const jcCss=document.createElement('style');jcCss.textContent=`.jmtop .lchw{flex
 #jchip .lchip{background:rgba(255,253,248,.92)}
 :root[data-theme="dark"] #jchip .lchip{background:rgba(38,46,60,.92)}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) #jchip .lchip{background:rgba(38,46,60,.92)}}`;document.head.appendChild(jcCss);
+
+/* ===== ver_93: Learning Data editing (cells, pasted blocks, whole tables) ===== */
+const DVED=['ru','en','pos','form','set'],DVHDR={word:'ru',ru:'ru',english:'en',en:'en',meaning:'en',part_of_speech:'pos',pos:'pos','part of speech':'pos',form:'form',forms:'form',set:'set',unit:'set'};
+function dvSetF(c,f,v){v=String(v==null?'':v).replace(/\s+/g,' ').trim();if(f=='ru'&&!v)return false;if((c[f]||'')===v)return false;
+  if(f=='set'&&!v)delete c.set;else c[f]=v;c.u=Date.now();return true}
+function dvF(td){td.dataset.o=td.textContent}
+function dvB(td){if(td.dataset.x){delete td.dataset.x;return}const c=S.cards.find(x=>x.k==td.parentNode.dataset.k);if(!c)return;
+  if(dvSetF(c,td.dataset.f,td.textContent)){if(td.dataset.f=='ru'){try{applyIll()}catch(e){}}save();dvMsg('Saved ✔')}td.textContent=(c[td.dataset.f]||'')}
+function dvK(e,td){if(e.key=='Enter'){e.preventDefault();td.blur();const tr=td.parentNode.nextElementSibling,i=[...td.parentNode.children].indexOf(td);if(tr&&tr.children[i])tr.children[i].focus()}
+  else if(e.key=='Escape'){e.preventDefault();td.textContent=td.dataset.o||'';td.dataset.x=1;td.blur()}}
+function dvMsg(t){const m=document.getElementById('dm');if(m){m.textContent=t;clearTimeout(dvMsg.t);dvMsg.t=setTimeout(()=>{if(m.textContent==t)m.textContent=''},2500)}}
+/* CSV / TSV parser (quotes aware) */
+function dvParse(txt){txt=String(txt).replace(/^﻿/,'').replace(/\r\n?/g,'\n').replace(/\n+$/,'');if(!txt.trim())return[];
+  const first=txt.split('\n')[0],d=first.includes('\t')?'\t':first.includes(',')?',':first.includes(';')?';':first.includes('|')?'|':'\t';
+  const R=[];let row=[],f='',q=false;for(let i=0;i<txt.length;i++){const ch=txt[i];
+    if(q){if(ch=='"'){if(txt[i+1]=='"'){f+='"';i++}else q=false}else f+=ch}
+    else if(ch=='"'&&f==='')q=true;else if(ch==d){row.push(f);f=''}else if(ch=='\n'){row.push(f);R.push(row);row=[];f=''}else f+=ch}
+  row.push(f);R.push(row);return R}
+function dvP(e,td){const t=(e.clipboardData||window.clipboardData).getData('text');if(!/[\t\n]/.test(t.replace(/\n+$/,'')))return;e.preventDefault();
+  const R=dvParse(t),trs=[...td.closest('tbody').children],r0=trs.indexOf(td.parentNode),cells=[...td.parentNode.children],eds=cells.filter(x=>x.classList.contains('dved')),c0=eds.indexOf(td);let n=0;
+  R.forEach((row,ri)=>{const tr=trs[r0+ri];if(!tr)return;const c=S.cards.find(x=>x.k==tr.dataset.k);if(!c)return;const E=[...tr.children].filter(x=>x.classList.contains('dved'));
+    row.forEach((v,ci)=>{const cell=E[c0+ci];if(!cell)return;if(dvSetF(c,cell.dataset.f,v))n++;cell.textContent=c[cell.dataset.f]||''})});
+  td.dataset.x=1;td.blur();if(n){try{applyIll()}catch(e){}save()}dvMsg(n?`Pasted – ${n} cell${n>1?'s':''} changed ✔`:'Nothing changed')}
+function dvImp(txt){const R=dvParse(txt).filter(r=>r.some(x=>x.trim()));if(!R.length)return dvMsg('Paste a table first.');
+  let map=R[0].map(h=>DVHDR[h.trim().toLowerCase()]||null),body=R;if(map.includes('ru'))body=R.slice(1);else map=DVED.slice();
+  const byW=new Map(S.cards.map(c=>[norm(c.ru),c]));let up=0,add=0,t=Date.now();const D=dvSel();
+  body.forEach(r=>{const o={};map.forEach((f,i)=>{if(f&&r[i]!=null&&String(r[i]).trim())o[f]=String(r[i]).trim()});if(!o.ru)return;let c=byW.get(norm(o.ru));
+    if(c){let ch=false;['en','pos','form','set'].forEach(f=>{if(o[f]!=null&&dvSetF(c,f,o[f]))ch=true});if(ch)up++}
+    else{if(!o.en)return;c={k:mk(),ru:o.ru,en:o.en,u:t,ef:2.5,int:0,reps:0,due:0,lapses:0,memory_score:0,correct_count:0,wrong_count:0,last_reviewed:0,recent:[]};
+      if(o.pos)c.pos=o.pos;if(o.form)c.form=o.form;c.set=o.set||(D!=='__all'?D:'');if(!c.set)delete c.set;fix(c);S.cards.push(c);byW.set(norm(c.ru),c);add++}});
+  if(up||add){try{applyIll()}catch(e){}save()}dataView();dvMsg(`${up} word${up==1?'':'s'} updated · ${add} new word${add==1?'':'s'} added`)}
+const dvSel=()=>DVS;
+function dvFile(inp){const f=inp.files&&inp.files[0];if(!f)return;const r=new FileReader();r.onload=()=>dvImp(r.result);r.readAsText(f);inp.value=''}
+const dvCss=document.createElement('style');dvCss.textContent=`.dt td.dved{cursor:text;outline:none;white-space:pre-wrap;min-width:60px}
+.dt td.dved:hover{background:color-mix(in srgb,var(--pr) 7%,var(--card))}
+.dt td.dved:focus{background:color-mix(in srgb,var(--pr) 14%,var(--card));box-shadow:inset 0 0 0 2px var(--pr)}
+#dvt{min-height:110px;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:13px}
+.lch{cursor:pointer;margin-bottom:0}
+.lchev{flex:none;width:22px;text-align:center;font-size:20px;line-height:1;color:var(--mu);transition:transform .2s;margin-top:-6px}
+.lcard.open .lchev{transform:rotate(180deg);margin-top:6px}
+.lcard .lset{display:none;margin-top:8px}.lcard.open .lset{display:block}`;document.head.appendChild(dvCss);
 if(VIEW=='home')home();
 </script></body></html>
 </body></html>

@@ -5015,4 +5015,6 @@ Object.assign(window,{esgHub,esgLesson,esgPractice,esgPracticeUnit,esgFinish,esg
 try{if(typeof C!='undefined'&&C.id=='es'&&VIEW=='home')home()}catch(e){}
 
 })();
-</script></body></html>
+</script><script>/* ver_96: installable app – service worker on the GitHub Pages site */
+if('serviceWorker' in navigator&&/github\.io$/.test(location.hostname))addEventListener('load',()=>{navigator.serviceWorker.register('sw.js').catch(()=>{})});</script>
+</body></html>

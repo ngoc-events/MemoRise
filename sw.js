@@ -1,5 +1,5 @@
 // Network-first: always tries the newest version online, falls back to cache offline.
-const CACHE = 'memorise-v99';
+const CACHE = 'memorise-v100';
 self.addEventListener('install', e => {
   self.skipWaiting();
   e.waitUntil(caches.open(CACHE).then(c => c.addAll(['./', 'index.html', 'manifest.webmanifest', 'apple-touch-icon.png', 'icon-192.png', 'icon-512.png'])));

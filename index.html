@@ -18,7 +18,7 @@ t();addEventListener('orientationchange',function(){setTimeout(t,60);setTimeout(
 if(window.matchMedia)try{matchMedia('(orientation: portrait)').addEventListener('change',t)}catch(e){}})()</script>
 <meta name="theme-color" content="#f6f7fb" media="(prefers-color-scheme: light)"><meta name="theme-color" content="#171C25" media="(prefers-color-scheme: dark)">
 <script>(function(){function f(){try{var h=innerHeight;if(navigator.standalone===true){var p=innerHeight>=innerWidth,a=Math.max(screen.width,screen.height),b=Math.min(screen.width,screen.height),sh=(p?a:b)/(window.__vs||1);if(sh>h)h=sh}document.documentElement.style.setProperty('--fh',h+'px')}catch(e){}}f();addEventListener('resize',f);addEventListener('orientationchange',function(){setTimeout(f,150)});addEventListener('pageshow',f)})()</script>
-<title>Russian MemoRise App_ver_98</title>
+<title>Russian MemoRise App_ver_99</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lobster&display=swap&text=%D0%90%D0%91%D0%92%D0%93%D0%94%D0%95%D0%96%D0%97%D0%98%D0%99%D0%9A%D0%9B%D0%9C%D0%9D%D0%9E%D0%9F%D0%A0%D0%A1%D0%A2%D0%A3%D0%A4%D0%A5%D0%A6%D0%A7%D0%A8%D0%A9%D0%AA%D0%AB%D0%AC%D0%AD%D0%AE%D0%AF%D0%B0%D0%B1%D0%B2%D0%B3%D0%B4%D0%B5%D0%B6%D0%B7%D0%B8%D0%B9%D0%BA%D0%BB%D0%BC%D0%BD%D0%BE%D0%BF%D1%80%D1%81%D1%82%D1%83%D1%84%D1%85%D1%86%D1%87%D1%88%D1%89%D1%8A%D1%8B%D1%8C%D1%8D%D1%8E%D1%8F%D0%81%D1%91%CC%81"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800;900&display=swap">
 <style>
 :root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);--bg:#f6f7fb;--card:#fff;--tx:#1f2430;--mu:#6b7280;--pr:#1d6fd8;--ok:#2e9e5b;--bad:#d64545;--bd:#e3e6ee}
@@ -970,7 +970,7 @@ function mascG(x,y,w,h){const L=mscL(),ov=C.id=='vi'?.3:.06;let hh=h,ws=L.map(([
 function mascDeco(W,H){if(C.id!='vi')return'';const s=58;return`<image href="${picUri('vh3')}" x="${W*.05}" y="${H-s-8}" width="${s}" height="${s}"/><image href="${picUri('vh2')}" x="${W*.95-s}" y="${H-s-14}" width="${s}" height="${s}"/>`}
 </script>
 <script>
-const APP_VER='Russian MemoRise App_ver_98';
+const APP_VER='Russian MemoRise App_ver_99';
 const sv=(b,v='0 0 48 48')=>`<svg xmlns="http://www.w3.org/2000/svg" viewBox="${v}" aria-hidden="true">${b}</svg>`;
 const IC={
 learn:sv('<rect x="14" y="30" width="20" height="14" rx="4" fill="#FF8A5B"/><rect x="12" y="27" width="24" height="6" rx="3" fill="#FF6B3D"/><path d="M24 27V17" stroke="#2FBF71" stroke-width="3" stroke-linecap="round"/><path d="M24 20C24 12 17 10 11 12c0 7 5 10 13 8z" fill="#6EE7B7"/><path d="M24 17c0-7 6-9 12-7 0 7-5 9-12 7z" fill="#2FBF71"/>'),
@@ -1470,14 +1470,16 @@ const illFor=c=>ILL192[ik(c.ru)]||ILL[norm(c.ru)]||null;
 function applyIll(){let n=0;const t=Date.now();S.cards.forEach(c=>{const s2=ILL192[ik(c.ru)];if(s2&&!c.l192&&c.iv!==99){c.img=s2;c.iv=ILLV;c.l192=1;c.u=t;n++;return}if((c.iv||0)<ILLV){const s=illFor(c);if(s){c.img=s;c.iv=ILLV;c.u=t;n++}}});if(n)save();return n}
 const STYLE=`Style: cute, clean, modern 2D flat cartoon illustration for a premium language-learning app. Draw it detailed enough that the meaning is clear at a glance: add 2-4 small characteristic details (windows, signs, props, emblems, tiny decorations) and make it charming and friendly. Rounded shapes, bold readable silhouettes, no gradients, no shadows, no text or letters. Canvas: viewBox="0 0 192 192" with no width or height attributes. Draw NO background at all: no background rectangle, no sky, no backdrop panel or circle; everything outside the subject stays transparent. No padding: the subject fills the canvas almost edge to edge, keeping only about 4 units free at the edges so outlines are not clipped. Outlines: put stroke="#123B82" stroke-width="3.4" stroke-linejoin="round" stroke-linecap="round" on the root svg so every shape gets a dark navy outline; use thinner navy lines (1.6-2.4) for small inner details and white lines (#FFFFFF) for markings on coloured areas. Palette only: blue #2589FF, red #FF465C, yellow #FFD166, mint #66E7B7, lavender #C9B6FF, pink #FFB3C1, light blue glass #BFE0FF, pale sky #EAF5FF, cream #FFF9ED, white #FFFFFF, grey-blue #9FB3D6, wood #A86A35; skin tones #FAD7BD #EDB98F #C68A5E #8F5E3F. People are cute busts: round head circle r=33 at (96,88), body path "M40 188q0-58 56-58t56 58z", small navy dot eyes at (84,90) and (108,90), soft pink cheeks (#FF8A9B, opacity .55), tiny smile, simple hair, plus one instantly recognisable prop. Buildings and places are drawn from the front, standing on a thin base or steps strip at the bottom, with an emblem or sign symbol that shows what kind of place it is.`;
 /* ---------- Illustrations ---------- */
-const thumb=(c,z)=>`<span style="flex:none;display:block;width:${z}px;height:${z}px">${imgHtml(c,z)}</span>`;
+const thumb=(c,z)=>{const q=Math.round(z*1.15);return`<span style="flex:none;display:block;width:${q}px;height:${q}px">${imgRaw(c,q)}</span>`};
 const NOBG=new Map();
 function noBg(s){s=String(s);if(NOBG.has(s))return NOBG.get(s);const vb=s.match(/viewBox="\s*[-\d.]+[\s,]+[-\d.]+[\s,]+([\d.]+)[\s,]+([\d.]+)\s*"/),W=vb?+vb[1]:100,H=vb?+vb[2]:100;
   const big=(v,M)=>v!=null&&(/^100%$/.test(v)||parseFloat(v)>=M*.9);let first=true;
   const out=s.replace(/<rect\b[^>]*?(?:\/>|>\s*<\/rect>)/gi,m=>{const a=n=>{const r=m.match(new RegExp('\\s'+n+'="([^"]*)"'));return r?r[1]:null};
     const hit=big(a('width'),W)&&big(a('height'),H)&&(parseFloat(a('x')||0)<=W*.06)&&(parseFloat(a('y')||0)<=H*.06);if(hit&&first)return '';first=false;return m});
   NOBG.set(s,out);return out}
-const imgHtml=(c,s)=>c&&c.img?(c.img.startsWith('data:')?`<img class="il ph" alt="" width="${s}" height="${s}" style="object-fit:cover" src="${c.img}">`:`<img class="il" alt="" width="${s}" height="${s}" src="${'data:image/svg+xml;utf8,'+encodeURIComponent(noBg(c.img))}">`):'';
+/* ver_99: every vocabulary picture is 15% bigger; imgRaw keeps the old size (5- and 6-pair matching) */
+const imgHtml=(c,s)=>imgRaw(c,Math.round(s*1.15));
+const imgRaw=(c,s)=>c&&c.img?(c.img.startsWith('data:')?`<img class="il ph" alt="" width="${s}" height="${s}" style="object-fit:cover" src="${c.img}">`:`<img class="il" alt="" width="${s}" height="${s}" src="${'data:image/svg+xml;utf8,'+encodeURIComponent(noBg(c.img))}">`):'';
 async function genImgs(){
   const m=document.getElementById('gm'),b=document.getElementById('gb');
   let sample=null;try{sample=await claude.use('sample')}catch(e){}
@@ -1983,9 +1985,9 @@ function next(){
     <div class="row"><button style="flex:1" onclick="swipe(-1)">✗ Not yet</button><button class="p" style="flex:1" onclick="swipe(1)">✓ Got it</button></div>`;bindSwipe();speak(c.ru)}
   else if(G.mode=='match'){
     const n=G.q.length<=6?G.q.length:(G.q.length-6==1?5:6);G.B=G.q.slice(0,n);G.L=shuf(G.B.map((_,i)=>i));G.R=shuf(G.B.map((_,i)=>i));G.sel=null;G.miss=new Set();G.m=0;G.lock=false;
-    let t=G.sub;if(!t||t=='mix'){const o=['wm','am'];if(G.B.every(c=>c.img))o.push('wi');t=o[Math.floor(Math.random()*o.length)]}
+    let t=G.sub;if(!t||t=='mix'){const o=['am'];if(G.B.every(c=>c.img))o.push('wi');/* ver_99: word ↔ English text matching removed */t=o[Math.floor(Math.random()*o.length)]}
     G.t=t;const hint={wm:`Tap a ${C.name} word, then tap its English meaning`,wi:`Tap a ${C.name} word, then tap its matching image`,am:'Listen to the audio, then tap the English meaning'}[t];
-    $.innerHTML=head+`<div class="sub" style="margin-bottom:10px">${hint}</div>${mgGrid(G.L.map((i,k)=>`<button id="l${i}" onclick="mt('l',${i})">${t=='am'?`<span class="ico">${SPK}</span> ${k+1}`:esc(G.B[i].ru)}</button>`),G.R.map(i=>`<button id="r${i}" onclick="mt('r',${i})">${t=='wi'?imgHtml(G.B[i],56)+'<div style="font-size:13px;line-height:1.2;margin-top:3px">'+esc(G.B[i].en)+'</div>':esc(G.B[i].en)}</button>`),t=='wi'?100:66)}`}
+    $.innerHTML=head+`<div class="sub" style="margin-bottom:10px">${hint}</div>${mgGrid(G.L.map((i,k)=>`<button id="l${i}" onclick="mt('l',${i})">${t=='am'?`<span class="ico">${SPK}</span> ${k+1}`:esc(G.B[i].ru)}</button>`),G.R.map(i=>`<button id="r${i}" onclick="mt('r',${i})">${t=='wi'?(G.B.length>=5?imgRaw:imgHtml)(G.B[i],56)+'<div style="font-size:13px;line-height:1.2;margin-top:3px">'+esc(G.B[i].en)+'</div>':esc(G.B[i].en)}</button>`),t=='wi'?100:66)}`}
   else if(G.mode=='choice'||G.mode=='listen'){
     const d=G.mode=='choice'?(G.sub=='er'?'er':G.sub=='mix'?(Math.random()<.5?'er':'re'):'re'):'re';G.d=d;
     const f=d=='er'?'ru':'en',ans=c[f];
@@ -2132,8 +2134,8 @@ function sbView(s,head){G.c=s;G.ans=false;
     shuf([...new Set(ex.map(w=>w.toLowerCase()))]).filter(w=>w.length>1&&!ts.has(nk(w))&&!dis.some(d=>nk(d)==nk(w))).slice(0,3-dis.length).forEach(w=>dis.push(w))}
   if(s.dis)dis=s.dis.filter(w=>!ts.has(nk(w)));
   G.B={dir,target,tiles:shuf(target.concat(dis).map((t,i)=>({id:i,t}))),placed:[]};
-  const parts=segs(s.ru),qh=dir=='re'?`<div style="text-align:right;margin:-4px 0 -8px"><button class="spk" aria-label="Listen" onclick="speak(G.c.ru)"><span class="ico">${SPK}</span></button></div><div class="sub">Translate into English:</div><div class="sbt" style="font-size:24px;font-weight:700;line-height:1.8;margin:8px 0">${parts.map((p,i)=>`<span class="wd" onclick="sbWord(${i})">${esc(p)}</span>`).join(' ')}</div><div id="wm" class="mu" style="min-height:24px;margin-bottom:6px">Tap a ${C.name} word to hear it and see its meaning</div>`:`<div class="sub">${esc(s.title||'Translate into '+C.name+':')}</div><div class="sbt" style="font-size:24px;font-weight:700;margin:10px 0">${esc(s.en)}</div>${s.hint?`<div class="mu">${esc(s.hint)}</div>`:''}`;
-  $.innerHTML=head+`<div class="card sbq" style="text-align:center">${qh}<div id="sa" class="sa" style="min-height:${Math.max(1,Math.ceil(target.length/3))*62+16}px"></div><div id="sbk" style="margin-top:10px"></div><div id="fb"></div><button class="p w" id="go" style="text-align:center;margin-top:12px" onclick="sbCheck()">Check</button></div>`;
+  const parts=segs(s.ru),qh=dir=='re'?`<div class="sub">Translate into English:</div><div class="sbt" style="font-size:24px;font-weight:700;line-height:1.8;margin:8px 0">${parts.map((p,i)=>`<span class="wd" onclick="sbWord(${i})">${esc(p)}</span>`).join(' ')}</div><div id="wm" class="mu" style="min-height:24px;margin-bottom:6px">Tap a ${C.name} word to hear it and see its meaning</div>`:`<div class="sub">${esc(s.title||'Translate into '+C.name+':')}</div><div class="sbt" style="font-size:24px;font-weight:700;margin:10px 0">${esc(s.en)}</div>${s.hint?`<div class="mu">${esc(s.hint)}</div>`:''}`;
+  $.innerHTML=head+`<div class="card sbq" style="text-align:center">${qh}<div id="sa" class="sa" style="min-height:${Math.max(1,Math.ceil(target.length/3))*62+16}px"></div><div id="sbk" style="margin-top:10px"></div><div id="fb"></div>${dir=='re'?`<div class="sbgo"><button class="spk" aria-label="Listen" onclick="speak(G.c.ru)"><span class="ico">${SPK}</span></button><button class="p" id="go" onclick="sbCheck()">Check</button></div>`:`<button class="p w" id="go" style="text-align:center;margin-top:12px" onclick="sbCheck()">Check</button>`}</div>`;
   sbRender();if(dir=='re')speak(s.ru)}
 const chip=(id,pl)=>`<button class="chip" data-id="${id}" data-pl="${pl?1:0}" onclick="sbTap(${id})">${esc(G.B.tiles.find(t=>t.id==id).t)}</button>`;
 function sbRender(){const B=G.B;document.getElementById('sa').innerHTML=B.placed.map(i=>chip(i,1)).join('')||'<span class="mu">Tap the words below to build the sentence</span>';
@@ -2171,7 +2173,7 @@ function lcsMark(a,b){const n=a.length,m=b.length,d=Array.from({length:n+1},()=>
   const ma=new Set(),mb=new Set();let i=0,j=0;while(i<n&&j<m){if(a[i].t==b[j].t){ma.add(a[i].i);mb.add(b[j].i);i++;j++}else if(d[i+1][j]>=d[i][j+1])i++;else j++}return{ma,mb}}
 function sbCheck(){if(G.ans)return;const B=G.B,s=G.c;if(!B.placed.length)return;G.ans=true;
   const got=B.placed.map(id=>B.tiles.find(t=>t.id==id).t),en=B.dir=='re',gn=normSeq(got,en),tn=normSeq(B.target,en),ok=gn.length==tn.length&&gn.every((x,i)=>x.t==tn[i].t),{ma,mb}=lcsMark(gn,tn),miss=tn.filter(x=>!mb.has(x.i)).map(x=>B.target[x.i]);sRec(ok);
-  document.getElementById('sbk').style.display='none';document.getElementById('go').style.display='none';
+  document.getElementById('sbk').style.display='none';{const g=document.getElementById('go');(g.closest('.sbgo')||g).style.display='none'}
   document.getElementById('fb').innerHTML=`<div class="fb ${ok?'ok':'no'}" style="font-size:20px;line-height:1.6;font-weight:700">${ok?'':`${miss.some(w=>!gn.some(x=>x.t==nk(w)))?`<div class="mu" style="font-weight:400;margin-top:4px">Missing: <b style="color:var(--bad)">${esc(miss.filter(w=>!gn.some(x=>x.t==nk(w))).join(', '))}</b></div>`:''}${miss.some(w=>gn.some(x=>x.t==nk(w)))?`<div class="mu" style="font-weight:400;margin-top:4px">Wrong position: <b style="color:var(--bad)">${esc(miss.filter(w=>gn.some(x=>x.t==nk(w))).join(', '))}</b></div>`:''}<div class="mu" style="font-weight:400;margin-top:6px">Correct:</div>`}${esc(B.dir=='re'?s.en:s.ru)}</div>${s.exp?miss.map(w=>s.exp[nk(w)]).filter(Boolean).map(t=>`<div style="margin:6px 0;text-align:left;font-size:16px">💡 ${esc(t)}</div>`).join(''):''}${s.note?`<div class="mu" style="margin:6px 0">${esc(s.note)}</div>`:''}${fbar('speak(G.c.ru)')}`;
   if(B.dir=='er')speak(s.ru)}
 /* Fill the Blank */
@@ -3945,9 +3947,9 @@ function learnNext(){
 function finalView(head,B){G.B=B;G.L=shuf(B.map((_,i)=>i));G.R=shuf(B.map((_,i)=>i));G.sel=null;G.miss=new Set();G.m=0;G.lock=false;G.t='fin';
   $.innerHTML=head+`<div class="sub" style="margin-bottom:10px">Final round: match each ${C.name} word (tap it to hear it) with its picture and English meaning</div>${mgGrid(G.L.map(i=>`<button id="l${i}" onclick="mt('l',${i})">${esc(B[i].ru)}</button>`),G.R.map(i=>`<button id="r${i}" onclick="mt('r',${i})">${imgHtml(B[i],56)}<div style="font-size:13px;line-height:1.2;margin-top:3px">${esc(B[i].en)}</div></button>`),100)}`}
 function matchView(head,B){G.B=B;G.L=shuf(B.map((_,i)=>i));G.R=shuf(B.map((_,i)=>i));G.sel=null;G.miss=new Set();G.m=0;G.lock=false;
-  const o=['wm','am'];if(B.every(c=>c.img))o.push('wi');const t=o[Math.floor(Math.random()*o.length)];G.t=t;
+  const o=['am'];if(B.every(c=>c.img))o.push('wi');const t=o[Math.floor(Math.random()*o.length)];G.t=t;
   const hint={wm:`Tap a ${C.name} word, then tap its English meaning`,wi:`Tap a ${C.name} word, then tap its matching image`,am:'Listen to the audio, then tap the English meaning'}[t];
-  $.innerHTML=head+`<div class="sub" style="margin-bottom:10px">${hint}</div>${mgGrid(G.L.map((i,k)=>`<button id="l${i}" onclick="mt('l',${i})">${t=='am'?`<span class="ico">${SPK}</span> ${k+1}`:esc(B[i].ru)}</button>`),G.R.map(i=>`<button id="r${i}" onclick="mt('r',${i})">${t=='wi'?imgHtml(B[i],56)+'<div style="font-size:13px;line-height:1.2;margin-top:3px">'+esc(B[i].en)+'</div>':esc(B[i].en)}</button>`),t=='wi'?100:66)}`}
+  $.innerHTML=head+`<div class="sub" style="margin-bottom:10px">${hint}</div>${mgGrid(G.L.map((i,k)=>`<button id="l${i}" onclick="mt('l',${i})">${t=='am'?`<span class="ico">${SPK}</span> ${k+1}`:esc(B[i].ru)}</button>`),G.R.map(i=>`<button id="r${i}" onclick="mt('r',${i})">${t=='wi'?(B.length>=5?imgRaw:imgHtml)(B[i],56)+'<div style="font-size:13px;line-height:1.2;margin-top:3px">'+esc(B[i].en)+'</div>':esc(B[i].en)}</button>`),t=='wi'?100:66)}`}
 function qView(head,c,listen,d){G.d=d;const f=d=='er'?'ru':'en',ans=c[f];
   const others=shuf([...new Set(S.cards.filter(x=>norm(x[f])!=norm(ans)).map(x=>x[f]))]).slice(0,3);
   const opts=shuf([ans,...others]);G.opts=opts;G.key=ans;
@@ -4521,6 +4523,17 @@ table.eg-conj tr{cursor:pointer}
 .eg-clock input[type=range]{width:100%;accent-color:var(--pr);padding:0;border:0;background:none}
 .eg-clock svg [fill="var(--surface)"]{fill:var(--card)}.eg-clock svg [stroke="var(--line)"]{stroke:var(--bd)}.eg-clock svg [stroke="var(--muted)"]{stroke:var(--mu)}
 .eg-clock svg [stroke="var(--ink)"]{stroke:var(--tx)}.eg-clock svg [stroke="var(--cobalt)"]{stroke:var(--pr)}.eg-clock svg [fill="var(--saffron)"]{fill:var(--egac)}
+
+/* ver_99: lesson header – ✕ on the left; label (Unit …) on top and the progress bar under it, both on the ✕ row */
+.qh{display:grid!important;grid-template-columns:auto minmax(0,1fr);grid-template-rows:auto auto;column-gap:12px;row-gap:5px;align-items:center;margin:0 0 10px}
+.qh>button{grid-column:1;grid-row:1/span 2;align-self:center}
+.qh>.mu{grid-column:2;grid-row:1;max-width:none;text-align:left;font-size:13px;line-height:1.15;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.qh>.bar{grid-column:2;grid-row:2;min-width:0;width:100%;margin:0}
+.qh>:not(button):not(.mu):not(.bar){grid-column:2;grid-row:1;justify-self:end}
+/* ver_99: speaker button on the Check row (sentence → English) */
+.sbgo{display:flex;gap:10px;align-items:stretch;margin-top:12px}
+.sbgo>.spk{flex:none;margin:0;height:auto;min-height:0;align-self:stretch}
+.sbgo>#go{flex:1;margin:0;text-align:center}
 </style>
 <script>
 /* ===== ver_94: Spanish grammar (Nuevo Prisma A1, explanations in English) · ver_95: also on the Spanish Journey ===== */

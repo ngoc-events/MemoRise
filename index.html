@@ -18,7 +18,7 @@ t();addEventListener('orientationchange',function(){setTimeout(t,60);setTimeout(
 if(window.matchMedia)try{matchMedia('(orientation: portrait)').addEventListener('change',t)}catch(e){}})()</script>
 <meta name="theme-color" content="#f6f7fb" media="(prefers-color-scheme: light)"><meta name="theme-color" content="#171C25" media="(prefers-color-scheme: dark)">
 <script>(function(){function f(){try{var h=innerHeight;if(navigator.standalone===true){var p=innerHeight>=innerWidth,a=Math.max(screen.width,screen.height),b=Math.min(screen.width,screen.height),sh=(p?a:b)/(window.__vs||1);if(sh>h)h=sh}document.documentElement.style.setProperty('--fh',h+'px')}catch(e){}}f();addEventListener('resize',f);addEventListener('orientationchange',function(){setTimeout(f,150)});addEventListener('pageshow',f)})()</script>
-<title>Russian MemoRise App_ver_101</title>
+<title>Russian MemoRise App_ver_102</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lobster&display=swap&text=%D0%90%D0%91%D0%92%D0%93%D0%94%D0%95%D0%96%D0%97%D0%98%D0%99%D0%9A%D0%9B%D0%9C%D0%9D%D0%9E%D0%9F%D0%A0%D0%A1%D0%A2%D0%A3%D0%A4%D0%A5%D0%A6%D0%A7%D0%A8%D0%A9%D0%AA%D0%AB%D0%AC%D0%AD%D0%AE%D0%AF%D0%B0%D0%B1%D0%B2%D0%B3%D0%B4%D0%B5%D0%B6%D0%B7%D0%B8%D0%B9%D0%BA%D0%BB%D0%BC%D0%BD%D0%BE%D0%BF%D1%80%D1%81%D1%82%D1%83%D1%84%D1%85%D1%86%D1%87%D1%88%D1%89%D1%8A%D1%8B%D1%8C%D1%8D%D1%8E%D1%8F%D0%81%D1%91%CC%81"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800;900&display=swap">
 <style>
 :root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);--bg:#f6f7fb;--card:#fff;--tx:#1f2430;--mu:#6b7280;--pr:#1d6fd8;--ok:#2e9e5b;--bad:#d64545;--bd:#e3e6ee}
@@ -986,7 +986,7 @@ function mascG(x,y,w,h){const L=mscL(),ov=C.id=='vi'?.3:.06;let hh=h,ws=L.map(([
 function mascDeco(W,H){if(C.id!='vi')return'';const s=58;return`<image href="${picUri('vh3')}" x="${W*.05}" y="${H-s-8}" width="${s}" height="${s}"/><image href="${picUri('vh2')}" x="${W*.95-s}" y="${H-s-14}" width="${s}" height="${s}"/>`}
 </script>
 <script>
-const APP_VER='Russian MemoRise App_ver_101';
+const APP_VER='Russian MemoRise App_ver_102';
 const sv=(b,v='0 0 48 48')=>`<svg xmlns="http://www.w3.org/2000/svg" viewBox="${v}" aria-hidden="true">${b}</svg>`;
 const IC={
 learn:sv('<rect x="14" y="30" width="20" height="14" rx="4" fill="#FF8A5B"/><rect x="12" y="27" width="24" height="6" rx="3" fill="#FF6B3D"/><path d="M24 27V17" stroke="#2FBF71" stroke-width="3" stroke-linecap="round"/><path d="M24 20C24 12 17 10 11 12c0 7 5 10 13 8z" fill="#6EE7B7"/><path d="M24 17c0-7 6-9 12-7 0 7-5 9-12 7z" fill="#2FBF71"/>'),
@@ -2009,7 +2009,7 @@ function next(){
     const f=d=='er'?'ru':'en',ans=c[f];
     const others=shuf([...new Set(S.cards.filter(x=>norm(x[f])!=norm(ans)).map(x=>x[f]))]).slice(0,3);
     const opts=shuf([ans,...others]);G.opts=opts;G.key=ans;
-    const qh=G.mode=='listen'?`<div class="big">🎧 ?</div><div class="sub">Listen and pick the correct meaning</div>${spk}`
+    const qh=G.mode=='listen'?`<div class="big">🎧 ?</div><div class="sub" style="text-align:left">Listen and pick the correct meaning</div>${spk}`
       :d=='er'?`<div class="sub">Translate to ${C.name}:</div><div class="big" style="margin:10px 0">${esc(c.en)}</div>`
       :`<div class="sub">Translate to English:</div><div class="big" style="margin:10px 0">${esc(c.ru)}</div>${spk}`;
     $.innerHTML=head+`<div class="card">${qh}<div style="margin-top:16px">${opts.map((o,i)=>`<button class="w"${d=='er'?' style="font-size:22px;font-weight:700"':''} onclick="pick(${i})">${esc(o)}</button>`).join('')}</div><div id="fb"></div></div>`;if(d=='re')speak(c.ru)}
@@ -2931,7 +2931,7 @@ Object.assign(GLX,{
 /* ===== ver_80: Speak Up – say 6 words out loud and get scored (same grading as the Russian Speak Up app) ===== */
 const SUP_MAP={а:"a",б:"b",в:"v",г:"g",д:"d",е:"e",ё:"yo",ж:"zh",з:"z",и:"i",й:"y",к:"k",л:"l",м:"m",н:"n",о:"o",п:"p",р:"r",с:"s",т:"t",у:"u",ф:"f",х:"kh",ц:"ts",ч:"ch",ш:"sh",щ:"shch",ъ:"",ы:"y",ь:"'",э:"e",ю:"yu",я:"ya"};
 function supTr(s){let o="";for(const ch of String(s)){const l=ch.toLowerCase();if(l in SUP_MAP){let t=SUP_MAP[l];if(ch!==l&&t)t=t[0].toUpperCase()+t.slice(1);o+=t}else o+=ch}return o}
-const supN=w=>C.id=='ru'?w.toLowerCase().replace(/́/g,"").replace(/ё/g,"е").replace(/[^a-zа-я0-9-]/g,""):w.normalize('NFC').toLowerCase().replace(/[^\p{L}\p{N}-]/gu,"");
+const supN=w=>C.id=='ru'?w.toLowerCase().replace(/́/g,"").replace(/ё/g,"е").replace(/[^a-zа-я0-9-]/g,""):(C.id=='es'?w.normalize('NFD').replace(/[\u0301\u0308]/g,'').normalize('NFC'):w.normalize('NFC')).toLowerCase().replace(/[^\p{L}\p{N}-]/gu,""); /* ver_102: Spanish accents are not heard (tu = tú) */
 const supW=s=>String(s).split(/\s+/).map(w=>({raw:w,n:supN(w)})).filter(w=>w.n);
 function supLev(a,b){const m=a.length,n=b.length;if(!m||!n)return Math.max(m,n);let p=[...Array(n+1).keys()];for(let i=1;i<=m;i++){let c=[i];for(let j=1;j<=n;j++)c[j]=Math.min(p[j]+1,c[j-1]+1,p[j-1]+(a[i-1]===b[j-1]?0:1));p=c}return p[n]}
 const supSim=(a,b)=>1-supLev(a,b)/Math.max(a.length,b.length,1);
@@ -2987,12 +2987,15 @@ function suSelf(p){suRecord(p);SU.rev=true;if(p>=85){SU.res='<span class="subadg
 function suListen(){if(SU.listening){SU.rec&&SU.rec.stopNow();return}try{speechSynthesis.cancel()}catch(e){}
   const rec=new SUP_SR();rec.lang=C.tts;rec.interimResults=true;rec.maxAlternatives=4;rec.continuous=false;SU.rec=rec;const me=rec,idx=SU.i;let alts=[],done=false,quiet=null,cap=null;
   const finish=()=>{if(done)return;done=true;clearTimeout(quiet);clearTimeout(cap);if(!SU)return;SU.listening=false;SU.talk=false;me.onresult=null;me.onend=null;me.onerror=null;try{me.abort()}catch(e){}
-    if(SU.i!=idx)return;if(alts.length&&alts.some(a=>a.trim()))suShow(alts);else{SU.miss=(SU.miss||0)+1;const w=tlNoSt(suCur().ru),sh=supN(w).length<=3&&!/\s/.test(w.trim());SU.res=`<span class="hint">I didn’t hear anything.${sh?` Short words are hard to catch – say it clearly 2–3 times: «${esc(w)}, ${esc(w)}».`:' Tap the mic and try again.'}</span>${SU.miss>=2?'<div class="row" style="justify-content:center;margin-top:6px"><button onclick="suSelf(100)">✔ I said it</button></div>':''}`;suDraw()}};
-  const talk=()=>{if(!SU||done)return;SU.talk=true};rec.onsoundstart=talk;rec.onspeechstart=talk;rec.onstart=()=>{SU.listening=true;SU.talk=false;SU.res='<span class="hint">Listening… say it in '+C.name+'</span>';suDraw();cap=setTimeout(finish,10000)};
+    if(SU.i!=idx)return;if(alts.length&&alts.some(a=>a.trim()))suShow(alts);else{SU.miss=(SU.miss||0)+1;const w=tlNoSt(suCur().ru),sh=supN(w).length<=3&&!/\s/.test(w.trim());SU.res=`<span class="hint">I didn’t hear anything${SU.err&&SU.err!=='no-speech'&&SU.err!=='aborted'?` (${esc(SU.err)})`:''}.${sh?` Short words are hard to catch – say it clearly 2–3 times: «${esc(w)}, ${esc(w)}».`:' Tap the mic and try again.'}</span>${SU.miss>=2?'<div class="row" style="justify-content:center;margin-top:6px"><button onclick="suSelf(100)">✔ I said it</button></div>':''}`;suDraw()}};
+  const talk=()=>{if(!SU||done)return;SU.talk=true};rec.onsoundstart=talk;rec.onspeechstart=talk;rec.onstart=()=>{SU.listening=true;SU.talk=false;SU.res='<span class="hint">Listening… say it in '+C.name+'</span>';suDraw();clearTimeout(cap);cap=setTimeout(finish,10000)};
   rec.onresult=e=>{if(done)return;let text='';for(let i=0;i<e.results.length;i++)text+=e.results[i][0].transcript+' ';text=text.trim();const last=e.results[e.results.length-1];alts=[text,...[...last].slice(1).map(a=>a.transcript)];
     talk();const r=document.getElementById('sures');if(r)r.innerHTML=`<span class="suheard">${esc(text)}</span>`;clearTimeout(quiet);quiet=setTimeout(finish,last.isFinal?300:1500)};
-  rec.onerror=e=>{if(e.error==='not-allowed'||e.error==='service-not-allowed'){done=true;SU.listening=false;SU.self=true;SU.note='The microphone is blocked here. Open the app in Safari or Chrome to get scored, or check yourself.';suDraw()}};
-  rec.onend=finish;rec.stopNow=finish;try{rec.start()}catch(e){SU.self=true;SU.note='Speech input isn’t available here. Check yourself.';suDraw()}}
+  rec.onerror=e=>{SU.err=e.error;if(e.error==='not-allowed'||e.error==='service-not-allowed'){done=true;clearTimeout(cap);SU.listening=false;SU.note='The microphone or speech recognition is turned off for this browser. iPhone: Settings → General → Keyboard → turn on Enable Dictation, and allow Speech Recognition for Safari. Or check yourself below.';SU.miss=2;SU.res='<div class="row" style="justify-content:center;margin-top:6px"><button onclick="suSelf(100)">✔ I said it</button></div>';suDraw()}};
+  /* ver_102: iPhone sometimes ends the mic at once right after a voice played – wait for the audio to free up and retry once */
+  let t0=0,tries=0;const go=()=>{t0=Date.now();try{me.start()}catch(e){SU.self=true;SU.note='Speech input isn’t available here. Check yourself.';suDraw()}};
+  rec.onend=()=>{if(!done&&!alts.length&&!SU.talk&&tries<1&&Date.now()-t0<2500&&SU.err!=='not-allowed'){tries++;SU.err='';setTimeout(()=>{if(!done&&SU&&SU.i==idx)go()},400);return}finish()};
+  rec.stopNow=finish;SU.err='';SU.listening=true;SU.res='<span class="hint">Getting the mic ready…</span>';suDraw();setTimeout(()=>{if(!done&&SU&&SU.i==idx)go()},speechSynthesis.speaking||speechSynthesis.pending?450:150)}
 function suShow(alts){if(!SU)return;const target=tlNoSt(suCur().ru),best=alts.filter(a=>a&&a.trim()).map(a=>({a,g:supGrade(target,a)})).sort((x,y)=>y.g.pct-x.g.pct)[0],{T,st,al,pct}=best.g;suRecord(pct);SU.rev=true;SU.miss=0;
   const cls=pct>=85?'':pct>=60?'mid':'low',fx=supFixes(al),msg=pct>=85?'':pct>=60?'Almost – fix the coloured sounds':'Listen once more, then try again';
   SU.res=`<div class="suheard">${T.map((w,k)=>supWordHtml(w,st[k],al[k])).join(' ')}</div><div class="row" style="justify-content:center;align-items:center;gap:8px"><span class="subadge ${cls}">${pct}%</span><span class="hint">heard: “${esc(best.a)}”</span></div>${fx.length?`<div class="sufix">${fx.map(f=>`<span>${f}</span>`).join('')}</div>`:''}${msg?`<span class="hint">${msg}</span>`:''}`;suDraw();if(pct>=85)sfx('ok');else sfx('no')}
@@ -3970,7 +3973,7 @@ function qView(head,c,listen,d){G.d=d;const f=d=='er'?'ru':'en',ans=c[f];
   const others=shuf([...new Set(S.cards.filter(x=>norm(x[f])!=norm(ans)).map(x=>x[f]))]).slice(0,3);
   const opts=shuf([ans,...others]);G.opts=opts;G.key=ans;
   const spk=`<div style="text-align:center"><button onclick="speak(G.c.ru)"><span class="ico">${SPK}</span> Listen</button></div>`;
-  const qh=listen?`<div class="big">🎧 ?</div><div class="sub">Listen and pick the correct meaning</div>${spk}`:d=='er'?`<div class="sub">Translate to ${C.name}:</div><div class="big" style="margin:10px 0">${esc(c.en)}</div>`:`<div class="sub">Translate to English:</div><div class="big" style="margin:10px 0">${esc(c.ru)}</div>${spk}`;
+  const qh=listen?`<div class="big">🎧 ?</div><div class="sub" style="text-align:left">Listen and pick the correct meaning</div>${spk}`:d=='er'?`<div class="sub">Translate to ${C.name}:</div><div class="big" style="margin:10px 0">${esc(c.en)}</div>`:`<div class="sub">Translate to English:</div><div class="big" style="margin:10px 0">${esc(c.ru)}</div>${spk}`;
   $.innerHTML=head+`<div class="card">${qh}<div style="margin-top:16px">${opts.map((o,i)=>`<button class="w"${d=='er'?' style="font-size:22px;font-weight:700"':''} onclick="pick(${i})">${esc(o)}</button>`).join('')}</div><div id="fb"></div></div>`;if(d=='re')speak(c.ru)}
 function learnEnd(){const w=G.words;
   $.innerHTML=`<h1>🌱 Nice work!</h1><div class="card"><div class="mu" style="margin-bottom:8px">You learned ${w.length} new word${w.length>1?'s':''} (${G.ok} with no mistakes):</div>${w.map(c=>`<div style="display:grid;grid-template-columns:56px 1fr;gap:14px;align-items:center;padding:8px 0;border-top:1px solid var(--bd)">${thumb(c,56)}<div style="text-align:left"><div style="font-size:22px;font-weight:700;line-height:1.25">${esc(c.ru)}</div><div class="mu" style="font-size:16px">${esc(c.en)}</div></div></div>`).join('')}</div><div class="card mu">They are now in your review schedule and will come back in your games.</div><button class="p w" style="text-align:center" onclick="learn()">Learn more new words</button><button class="w" style="text-align:center" onclick="home()">Home</button>`}
@@ -4022,7 +4025,7 @@ function result(ok){ // for quiz / listen / type
   const c=G.c,first=!G.retry.has(c.k);G.ans=true;
   if(G.mode=='learn'||G.mode=='jny'){if(!ok)G.E[c.k]=(G.E[c.k]||0)+1;if(G.mode=='jny')jRes(c,ok)}else{if(first)grade(c,ok?4:0);
   if(ok){if(first)G.ok++;G.done++;G.q.shift()}else{G.rt[c.k]=(G.rt[c.k]||0)+1;G.retry.add(c.k);G.q.shift();if(G.rt[c.k]<=1)G.q.push(c);else G.done++}}
-  document.getElementById('fb').innerHTML=`${G.mode=='type'?'':imgHtml(c,80)}<div class="fb ${ok?'ok':'no'}"${G.mode=='type'?' style="font-size:32px;font-weight:700"':''}>${G.mode=='type'?(ok?esc(c.ru):cmp(c.ru,G.typed||'')):`<div class="fbl">${esc(c.ru)} = ${esc(c.en)}</div>`}</div>${fbar(G.mode=='type'?'speak(G.c.ru)':'')}`;
+  document.getElementById('fb').innerHTML=`${G.mode=='type'?'':imgHtml(c,92)}<div class="fb ${ok?'ok':'no'}"${G.mode=='type'?' style="font-size:32px;font-weight:700"':''}>${G.mode=='type'?(ok?esc(c.ru):cmp(c.ru,G.typed||'')):`<div class="fbl">${esc(c.ru)} = ${esc(c.en)}</div>`}</div>${fbar(G.mode=='type'?'speak(G.c.ru)':'')}`;
   if(G.mode=='type'||G.d=='er')speak(c.ru)}
 function pick(i){if(G.ans)return;const ok=norm(G.opts[i])==norm(G.key);
   [...document.querySelectorAll('.w')].forEach((b,j)=>{b.disabled=true;if(norm(G.opts[j])==norm(G.key))b.classList.add('ok');else if(j==i)b.classList.add('no')});result(ok)}
@@ -4550,6 +4553,14 @@ table.eg-conj tr{cursor:pointer}
 .sbgo{display:flex;gap:10px;align-items:stretch;margin-top:12px}
 .sbgo>.spk{flex:none;margin:0;height:auto;min-height:0;align-self:stretch}
 .sbgo>#go{flex:1;margin:0;text-align:center}
+
+/* ver_102: Speak Up – picture +15%, result area never clips the letters */
+.suimg{height:127px}.suimg>*{max-height:127px}
+.sures{height:auto;min-height:150px;overflow:visible}
+.sures>*{flex:none}
+.suheard{line-height:1.25;padding:2px 0 4px}
+/* ver_102: "Unit … · Words …" label right-aligned above the progress bar */
+.qh>.mu{text-align:right}
 </style>
 <script>
 /* ===== ver_94: Spanish grammar (Nuevo Prisma A1, explanations in English) · ver_95: also on the Spanish Journey ===== */

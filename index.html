@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<link rel="manifest" href="manifest.webmanifest"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="manifest.webmanifest"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><link rel="apple-touch-icon" href="apple-touch-icon.png">
 <script>/* ver_81: tablet full-screen – on iPad (portrait or landscape) the page is scaled so the app fills the whole screen */
 (function(){var vp=document.querySelector('meta[name=viewport]');window.__vs=1;
 function t(){try{var a=Math.min(screen.width,screen.height),b=Math.max(screen.width,screen.height),de=document.documentElement;
@@ -18,7 +18,7 @@ t();addEventListener('orientationchange',function(){setTimeout(t,60);setTimeout(
 if(window.matchMedia)try{matchMedia('(orientation: portrait)').addEventListener('change',t)}catch(e){}})()</script>
 <meta name="theme-color" content="#f6f7fb" media="(prefers-color-scheme: light)"><meta name="theme-color" content="#171C25" media="(prefers-color-scheme: dark)">
 <script>(function(){function f(){try{var h=innerHeight;if(navigator.standalone===true){var p=innerHeight>=innerWidth,a=Math.max(screen.width,screen.height),b=Math.min(screen.width,screen.height),sh=(p?a:b)/(window.__vs||1);if(sh>h)h=sh}document.documentElement.style.setProperty('--fh',h+'px')}catch(e){}}f();addEventListener('resize',f);addEventListener('orientationchange',function(){setTimeout(f,150)});addEventListener('pageshow',f)})()</script>
-<title>Russian MemoRise App_ver_102</title>
+<title>Russian MemoRise App_ver_103</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lobster&display=swap&text=%D0%90%D0%91%D0%92%D0%93%D0%94%D0%95%D0%96%D0%97%D0%98%D0%99%D0%9A%D0%9B%D0%9C%D0%9D%D0%9E%D0%9F%D0%A0%D0%A1%D0%A2%D0%A3%D0%A4%D0%A5%D0%A6%D0%A7%D0%A8%D0%A9%D0%AA%D0%AB%D0%AC%D0%AD%D0%AE%D0%AF%D0%B0%D0%B1%D0%B2%D0%B3%D0%B4%D0%B5%D0%B6%D0%B7%D0%B8%D0%B9%D0%BA%D0%BB%D0%BC%D0%BD%D0%BE%D0%BF%D1%80%D1%81%D1%82%D1%83%D1%84%D1%85%D1%86%D1%87%D1%88%D1%89%D1%8A%D1%8B%D1%8C%D1%8D%D1%8E%D1%8F%D0%81%D1%91%CC%81"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800;900&display=swap">
 <style>
 :root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);--bg:#f6f7fb;--card:#fff;--tx:#1f2430;--mu:#6b7280;--pr:#1d6fd8;--ok:#2e9e5b;--bad:#d64545;--bd:#e3e6ee}
@@ -986,7 +986,7 @@ function mascG(x,y,w,h){const L=mscL(),ov=C.id=='vi'?.3:.06;let hh=h,ws=L.map(([
 function mascDeco(W,H){if(C.id!='vi')return'';const s=58;return`<image href="${picUri('vh3')}" x="${W*.05}" y="${H-s-8}" width="${s}" height="${s}"/><image href="${picUri('vh2')}" x="${W*.95-s}" y="${H-s-14}" width="${s}" height="${s}"/>`}
 </script>
 <script>
-const APP_VER='Russian MemoRise App_ver_102';
+const APP_VER='Russian MemoRise App_ver_103';
 const sv=(b,v='0 0 48 48')=>`<svg xmlns="http://www.w3.org/2000/svg" viewBox="${v}" aria-hidden="true">${b}</svg>`;
 const IC={
 learn:sv('<rect x="14" y="30" width="20" height="14" rx="4" fill="#FF8A5B"/><rect x="12" y="27" width="24" height="6" rx="3" fill="#FF6B3D"/><path d="M24 27V17" stroke="#2FBF71" stroke-width="3" stroke-linecap="round"/><path d="M24 20C24 12 17 10 11 12c0 7 5 10 13 8z" fill="#6EE7B7"/><path d="M24 17c0-7 6-9 12-7 0 7-5 9-12 7z" fill="#2FBF71"/>'),
@@ -1909,7 +1909,9 @@ const NI={journey:NS('<circle cx="12" cy="36" r="5"/><circle cx="36" cy="12" r="
 let TAB='home';
 
 new MutationObserver(()=>{if(!$.querySelector(':scope>.nav'))$.classList.remove('split');document.documentElement.classList.toggle('bgtab',!!$.querySelector(':scope>.nav')&&['home','games','settings'].includes(TAB))}).observe($,{childList:true});
-function go(t){TAB=t;home();$.scrollTop=0;if(t=='journey')setTimeout(()=>{const e=document.querySelector('.jnd.now');if(e)e.scrollIntoView({block:'center'})},40)}
+function go(t){TAB=t;home();$.scrollTop=0;if(t=='journey')setTimeout(jFocus,40)}
+/* ver_103: open Journey with the next lesson high on the screen, just under the flag chip */
+function jFocus(){const e=$.querySelector('.jnd.now');if(!e)return;const ch=document.querySelector('#jchip'),top=ch&&ch.style.display!='none'?ch.getBoundingClientRect().bottom:60,r=e.getBoundingClientRect(),R=$.getBoundingClientRect(),b=$.querySelector('.jnd.now~.jbear')||$.querySelector('.jbear'),bt=b?Math.min(r.top,b.getBoundingClientRect().top):r.top;$.scrollTop=Math.max(0,$.scrollTop+bt-R.top-(top-R.top)-18)}
 const navHtml=()=>`<nav class="nav">${[['journey','Journey'],['home','Home'],['transly','Transly'],['games','GAMES'],['settings','Setting']].map(([k,l])=>`<button class="${TAB==k?'on':''}" onclick="go('${k}')">${NI[k]}${l}</button>`).join('')}</nav>`;
 /* ver_97: old photo mascots removed */
 function jTitle(nd){return nd.t=='g'?`Unit ${nd.n} · Words ${nd.i+1}`:nd.t=='r'?`Grammar ${nd.es?nd.es.id:UNITS[nd.u].n}`:`Unit ${nd.n} test`}
@@ -2003,13 +2005,14 @@ function next(){
     const n=G.q.length<=6?G.q.length:(G.q.length-6==1?5:6);G.B=G.q.slice(0,n);G.L=shuf(G.B.map((_,i)=>i));G.R=shuf(G.B.map((_,i)=>i));G.sel=null;G.miss=new Set();G.m=0;G.lock=false;
     let t=G.sub;if(!t||t=='mix'){const o=['am'];if(G.B.every(c=>c.img))o.push('wi');/* ver_99: word ↔ English text matching removed */t=o[Math.floor(Math.random()*o.length)]}
     G.t=t;const hint={wm:`Tap a ${C.name} word, then tap its English meaning`,wi:`Tap a ${C.name} word, then tap its matching image`,am:'Listen to the audio, then tap the English meaning'}[t];
-    $.innerHTML=head+`<div class="sub" style="margin-bottom:10px">${hint}</div>${mgGrid(G.L.map((i,k)=>`<button id="l${i}" onclick="mt('l',${i})">${t=='am'?`<span class="ico">${SPK}</span> ${k+1}`:esc(G.B[i].ru)}</button>`),G.R.map(i=>`<button id="r${i}" onclick="mt('r',${i})">${t=='wi'?(G.B.length>=5?imgRaw:imgHtml)(G.B[i],56)+'<div style="font-size:13px;line-height:1.2;margin-top:3px">'+esc(G.B[i].en)+'</div>':esc(G.B[i].en)}</button>`),t=='wi'?100:66)}`}
+    $.innerHTML=head+`${G.B.length>=6?'':`<div class="sub" style="margin-bottom:10px">${hint}</div>`}${mgGrid(G.L.map((i,k)=>`<button id="l${i}" onclick="mt('l',${i})">${t=='am'?`<span class="ico">${SPK}</span> ${k+1}`:esc(G.B[i].ru)}</button>`),G.R.map(i=>`<button id="r${i}" onclick="mt('r',${i})">${t=='wi'?(G.B.length>=5?imgRaw:imgHtml)(G.B[i],56)+'<div style="font-size:13px;line-height:1.2;margin-top:3px">'+esc(G.B[i].en)+'</div>':esc(G.B[i].en)}</button>`),t=='wi'?100:66)}`}
+  else if((G.mode=='choice'||G.mode=='listen')&&G.mode=='choice'&&G.sub!='er'&&Math.random()<.5&&picOK(c))picView(head,c); /* ver_103: picture choice mixed into Quiz */
   else if(G.mode=='choice'||G.mode=='listen'){
     const d=G.mode=='choice'?(G.sub=='er'?'er':G.sub=='mix'?(Math.random()<.5?'er':'re'):'re'):'re';G.d=d;
     const f=d=='er'?'ru':'en',ans=c[f];
     const others=shuf([...new Set(S.cards.filter(x=>norm(x[f])!=norm(ans)).map(x=>x[f]))]).slice(0,3);
     const opts=shuf([ans,...others]);G.opts=opts;G.key=ans;
-    const qh=G.mode=='listen'?`<div class="big">🎧 ?</div><div class="sub" style="text-align:left">Listen and pick the correct meaning</div>${spk}`
+    const qh=G.mode=='listen'?`<div class="sub" style="text-align:left">Listen and pick the correct meaning</div><button class="lsnb" aria-label="Listen" onclick="speak(G.c.ru)"><span class="big">🎧 ?</span></button>`
       :d=='er'?`<div class="sub">Translate to ${C.name}:</div><div class="big" style="margin:10px 0">${esc(c.en)}</div>`
       :`<div class="sub">Translate to English:</div><div class="big" style="margin:10px 0">${esc(c.ru)}</div>${spk}`;
     $.innerHTML=head+`<div class="card">${qh}<div style="margin-top:16px">${opts.map((o,i)=>`<button class="w"${d=='er'?' style="font-size:22px;font-weight:700"':''} onclick="pick(${i})">${esc(o)}</button>`).join('')}</div><div id="fb"></div></div>`;if(d=='re')speak(c.ru)}
@@ -2074,7 +2077,7 @@ function tpView(head,c){G.c=c;G.ans=false;
   ${C.kb=='device'?`<div id="tk" class="tkd"><input id="tki" type="text" lang="${C.wk}" autocomplete="off" autocorrect="off" autocapitalize="none" spellcheck="false" enterkeyhint="done" aria-label="Type the missing letters" oninput="tkIn(this)" onkeydown="if(event.key=='Enter'){event.preventDefault();tpCheck()}"></div>`:`<div id="tk" class="kb" style="margin-top:12px">${KB('tk',false)}</div>`}<div id="fb"></div>
   <button class="p w" id="go" style="text-align:center;margin-top:10px" onclick="tpCheck()">Check</button></div>`;tpRender();const ti=document.getElementById('tki');if(ti)try{ti.focus({preventScroll:true})}catch(e){}}
 function tpRender(){const T=G.T,cur=T.blanks.find(i=>T.vals[i]===undefined);
-  document.getElementById('tw').innerHTML=T.ch.map((x,i)=>/\s/.test(x)?'<span style="display:inline-block;width:.6em"></span>':T.blanks.includes(i)?`<span onclick="tpClear(${i})" style="display:inline-block;min-width:1.05em;margin:0 2px;border-bottom:3px solid ${i===cur?'var(--pr)':'var(--bd)'}">${T.vals[i]?esc(T.vals[i]):'&nbsp;'}</span>`:`<span style="display:inline-block;margin:0 2px;color:var(--mu)">${esc(x)}</span>`).join('')}
+  document.getElementById('tw').innerHTML='<span class="tyw">'+T.ch.map((x,i)=>/\s/.test(x)?'</span><span style="display:inline-block;width:.6em"></span><span class="tyw">':T.blanks.includes(i)?`<span onclick="tpClear(${i})" style="display:inline-block;min-width:1.05em;margin:0 2px;border-bottom:3px solid ${i===cur?'var(--pr)':'var(--bd)'}">${T.vals[i]?esc(T.vals[i]):'&nbsp;'}</span>`:`<span style="display:inline-block;margin:0 2px;color:var(--mu)">${esc(x)}</span>`).join('')+'</span>'} /* ver_103: break only between words */
 function tk(l){if(G.ans)return;const T=G.T;
   if(l===''){const f=T.blanks.filter(i=>T.vals[i]!==undefined);if(f.length)delete T.vals[f[f.length-1]]}
   else{const cur=T.blanks.find(i=>T.vals[i]===undefined);if(cur!==undefined)T.vals[cur]=l}
@@ -2188,9 +2191,9 @@ function lcsMark(a,b){const n=a.length,m=b.length,d=Array.from({length:n+1},()=>
   for(let i=n-1;i>=0;i--)for(let j=m-1;j>=0;j--)d[i][j]=a[i].t==b[j].t?d[i+1][j+1]+1:Math.max(d[i+1][j],d[i][j+1]);
   const ma=new Set(),mb=new Set();let i=0,j=0;while(i<n&&j<m){if(a[i].t==b[j].t){ma.add(a[i].i);mb.add(b[j].i);i++;j++}else if(d[i+1][j]>=d[i][j+1])i++;else j++}return{ma,mb}}
 function sbCheck(){if(G.ans)return;const B=G.B,s=G.c;if(!B.placed.length)return;G.ans=true;
-  const got=B.placed.map(id=>B.tiles.find(t=>t.id==id).t),en=B.dir=='re',gn=normSeq(got,en),tn=normSeq(B.target,en),ok=gn.length==tn.length&&gn.every((x,i)=>x.t==tn[i].t),{ma,mb}=lcsMark(gn,tn),miss=tn.filter(x=>!mb.has(x.i)).map(x=>B.target[x.i]);sRec(ok);
+  const got=B.placed.map(id=>B.tiles.find(t=>t.id==id).t),en=B.dir=='re',gn=normSeq(got,en),tn=normSeq(B.target,en),ok0=gn.length==tn.length&&gn.every((x,i)=>x.t==tn[i].t),{ma,mb}=lcsMark(gn,tn),miss=tn.filter(x=>!mb.has(x.i)).map(x=>B.target[x.i]),/* ver_103: into English, a missing a/an/the still counts as right – it stays green but is pointed out */AR=w=>/^(a|an|the)$/.test(nk(w)),pa=got.filter(AR).map(nk),am=B.target.filter(AR).map(nk).filter(x=>{const j=pa.indexOf(x);if(j>=0){pa.splice(j,1);return false}return true}),soft=ok0&&en&&am.length>0,ok=ok0;sRec(ok);
   document.getElementById('sbk').style.display='none';{const g=document.getElementById('go');(g.closest('.sbgo')||g).style.display='none'}
-  document.getElementById('fb').innerHTML=`<div class="fb ${ok?'ok':'no'}" style="font-size:20px;line-height:1.6;font-weight:700">${ok?'':`${miss.some(w=>!gn.some(x=>x.t==nk(w)))?`<div class="mu" style="font-weight:400;margin-top:4px">Missing: <b style="color:var(--bad)">${esc(miss.filter(w=>!gn.some(x=>x.t==nk(w))).join(', '))}</b></div>`:''}${miss.some(w=>gn.some(x=>x.t==nk(w)))?`<div class="mu" style="font-weight:400;margin-top:4px">Wrong position: <b style="color:var(--bad)">${esc(miss.filter(w=>gn.some(x=>x.t==nk(w))).join(', '))}</b></div>`:''}<div class="mu" style="font-weight:400;margin-top:6px">Correct:</div>`}${esc(B.dir=='re'?s.en:s.ru)}</div>${s.exp?miss.map(w=>s.exp[nk(w)]).filter(Boolean).map(t=>`<div style="margin:6px 0;text-align:left;font-size:16px">💡 ${esc(t)}</div>`).join(''):''}${s.note?`<div class="mu" style="margin:6px 0">${esc(s.note)}</div>`:''}${fbar('speak(G.c.ru)')}`;
+  document.getElementById('fb').innerHTML=`<div class="fb ${ok?'ok':'no'}" style="font-size:20px;line-height:1.6;font-weight:700">${soft?`<div class="mu" style="font-weight:400;margin-top:4px">Missing: <b>${esc([...new Set(am)].join(', '))}</b> – still correct ✔</div><div class="mu" style="font-weight:400;margin-top:6px">Correct:</div>`:ok?'':`${miss.some(w=>!gn.some(x=>x.t==nk(w)))?`<div class="mu" style="font-weight:400;margin-top:4px">Missing: <b style="color:var(--bad)">${esc(miss.filter(w=>!gn.some(x=>x.t==nk(w))).join(', '))}</b></div>`:''}${miss.some(w=>gn.some(x=>x.t==nk(w)))?`<div class="mu" style="font-weight:400;margin-top:4px">Wrong position: <b style="color:var(--bad)">${esc(miss.filter(w=>gn.some(x=>x.t==nk(w))).join(', '))}</b></div>`:''}<div class="mu" style="font-weight:400;margin-top:6px">Correct:</div>`}${esc(B.dir=='re'?s.en:s.ru)}</div>${s.exp?miss.map(w=>s.exp[nk(w)]).filter(Boolean).map(t=>`<div style="margin:6px 0;text-align:left;font-size:16px">💡 ${esc(t)}</div>`).join(''):''}${s.note?`<div class="mu" style="margin:6px 0">${esc(s.note)}</div>`:''}${fbar('speak(G.c.ru)')}`;
   if(B.dir=='er')speak(s.ru)}
 /* Fill the Blank */
 function sfNext(){if(!G.q.length)return sEnd();sfView(G.q[0],sHead())}
@@ -2237,8 +2240,7 @@ const THINGS=GNOUN.filter(x=>x.ru!='дочь'&&x.ru!='музей');
 /* ---- shared lesson helpers ---- */
 function ghTap(e,el){if(e.target.closest('button'))return;const o=el.classList.contains('open');document.querySelectorAll('.ghc.open').forEach(x=>x.classList.remove('open'));if(!o){el.classList.add('open');setTimeout(()=>{const r=el.getBoundingClientRect();if(r.bottom>innerHeight-20)el.scrollIntoView({block:'nearest',behavior:'smooth'})},30)}}
 function gramLesson(u,st){VIEW='menu';const L=UNITS[u].L,last=st==L.length-1;
-  $.innerHTML=`<div class="gst"><div class="row" style="justify-content:space-between;align-items:center;flex:none"><button onclick="${JG?'home()':'gramHub()'}">✕</button><span class="mu">Unit ${UNITS[u].n} · ${st+1}/${L.length}</span></div>
-  <div class="gsbars" aria-hidden="true">${L.map((_,k)=>`<i class="${k<st?'on':k==st?'on cur':''}"></i>`).join('')}</div>
+  $.innerHTML=`<div class="gst"><div class="row gsh"><button onclick="${JG?'home()':'gramHub()'}">✕</button><span class="mu">Unit ${UNITS[u].n} · ${st+1}/${L.length}</span><div class="gsbars" aria-hidden="true">${L.map((_,k)=>`<i class="${k<st?'on':k==st?'on cur':''}"></i>`).join('')}</div></div>
   <div class="gsc" id="gsc" data-u="${u}" data-st="${st}"><div class="card">${L[st]()}</div></div>
   <div class="gsb"><button onclick="gramLesson(${u},${st-1})"${st>0?'':' disabled'}>← Back</button>${last?`<button class="p" onclick="gramPractice(${u})">🎯 Start practice</button>`:`<button class="p" onclick="gramLesson(${u},${st+1})">Next →</button>`}</div></div>`}
 /* tap the right half of a grammar page → next page, the left half → previous page (like stories) */
@@ -2311,8 +2313,7 @@ function bkPages(it){const ord=bkOrder(it),groups=[];
 let BKP=null;
 function bkLesson(n,st,mode){const f=bkFind(n);if(!f)return gramHub();const it=f.it;VIEW='menu';JG=false;mode=mode||'';const gl=!!GL2[n];if(!BKP||BKP.n!=n||BKP.m!=mode)BKP={n,m:mode,P:gl?glPages(n):bkPages(it)};const P=BKP.P,L=P.length;st=Math.max(0,Math.min(L-1,st));const last=st==L-1,pr=bkHasPr(it);
   const pg=P[st],html=typeof pg=='function'?pg():pg;
-  $.innerHTML=`<div class="gst" style="--uh:${bkHue(f.U.u)}"><div class="row" style="justify-content:space-between;align-items:center;flex:none"><button onclick="gramHub()">✕</button><span class="mu">Grammar ${it.n} · ${st+1}/${L}</span></div>
-  <div class="gsbars" aria-hidden="true">${P.map((_,k)=>`<i class="${k<=st?'on':''}${k==st?' cur':''}"></i>`).join('')}</div>
+  $.innerHTML=`<div class="gst" style="--uh:${bkHue(f.U.u)}"><div class="row gsh"><button onclick="gramHub()">✕</button><span class="mu">Grammar ${it.n} · ${st+1}/${L}</span><div class="gsbars" aria-hidden="true">${P.map((_,k)=>`<i class="${k<=st?'on':''}${k==st?' cur':''}"></i>`).join('')}</div></div>
   <div class="gsc" id="gsc" data-bk="${it.n}" data-mode="${mode}" data-st="${st}" data-n="${L}"><div class="card gkc">${html}</div></div>
   <div class="gsb"><button onclick="bkLesson('${it.n}',${st-1},'${mode}')"${st>0?'':' disabled'}>← Back</button>${last?(pr?`<button class="p" onclick="bkPractice('${it.n}')">🎯 Start practice</button>`:`<button class="p" onclick="gramHub()">Done ✓</button>`):`<button class="p" onclick="bkLesson('${it.n}',${st+1},'${mode}')">Next →</button>`}</div></div>`}
 /* practice: built from the examples, the highlighted endings in the tables and the quick check */
@@ -3909,8 +3910,8 @@ function pzNext(){if(!G.q.length)return end();const c=G.q[0];G.c=c;G.ans=false;G
   document.getElementById('pz').onpointerdown=e=>{const t=e.target.closest('.pzt');if(t&&!G.ans)pzDrag(e,t)};pzRender()}
 const tileHtml=(t,z,f)=>`<div class="pzt" data-t="${t.id}" style="width:${z}px;height:${z}px;font-size:${f}px">${t.ch}</div>`;
 function pzRender(cls,ans){const P=G.P,n=P.chars.length,z0=n>10?36:n>7?42:48,z=Math.round(z0*.85),f=Math.round(z0*.55),gp=4;let k=0,sh='';
-  [...P.word].forEach(ch=>{if(/\s/.test(ch))sh+='<span style="width:10px"></span>';else{const id=P.slots[k],t=id==null?null:P.tiles.find(x=>x.id==id);
-    sh+=`<div class="slot ${cls||''}" data-s="${k}" style="width:${z}px;height:${z}px">${t?tileHtml(t,z-4,f):''}</div>`;k++}});
+  sh='<span class="pzw" style="gap:'+gp+'px">';[...P.word].forEach(ch=>{if(/\s/.test(ch))sh+='</span><span style="width:10px"></span><span class="pzw" style="gap:'+gp+'px">';else{const id=P.slots[k],t=id==null?null:P.tiles.find(x=>x.id==id);
+    sh+=`<div class="slot ${cls||''}" data-s="${k}" style="width:${z}px;height:${z}px">${t?tileHtml(t,z-4,f):''}</div>`;k++}});sh+='</span>'; /* ver_103: a line only breaks between words */
   const th=2*z+gp+16;
   document.getElementById('pz').innerHTML=`<div class="slots" style="gap:${gp}px">${sh}</div><div class="tray${ans?' ans '+(ans=='ok'?'ok':''):''}" style="gap:${gp}px;height:${th}px;min-height:${th}px">${ans?`<div class="pzans">${esc(G.c.ru)}</div>`:P.tiles.map(t=>P.slots.includes(t.id)?`<div class="tph" style="width:${z}px;height:${z}px"></div>`:tileHtml(t,z,f)).join('')}</div>`}
 function pzPlace(id,s){const P=G.P,from=P.slots.indexOf(id),occ=P.slots[s];if(occ===id)return pzRender();
@@ -3968,12 +3969,20 @@ function finalView(head,B){G.B=B;G.L=shuf(B.map((_,i)=>i));G.R=shuf(B.map((_,i)=
 function matchView(head,B){G.B=B;G.L=shuf(B.map((_,i)=>i));G.R=shuf(B.map((_,i)=>i));G.sel=null;G.miss=new Set();G.m=0;G.lock=false;
   const o=['am'];if(B.every(c=>c.img))o.push('wi');const t=o[Math.floor(Math.random()*o.length)];G.t=t;
   const hint={wm:`Tap a ${C.name} word, then tap its English meaning`,wi:`Tap a ${C.name} word, then tap its matching image`,am:'Listen to the audio, then tap the English meaning'}[t];
-  $.innerHTML=head+`<div class="sub" style="margin-bottom:10px">${hint}</div>${mgGrid(G.L.map((i,k)=>`<button id="l${i}" onclick="mt('l',${i})">${t=='am'?`<span class="ico">${SPK}</span> ${k+1}`:esc(B[i].ru)}</button>`),G.R.map(i=>`<button id="r${i}" onclick="mt('r',${i})">${t=='wi'?(B.length>=5?imgRaw:imgHtml)(B[i],56)+'<div style="font-size:13px;line-height:1.2;margin-top:3px">'+esc(B[i].en)+'</div>':esc(B[i].en)}</button>`),t=='wi'?100:66)}`}
-function qView(head,c,listen,d){G.d=d;const f=d=='er'?'ru':'en',ans=c[f];
+  $.innerHTML=head+`${B.length>=6?'':`<div class="sub" style="margin-bottom:10px">${hint}</div>`}${mgGrid(G.L.map((i,k)=>`<button id="l${i}" onclick="mt('l',${i})">${t=='am'?`<span class="ico">${SPK}</span> ${k+1}`:esc(B[i].ru)}</button>`),G.R.map(i=>`<button id="r${i}" onclick="mt('r',${i})">${t=='wi'?(B.length>=5?imgRaw:imgHtml)(B[i],56)+'<div style="font-size:13px;line-height:1.2;margin-top:3px">'+esc(B[i].en)+'</div>':esc(B[i].en)}</button>`),t=='wi'?100:66)}`}
+/* ===== ver_103: Select the correct image – word (+ audio) → 2×2 pictures with their English meaning ===== */
+function picOK(c){return!!(c&&c.img)&&S.cards.filter(x=>x.img&&x!==c&&norm(x.en)!=norm(c.en)&&norm(x.ru)!=norm(c.ru)).length>=3}
+function picView(head,c){G.c=c;G.d='pic';G.ans=false;const seen=new Set([norm(c.en)]),oth=[];
+  for(const x of shuf(S.cards.filter(x=>x.img&&x!==c&&norm(x.ru)!=norm(c.ru)))){const k=norm(x.en);if(seen.has(k))continue;seen.add(k);oth.push(x);if(oth.length==3)break}
+  const O=shuf([c,...oth]);G.opts=O.map(x=>x.en);G.key=c.en;
+  $.innerHTML=head+`<div class="card"><div class="sub" style="text-align:left">Select the correct image</div><div class="pich"><button class="spk" aria-label="Listen" onclick="speak(G.c.ru)"><span class="ico">${SPK}</span></button><span class="pw">${esc(c.ru)}</span></div>
+  <div class="pgrid">${O.map((o,i)=>`<button class="w pgc" onclick="pick(${i})">${imgRaw(o,96)}<span>${esc(o.en)}</span></button>`).join('')}</div><div id="fb"></div></div>`;speak(c.ru)}
+function qView(head,c,listen,d){if(!listen&&d=='re'&&picOK(c))return picView(head,c); /* ver_103: words with a picture → choose the right picture */
+  G.d=d;const f=d=='er'?'ru':'en',ans=c[f];
   const others=shuf([...new Set(S.cards.filter(x=>norm(x[f])!=norm(ans)).map(x=>x[f]))]).slice(0,3);
   const opts=shuf([ans,...others]);G.opts=opts;G.key=ans;
   const spk=`<div style="text-align:center"><button onclick="speak(G.c.ru)"><span class="ico">${SPK}</span> Listen</button></div>`;
-  const qh=listen?`<div class="big">🎧 ?</div><div class="sub" style="text-align:left">Listen and pick the correct meaning</div>${spk}`:d=='er'?`<div class="sub">Translate to ${C.name}:</div><div class="big" style="margin:10px 0">${esc(c.en)}</div>`:`<div class="sub">Translate to English:</div><div class="big" style="margin:10px 0">${esc(c.ru)}</div>${spk}`;
+  const qh=listen?`<div class="sub" style="text-align:left">Listen and pick the correct meaning</div><button class="lsnb" aria-label="Listen" onclick="speak(G.c.ru)"><span class="big">🎧 ?</span></button>`:d=='er'?`<div class="sub">Translate to ${C.name}:</div><div class="big" style="margin:10px 0">${esc(c.en)}</div>`:`<div class="sub">Translate to English:</div><div class="big" style="margin:10px 0">${esc(c.ru)}</div>${spk}`;
   $.innerHTML=head+`<div class="card">${qh}<div style="margin-top:16px">${opts.map((o,i)=>`<button class="w"${d=='er'?' style="font-size:22px;font-weight:700"':''} onclick="pick(${i})">${esc(o)}</button>`).join('')}</div><div id="fb"></div></div>`;if(d=='re')speak(c.ru)}
 function learnEnd(){const w=G.words;
   $.innerHTML=`<h1>🌱 Nice work!</h1><div class="card"><div class="mu" style="margin-bottom:8px">You learned ${w.length} new word${w.length>1?'s':''} (${G.ok} with no mistakes):</div>${w.map(c=>`<div style="display:grid;grid-template-columns:56px 1fr;gap:14px;align-items:center;padding:8px 0;border-top:1px solid var(--bd)">${thumb(c,56)}<div style="text-align:left"><div style="font-size:22px;font-weight:700;line-height:1.25">${esc(c.ru)}</div><div class="mu" style="font-size:16px">${esc(c.en)}</div></div></div>`).join('')}</div><div class="card mu">They are now in your review schedule and will come back in your games.</div><button class="p w" style="text-align:center" onclick="learn()">Learn more new words</button><button class="w" style="text-align:center" onclick="home()">Home</button>`}
@@ -3986,8 +3995,8 @@ const KB=(f='ty',sp=true)=>ROWS.map(r=>`<div class="kr">${[...r].map(l=>`<button
 function ty(l){const i=document.getElementById('i');if(G.ans)return;i.value=l?i.value+l:i.value.slice(0,-1);i.focus();slots()}
 function slots(){const i=document.getElementById('i'),el=document.getElementById('sl');if(!i||!el)return;
   const a=G.c.ru,t=i.value,n=Math.max(a.length,t.length),gap='<span style="display:inline-block;width:.6em"></span>';let h='';
-  for(let k=0;k<n;k++){const ch=t[k];h+=ch!==undefined?(ch==' '?gap:`<span>${esc(ch)}</span>`):(a[k]==' '?gap:'<span style="color:var(--mu)">_</span>')}
-  el.innerHTML=h}
+  h='<span class="tyw">';for(let k=0;k<n;k++){const ch=t[k];h+=ch!==undefined?(ch==' '?'</span>'+gap+'<span class="tyw">':`<span>${esc(ch)}</span>`):(a[k]==' '?'</span>'+gap+'<span class="tyw">':'<span style="color:var(--mu)">_</span>')}
+  el.innerHTML=h+'</span>'} /* ver_103: a line only breaks between words */
 const cl=s=>String(s).normalize('NFC').replace(/\u0301/g,'').toLowerCase().replace(/[.,!?;:]/g,'').replace(/\s+/g,' ').trim(),ky=ch=>ch==null?ch:ch.replace('ё','е');
 function cmp(ans,typ){const a=[...cl(ans)],t=[...cl(typ)],n=a.length,m=t.length,sc=(i,j)=>ky(a[i-1])==ky(t[j-1])?0:1;
   const d=Array.from({length:n+1},(_,i)=>Array(m+1).fill(0));for(let i=0;i<=n;i++)d[i][0]=i;for(let j=0;j<=m;j++)d[0][j]=j;
@@ -4025,7 +4034,7 @@ function result(ok){ // for quiz / listen / type
   const c=G.c,first=!G.retry.has(c.k);G.ans=true;
   if(G.mode=='learn'||G.mode=='jny'){if(!ok)G.E[c.k]=(G.E[c.k]||0)+1;if(G.mode=='jny')jRes(c,ok)}else{if(first)grade(c,ok?4:0);
   if(ok){if(first)G.ok++;G.done++;G.q.shift()}else{G.rt[c.k]=(G.rt[c.k]||0)+1;G.retry.add(c.k);G.q.shift();if(G.rt[c.k]<=1)G.q.push(c);else G.done++}}
-  document.getElementById('fb').innerHTML=`${G.mode=='type'?'':imgHtml(c,92)}<div class="fb ${ok?'ok':'no'}"${G.mode=='type'?' style="font-size:32px;font-weight:700"':''}>${G.mode=='type'?(ok?esc(c.ru):cmp(c.ru,G.typed||'')):`<div class="fbl">${esc(c.ru)} = ${esc(c.en)}</div>`}</div>${fbar(G.mode=='type'?'speak(G.c.ru)':'')}`;
+  document.getElementById('fb').innerHTML=`${G.mode=='type'||G.d=='pic'?'':imgHtml(c,92)}<div class="fb ${ok?'ok':'no'}"${G.mode=='type'?' style="font-size:32px;font-weight:700"':''}>${G.mode=='type'?(ok?esc(c.ru):cmp(c.ru,G.typed||'')):`<div class="fbl">${esc(c.ru)} = ${esc(c.en)}</div>`}</div>${fbar(G.mode=='type'?'speak(G.c.ru)':'')}`;
   if(G.mode=='type'||G.d=='er')speak(c.ru)}
 function pick(i){if(G.ans)return;const ok=norm(G.opts[i])==norm(G.key);
   [...document.querySelectorAll('.w')].forEach((b,j)=>{b.disabled=true;if(norm(G.opts[j])==norm(G.key))b.classList.add('ok');else if(j==i)b.classList.add('no')});result(ok)}
@@ -4038,7 +4047,8 @@ function end(){const s=stats();
 let AC=null,lastKey='',lastT=0;const sfxOn=()=>lsGet('ruSfx')!=='0';
 function tone(f,t0,d,type,g){const c=AC,t=c.currentTime+t0,o=c.createOscillator(),v=c.createGain();o.type=type;o.frequency.value=f;v.gain.setValueAtTime(.0001,t);v.gain.exponentialRampToValueAtTime(g,t+.012);v.gain.exponentialRampToValueAtTime(.0001,t+d);o.connect(v);v.connect(c.destination);o.start(t);o.stop(t+d+.03)}
 function sfx(k){if(!sfxOn())return;try{AC=AC||new(window.AudioContext||window.webkitAudioContext)();if(AC.state=='suspended')AC.resume();
-  if(k=='ok'){tone(660,0,.13,'triangle',.07);tone(990,.1,.2,'triangle',.07)}else if(k=='no'){tone(240,0,.18,'sine',.07);tone(190,.12,.24,'sine',.06)}
+  if(k=='ok'){tone(880,0,.11,'sine',.075);tone(1760,0,.08,'sine',.015);tone(1318.5,.09,.32,'sine',.075);tone(2637,.09,.16,'sine',.015)} /* ver_103: bright rising "ding-ding" */
+  else if(k=='no'){tone(207.7,0,.17,'square',.03);tone(155.6,.15,.3,'square',.032)} /* ver_103: low buzzy "uh-oh" */
   else if(k=='win'){[523,659,784,1047].forEach((f,i)=>tone(f,i*.11,.2,'triangle',.07))}else if(k=='tap')tone(560,0,.05,'sine',.03)}catch(e){}}
 document.addEventListener('click',e=>{if(e.target.closest&&e.target.closest('button'))sfx('tap')},true);
 function decorate(){
@@ -4124,7 +4134,7 @@ const MX_BEAR=`      <ellipse class="mx-shadow" cx="145" cy="304" rx="54" ry="7"
         <text x="303" y="112.5" text-anchor="middle" font-family="Nunito,system-ui,sans-serif" font-weight="700" font-size="8.5" fill="#5B6B8C">Try again!</text>
       </g>`;
 function mxScene(a,sm,tx){const L=mscL(),k0=(SCN[C.id]||SCN.ru)[a],kk=(Array.isArray(k0)?k0[Math.random()*k0.length|0]:k0)||L[0][0],RG=RIG[kk],ar=RAR[kk]||1,T=tx||(MXT[C.id]||MXT.ru)[a]||['',''],mh=226,mw=mh*ar,bw=Math.min(296,Math.max(...T.map(t=>t.length))*8.6+34);
-  return`<div class="mas mfxs${sm?' sm':''}" onclick="mxPlay(this.querySelector('svg'),'${a}',1)"><svg class="mfx" data-a="${a}" viewBox="0 0 300 300" role="img" aria-label="${esc(T[1]||'')}">
+  return`<div class="mas mfxs${sm?' sm':''}" onclick="mxPlay(this.querySelector('svg'),'${a}',1)"><svg class="mfx" data-a="${a}" data-k="${kk}" viewBox="0 0 300 300" role="img" aria-label="${esc(T[1]||'')}">
   <g class="mx2b"><rect x="${(150-bw/2).toFixed(1)}" y="4" width="${bw.toFixed(1)}" height="52" rx="16" fill="#fff"/><path d="M142,55 L150,68 L160,55Z" fill="#fff"/><text x="150" y="26" text-anchor="middle" font-family="Nunito,sans-serif" font-size="16" font-weight="900" fill="#E8343D">${esc(T[0])}</text><text x="150" y="46" text-anchor="middle" font-family="Nunito,sans-serif" font-size="13.5" font-weight="800" fill="#238CF4">${esc(T[1])}</text></g>
   ${a=='keep'?'<g class="mx2c"><rect x="214" y="250" width="84" height="24" rx="12" fill="#2BB57F"/><text x="256" y="266" text-anchor="middle" font-family="Nunito,sans-serif" font-size="11" font-weight="900" fill="#fff">✓ Progress saved</text></g>':''}
   ${a=='cheer'?'<g class="mx2n" fill="#FFC94A"><text x="40" y="130" font-size="26">♪</text><text x="252" y="112" font-size="22">♫</text><text x="62" y="210" font-size="18">✦</text><text x="238" y="196" font-size="20">✦</text></g>':''}
@@ -4207,9 +4217,81 @@ function mxScene(a,sm,tx){const L=mscL(),k0=(SCN[C.id]||SCN.ru)[a],kk=(Array.isA
       [[N.E4,.12],[N.A4,.12],[N.Cs5,.12],[N.E5,.62]].forEach(([f,d],i)=>bayan(T(1.78+i*.13),f,d*k,.145,.15));
       bayan(T(2.17),N.A3,.62*k,.085,-.2);bayan(T(2.17),N.Cs4,.62*k,.068,-.1);bayan(T(2.17),N.E4,.62*k,.060,0)}
   };
-  window.mxSnd=a=>{try{SFX[a](1)}catch(e){}};
+  /* ===== ver_103: country music for each course's mascots ===== */
+  function nylon(t,f,g,pan){const s=AC.createBufferSource();s.buffer=pluckBuf(f);
+    const lp=AC.createBiquadFilter();lp.type='lowpass';lp.frequency.value=2600;
+    const body=AC.createBiquadFilter();body.type='peaking';body.frequency.value=210;body.Q.value=1;body.gain.value=5;   // warm wooden guitar body
+    const v=AC.createGain();v.gain.setValueAtTime(g,t);v.gain.exponentialRampToValueAtTime(.0001,t+1.1);
+    s.connect(lp);lp.connect(body);body.connect(v);out(v,.35,pan);s.start(t);s.stop(t+1.2)}
+  function rasg(t,fs,g,up){fs=up?fs.slice().reverse():fs;fs.forEach((f,i)=>nylon(t+i*.013,f,g*(i==fs.length-1?1:.7),(i-1.5)*.2))}
+  function maraca(t,g,pan){const [n,e]=noise(t,.07,'highpass',4200,6500,.8,g);out(e,.08,pan||.35);n.start(t)}
+  function clave(t,g){[[2450,1],[4200,.3]].forEach(([f,a])=>{const o=AC.createOscillator();o.type='sine';o.frequency.value=f;const e=env(t,.001,g*a,.07);o.connect(e);out(e,.2,-.2);o.start(t);o.stop(t+.12)})}
+  function conga(t,f,g,pan){const o=AC.createOscillator();o.type='sine';o.frequency.setValueAtTime(f*1.45,t);o.frequency.exponentialRampToValueAtTime(f,t+.04);const e=env(t,.003,g,.24);o.connect(e);out(e,.15,pan);o.start(t);o.stop(t+.32);
+    const [n,ne]=noise(t,.03,'bandpass',1400,900,1.5,g*.35);out(ne,.1,pan);n.start(t)}
+  function cast(t,g){for(let i=0;i<2;i++){const [n,e]=noise(t+i*.028,.022,'bandpass',3300,2900,5,g);out(e,.15,.25);n.start(t+i*.028)}}
+  function trumpet(t,f,dur,g,pan){const lp=AC.createBiquadFilter();lp.type='lowpass';lp.Q.value=2;lp.frequency.setValueAtTime(500,t);lp.frequency.exponentialRampToValueAtTime(3400,t+.05);lp.frequency.exponentialRampToValueAtTime(2300,t+.18);
+    const v=AC.createGain();v.gain.setValueAtTime(.0001,t);v.gain.linearRampToValueAtTime(g,t+.03);v.gain.setValueAtTime(g*.85,t+Math.max(.05,dur-.04));v.gain.exponentialRampToValueAtTime(.0001,t+dur+.12);
+    const vib=AC.createOscillator(),vd=AC.createGain();vib.frequency.value=5.6;vd.gain.setValueAtTime(0,t);vd.gain.linearRampToValueAtTime(f*.006,t+Math.max(.1,dur));
+    [[f,.6],[f*1.004,.45]].forEach(([fr,a])=>{const o=AC.createOscillator();o.type='sawtooth';o.frequency.value=fr;vd.connect(o.frequency);const og=AC.createGain();og.gain.value=a;o.connect(og);og.connect(lp);o.start(t);o.stop(t+dur+.2)});
+    lp.connect(v);out(v,.35,pan||.1);vib.start(t);vib.stop(t+dur+.2)}
+  function khen(t,fs,dur,g,pan){ // H'Mông khèn: bamboo free reeds – nasal buzz, melody over a drone, breath pulses
+    const bp=AC.createBiquadFilter();bp.type='bandpass';bp.frequency.value=1150;bp.Q.value=.8;
+    const v=AC.createGain();v.gain.setValueAtTime(.0001,t);v.gain.linearRampToValueAtTime(g,t+.05);v.gain.setValueAtTime(g,t+Math.max(.06,dur-.05));v.gain.exponentialRampToValueAtTime(.0001,t+dur+.16);
+    const br=AC.createOscillator(),bd=AC.createGain();br.frequency.value=6.5;bd.gain.value=g*.22;br.connect(bd);bd.connect(v.gain);
+    fs.forEach((f,i)=>[[f,'square',.32],[f*1.003,'sawtooth',.3]].forEach(([fr,ty,a])=>{const o=AC.createOscillator();o.type=ty;o.frequency.value=fr;const og=AC.createGain();og.gain.value=a*(i?.55:1);o.connect(og);og.connect(bp);o.start(t);o.stop(t+dur+.25)}));
+    const [n,ne]=noise(t,Math.min(.12,dur),'bandpass',2500,1800,1,g*.25);out(ne,.2,pan);n.start(t);
+    bp.connect(v);out(v,.4,pan);br.start(t);br.stop(t+dur+.25)}
+  function danbau(t,f0,f1,dur,g,pan){ // đàn bầu: one plucked harmonic that bends and sings with vibrato
+    const v=env(t,.008,g,dur+.25),vib=AC.createOscillator(),vd=AC.createGain();vib.frequency.value=5.8;vd.gain.setValueAtTime(0,t);vd.gain.linearRampToValueAtTime(f1*.012,t+dur);vib.connect(vd);
+    [[1,1],[2,.28],[3,.08]].forEach(([m,a])=>{const o=AC.createOscillator();o.type='sine';o.frequency.setValueAtTime(f0*m,t);o.frequency.setValueAtTime(f0*m,t+dur*.35);o.frequency.exponentialRampToValueAtTime(f1*m,t+dur*.75);
+      const mg=AC.createGain();mg.gain.value=m;vd.connect(mg);mg.connect(o.frequency);const og=AC.createGain();og.gain.value=a;o.connect(og);og.connect(v);o.start(t);o.stop(t+dur+.35)});
+    out(v,.45,pan);vib.start(t);vib.stop(t+dur+.35)}
+  const M={A3:220,C4:261.63,D4:293.66,E4:329.63,G3:196,G4:392,A4:440,B4:493.88,C5:523.25,Cs5:554.37,D5:587.33,E5:659.25,G5:783.99,A5:880,Cs6:1108.73,E6:1318.5};
+  const GA=[164.81,M.A3,M.E4,M.A4,M.Cs5,M.E5],GE=[164.81,246.94,329.63,415.3,493.88],GAm=[M.A3,M.E4,M.A4,M.C5,M.E5],GC=[130.81,M.G3,M.C4,M.E4,M.G4];
+  const ES={ // Latino: nylon-guitar rasgueo, maracas, clave, congas (jaguar) / castanets (bull), mariachi trumpet
+    cheer(k,kk){const c=ac();if(!c)return;const t=c.currentTime+.03,T=x=>t+x,jag=kk=='mjag';
+      for(let i=0;i<12;i++)maraca(T(i*.12),i%2?.05:.08,i%2?-.35:.35);
+      [0,.36,.72,1.08,1.32].forEach(x=>clave(T(x),.07));
+      rasg(T(0),GA,.15);rasg(T(.12),GA,.11,1);rasg(T(.36),GA,.15);rasg(T(.6),GE,.13);rasg(T(.72),GE,.1,1);
+      [[M.E5,.25,.1],[M.E5,.37,.1],[M.A5,.5,.2],[M.Cs6,.74,.12],[M.E6,.88,.42]].forEach(([f,x,d])=>trumpet(T(x),f,d,.085));
+      if(jag)[[.3,190],[.45,250],[.6,190],[.9,250],[1.02,190],[1.14,250]].forEach(([x,f])=>conga(T(x),f,.2,f>200?.25:-.25));
+      else[.96,1.03,1.1,1.17,1.24].forEach(x=>cast(T(x),.22));
+      rasg(T(1.34),GA,.17);thud(T(1.34),.22,110,60)},
+    keep(k,kk){const c=ac();if(!c)return;const t=c.currentTime+.03,T=x=>t+x,jag=kk=='mjag';
+      [0,.12,.24,.36].forEach((x,i)=>maraca(T(x),i%2?.05:.08));rasg(T(.04),GA,.13);rasg(T(.2),GE,.11,1);
+      trumpet(T(.42),M.E5,.1,.07);trumpet(T(.54),M.A5,.32,.08);clave(T(.42),.07);
+      if(jag){conga(T(.3),190,.18,-.2);conga(T(.42),250,.18,.2)}else{cast(T(.3),.2);cast(T(.38),.18)}
+      ting(T(.62),M.E6,.1)},
+    console(k,kk){const c=ac();if(!c)return;const t=c.currentTime+.03,T=x=>t+x,jag=kk=='mjag';
+      if(jag){sob(T(.06),520,.3);sob(T(.22),560,.25)}else{const [n,g]=noise(T(.1),.6,'bandpass',900,300,1.4,.24);out(g,.3,-.3);n.start(T(.1))}
+      GAm.forEach((f,i)=>nylon(T(.4+i*.17),f,.13,(i-2)*.15));                       // slow bolero: A minor
+      maraca(T(.9),.035);maraca(T(1.25),.035);
+      GC.forEach((f,i)=>nylon(T(1.3+i*.13),f,.13,(i-2)*.15));                       // comforting turn to C major
+      trumpet(T(1.85),M.E5,.18,.05);trumpet(T(2.07),M.G5,.18,.05);trumpet(T(2.29),523.25*2,.55,.055);
+      rasg(T(2.29),GC,.12)}
+  };
+  const VI={ // Vietnam: khèn for the H'Mông boy (vh11), đàn bầu for the áo dài girl (vh7), little drums
+    cheer(k,kk){const c=ac();if(!c)return;const t=c.currentTime+.03,T=x=>t+x;
+      if(kk=='vh7'){danbau(T(.05),M.G4,M.A4,.3,.16);danbau(T(.4),M.C5,M.D5,.3,.16);danbau(T(.75),M.E5,M.G5,.55,.17);ting(T(1.2),M.E6,.1);[0,.4,.8].forEach(x=>thud(T(x),.2,140,80));return}
+      [0,.4,.8,1.2].forEach(x=>thud(T(x),.26,150,70));                            // dance drum
+      const D=[M.G3,293.66];
+      [[M.D5,.0,.14],[M.E5,.16,.14],[M.G5,.32,.22],[M.E5,.56,.14],[M.D5,.72,.14],[M.C5,.88,.14],[M.D5,1.04,.18]].forEach(([f,x,d])=>khen(T(x),[f,...D],d,.13,.1));
+      khen(T(1.25),[M.G4,M.D5,M.G5,M.G3],.45,.14,0);bells(T(1.25),5,.06,.035)},
+    keep(k,kk){const c=ac();if(!c)return;const t=c.currentTime+.03,T=x=>t+x;
+      if(kk=='vh11'){khen(T(.05),[M.D5,M.G3],.14,.12);khen(T(.22),[M.E5,M.G3],.14,.12);khen(T(.4),[M.G5,M.G3,293.66],.35,.13);thud(T(.05),.2,150,80);thud(T(.4),.22,150,70)}
+      else{danbau(T(.05),M.D5,M.E5,.28,.16);danbau(T(.38),M.G5,M.A5,.45,.16)}
+      ting(T(.7),M.E6,.1);ting(T(.8),1760,.09)},
+    console(k,kk){const c=ac();if(!c)return;const t=c.currentTime+.03,T=x=>t+x;
+      if(kk=='vh11'){const [n,g]=noise(T(.1),.6,'bandpass',900,300,1.4,.24);out(g,.3,-.3);n.start(T(.1));
+        khen(T(.6),[M.A4,M.D4],.4,.09);khen(T(1.05),[M.G4,M.D4],.5,.09);khen(T(1.7),[M.D5,M.G3],.18,.11);khen(T(1.9),[M.G5,M.G3,293.66],.6,.12);return}
+      sob(T(.08),430,.32);sob(T(.23),470,.27);
+      danbau(T(.45),M.A4,M.G4,.5,.15);danbau(T(1.0),M.E4,M.D4,.55,.14);           // sad bend down
+      thud(T(1.5),.24,150,95);ting(T(1.56),M.E6,.12);
+      danbau(T(1.7),M.D4,M.G4,.35,.15);danbau(T(2.05),M.A4,M.D5,.6,.16)}         // comforting rise
+  };
+  window.mxSnd=(a,kk)=>{try{const B=C.id=='es'?ES:C.id=='vi'?VI:SFX;(B[a]||SFX[a])(1,kk)}catch(e){}};
 })();
-function mxPlay(el,a,snd){if(!el)return;el.classList.remove('cheer','console','keep');void el.getBoundingClientRect();el.classList.add(a);if(snd&&sfxOn())mxSnd(a);clearTimeout(el._t);el._t=setTimeout(()=>el.classList.remove(a),a=='cheer'?1700:a=='keep'?1600:2900)}
+function mxPlay(el,a,snd){if(!el)return;el.classList.remove('cheer','console','keep');void el.getBoundingClientRect();el.classList.add(a);if(snd&&sfxOn())mxSnd(a,el.dataset.k);clearTimeout(el._t);el._t=setTimeout(()=>el.classList.remove(a),a=='cheer'?1700:a=='keep'?1600:2900)}
 new MutationObserver(()=>{const v=$.querySelector('svg.mfx[data-a]:not([data-p])');if(v){v.dataset.p=1;setTimeout(()=>mxPlay(v,v.dataset.a,1),200)}}).observe($,{childList:true});
 function confetti(){if(!$.querySelector('svg.mfx[data-a="cheer"]'))sfx('win');const em=['🎉','✨','⭐','🌟','💫','🎈'];for(let i=0;i<14;i++){const e=document.createElement('span');e.className='cf';e.textContent=em[i%6];e.style.cssText=`left:${Math.random()*100}vw;animation-delay:${Math.random()*.6}s;font-size:${18+Math.random()*16}px`;document.body.appendChild(e);setTimeout(()=>e.remove(),2800)}}
 ['end','sEnd','gEnd','learnEnd'].forEach(n=>{const f=window[n];window[n]=function(){f.apply(this,arguments);confetti()}});
@@ -4366,11 +4448,11 @@ setTimeout(dBoot,0);
   const show=v=>fc.classList.toggle('hid',!v);
   function sync(){const ph=on();if(!ph){fc.style.display='none';return}const k=C.id+'|'+ADM;if(sig!==k||!fc.firstChild){fc.innerHTML=lchip();sig=k}
     const r=ph.getBoundingClientRect();fc.style.display='';fc.style.left=Math.round(r.left)+'px';ly=$.scrollTop;dir=0;acc=0;show(true)}
-  new MutationObserver(()=>{sig='';sync()}).observe($,{childList:true});addEventListener('resize',()=>{if(on())sync()});
+  let wasOn=false;new MutationObserver(()=>{sig='';const w=!!on();if(w&&!wasOn)setTimeout(jFocus,40);wasOn=w;sync()}).observe($,{childList:true});addEventListener('resize',()=>{if(on())sync()});
   let pd=0,gd=0,lt=0,ng=true;const mark=()=>{ng=true};$.addEventListener('touchstart',mark,{passive:true});$.addEventListener('wheel',e=>{if(performance.now()-lt>220)ng=true},{passive:true});
   $.addEventListener('scroll',()=>{if(!on())return;const y=$.scrollTop,dy=y-ly,now=performance.now();ly=y;if(!dy)return;if(now-lt>260)ng=true;lt=now;
     if(y<8){show(true);pd=0;ng=true;return}
-    const d=dy>0?1:-1;if(ng){ng=false;gd=d;show(pd!==0&&d!==pd);pd=d}},{passive:true})})();
+    show(true)},{passive:true})})(); /* ver_103: flag chip stays fixed top-left (no hide on scroll) */
 /* ===== ver_91: swipe in from the left edge = back (Languages, Vocabulary and every screen with a ← button) ===== */
 (function(){let x0=0,y0=0,tr=false,moved=0;const back=()=>{if(VIEW=='game'||VIEW=='home')return null;const b=[...$.querySelectorAll('button')].filter(b=>/^\s*←/.test(b.textContent));return b.length?b[b.length-1]:null};
   document.addEventListener('touchstart',e=>{const t=e.touches[0];tr=false;if(e.touches.length!=1||t.clientX>28||!back())return;x0=t.clientX;y0=t.clientY;tr=true;moved=0},{passive:true});
@@ -4561,6 +4643,33 @@ table.eg-conj tr{cursor:pointer}
 .suheard{line-height:1.25;padding:2px 0 4px}
 /* ver_102: "Unit … · Words …" label right-aligned above the progress bar */
 .qh>.mu{text-align:right}
+
+/* ver_103: Listen quiz – the 🎧 ? tile is the play button */
+.lsnb{display:flex!important;align-items:center;justify-content:center;margin:10px auto 0!important;min-width:150px;padding:10px 30px!important;border-radius:18px!important}
+.lsnb .big{margin:0;line-height:1.1}
+
+/* ver_103: Puzzle / Typing – keep each word together, break lines only at spaces */
+.pzw{display:inline-flex;flex-wrap:wrap;justify-content:center;max-width:100%}
+.tyw{display:inline-block;white-space:nowrap}
+
+/* ver_103: grammar lessons – progress bars beside ✕, under the "Grammar … · 1/4" label; Back/Next always on screen */
+.gsh{display:grid!important;grid-template-columns:auto minmax(0,1fr);grid-template-rows:auto auto;column-gap:12px;row-gap:6px;align-items:center;flex:none;margin:0 0 12px}
+.gsh>button{grid-column:1;grid-row:1/span 2;margin:0}
+.gsh>.mu{grid-column:2;grid-row:1;text-align:right;font-size:13px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.gsh>.gsbars{grid-column:2;grid-row:2;margin:0}
+main#app:has(>.gst){padding-bottom:0}
+.gsc{padding-bottom:calc(84px + env(safe-area-inset-bottom,0px))}
+.gsb{position:fixed;left:0;right:0;bottom:0;z-index:20;box-sizing:border-box;max-width:560px;margin:0 auto;padding:10px 16px calc(12px + env(safe-area-inset-bottom,0px));background:var(--bg)}
+html.tabl .gsb{max-width:820px}
+
+/* ver_103: picture choice 2×2 */
+.pich{display:flex;align-items:center;gap:12px;margin:10px 0 14px}
+.pich .spk{flex:none;margin:0;width:52px;height:52px;padding:0;display:grid;place-items:center}
+.pich .pw{font-size:28px;font-weight:800;text-align:left;line-height:1.2}
+.pgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.pgrid .pgc{margin:0!important;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;padding:14px 8px!important;min-height:150px;text-align:center}
+.pgrid .pgc>span{font-size:15px;font-weight:700;line-height:1.2}
+.pgrid .pgc .il,.pgrid .pgc img,.pgrid .pgc svg{max-width:100%}
 </style>
 <script>
 /* ===== ver_94: Spanish grammar (Nuevo Prisma A1, explanations in English) · ver_95: also on the Spanish Journey ===== */
@@ -5157,8 +5266,7 @@ let CUR=null;
 function esgLesson(id,st){const p=byId(id);if(!p)return esgHub();VIEW='menu';
   if(!CUR||CUR.id!=id)CUR={id,P:pages(p)};const P=CUR.P,N=P.length;st=Math.max(0,Math.min(N-1,st|0));const pg=P[st],last=st==N-1,hasQ=qOf(p).length>0;
   const html=typeof pg=='function'?pg():pg.h();
-  $.innerHTML=`<div class="gst eg" style="--uh:${HUES[p.u.n-1]}"><div class="row" style="justify-content:space-between;align-items:center;flex:none"><button onclick="${JG?`go('journey')`:'esgHub()'}">✕</button><span class="mu">${JG?'Journey · ':''}Grammar ${p.id} · ${st+1}/${N}</span></div>
-  <div class="gsbars" aria-hidden="true">${P.map((_,k)=>`<i class="${k<=st?'on':''}${k==st?' cur':''}"></i>`).join('')}</div>
+  $.innerHTML=`<div class="gst eg" style="--uh:${HUES[p.u.n-1]}"><div class="row gsh"><button onclick="${JG?`go('journey')`:'esgHub()'}">✕</button><span class="mu">${JG?'Journey · ':''}Grammar ${p.id} · ${st+1}/${N}</span><div class="gsbars" aria-hidden="true">${P.map((_,k)=>`<i class="${k<=st?'on':''}${k==st?' cur':''}"></i>`).join('')}</div></div>
   <div class="gsc" id="gsc" data-esg="${id}" data-st="${st}" data-n="${N}"><div class="card gkc eg">${html}</div></div>
   <div class="gsb"><button onclick="esgLesson('${id}',${st-1})"${st>0?'':' disabled'}>← Back</button>${last?(hasQ?`<button class="p" onclick="esgPractice('${id}')">🎯 Start practice</button>`:`<button class="p" onclick="esgFinish('${id}')">Done ✓</button>`):`<button class="p" onclick="esgLesson('${id}',${st+1})">Next →</button>`}</div></div>`;
   if(typeof pg!='function'){const el=document.getElementById('egw');if(el)try{mountWidget(el,pg.w)}catch(e){console.log('esg widget',e)}}}
